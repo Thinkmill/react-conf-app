@@ -1,6 +1,4 @@
-import moment from 'moment';
-
-export const map = {
+export default {
 	'max-stoiber': {
 		summary: 'What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let\'s talk about what we thought about and why we arrived where we did – 💅 styled-components.',
 		title: 'The Road to Styled Components',
@@ -481,10 +479,3 @@ export const map = {
 		},
 	},
 };
-
-export const list = Object.keys(map).sort((a, b) => {
-	const talkStartTime1 = moment(map[a].time.start);
-	const talkStartTime2 = moment(map[b].time.start);
-
-	return talkStartTime1.diff(talkStartTime2);
-}).map(k => map[k]);

@@ -3,7 +3,7 @@ import { PixelRatio, Text, View } from 'react-native';
 
 import theme from '../../theme';
 
-export default function ListTitle ({ sectionData, sectionId, text }) {
+export default function ListTitle ({ text }) {
 	const styles = {
 		text: {
 			color: theme.color.text,
@@ -19,9 +19,6 @@ export default function ListTitle ({ sectionData, sectionId, text }) {
 			paddingTop: theme.fontSize.small,
 		},
 	};
-
-	console.log('sectionId', sectionId);
-	console.log('text', text);
 
 	return (
 		<View style={styles.view}>

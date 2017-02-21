@@ -3,7 +3,7 @@ import { ListView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from '
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
-import { list as talksList } from '../../data/talks';
+import talkBlob from '../../data/talks';
 import Header from '../../components/Header';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
@@ -15,10 +15,43 @@ class Schedule extends Component {
 	constructor (props) {
 		super(props);
 
-		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+		const dataBlob = {};
+		const sectionIDs = [];
+		const rowIDs = [];
+		let sectionIndex = 0;
+
+		Object.keys(props.talks)
+			.sort((a, b) => {
+				const talkStartTime1 = moment(props.talks[a].time.start);
+				const talkStartTime2 = moment(props.talks[b].time.start);
+
+				return talkStartTime1.diff(talkStartTime2);
+			})
+			.map((k, i) => {
+				const talk = props.talks[k];
+				const sID = moment(talk.time.start).format('dddd')
+
+				// create new section and initialize empty array for section index
+				if (!dataBlob[sID]) {
+					sectionIDs.push(sID);
+					rowIDs[sectionIndex] = [];
+					sectionIndex++
+					dataBlob[sID] = sID;
+				}
+
+				rowIDs[rowIDs.length - 1].push(k);
+				dataBlob[sID + ':' + k] = talk;
+			});
+
+		const ds = new ListView.DataSource({
+			getSectionData: (dataBlob, sectionID) => dataBlob[sectionID],
+			getRowData: (dataBlob, sectionID, rowID) => dataBlob[sectionID + ':' + rowID],
+			rowHasChanged: (r1, r2) => r1 !== r2,
+			sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+		});
 
 		this.state = {
-			dataSource: ds.cloneWithRows(props.talks),
+			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 		};
 	}
 	gotoEventInfo () {
@@ -31,6 +64,14 @@ class Schedule extends Component {
 		const { navigator } = this.props;
 		const { dataSource } = this.state;
 
+		const renderFooter = () => (
+			<TouchableOpacity onPress={this.gotoEventInfo.bind(this)} activeOpacity={0.75}>
+				<Text style={styles.link}>
+					Event Info
+				</Text>
+			</TouchableOpacity>
+		);
+
 		return (
 			<Scene>
 				<Header
@@ -38,6 +79,7 @@ class Schedule extends Component {
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo.bind(this)}
 				/>
+
 				<ListView
 					dataSource={dataSource}
 					enableEmptySections
@@ -62,38 +104,9 @@ class Schedule extends Component {
 							/>
 						)
 					}}
-					// renderSeparator={(sectionId, rowId) => <RowSeparator key={rowId} />}
-					renderSectionHeader={(sectionData, sectionId) => <ListTitle text="Monday" sectionData={sectionData} sectionId={sectionId} />}
+					renderSectionHeader={sectionData => <ListTitle text={sectionData} />}
+					renderFooter={renderFooter}
 				/>
-				{/* <ScrollView style={{ flex: 1 }}>
-					{talks.map((talk, idx) => {
-						const onPress = () => navigator.push({
-							scene: 'Talk',
-							props: { talk },
-						});
-						let status = 'future';
-						if (idx < 2) status = 'present';
-						if (idx < 1) status = 'past';
-
-						return (
-							<Talk
-								endTime={talk.time.end.toString()}
-								key={idx}
-								onPress={onPress}
-								speakerName={talk.speaker.name}
-								speakerAvatarUri={talk.speaker.avatar}
-								startTime={moment(talk.time.start).format(TIME_FORMAT)}
-								status={status}
-								title={talk.title}
-							/>
-						);
-					})}
-				</ScrollView> */}
-				{/* <TouchableOpacity onPress={this.gotoEventInfo.bind(this)} activeOpacity={0.75}>
-					<Text style={styles.link}>
-						Event Info
-					</Text>
-				</TouchableOpacity> */}
 			</Scene>
 		);
 	}
@@ -101,10 +114,10 @@ class Schedule extends Component {
 
 Schedule.propTypes = {
 	navigator: PropTypes.object.isRequired,
-	talks: PropTypes.array.isRequired,
+	talks: PropTypes.object.isRequired,
 };
 Schedule.defaultProps = {
-	talks: talksList,
+	talks: talkBlob,
 };
 
 const styles = StyleSheet.create({

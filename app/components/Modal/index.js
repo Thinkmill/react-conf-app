@@ -8,7 +8,7 @@ function animateToValueWithOptions (val) {
 	return {
 		toValue: val,
 		friction: 10,
-		tension: 120,
+		tension: 100,
 	};
 };
 
@@ -83,7 +83,7 @@ Modal.propTypes = {
 };
 Modal.defaultProps = {
 	alignment: 'center',
-	blurAmount: 23,
+	blurAmount: 12,
 	blurType: 'dark',
 };
 

@@ -131,6 +131,7 @@ Info.defaultProps = {
 const styles = StyleSheet.create({
 	map: {
 		flex: 1,
+		height: 200,
 		maxHeight: 200,
 	},
 	// hero

@@ -35,6 +35,9 @@ class Schedule extends Component {
 							scene: 'Talk',
 							props: { talk },
 						});
+						let status = 'future';
+						if (idx < 2) status = 'present';
+						if (idx < 1) status = 'past';
 
 						return (
 							<Talk
@@ -44,6 +47,7 @@ class Schedule extends Component {
 								speakerName={talk.speaker.name}
 								speakerAvatarUri={talk.speaker.avatar}
 								startTime={moment(talk.time.start).format(TIME_FORMAT)}
+								status={status}
 								title={talk.title}
 							/>
 						);

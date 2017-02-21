@@ -7,9 +7,10 @@ export const map = {
 		title: 'The Road to Styled Components',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128',
-			github: 'https://github.com/mxstbr',
+			github: 'mxstbr',
 			name: 'Max Stoiber',
 			twitter: 'mxstbr',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -21,9 +22,10 @@ export const map = {
 		title: 'Design Specific Language',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/0c42130e61dd791ae86aa8b0931e5853?s=128',
-			github: 'https://github.com/camwest',
+			github: 'camwest',
 			name: 'Cameron Westland',
 			twitter: 'camwest',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -35,9 +37,10 @@ export const map = {
 		title: 'Goodbye Flatland! An introduction to ReactVR and what it means for web developers',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/b1898d507a4d4102606c496fdab74c86?s=128',
-			github: 'https://github.com/Fischaela',
+			github: 'Fischaela',
 			name: 'Michaela Lehr',
 			twitter: 'FischaelaMeer',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -49,9 +52,10 @@ export const map = {
 		title: 'Learn Once, Route Anywhere',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/9210a60b1492363560375d9cd6c842de?s=128',
-			github: 'https://github.com/mjackson',
+			github: 'mjackson',
 			name: 'Michael Jackson',
 			twitter: 'mjackson',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -63,9 +67,10 @@ export const map = {
 		title: 'Web-Like Development and Release Agility for React Native',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/d1901db1add07659076eca4ec2147f4a?s=128',
-			github: 'https://github.com/axemclion',
+			github: 'axemclion',
 			name: 'Parashuram N',
 			twitter: 'nparashuram',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -77,9 +82,10 @@ export const map = {
 		title: 'React Native in the "Brown Field"',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/a1dc04961aa47c7ce072ffa224fabdbb?s=128',
-			github: 'https://github.com/lelandrichardson',
+			github: 'lelandrichardson',
 			name: 'Leland Richardson',
 			twitter: 'intelligibabble',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -91,9 +97,10 @@ export const map = {
 		title: 'Realtime React Apps with GraphQL',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/12ee4dac83689004c4a5d0d73eebbccb?s=128',
-			github: 'https://github.com/robzhu',
+			github: 'robzhu',
 			name: 'Robert Zhu',
 			twitter: 'rbzhu',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -105,9 +112,10 @@ export const map = {
 		title: 'Jest Snapshots and Beyond',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/affbc2bbe98b6c586275cfeb12fd80fd?s=128',
-			github: 'https://github.com/rogeliog',
+			github: 'rogeliog',
 			name: 'Rogelio Guzman',
 			twitter: 'rogeliog',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -119,9 +127,10 @@ export const map = {
 		title: 'How to React in the Slow Lane',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128',
-			github: 'https://github.com/nicolechung',
+			github: 'nicolechung',
 			name: 'Nicole Chung',
 			twitter: 'redconservatory',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -133,9 +142,10 @@ export const map = {
 		title: 'Type Systems Will Make You a Better JavaScript Developer',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/36c528f0d1f8811f27268119b2c63eaa?s=128',
-			github: 'https://github.com/jaredly',
+			github: 'jaredly',
 			name: 'Jared Forsyth',
 			twitter: 'jaredforsyth',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -147,9 +157,10 @@ export const map = {
 		title: 'React + ES.next = ♥',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/0feb204b70c4be3d22fe27cc3f424d33?s=128',
-			github: 'https://github.com/benmvp',
+			github: 'benmvp',
 			name: 'Ben Ilegbodu',
 			twitter: 'benmvp',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -161,9 +172,10 @@ export const map = {
 		title: 'MobX vs Redux: Comparing the Opposing Paradigms',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/6286256e2fd3a464806d6a41a23c02c5?s=128',
-			github: 'https://github.com/peekay',
+			github: 'peekay',
 			name: 'Preethi Kasireddy',
 			twitter: 'iam_preethi',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -175,9 +187,10 @@ export const map = {
 		title: 'A Cartoon Intro to Fiber',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/a1c30f951cdefc554d6e2d078a02468d?s=128',
-			github: 'https://github.com/linclark',
+			github: 'linclark',
 			name: 'Lin Clark',
 			twitter: 'linclark',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -189,9 +202,10 @@ export const map = {
 		title: 'Moving Fast with Nuclide and Flow',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/a533b2e0c40619f551bf54506e53ca2c?s=128',
-			github: 'https://github.com/zertosh',
+			github: 'zertosh',
 			name: 'Andres Suarez',
 			twitter: 'zertosh',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -203,9 +217,10 @@ export const map = {
 		title: 'React Everything, Render Everywhere',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/d22307e787361923d233607122640e32?s=128',
-			github: 'https://github.com/iamdustan',
+			github: 'iamdustan',
 			name: 'Dustan Kasten',
 			twitter: 'iamdustan',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -217,9 +232,10 @@ export const map = {
 		title: 'Next.js: Universal React Made Easy and Simple',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/486e20e16ef676a02ac0299d2f92b813?s=128',
-			github: 'https://github.com/rauchg',
+			github: 'rauchg',
 			name: 'Guillermo Rauch',
 			twitter: 'rauchg',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -231,9 +247,10 @@ export const map = {
 		title: 'Moving Beyond Animations to User Interactions at 60 FPS in React Native',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/f3885bee0da8e2573c2394d30621e9d1?s=128',
-			github: 'https://github.com/talkol',
+			github: 'talkol',
 			name: 'Tal Kol',
 			twitter: 'koltal',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -245,9 +262,10 @@ export const map = {
 		title: 'Keynote',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128',
-			github: 'https://github.com/jingc',
+			github: 'jingc',
 			name: 'Jing Chen',
 			twitter: 'jingc',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -259,9 +277,10 @@ export const map = {
 		title: 'React-Storybook: Design, Develop, Document and Debug your React UI components',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/431dfba5a89e9841daea12dc32a04924?s=128',
-			github: 'https://github.com/mthuret',
+			github: 'mthuret',
 			name: 'Marie-Laure Thuret',
 			twitter: 'mlthuret',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -273,9 +292,10 @@ export const map = {
 		title: 'Using React for Anything but Websites',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/4751e2e9fe7b876958d38f86a718ca91?s=128',
-			github: 'https://github.com/kenwheeler',
+			github: 'kenwheeler',
 			name: 'Ken Wheeler',
 			twitter: 'ken_wheeler',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -287,9 +307,10 @@ export const map = {
 		title: 'Building React Components with Reason',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/13bede8f6aa8c5eb590995b32ca04bf2?s=128',
-			github: 'https://github.com/chenglou',
+			github: 'chenglou',
 			name: 'Cheng Lou',
 			twitter: '_chenglou',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -301,9 +322,10 @@ export const map = {
 		title: 'Keynote',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128',
-			github: 'https://github.com/sebmarkbage',
+			github: 'sebmarkbage',
 			name: 'Sebastian Markbage',
 			twitter: 'sebmarkbage',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -315,9 +337,10 @@ export const map = {
 		title: 'Building React Communities Outside of Your Circle',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/33398b7cfbfa5877a16ab9a0fb0ee303?s=128',
-			github: 'https://github.com/troy0820',
+			github: 'troy0820',
 			name: 'Troy Connor',
 			twitter: 'troy0820',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -329,9 +352,10 @@ export const map = {
 		title: 'React to Code',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/4b03e52a178cd81f8743173976975c20?s=128',
-			github: 'https://github.com/iammerrick',
+			github: 'iammerrick',
 			name: 'Merrick Christensen',
 			twitter: 'iammerrick',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -345,6 +369,7 @@ export const map = {
 			avatar: 'https://www.gravatar.com/avatar/9d78b84e1e017c2881a07f44c72267eb?s=128',
 			name: 'Feather Knee',
 			twitter: 'featherart',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -356,9 +381,10 @@ export const map = {
 		title: 'Create React Native App: 5 Minutes to "Hello, World!"',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/8e9af27762850ca9fc9984eb8ff21259?s=128',
-			github: 'https://github.com/dikaiosune',
+			github: 'dikaiosune',
 			name: 'Adam Perry',
 			twitter: 'dika10sune',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -370,9 +396,10 @@ export const map = {
 		title: 'The Great Convergence with React',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/35b89a4817380740e0992beeda327f54?s=128',
-			github: 'https://github.com/adityapunjani',
+			github: 'adityapunjani',
 			name: 'Aditya Punjani',
 			twitter: 'adityapunjani',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -384,9 +411,10 @@ export const map = {
 		title: 'You Don\'t Need a Fancy Framework to Use GraphQL with React',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/4b6b338a1609ea0a4dfec74208425620?s=128',
-			github: 'https://github.com/samerbuna',
+			github: 'samerbuna',
 			name: 'Samer Buna',
 			twitter: 'samerbuna',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -398,9 +426,10 @@ export const map = {
 		title: 'AWS Lambda + AWS Gateway + React = AWEsome',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/862e513be39c4338bf939dede21ce271?s=128',
-			github: 'https://github.com/mrscobbler',
+			github: 'mrscobbler',
 			name: 'Sophia Shoemaker',
 			twitter: 'wisecobbler',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -412,9 +441,10 @@ export const map = {
 		title: 'Cross-Platform Data Visualization with React and React Native',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/b6e83f06e71655a28bef6582c4b804e8?s=128',
-			github: 'https://github.com/peggyrayzis',
+			github: 'peggyrayzis',
 			name: 'Peggy Rayzis',
 			twitter: 'peggyrayzis',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -426,9 +456,10 @@ export const map = {
 		title: 'A Prettier Printer',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/7ed988fcb335ac36e3c9f7fc8fdb7c10?s=128',
-			github: 'https://github.com/jlongster',
+			github: 'jlongster',
 			name: 'James Long',
 			twitter: 'jlongster',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,
@@ -440,9 +471,10 @@ export const map = {
 		title: 'A Beginner\'s Guide to Code Splitting Your React App',
 		speaker: {
 			avatar: 'https://www.gravatar.com/avatar/86d9c5bbb33f358f1169bf102d50d25b?s=128',
-			github: 'https://github.com/neeharv',
+			github: 'neeharv',
 			name: 'Neehar Venugopal',
 			twitter: 'neeharv',
+			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
 			end: endTime,

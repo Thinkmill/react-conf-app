@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ActionSheetIOS, PixelRatio, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-// import { shareOnTwitter } from 'react-native-social-share';
+import { ActionSheetIOS, PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 
@@ -12,7 +11,18 @@ import Scene from '../../components/Scene';
 import theme from '../../theme';
 import { list as talksList } from '../../data/talks';
 
+import Speaker from './components/Speaker';
+
 class Talk extends Component {
+	constructor (props) {
+		super(props);
+
+		this.toggleSpeaker = this.toggleSpeaker.bind(this);
+
+		this.state = {
+			modalIsOpen: false,
+		};
+	}
 	getNextTalk () {
 		// TODO
 		return this.props.talk;
@@ -33,8 +43,13 @@ class Talk extends Component {
 			console.log(result);
 		});
 	}
+	toggleSpeaker (modalIsOpen) {
+		this.setState({ modalIsOpen });
+	}
 	render () {
 		const { navigator, talk } = this.props;
+		const { modalIsOpen } = this.state;
+
 		const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
 		const nextTalk = this.getNextTalk();
 		const gotoNextTalk = () => navigator.push({
@@ -51,16 +66,19 @@ class Talk extends Component {
 					rightButtonText="Share"
 					rightButtonOnPress={this.share.bind(this)}
 				/>
+
 				<ScrollView style={{ flex: 1 }}>
-					<View style={styles.hero}>
-						<Avatar source={talk.speaker.avatar} />
-						<Text style={styles.heroSpeakerName}>
-							{talk.speaker.name}
-						</Text>
-						<Text style={styles.heroTitle}>
-							{talk.title}
-						</Text>
-					</View>
+					<TouchableHighlight onPress={() => this.toggleSpeaker(true)} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
+						<View style={styles.hero}>
+							<Avatar source={talk.speaker.avatar} />
+							<Text style={styles.heroSpeakerName}>
+								{talk.speaker.name}
+							</Text>
+							<Text style={styles.heroTitle}>
+								{talk.title}
+							</Text>
+						</View>
+					</TouchableHighlight>
 
 					<View style={styles.summary}>
 						<Text style={styles.summaryText}>
@@ -68,22 +86,36 @@ class Talk extends Component {
 						</Text>
 					</View>
 				</ScrollView>
-				<TouchableOpacity style={styles.nextup} activeOpacity={0.75} onPress={gotoNextTalk}>
-					<View style={styles.nextupText}>
-						<Text style={styles.nextupTitle} numberOfLines={1}>
-							{nextTalk.title}
-						</Text>
-						<Text style={styles.nextupSubtitle}>
-							{moment(nextTalk.time.start).format(TIME_FORMAT)} &mdash; {nextTalk.speaker.name}
-						</Text>
+
+				<TouchableHighlight onPress={gotoNextTalk} style={styles.nextup} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
+					<View style={styles.nextupInner}>
+						<View style={styles.nextupText}>
+							<Text style={styles.nextupTitle} numberOfLines={1}>
+								{nextTalk.title}
+							</Text>
+							<Text style={styles.nextupSubtitle}>
+								{moment(nextTalk.time.start).format(TIME_FORMAT)} &mdash; {nextTalk.speaker.name}
+							</Text>
+						</View>
+						<Icon
+							color={theme.color.text}
+							name="ios-arrow-forward"
+							size={20}
+							style={styles.nextupIcon}
+						/>
 					</View>
-					<Icon
-						color={theme.color.text}
-						name="ios-arrow-forward"
-						size={20}
-						style={styles.nextupIcon}
+				</TouchableHighlight>
+
+				{modalIsOpen && (
+					<Speaker
+						avatar={talk.speaker.avatar}
+						github={talk.speaker.github}
+						name={talk.speaker.name}
+						onClose={() => this.toggleSpeaker(false)}
+						summary={talk.speaker.summary}
+						twitter={talk.speaker.twitter}
 					/>
-				</TouchableOpacity>
+				)}
 			</Scene>
 		);
 	}
@@ -128,6 +160,9 @@ const styles = StyleSheet.create({
 
 	// next talk
 	nextup: {
+		backgroundColor: theme.color.viewBg,
+	},
+	nextupInner: {
 		alignItems: 'center',
 		borderTopColor: theme.color.gray20,
 		borderTopWidth: 1 / PixelRatio.get(),

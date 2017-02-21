@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {
 	Image,
 	LayoutAnimation,
-	Linking,
 	PixelRatio,
 	ScrollView,
 	StyleSheet,
@@ -19,19 +18,28 @@ import Scene from '../../components/Scene';
 
 import { list as organiserList } from '../../data/organisers';
 import theme from '../../theme';
+import { attemptToOpenUrl } from '../../utils';
 
 import CodeOfConduct from './components/CodeOfConduct';
 import Organiser from './components/Organiser';
+
+const mapHeight = 240;
+const mapLocation = 'Santa+Clara,+California';
 
 class Info extends Component {
 	constructor (props) {
 		super(props);
 
+		this.getDimensions = this.getDimensions.bind(this);
 		this.toggleCodeOfConduct = this.toggleCodeOfConduct.bind(this);
 
 		this.state = {
 			codeOfConductIsOpen: false,
 		};
+	}
+	getDimensions (event) {
+		let { width } = event.nativeEvent.layout;
+		this.setState({ deviceWidth: width });
 	}
 	toggleCodeOfConduct () {
 		LayoutAnimation.easeInEaseOut();
@@ -41,27 +49,27 @@ class Info extends Component {
 		const latlong = [37.354108, -121.955236]; // Santa Clara, California
 		const url = `http://maps.apple.com/?ll=${latlong.join()}`;
 
-		Linking.canOpenURL(url).then(supported => {
-			if (supported) {
-				Linking.openURL(url);
-			} else {
-				console.log('Linking to URL not supported on device.');
-			}
-		}).catch(err => console.error('An error occurred', err));
+		attemptToOpenUrl(url);
+	}
+	openThinkmill () {
+		const url = 'https://www.thinkmill.com.au';
+
+		attemptToOpenUrl(url);
 	}
 	render () {
 		const { navigator, organisers } = this.props;
-		const { codeOfConductIsOpen } = this.state;
-		const mapUri = 'https://maps.googleapis.com/maps/api/staticmap?center=Santa+Clara,+California&zoom=13&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7CSanta+Clara,+California';
+		const { codeOfConductIsOpen, deviceWidth } = this.state;
+		const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${mapLocation}&zoom=13&scale=2&size=${deviceWidth}x${mapHeight}&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7C${mapLocation}`;
 
 		return (
-			<Scene scroll>
+			<Scene scroll onLayout={this.getDimensions}>
 				<TouchableOpacity onPress={this.openMap} style={styles.mapButton} activeOpacity={0.75}>
 					<Image
-						source={{ uri: mapUri }}
+						source={{ uri: staticMapUrl }}
 						style={styles.mapImage}
 					/>
 				</TouchableOpacity>
+
 				<ScrollView style={{ flex: 1 }}>
 					<View style={styles.hero}>
 						<Text style={styles.heroText}>
@@ -74,6 +82,7 @@ class Info extends Component {
 						</TouchableOpacity>
 						{!!codeOfConductIsOpen && <CodeOfConduct onClose={this.toggleCodeOfConduct} />}
 					</View>
+
 					<ListTitle text="Organisers" />
 					{organisers.map((organiser, idx) => {
 						const onPress = () => {};
@@ -88,10 +97,20 @@ class Info extends Component {
 							/>
 						);
 					})}
-				</ScrollView>
+
 					<View style={styles.madeby}>
-						<Text style={styles.madebyText}>Made by Thinkmill</Text>
+						<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
+							<Image
+								source={require('./images/thinkmill-logo.png')}
+								style={{ width: 100, height: 100 }}
+							/>
+							<Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text>
+						</TouchableOpacity>
+						<Text style={styles.madebyText}>
+							We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
+						</Text>
 					</View>
+				</ScrollView>
 			</Scene>
 		);
 	}
@@ -109,10 +128,10 @@ const styles = StyleSheet.create({
 	// map
 	mapButton: {
 		backgroundColor: theme.color.gray05,
-		height: 280,
+		height: mapHeight,
 	},
 	mapImage: {
-		height: 280,
+		height: mapHeight,
 	},
 
 	// hero
@@ -124,7 +143,7 @@ const styles = StyleSheet.create({
 		borderTopColor: theme.color.gray30,
 		borderTopWidth: 1 / PixelRatio.get(),
 		paddingHorizontal: theme.fontSize.default,
-		paddingVertical: theme.fontSize.xlarge,
+		paddingTop: theme.fontSize.xlarge,
 	},
 	heroText: {
 		fontSize: theme.fontSize.default,
@@ -136,7 +155,7 @@ const styles = StyleSheet.create({
 		color: theme.color.blue,
 		fontSize: theme.fontSize.default,
 		fontWeight: '500',
-		marginTop: theme.fontSize.default,
+		padding: theme.fontSize.large,
 	},
 
 	// made by thinkmill
@@ -145,11 +164,18 @@ const styles = StyleSheet.create({
 		paddingHorizontal: theme.fontSize.default,
 		paddingVertical: theme.fontSize.xlarge,
 	},
+	madebyLink: {
+		alignItems: 'center',
+	},
 	madebyText: {
 		fontSize: theme.fontSize.default,
 		fontWeight: '300',
 		lineHeight: theme.fontSize.large,
+		marginTop: theme.fontSize.default,
 		textAlign: 'center',
+	},
+	madebyTitle: {
+		fontWeight: '500',
 	},
 });
 

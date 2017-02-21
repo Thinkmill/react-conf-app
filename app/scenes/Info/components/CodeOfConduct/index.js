@@ -26,14 +26,14 @@ export default class CodeOfConduct extends Component {
 					<Text style={styles.text}>Conference staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.</Text>
 					<Text style={styles.text}>We expect participants to follow these rules at all conference venues and conference-related social events.</Text>
 				</View>
-				<TouchableOpacity onPress={onClose} style={styles.link}>
+				<TouchableOpacity onPress={onClose} style={styles.link} activeOpacity={0.75}>
 					<Icon
-						color={theme.color.gray60}
+						color={theme.color.gray40}
 						name="ios-arrow-up"
 						size={24}
 						style={{ height: 24 }}
 					/>
-					<Text style={styles.linkText}>CLOSE</Text>
+					<Text style={styles.linkText}>CLOSE CODE OF CONDUCT</Text>
 				</TouchableOpacity>
 		</View>
 		);
@@ -48,18 +48,17 @@ const styles = StyleSheet.create({
 	wrapper: {
 		borderTopColor: theme.color.gray20,
 		borderTopWidth: 1 / PixelRatio.get(),
-		marginTop: theme.fontSize.large,
-		paddingTop: theme.fontSize.large,
+		paddingTop: theme.fontSize.default,
 	},
 
 	text: {
-		color: theme.color.text,
+		color: theme.color.gray60,
 		fontSize: 13,
 		lineHeight: theme.fontSize.default,
 		marginTop: theme.fontSize.small,
 	},
 	heading: {
-		color: theme.color.text,
+		color: theme.color.gray70,
 		fontSize: theme.fontSize.small,
 		fontWeight: 'bold',
 		marginTop: theme.fontSize.large,
@@ -67,14 +66,11 @@ const styles = StyleSheet.create({
 
 	link: {
 		alignItems: 'center',
-		borderTopColor: theme.color.gray20,
-		borderTopWidth: 1 / PixelRatio.get(),
-		marginTop: theme.fontSize.large,
-		padding: theme.fontSize.default,
+		paddingVertical: theme.fontSize.default,
 		justifyContent: 'center',
 	},
 	linkText: {
-		color: theme.color.gray60,
+		color: theme.color.gray40,
 		fontWeight: '500',
 	},
 });

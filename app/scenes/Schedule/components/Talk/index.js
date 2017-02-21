@@ -11,17 +11,42 @@ export default function Talk ({
 	speakerAvatarUri,
 	speakerName,
 	startTime,
+	status,
 	title,
 }) {
+	const isPast = status === 'past';
+	const isPresent = status === 'present';
+	const touchableProps = {
+		activeOpacity: 1,
+		onPress: onPress,
+		style: [styles.touchable, styles['touchable__' + status]],
+		underlayColor: theme.color.gray05,
+	};
+
 	return (
-		<TouchableHighlight onPress={onPress} underlayColor={theme.color.gray05} activeOpacity={1} style={styles.touchable}>
+		<TouchableHighlight {...touchableProps}>
 			<View style={styles.base}>
-				<View style={styles.statusBar} />
+				<View style={[styles.statusbar, styles['statusbar__' + status]]}>
+					{isPresent && (
+						<Icon
+							color={theme.color.green}
+							name="md-arrow-dropright"
+							size={theme.fontSize.large}
+							style={styles.statusbarIcon}
+						/>
+					)}
+				</View>
+
 				<View style={styles.content}>
-					<View style={styles.text}>
-						<Text style={styles.subtitle}>{startTime} &mdash; {speakerName}</Text>
-						<Text style={styles.title}>{title}</Text>
+					<View style={[styles.text, styles['text__' + status]]}>
+						<Text style={styles.subtitle}>
+							{startTime} &mdash; {speakerName}
+						</Text>
+						<Text style={styles.title}>
+							{title}
+						</Text>
 					</View>
+
 					<View style={styles.right}>
 						<Avatar source={speakerAvatarUri} />
 						<Icon
@@ -37,9 +62,26 @@ export default function Talk ({
 	);
 };
 
+Talk.propTypes = {
+	endTime: PropTypes.string,
+	onPress: PropTypes.func.isRequired,
+	speakerAvatarUri: PropTypes.string,
+	speakerName: PropTypes.string,
+	startTime: PropTypes.string,
+	status: PropTypes.oneOf(['future', 'past', 'present']),
+	title: PropTypes.string,
+};
+Talk.defaultProps = {
+	status: 'future',
+};
+
+const statusbarWidth = 6;
 const styles = StyleSheet.create({
 	touchable: {
 		backgroundColor: 'white',
+	},
+	touchable__past: {
+		opacity: 0.5,
 	},
 	base: {
 		alignItems: 'stretch',
@@ -48,10 +90,24 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 
-	// status [future|present|past]
-	statusBar: {
+	// status bar [future|present|past]
+	statusbar: {
 		backgroundColor: theme.color.gray20,
-		width: 6,
+		width: statusbarWidth,
+	},
+	statusbarIcon: {
+		backgroundColor: 'transparent',
+		height: theme.fontSize.large,
+		left: statusbarWidth,
+		position: 'absolute',
+		top: theme.fontSize.small,
+		width: theme.fontSize.large,
+	},
+	statusbar__past: {
+		backgroundColor: theme.color.green,
+	},
+	statusbar__present: {
+		backgroundColor: theme.color.green,
 	},
 
 	// content
@@ -66,6 +122,9 @@ const styles = StyleSheet.create({
 		flexGrow: 1,
 		flexShrink: 1,
 		paddingRight: theme.fontSize.default,
+	},
+	text__past: {
+		opacity: 0.5,
 	},
 	subtitle: {
 		color: theme.color.gray60,

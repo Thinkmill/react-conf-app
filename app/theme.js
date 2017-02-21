@@ -4,9 +4,10 @@ import { Navigator } from 'react-native';
 
 // color
 const color = {
-	blue: '#00A8D8',
-	text: '#383838',
-	viewBg: '#F4F4F4',
+	blue:                '#00A8D8',
+	green:               '#9BE13A',
+	text:                '#383838',
+	viewBg:              '#F4F4F4',
 
 	// neutrals
 	gray90:              '#1A1A1A',

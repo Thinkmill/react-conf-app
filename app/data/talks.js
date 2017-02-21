@@ -1,5 +1,4 @@
-const startTime = new Date();
-const endTime = Date(startTime.setHours(startTime.getHours() + 1));
+import moment from 'moment';
 
 export const map = {
 	'max-stoiber': {
@@ -13,8 +12,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-12T23:30:00.000Z'),
+				end: new Date('2017-03-13T00:30:00.000Z'),
 		},
 	},
 	'cameron-westland': {
@@ -28,8 +27,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T00:30:00.000Z'),
+				end: new Date('2017-03-13T01:30:00.000Z'),
 		},
 	},
 	'michaela-lehr': {
@@ -43,8 +42,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T01:30:00.000Z'),
+				end: new Date('2017-03-13T02:30:00.000Z'),
 		},
 	},
 	'michael-jackson': {
@@ -58,8 +57,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T02:30:00.000Z'),
+				end: new Date('2017-03-13T03:30:00.000Z'),
 		},
 	},
 	'parashuram-n': {
@@ -73,8 +72,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T03:30:00.000Z'),
+				end: new Date('2017-03-13T04:30:00.000Z'),
 		},
 	},
 	'leland-richardson': {
@@ -88,8 +87,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T04:30:00.000Z'),
+				end: new Date('2017-03-13T05:30:00.000Z'),
 		},
 	},
 	'robert-zhu': {
@@ -103,8 +102,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T05:30:00.000Z'),
+				end: new Date('2017-03-13T06:30:00.000Z'),
 		},
 	},
 	'rogelio-guzman': {
@@ -118,8 +117,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T06:30:00.000Z'),
+				end: new Date('2017-03-13T07:30:00.000Z'),
 		},
 	},
 	'nicole-chung': {
@@ -133,8 +132,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T07:30:00.000Z'),
+				end: new Date('2017-03-13T08:30:00.000Z'),
 		},
 	},
 	'jared-forsyth': {
@@ -148,8 +147,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T08:30:00.000Z'),
+				end: new Date('2017-03-13T09:30:00.000Z'),
 		},
 	},
 	'ben-ilegbodu': {
@@ -163,8 +162,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T09:30:00.000Z'),
+				end: new Date('2017-03-13T10:30:00.000Z'),
 		},
 	},
 	'preethi-kasireddy': {
@@ -178,8 +177,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T10:30:00.000Z'),
+				end: new Date('2017-03-13T11:30:00.000Z'),
 		},
 	},
 	'lin-clark': {
@@ -193,8 +192,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T11:30:00.000Z'),
+				end: new Date('2017-03-13T12:30:00.000Z'),
 		},
 	},
 	'andres-suarez': {
@@ -208,8 +207,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T12:30:00.000Z'),
+				end: new Date('2017-03-13T13:30:00.000Z'),
 		},
 	},
 	'dustan-kasten': {
@@ -223,8 +222,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T13:30:00.000Z'),
+				end: new Date('2017-03-13T14:30:00.000Z'),
 		},
 	},
 	'guillermo-rauch': {
@@ -238,8 +237,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T14:30:00.000Z'),
+				end: new Date('2017-03-13T15:30:00.000Z'),
 		},
 	},
 	'tal-kol': {
@@ -253,8 +252,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T15:30:00.000Z'),
+				end: new Date('2017-03-13T16:30:00.000Z'),
 		},
 	},
 	'jing-chen': {
@@ -268,8 +267,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T16:30:00.000Z'),
+				end: new Date('2017-03-13T17:30:00.000Z'),
 		},
 	},
 	'marie-laure-thuret': {
@@ -283,8 +282,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T17:30:00.000Z'),
+				end: new Date('2017-03-13T18:30:00.000Z'),
 		},
 	},
 	'ken-wheeler': {
@@ -298,8 +297,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T18:30:00.000Z'),
+				end: new Date('2017-03-13T19:30:00.000Z'),
 		},
 	},
 	'cheng-lou': {
@@ -313,8 +312,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T19:30:00.000Z'),
+				end: new Date('2017-03-13T20:30:00.000Z'),
 		},
 	},
 	'sebastian-markbage': {
@@ -328,8 +327,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T20:30:00.000Z'),
+				end: new Date('2017-03-13T21:30:00.000Z'),
 		},
 	},
 	'troy-connor': {
@@ -343,8 +342,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T21:30:00.000Z'),
+				end: new Date('2017-03-13T22:30:00.000Z'),
 		},
 	},
 	'merrick-christensen': {
@@ -358,8 +357,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T22:30:00.000Z'),
+				end: new Date('2017-03-13T23:30:00.000Z'),
 		},
 	},
 	'feather-knee': {
@@ -372,8 +371,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-13T23:30:00.000Z'),
+				end: new Date('2017-03-14T00:30:00.000Z'),
 		},
 	},
 	'adam-perry': {
@@ -387,8 +386,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T00:30:00.000Z'),
+				end: new Date('2017-03-14T01:30:00.000Z'),
 		},
 	},
 	'aditya-punjani': {
@@ -402,8 +401,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T01:30:00.000Z'),
+				end: new Date('2017-03-14T02:30:00.000Z'),
 		},
 	},
 	'samer-buna': {
@@ -417,8 +416,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T02:30:00.000Z'),
+				end: new Date('2017-03-14T03:30:00.000Z'),
 		},
 	},
 	'sophia-shoemaker': {
@@ -432,8 +431,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T03:30:00.000Z'),
+				end: new Date('2017-03-14T04:30:00.000Z'),
 		},
 	},
 	'peggy-rayzis': {
@@ -447,8 +446,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T04:30:00.000Z'),
+				end: new Date('2017-03-14T05:30:00.000Z'),
 		},
 	},
 	'james-long': {
@@ -462,8 +461,8 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T05:30:00.000Z'),
+				end: new Date('2017-03-14T06:30:00.000Z'),
 		},
 	},
 	'neehar-venugopal': {
@@ -477,11 +476,15 @@ export const map = {
 			summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
 		},
 		time: {
-			end: endTime,
-			start: startTime,
+				start: new Date('2017-03-14T06:30:00.000Z'),
+				end: new Date('2017-03-14T07:30:00.000Z'),
 		},
 	},
 };
 
-// TODO sort by time
-export const list = Object.keys(map).sort().map(k => map[k]);
+export const list = Object.keys(map).sort((a, b) => {
+	const talkStartTime1 = moment(map[a].time.start);
+	const talkStartTime2 = moment(map[b].time.start);
+
+	return talkStartTime1.diff(talkStartTime2);
+}).map(k => map[k]);

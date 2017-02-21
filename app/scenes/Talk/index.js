@@ -1,5 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import { ActionSheetIOS, PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import {
+	ActionSheetIOS,
+	PixelRatio,
+	ScrollView,
+	StatusBar,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 
@@ -44,7 +53,9 @@ class Talk extends Component {
 		});
 	}
 	toggleSpeaker (modalIsOpen) {
-		this.setState({ modalIsOpen });
+		this.setState({ modalIsOpen }, () => {
+			StatusBar.setBarStyle(modalIsOpen ? 'light-content' : 'default', true);
+		});
 	}
 	render () {
 		const { navigator, talk } = this.props;

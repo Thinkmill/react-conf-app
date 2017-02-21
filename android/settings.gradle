@@ -1,4 +1,10 @@
 rootProject.name = 'ReactConf2017'
+include ':react-native-maps'
+project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/android')
+include ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+include ':react-native-blur'
+project(':react-native-blur').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-blur/android')
 include ':react-native-social-share'
 project(':react-native-social-share').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-social-share/android')
 include ':react-native-vector-icons'

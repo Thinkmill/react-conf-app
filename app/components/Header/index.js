@@ -23,8 +23,17 @@ const Header = ({
 			{/* Left Button */}
 			{leftButtonOnPress ? (
 				<TouchableOpacity disabled={leftButtonDisabled} onPress={leftButtonOnPress} style={[styles.button, styles.leftButton]}>
-					{leftButtonIconName && <Icon name={leftButtonIconName} size={36} color="white" style={{ marginRight: 10, height: 36 }} />}
-					<Text style={[styles.buttonText, { opacity: leftButtonDisabled ? 0.6 : 1 }]}>{leftButtonText}</Text>
+					{!!leftButtonIconName && (
+						<Icon
+							color={theme.color.text}
+							name={leftButtonIconName}
+							size={36}
+							style={{ marginRight: 10, height: 36 }}
+						/>
+					)}
+					<Text style={[styles.buttonText, { opacity: leftButtonDisabled ? 0.6 : 1 }]}>
+						{leftButtonText}
+					</Text>
 				</TouchableOpacity>
 			) : (
 				<View style={styles.button} />
@@ -38,8 +47,17 @@ const Header = ({
 			{/* Right Button */}
 			{rightButtonOnPress ? (
 				<TouchableOpacity disabled={rightButtonDisabled} onPress={rightButtonOnPress} style={[styles.button, styles.button__right]}>
-					{rightButtonIconName && <Icon name={rightButtonIconName} size={36} color="white" style={{ marginLeft: 10, height: 36 }} />}
-					<Text style={[styles.buttonText, { opacity: rightButtonDisabled ? 0.6 : 1 }]}>{rightButtonText}</Text>
+					{!!rightButtonIconName && (
+						<Icon
+							color={theme.color.text}
+							name={rightButtonIconName}
+							size={36}
+							style={{ marginLeft: 10, height: 36 }}
+						/>
+					)}
+					<Text style={[styles.buttonText, { opacity: rightButtonDisabled ? 0.6 : 1 }]}>
+						{rightButtonText}
+					</Text>
 				</TouchableOpacity>
 			) : (
 				<View style={styles.button} />

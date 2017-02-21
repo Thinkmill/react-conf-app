@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
-// import codePush from 'react-native-code-push';
+import codePush from 'react-native-code-push';
 
 import theme from './theme';
-import { Schedule } from './scenes';
+import { Info, Schedule, Talk } from './scenes';
+const Scenes = { Info, Schedule, Talk };
 
 const DEFAULT_VIEW = 'Schedule';
 
-const Scenes = { Schedule };
-
 class ReactConf2017 extends Component {
 	componentDidMount () {
-		this.syncAppVersion();
+		// this.syncAppVersion();
 		StatusBar.setBarStyle('default', true);
 		AppState.addEventListener('change', this.handleAppStateChange);
 	}
@@ -19,12 +18,13 @@ class ReactConf2017 extends Component {
 		AppState.removeEventListener('change', this.handleAppStateChange);
 	}
 	handleAppStateChange (currentAppState) {
-		if (currentAppState === 'active') {
-			this.syncAppVersion();
-		}
+		console.log('handleAppStateChange', currentAppState);
+		// if (currentAppState === 'active') {
+			// this.syncAppVersion();
+		// }
 	}
 	syncAppVersion () {
-		// codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
+		codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
 	}
 	render () {
 		const renderScene = (route, navigator) => {
@@ -34,7 +34,9 @@ class ReactConf2017 extends Component {
 		};
 
 		const configureScene = (route) => {
-			return route.sceneConfig || theme.navigatorConfig.HorizontalSwipeJump;
+			return route.sceneConfig
+				? Navigator.SceneConfigs[route.sceneConfig]
+				: Navigator.SceneConfigs.HorizontalSwipeJump;
 		};
 
 		return (
@@ -50,7 +52,7 @@ class ReactConf2017 extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: theme.color.viewBg,
+		backgroundColor: 'black',
 		flex: 1,
 	},
 });

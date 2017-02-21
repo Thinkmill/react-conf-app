@@ -1,37 +1,60 @@
 import React, { Component, PropTypes } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import moment from 'moment';
 
+import { TIME_FORMAT } from '../../constants';
 import { list as talksList } from '../../data/talks';
 import Header from '../../components/Header';
+import ListTitle from '../../components/ListTitle';
+import Scene from '../../components/Scene';
+import theme from '../../theme';
 
 import Talk from './components/Talk';
 
 class Schedule extends Component {
+	gotoEventInfo () {
+		this.props.navigator.push({
+			scene: 'Info',
+			sceneConfig: 'FloatFromBottom',
+		});
+	}
 	render () {
-		const { talks } = this.props;
+		const { navigator, talks } = this.props;
 
 		return (
-			<View>
+			<Scene>
 				<Header
 					title="Schedule"
 					rightButtonText="Event Info"
-					rightButtonOnPress={() => console.log('test')}
+					rightButtonOnPress={this.gotoEventInfo.bind(this)}
 				/>
-				<ScrollView>
-					{talks.map((talk, idx) => (
-						<Talk
-							endTime={talk.time.end.toString()}
-							key={idx}
-							onPress={() => console.log('pressed', talk.title)}
-							speakerName={talk.speaker.name}
-							speakerAvatarUri={'https:' + talk.speaker.avatar}
-							startTime={moment(talk.time.start).format('h:mma')}
-							title={talk.title}
-						/>
-					))}
+				<ScrollView style={{ flex: 1 }}>
+					<ListTitle text="Monday" />
+					{talks.map((talk, idx) => {
+						const onPress = () => navigator.push({
+							scene: 'Talk',
+							props: { talk },
+						});
+
+						return (
+							<Talk
+								endTime={talk.time.end.toString()}
+								key={idx}
+								onPress={onPress}
+								speakerName={talk.speaker.name}
+								speakerAvatarUri={talk.speaker.avatar}
+								startTime={moment(talk.time.start).format(TIME_FORMAT)}
+								title={talk.title}
+							/>
+						);
+					})}
+					<TouchableOpacity onPress={this.gotoEventInfo.bind(this)} activeOpacity={0.75}>
+						<Text style={styles.link}>
+							Event Info
+						</Text>
+					</TouchableOpacity>
 				</ScrollView>
-			</View>
+			</Scene>
 		);
 	}
 };
@@ -43,5 +66,15 @@ Schedule.propTypes = {
 Schedule.defaultProps = {
 	talks: talksList,
 };
+
+const styles = StyleSheet.create({
+	link: {
+		color: theme.color.blue,
+		fontSize: theme.fontSize.default,
+		fontWeight: '500',
+		paddingVertical: theme.fontSize.large,
+		textAlign: 'center',
+	},
+});
 
 module.exports = Schedule;

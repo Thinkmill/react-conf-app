@@ -3400,6 +3400,10 @@ react-native-code-push@^1.17.0-beta:
     inquirer "1.1.2"
     plist "1.2.0"
 
+react-native-maps@airbnb/react-native-maps:
+  version "0.13.0"
+  resolved "https://codeload.github.com/airbnb/react-native-maps/tar.gz/1efb8efad50c2ed37a8c091cf7b28d8744eec0f3"
+
 react-native-vector-icons@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.0.0.tgz#6a2f8f4c6ace613aed7748cd530809283e5b1538"

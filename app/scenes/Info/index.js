@@ -9,6 +9,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import MapView from 'react-native-maps';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -23,8 +24,13 @@ import { attemptToOpenUrl } from '../../utils';
 import CodeOfConduct from './components/CodeOfConduct';
 import Organiser from './components/Organiser';
 
-const mapHeight = 240;
-const mapLocation = 'Santa+Clara,+California';
+// Santa Clara, California
+const mapRegion = {
+	latitude: 37.354108,
+	longitude: -121.955236,
+	latitudeDelta: 0.01,
+	longitudeDelta: 0.01,
+};
 
 class Info extends Component {
 	constructor (props) {
@@ -46,8 +52,7 @@ class Info extends Component {
 		this.setState({ codeOfConductIsOpen: !this.state.codeOfConductIsOpen });
 	}
 	openMap () {
-		const latlong = [37.354108, -121.955236]; // Santa Clara, California
-		const url = `http://maps.apple.com/?ll=${latlong.join()}`;
+		const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
 
 		attemptToOpenUrl(url);
 	}
@@ -59,16 +64,15 @@ class Info extends Component {
 	render () {
 		const { navigator, organisers } = this.props;
 		const { codeOfConductIsOpen, deviceWidth } = this.state;
-		const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${mapLocation}&zoom=13&scale=2&size=${deviceWidth}x${mapHeight}&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7C${mapLocation}`;
 
 		return (
 			<Scene scroll onLayout={this.getDimensions}>
-				<TouchableOpacity onPress={this.openMap} style={styles.mapButton} activeOpacity={0.75}>
-					<Image
-						source={{ uri: staticMapUrl }}
-						style={styles.mapImage}
+				<MapView initialRegion={mapRegion} style={styles.map}>
+					<MapView.Marker
+						title="React Conf 2017"
+						coordinate={mapRegion}
 					/>
-				</TouchableOpacity>
+				</MapView>
 
 				<ScrollView style={{ flex: 1 }}>
 					<View style={styles.hero}>
@@ -125,15 +129,11 @@ Info.defaultProps = {
 };
 
 const styles = StyleSheet.create({
-	// map
-	mapButton: {
-		backgroundColor: theme.color.gray05,
-		height: mapHeight,
+	map: {
+		flex: 1,
+		height: 200,
+		maxHeight: 200,
 	},
-	mapImage: {
-		height: mapHeight,
-	},
-
 	// hero
 	hero: {
 		alignItems: 'center',

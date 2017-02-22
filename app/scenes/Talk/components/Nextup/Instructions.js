@@ -6,7 +6,7 @@ import theme from '../../../../theme';
 
 import styles from './styles';
 
-function animateToValue (val) ({
+const animateToValue = (val) => ({
 	toValue: val,
 	duration: 150,
 });

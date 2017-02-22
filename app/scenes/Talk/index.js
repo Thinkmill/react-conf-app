@@ -47,7 +47,7 @@ export default class Talk extends Component {
 		const heightOffset = contentHeight > viewHeight
 			? contentHeight - viewHeight
 			: 0;
-		const scrollThreshold = 80; // distance before we load the next talk
+		const scrollThreshold = 90; // distance before we load the next talk
 
 		if (scrollY > (heightOffset + scrollThreshold)) {
 			this.setState({ pullToLoadActive: true });
@@ -70,8 +70,9 @@ export default class Talk extends Component {
 
 		const talk = this.state.nextTalk;
 		const nextTalk = getNextTalkFromId(this.state.nextTalk.id);
+		const newState = nextTalk ? { nextTalk, talk } : { nextTalk: null, talk };
 
-		this.setState({ nextTalk, talk }, () => {
+		this.setState(newState, () => {
 			setTimeout(() => this.refs.scrollview.scrollTo({
 				x: 0,
 				y: 0,
@@ -137,7 +138,7 @@ export default class Talk extends Component {
 					<View style={styles.nextupPlaceholder} />
 				</ScrollView>
 
-				{pullToLoadActive && (
+				{nextTalk && pullToLoadActive && (
 					<NextupInstructions talkTitle={nextTalk.title} />
 				)}
 				{(!!nextTalk && !pullToLoadActive) && (

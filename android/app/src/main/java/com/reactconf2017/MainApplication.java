@@ -7,7 +7,6 @@ import com.facebook.react.ReactApplication;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.cmcewen.blurview.BlurViewPackage;
-import com.barefootcoders.android.react.KDSocialShare.KDSocialShare;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -39,7 +38,6 @@ public class MainApplication extends Application implements ReactApplication {
             new MapsPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new BlurViewPackage(),
-            new KDSocialShare(),
             new VectorIconsPackage()
       );
     }

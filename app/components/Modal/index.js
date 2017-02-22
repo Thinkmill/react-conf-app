@@ -65,7 +65,7 @@ export default class Modal extends Component {
 					<BlurView blurAmount={blurAmount} blurType={blurType} style={styles.blur}>
 						<TouchableOpacity onPress={this.onClose} style={styles.touchable} />
 					</BlurView>
-					<Animated.View style={[styles.dialog, dialogDynamicStyles]}>
+					<Animated.View style={dialogDynamicStyles}>
 						{this.renderChildren()}
 					</Animated.View>
 				</Animated.View>
@@ -102,8 +102,5 @@ const styles = StyleSheet.create({
 	blur: fillSpace,
 	touchable: {
 		flex: 1,
-	},
-	dialog: {
-		marginVertical: theme.fontSize.large,
 	},
 });

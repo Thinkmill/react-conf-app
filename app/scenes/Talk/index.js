@@ -14,7 +14,7 @@ import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
 import Avatar from '../../components/Avatar';
-import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
 import theme from '../../theme';
@@ -70,7 +70,7 @@ class Talk extends Component {
 
 		return (
 			<Scene>
-				<Header
+				<Navbar
 					title={headerTitle}
 					leftButtonIconName="ios-arrow-back"
 					leftButtonOnPress={navigator.popToTop}

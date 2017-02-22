@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../theme';
 
-const Header = ({
+const Navbar = ({
 	backgroundColor,
 	leftButtonDisabled,
 	leftButtonIconName,
@@ -66,7 +66,7 @@ const Header = ({
 	);
 };
 
-Header.propTypes = {
+Navbar.propTypes = {
 	backgroundColor: PropTypes.string,
 	leftButtonDisabled: PropTypes.bool,
 	leftButtonIconName: PropTypes.string,
@@ -80,7 +80,7 @@ Header.propTypes = {
 	title: PropTypes.string,
 };
 
-Header.defaultProps = {
+Navbar.defaultProps = {
 	backgroundColor: theme.header.backgroundColor,
 	buttonColor: theme.header.button,
 	textColor: theme.header.textColor,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: 'rgba(0, 0, 0, 0.1)',
 		borderBottomWidth: 1 / PixelRatio.get(),
 		flexDirection: 'row',
-		height: 60,
+		height: 64,
 		justifyContent: 'space-between',
 		paddingTop: 20, // account for the statusbar
 	},
@@ -125,4 +125,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Header;
+export default Navbar;

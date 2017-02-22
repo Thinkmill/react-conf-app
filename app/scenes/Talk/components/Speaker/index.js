@@ -3,6 +3,7 @@ import { PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight, View } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Avatar from '../../../../components/Avatar';
+import DraggableView from '../../../../components/DraggableView';
 import Modal from '../../../../components/Modal';
 import theme from '../../../../theme';
 import { attemptToOpenUrl } from '../../../../utils';
@@ -15,9 +16,14 @@ function Button ({ bordered, icon, onPress, text }) {
 		underlayColor: theme.color.gray05,
 	};
 
+	const dynamicStyles = {
+		borderLeftColor: bordered ? theme.color.gray20 : null,
+		borderLeftWidth: bordered ? 1 / PixelRatio.get() : null,
+	};
+
 	return (
 		<TouchableHighlight {...touchableProps}>
-			<View style={[styles.button, styles.button__bordered]}>
+			<View style={[styles.button, dynamicStyles]}>
 				<Icon
 					name={icon}
 					size={24}
@@ -36,11 +42,8 @@ Button.propTypes = {
 };
 
 export default class Speaker extends Component {
-	handleScroll (event) {
-		const scrollY = Math.abs(event.nativeEvent.contentOffset.y);
-		const scrollThreshold = 120;
-
-		if (scrollY > scrollThreshold) this.refs.modal.onClose();
+	handleRelease () {
+		this.refs.modal.onClose();
 	}
 	render () {
 		const {
@@ -55,38 +58,32 @@ export default class Speaker extends Component {
 
 		return (
 			<Modal onClose={onClose} ref="modal">
-				<ScrollView onScroll={this.handleScroll.bind(this)} contentContainerStyle={{
-					alignItems: 'center',
-					justifyContent: 'center',
-					flex: 1,
-				}} showsVerticalScrollIndicator={false} scrollEventThrottle={100} onPress={onClose}>
-					<View style={styles.wrapper}>
-						<View style={styles.main}>
-							<Avatar source={avatar} size={75} />
-							<Text style={styles.mainTitle}>{name}</Text>
-							<Text style={styles.mainText}>{summary}</Text>
-						</View>
-						{showButtons && (
-							<View style={styles.buttons}>
-								{!!twitter && (
-									<Button
-										icon="logo-twitter"
-										onPress={() => attemptToOpenUrl('https://twitter.com/' + twitter)}
-										text={'@' + twitter}
-									/>
-								)}
-								{!!github && (
-									<Button
-										bordered
-										icon="logo-github"
-										onPress={() => attemptToOpenUrl('https://github.com/' + github)}
-										text={github}
-									/>
-								)}
-							</View>
-						)}
+				<DraggableView style={styles.wrapper} onRelease={this.handleRelease.bind(this)}>
+					<View style={styles.main}>
+						<Avatar source={avatar} size={75} />
+						<Text style={styles.mainTitle}>{name}</Text>
+						<Text style={styles.mainText}>{summary}</Text>
 					</View>
-				</ScrollView>
+					{showButtons && (
+						<View style={styles.buttons}>
+							{!!twitter && (
+								<Button
+									icon="logo-twitter"
+									onPress={() => attemptToOpenUrl('https://twitter.com/' + twitter)}
+									text={'@' + twitter}
+								/>
+							)}
+							{!!github && (
+								<Button
+									bordered
+									icon="logo-github"
+									onPress={() => attemptToOpenUrl('https://github.com/' + github)}
+									text={github}
+								/>
+							)}
+						</View>
+					)}
+				</DraggableView>
 			</Modal>
 		);
 	}
@@ -104,9 +101,13 @@ Speaker.defaultProps = {
 	onPress: () => {},
 };
 
+const BORDER_RADIUS = 6;
+
 const styles = StyleSheet.create({
 	wrapper: {
 		backgroundColor: 'white',
+		borderRadius: BORDER_RADIUS,
+		marginHorizontal: theme.fontSize.default,
 		shadowColor: 'black',
 		shadowOffset: { height: 1, width: 1 },
 		shadowOpacity: 0.5,
@@ -134,6 +135,9 @@ const styles = StyleSheet.create({
 
 	// buttons
 	buttons: {
+		borderBottomLeftRadius: BORDER_RADIUS,
+		borderBottomRightRadius: BORDER_RADIUS,
+		overflow: 'hidden',
 		flexDirection: 'row',
 	},
 	buttonTouchable: {
@@ -145,10 +149,6 @@ const styles = StyleSheet.create({
 		borderTopColor: theme.color.gray20,
 		borderTopWidth: 1 / PixelRatio.get(),
 		paddingVertical: theme.fontSize.large,
-	},
-	button__bordered: {
-		borderLeftColor: theme.color.gray20,
-		borderLeftWidth: 1 / PixelRatio.get(),
 	},
 	buttonIcon: {
 		color: theme.color.blue,

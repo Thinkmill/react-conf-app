@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
 import talkBlob from '../../data/talks';
-import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 import theme from '../../theme';
@@ -57,7 +57,7 @@ class Schedule extends Component {
 	gotoEventInfo () {
 		this.props.navigator.push({
 			scene: 'Info',
-			sceneConfig: 'FloatFromBottom',
+			transitionKey: 'FloatFromBottom',
 		});
 	}
 	render () {
@@ -74,7 +74,7 @@ class Schedule extends Component {
 
 		return (
 			<Scene>
-				<Header
+				<Navbar
 					title="Schedule"
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo.bind(this)}
@@ -85,6 +85,7 @@ class Schedule extends Component {
 					enableEmptySections
 					renderRow={(talk, idx) => {
 						const onPress = () => navigator.push({
+							enableSwipeToPop: true,
 							scene: 'Talk',
 							props: { talk },
 						});

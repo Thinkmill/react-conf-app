@@ -33,10 +33,24 @@ class ReactConf2017 extends Component {
 			return <SceneComponent {...route.props} navigator={navigator} />;
 		};
 
+		const TRANSITION_KEYS = Object.keys(Navigator.SceneConfigs);
+
+		console.log('Navigator.SceneConfigs', Navigator.SceneConfigs);
+
 		const configureScene = (route) => {
-			return route.sceneConfig
-				? Navigator.SceneConfigs[route.sceneConfig]
-				: Navigator.SceneConfigs.HorizontalSwipeJump;
+			if (route.transitionKey && !TRANSITION_KEYS.includes(route.transitionKey)) {
+				console.warn('Warning: Invalid transition key `' + route.transitionKey + '` supplied to `Navigator`. Valid keys: [\n' + TRANSITION_KEYS.join('\n') + '\n]')
+				return Navigator.SceneConfigs.PushFromRight;
+			}
+
+			return route.transitionKey
+				? Navigator.SceneConfigs[route.transitionKey]
+				: {
+					...Navigator.SceneConfigs.PushFromRight,
+					gestures: route.enableSwipeToPop ? {
+						pop: Navigator.SceneConfigs.PushFromRight.gestures.pop
+					} : null,
+				};
 		};
 
 		return (
@@ -44,14 +58,22 @@ class ReactConf2017 extends Component {
 				initialRoute={{ scene: DEFAULT_VIEW, index: 0 }}
 				renderScene={renderScene}
 				configureScene={configureScene}
-				style={styles.container}
+				style={styles.navigator}
+				sceneStyle={{
+					backgroundColor: theme.color.viewBg,
+					overflow: 'visible',
+					shadowColor: 'black',
+					shadowOffset: { height: 0, width: 0 },
+					shadowOpacity: 0.33,
+					shadowRadius: 5,
+				}}
 			/>
 		);
 	}
 };
 
 const styles = StyleSheet.create({
-	container: {
+	navigator: {
 		backgroundColor: 'black',
 		flex: 1,
 	},

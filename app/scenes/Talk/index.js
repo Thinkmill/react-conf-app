@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
 	// next talk
 	nextup: {
-		backgroundColor: theme.color.viewBg,
+		backgroundColor: theme.color.sceneBg,
 	},
 	nextupInner: {
 		alignItems: 'center',

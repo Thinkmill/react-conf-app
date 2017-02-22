@@ -12,7 +12,7 @@ export default function ListTitle ({ text }) {
 			lineHeight: theme.fontSize.large,
 		},
 		view: {
-			backgroundColor: theme.color.viewBg,
+			backgroundColor: theme.color.sceneBg,
 			borderBottomColor: theme.color.gray20,
 			borderBottomWidth: 1 / PixelRatio.get(),
 			paddingHorizontal: theme.fontSize.default,

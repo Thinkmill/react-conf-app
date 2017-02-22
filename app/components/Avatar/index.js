@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Image, View } from 'react-native';
 
+import theme from '../../theme';
+
 export default function Avatar ({ size, source }) {
 	const styles = {
 		wrapper: {
+			backgroundColor: theme.color.sceneBg,
 			borderRadius: size,
 			overflow: 'hidden',
 			height: size,

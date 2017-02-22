@@ -35,8 +35,6 @@ class ReactConf2017 extends Component {
 
 		const TRANSITION_KEYS = Object.keys(Navigator.SceneConfigs);
 
-		console.log('Navigator.SceneConfigs', Navigator.SceneConfigs);
-
 		const configureScene = (route) => {
 			if (route.transitionKey && !TRANSITION_KEYS.includes(route.transitionKey)) {
 				console.warn('Warning: Invalid transition key `' + route.transitionKey + '` supplied to `Navigator`. Valid keys: [\n' + TRANSITION_KEYS.join('\n') + '\n]')
@@ -60,7 +58,7 @@ class ReactConf2017 extends Component {
 				configureScene={configureScene}
 				style={styles.navigator}
 				sceneStyle={{
-					backgroundColor: theme.color.viewBg,
+					backgroundColor: theme.color.sceneBg,
 					overflow: 'visible',
 					shadowColor: 'black',
 					shadowOffset: { height: 0, width: 0 },

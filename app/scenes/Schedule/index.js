@@ -85,8 +85,10 @@ class Schedule extends Component {
 							props: { talk },
 						});
 						let status = 'future';
-						// if (idx < 2) status = 'present';
-						// if (idx < 1) status = 'past';
+
+						// TODO implement time settings
+						if (rowID === 'max-stoiber' || rowID === 'cameron-westland') status = 'past';
+						if (rowID === 'michaela-lehr') status = 'present';
 
 						return (
 							<Talk

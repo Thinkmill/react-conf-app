@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Image, PixelRatio, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Avatar from '../../../../components/Avatar';
@@ -35,46 +35,61 @@ Button.propTypes = {
 	text: PropTypes.string.isRequired,
 };
 
-export default function Speaker ({
-	avatar,
-	github,
-	name,
-	onClose,
-	summary,
-	twitter,
-}) {
-	const showButtons = !!(github || twitter);
+export default class Speaker extends Component {
+	handleScroll (event) {
+		const scrollY = Math.abs(event.nativeEvent.contentOffset.y);
+		const scrollThreshold = 120;
 
-	return (
-		<Modal onClose={onClose}>
-			<View style={styles.wrapper}>
-				<View style={styles.main}>
-					<Avatar source={avatar} size={75} />
-					<Text style={styles.mainTitle}>{name}</Text>
-					<Text style={styles.mainText}>{summary}</Text>
-				</View>
-				{showButtons && (
-					<View style={styles.buttons}>
-						{!!twitter && (
-							<Button
-								icon="logo-twitter"
-								onPress={() => attemptToOpenUrl('https://twitter.com/' + twitter)}
-								text={'@' + twitter}
-							/>
-						)}
-						{!!github && (
-							<Button
-								bordered
-								icon="logo-github"
-								onPress={() => attemptToOpenUrl('https://github.com/' + github)}
-								text={github}
-							/>
+		if (scrollY > scrollThreshold) this.refs.modal.onClose();
+	}
+	render () {
+		const {
+			avatar,
+			github,
+			name,
+			onClose,
+			summary,
+			twitter,
+		} = this.props;
+		const showButtons = !!(github || twitter);
+
+		return (
+			<Modal onClose={onClose} ref="modal">
+				<ScrollView onScroll={this.handleScroll.bind(this)} contentContainerStyle={{
+					alignItems: 'center',
+					justifyContent: 'center',
+					flex: 1,
+				}} showsVerticalScrollIndicator={false} scrollEventThrottle={100} onPress={onClose}>
+					<View style={styles.wrapper}>
+						<View style={styles.main}>
+							<Avatar source={avatar} size={75} />
+							<Text style={styles.mainTitle}>{name}</Text>
+							<Text style={styles.mainText}>{summary}</Text>
+						</View>
+						{showButtons && (
+							<View style={styles.buttons}>
+								{!!twitter && (
+									<Button
+										icon="logo-twitter"
+										onPress={() => attemptToOpenUrl('https://twitter.com/' + twitter)}
+										text={'@' + twitter}
+									/>
+								)}
+								{!!github && (
+									<Button
+										bordered
+										icon="logo-github"
+										onPress={() => attemptToOpenUrl('https://github.com/' + github)}
+										text={github}
+									/>
+								)}
+							</View>
 						)}
 					</View>
-				)}
-			</View>
-		</Modal>
-	);
+				</ScrollView>
+			</Modal>
+		);
+	}
 };
 
 Speaker.propTypes = {

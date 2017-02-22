@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {
 	ActionSheetIOS,
+	LayoutAnimation,
 	PixelRatio,
 	ScrollView,
 	StatusBar,
@@ -9,7 +10,6 @@ import {
 	TouchableHighlight,
 	View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -18,26 +18,69 @@ import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
 import theme from '../../theme';
-import { list as talksList } from '../../data/talks';
+import { getNextTalkFromId } from '../../data/talks';
 
+import Nextup from './components/Nextup';
+import NextupInstructions from './components/Nextup/Instructions';
 import Speaker from './components/Speaker';
 
-class Talk extends Component {
+export default class Talk extends Component {
 	constructor (props) {
 		super(props);
 
-		this.toggleSpeaker = this.toggleSpeaker.bind(this);
+		this.toggleSpeakerModal = this.toggleSpeakerModal.bind(this);
 
 		this.state = {
 			modalIsOpen: false,
+			nextTalk: null,
+			talk: props.talk,
 		};
 	}
-	getNextTalk () {
-		// TODO
-		return this.props.talk;
+	componentDidMount () {
+		this.getNextTalk(this.props.talk.id);
+	}
+
+	handleScroll (event) {
+		const contentHeight = event.nativeEvent.contentSize.height;
+		const viewHeight = event.nativeEvent.layoutMeasurement.height;
+		const scrollY = event.nativeEvent.contentOffset.y;
+		const heightOffset = contentHeight > viewHeight
+			? contentHeight - viewHeight
+			: 0;
+		const scrollThreshold = 80; // distance before we load the next talk
+
+		if (scrollY > (heightOffset + scrollThreshold)) {
+			this.setState({ pullToLoadActive: true });
+		} else {
+			this.setState({ pullToLoadActive: false });
+		}
+	}
+	handleScrollEndDrag () {
+		if (this.state.pullToLoadActive) {
+			this.setState({ pullToLoadActive: false }, this.renderNextTalk);
+		}
+	}
+	getNextTalk (ID) {
+		const nextTalk = getNextTalkFromId(ID);
+
+		this.setState({ nextTalk });
+	}
+	renderNextTalk () {
+		LayoutAnimation.easeInEaseOut();
+
+		const talk = this.state.nextTalk;
+		const nextTalk = getNextTalkFromId(this.state.nextTalk.id);
+
+		this.setState({ nextTalk, talk }, () => {
+			setTimeout(() => this.refs.scrollview.scrollTo({
+				x: 0,
+				y: 0,
+				animated: true,
+			}), 1);
+		});
 	}
 	share () {
-		const { talk } = this.props;
+		const { talk } = this.state;
 		const speakerHandle = talk.speaker.twitter
 			? ('@' + talk.speaker.twitter)
 			: talk.speaker.name;
@@ -52,21 +95,16 @@ class Talk extends Component {
 			console.log(result);
 		});
 	}
-	toggleSpeaker (modalIsOpen) {
+	toggleSpeakerModal (modalIsOpen) {
 		this.setState({ modalIsOpen }, () => {
 			StatusBar.setBarStyle(modalIsOpen ? 'light-content' : 'default', true);
 		});
 	}
 	render () {
-		const { navigator, talk } = this.props;
-		const { modalIsOpen } = this.state;
+		const { navigator } = this.props;
+		const { modalIsOpen, nextTalk, pullToLoadActive, talk } = this.state;
 
 		const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
-		const nextTalk = this.getNextTalk();
-		const gotoNextTalk = () => navigator.push({
-			scene: 'Talk',
-			props: { talk: nextTalk },
-		});
 
 		return (
 			<Scene>
@@ -78,8 +116,8 @@ class Talk extends Component {
 					rightButtonOnPress={this.share.bind(this)}
 				/>
 
-				<ScrollView style={{ flex: 1 }}>
-					<TouchableHighlight onPress={() => this.toggleSpeaker(true)} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
+				<ScrollView style={{ flex: 1 }} scrollEventThrottle={300} onScroll={this.handleScroll.bind(this)} onScrollEndDrag={this.handleScrollEndDrag.bind(this)} ref="scrollview">
+					<TouchableHighlight onPress={() => this.toggleSpeakerModal(true)} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
 						<View style={styles.hero}>
 							<Avatar source={talk.speaker.avatar} />
 							<Text style={styles.heroSpeakerName}>
@@ -96,33 +134,27 @@ class Talk extends Component {
 							{talk.summary}
 						</Text>
 					</View>
+					<View style={styles.nextupPlaceholder} />
 				</ScrollView>
 
-				<TouchableHighlight onPress={gotoNextTalk} style={styles.nextup} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
-					<View style={styles.nextupInner}>
-						<View style={styles.nextupText}>
-							<Text style={styles.nextupTitle} numberOfLines={1}>
-								{nextTalk.title}
-							</Text>
-							<Text style={styles.nextupSubtitle}>
-								{moment(nextTalk.time.start).format(TIME_FORMAT)} &mdash; {nextTalk.speaker.name}
-							</Text>
-						</View>
-						<Icon
-							color={theme.color.text}
-							name="ios-arrow-forward"
-							size={20}
-							style={styles.nextupIcon}
-						/>
-					</View>
-				</TouchableHighlight>
+				{pullToLoadActive && (
+					<NextupInstructions talkTitle={nextTalk.title} />
+				)}
+				{(!!nextTalk && !pullToLoadActive) && (
+					<Nextup
+						onPress={() => this.renderNextTalk()}
+						speakerName={nextTalk.speaker.name}
+						talkStartTime={moment(nextTalk.time.start).format(TIME_FORMAT)}
+						talkTitle={nextTalk.title}
+					/>
+				)}
 
 				{modalIsOpen && (
 					<Speaker
 						avatar={talk.speaker.avatar}
 						github={talk.speaker.github}
 						name={talk.speaker.name}
-						onClose={() => this.toggleSpeaker(false)}
+						onClose={() => this.toggleSpeakerModal(false)}
 						summary={talk.speaker.summary}
 						twitter={talk.speaker.twitter}
 					/>
@@ -134,6 +166,7 @@ class Talk extends Component {
 
 Talk.propTypes = {
 	navigator: PropTypes.object.isRequired,
+	nextTalk: PropTypes.object,
 	talk: PropTypes.object.isRequired,
 };
 
@@ -169,28 +202,9 @@ const styles = StyleSheet.create({
 		lineHeight: theme.fontSize.large,
 	},
 
-	// next talk
-	nextup: {
-		backgroundColor: theme.color.sceneBg,
-	},
-	nextupInner: {
-		alignItems: 'center',
-		borderTopColor: theme.color.gray20,
-		borderTopWidth: 1 / PixelRatio.get(),
-		flexDirection: 'row',
-		paddingHorizontal: theme.fontSize.default,
-		paddingVertical: theme.fontSize.small,
-	},
-	nextupText: {
-		flex: 1,
-	},
-	nextupTitle: {},
-	nextupSubtitle: {
-		color: theme.color.gray60,
-	},
-	nextupIcon: {
-		marginLeft: 10,
+	// make scrollable space for the nextup button
+	nextupPlaceholder: {
+		backgroundColor: 'transparent',
+		height: 80,
 	},
 });
-
-module.exports = Talk;

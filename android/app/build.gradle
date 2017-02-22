@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-linear-gradient')
     compile project(':react-native-maps')
     compile project(':react-native-code-push')
     compile project(':react-native-blur')

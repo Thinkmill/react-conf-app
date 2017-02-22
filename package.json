@@ -13,6 +13,7 @@
 		"react-native": "^0.41.2",
 		"react-native-blur": "^2.0.0",
 		"react-native-code-push": "^1.17.0-beta",
+		"react-native-linear-gradient": "^2.0.0",
 		"react-native-maps": "airbnb/react-native-maps",
 		"react-native-vector-icons": "^4.0.0"
 	},

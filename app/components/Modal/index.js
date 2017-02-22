@@ -13,8 +13,8 @@ function animateToValueWithOptions (val) {
 };
 
 export default class Modal extends Component {
-	constructor () {
-		super();
+	constructor (props) {
+		super(props);
 
 		this.onClose = this.onClose.bind(this);
 

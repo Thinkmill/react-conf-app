@@ -37,6 +37,7 @@
 		C424CF1504084730A257EF22 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5554412C0D9F4B399677E170 /* EvilIcons.ttf */; };
 		C910AA8189B54D5CAD2CB211 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0206E2EDECB4E21A4E7E9AB /* Ionicons.ttf */; };
 		D0777B16FD2544DDB2CA1E15 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62269A092817431C9ED5F091 /* libCodePush.a */; };
+		DBEA3F8E73BE41DF9C9C5F50 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C37AAA9FC117481B98CBDAF0 /* libBVLinearGradient.a */; };
 		DF0E5A137A494ED6AE8902B0 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0695979435D14261A588CBA2 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +238,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		891E86621E5D5C5300BA4472 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6E16CF2EDB045C493ED9D08 /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = BVLinearGradient;
+		};
 		892C35EE1E5A751F00DE1EBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB7A379B50F847559F91E12F /* RNVectorIcons.xcodeproj */;
@@ -284,6 +292,8 @@
 		BD2D53727DB241F19C6FEF01 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C0206E2EDECB4E21A4E7E9AB /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C283237D5C8043D5BA2A4937 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		C37AAA9FC117481B98CBDAF0 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
+		C6E16CF2EDB045C493ED9D08 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		D1AEA01484B248B58A42272E /* RNBlur.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		EFAA4C0194C64BDF8C6766E4 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		FB7A379B50F847559F91E12F /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -311,6 +321,7 @@
 				D0777B16FD2544DDB2CA1E15 /* libCodePush.a in Frameworks */,
 				AB50837BBD9246A0910D6EBB /* libz.tbd in Frameworks */,
 				36594743243B41E0BDE57093 /* libAirMaps.a in Frameworks */,
+				DBEA3F8E73BE41DF9C9C5F50 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +494,7 @@
 				D1AEA01484B248B58A42272E /* RNBlur.xcodeproj */,
 				A99AE876C0C243F6B9F90766 /* CodePush.xcodeproj */,
 				330B330AB6A64AC8A066597A /* AirMaps.xcodeproj */,
+				C6E16CF2EDB045C493ED9D08 /* BVLinearGradient.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -514,6 +526,14 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* ReactConf2017.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		891E865E1E5D5C5300BA4472 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				891E86631E5D5C5300BA4472 /* libBVLinearGradient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -579,7 +599,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 820;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
@@ -602,6 +622,10 @@
 				{
 					ProductGroup = 0A97617C1E5C23C90068870C /* Products */;
 					ProjectRef = 330B330AB6A64AC8A066597A /* AirMaps.xcodeproj */;
+				},
+				{
+					ProductGroup = 891E865E1E5D5C5300BA4472 /* Products */;
+					ProjectRef = C6E16CF2EDB045C493ED9D08 /* BVLinearGradient.xcodeproj */;
 				},
 				{
 					ProductGroup = 0A97617A1E5C23C90068870C /* Products */;
@@ -864,6 +888,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		891E86631E5D5C5300BA4472 /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = 891E86621E5D5C5300BA4472 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		892C35EF1E5A751F00DE1EBE /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -946,6 +977,10 @@
 				DEVELOPMENT_TEAM = VXT6F3A96H;
 				INFOPLIST_FILE = ReactConf2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ReactConf2017\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -965,6 +1000,10 @@
 				DEVELOPMENT_TEAM = VXT6F3A96H;
 				INFOPLIST_FILE = ReactConf2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ReactConf2017\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

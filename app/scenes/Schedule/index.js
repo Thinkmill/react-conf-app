@@ -3,7 +3,7 @@ import { ListView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from '
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
-import talkBlob from '../../data/talks';
+import talks from '../../data/talks';
 import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
@@ -20,15 +20,7 @@ class Schedule extends Component {
 		const rowIDs = [];
 		let sectionIndex = 0;
 
-		Object.keys(props.talks)
-			.sort((a, b) => {
-				const talkStartTime1 = moment(props.talks[a].time.start);
-				const talkStartTime2 = moment(props.talks[b].time.start);
-
-				return talkStartTime1.diff(talkStartTime2);
-			})
-			.map((k, i) => {
-				const talk = props.talks[k];
+		props.talks.forEach((talk, i) => {
 				const sID = moment(talk.time.start).format('dddd')
 
 				// create new section and initialize empty array for section index
@@ -39,8 +31,8 @@ class Schedule extends Component {
 					dataBlob[sID] = sID;
 				}
 
-				rowIDs[rowIDs.length - 1].push(k);
-				dataBlob[sID + ':' + k] = talk;
+				rowIDs[rowIDs.length - 1].push(talk.id);
+				dataBlob[sID + ':' + talk.id] = talk;
 			});
 
 		const ds = new ListView.DataSource({
@@ -72,6 +64,9 @@ class Schedule extends Component {
 			</TouchableOpacity>
 		);
 
+		const mergedRowIds = [].concat.apply([], dataSource.rowIdentities);
+
+
 		return (
 			<Scene>
 				<Navbar
@@ -83,15 +78,15 @@ class Schedule extends Component {
 				<ListView
 					dataSource={dataSource}
 					enableEmptySections
-					renderRow={(talk, idx) => {
+					renderRow={(talk, sectionID, rowID, highlightRow) => {
 						const onPress = () => navigator.push({
 							enableSwipeToPop: true,
 							scene: 'Talk',
 							props: { talk },
 						});
 						let status = 'future';
-						if (idx < 2) status = 'present';
-						if (idx < 1) status = 'past';
+						// if (idx < 2) status = 'present';
+						// if (idx < 1) status = 'past';
 
 						return (
 							<Talk
@@ -115,10 +110,10 @@ class Schedule extends Component {
 
 Schedule.propTypes = {
 	navigator: PropTypes.object.isRequired,
-	talks: PropTypes.object.isRequired,
+	talks: PropTypes.array.isRequired,
 };
 Schedule.defaultProps = {
-	talks: talkBlob,
+	talks: talks,
 };
 
 const styles = StyleSheet.create({

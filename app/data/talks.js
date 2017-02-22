@@ -1,4 +1,6 @@
-export default {
+import moment from 'moment';
+
+const data = {
 	'max-stoiber': {
 		summary: 'What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let\'s talk about what we thought about and why we arrived where we did – 💅 styled-components.',
 		title: 'The Road to Styled Components',
@@ -479,3 +481,32 @@ export default {
 		},
 	},
 };
+
+function sortByStartTime (a, b) {
+	const talkStartTime1 = moment(data[a].time.start);
+	const talkStartTime2 = moment(data[b].time.start);
+
+	return talkStartTime1.diff(talkStartTime2);
+};
+
+const list = Object.keys(data)
+	.sort(sortByStartTime)
+	.map(k => Object.assign(data[k], { id: k }));
+
+export function getNextTalkFromId (ID) {
+	const talkIdx = list.map(t => t.id).indexOf(ID);
+
+	if (talkIdx === -1) {
+		return console.error('No talk found for ID', ID);
+	}
+
+	const nextTalk = list[talkIdx + 1];
+
+	if (!nextTalk) {
+		return console.info('You\'re at the end of the talks!');
+	}
+
+	return nextTalk;
+};
+
+export default list;

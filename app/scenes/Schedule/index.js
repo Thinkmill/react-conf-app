@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ListView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { LayoutAnimation, ListView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -9,11 +9,22 @@ import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 import theme from '../../theme';
 
+import NowButton from './components/NowButton';
 import Talk from './components/Talk';
+
+function elementIsInView ({ viewTop, viewBottom, elementTop, elementBottom }, fullyInView = true) {
+	if (fullyInView) {
+		return ((viewTop < elementTop) && (viewBottom > elementBottom));
+	} else {
+		return ((elementTop <= viewBottom) && (elementBottom >= viewTop));
+	}
+}
 
 class Schedule extends Component {
 	constructor (props) {
 		super(props);
+
+		this.handleScroll = this.handleScroll.bind(this);
 
 		const dataBlob = {};
 		const sectionIDs = [];
@@ -46,15 +57,48 @@ class Schedule extends Component {
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 		};
 	}
+
 	gotoEventInfo () {
 		this.props.navigator.push({
 			scene: 'Info',
 			transitionKey: 'FloatFromBottom',
 		});
 	}
+	handleScroll ({ scrollY, viewHeight }) {
+		const { activeTalk } = this.state;
+
+		const showNowButton = !elementIsInView({
+			viewTop: scrollY,
+			viewBottom: scrollY + viewHeight,
+			elementTop: activeTalk.position,
+			elementBottom: activeTalk.position + activeTalk.height,
+		});
+
+		this.toggleNowButton(showNowButton);
+	}
+	scrolltoActiveTalk () {
+		const { activeTalk } = this.state;
+
+		this.refs.listview.scrollTo({ x: 0, y: activeTalk.position, animated: true });
+
+		// HACK scrollTo doesn't have completion callback
+		// See GitHub issue #11657 https://github.com/facebook/react-native/issues/11657
+
+		const approximateScrollDuration = 360;
+		setTimeout(() => this.setState({ showNowButton: false }), approximateScrollDuration);
+	}
+	toggleNowButton (showNowButton) {
+		LayoutAnimation.easeInEaseOut();
+		this.setState({ showNowButton });
+	}
+	getActiveTalkLayout ({ height, position }) {
+		this.setState({
+			activeTalk: { height, position },
+		});
+	}
 	render () {
-		const { navigator } = this.props;
-		const { dataSource } = this.state;
+		const { navigator, talks } = this.props;
+		const { dataSource, showNowButton } = this.state;
 
 		const renderFooter = () => (
 			<TouchableOpacity onPress={this.gotoEventInfo.bind(this)} activeOpacity={0.75}>
@@ -66,6 +110,9 @@ class Schedule extends Component {
 
 		const mergedRowIds = [].concat.apply([], dataSource.rowIdentities);
 
+		// we need the "active talk" to be rendered to get its scroll position
+		// also, there's so few items it's not a perf concern
+		const initialListSize = talks.length;
 
 		return (
 			<Scene>
@@ -77,8 +124,15 @@ class Schedule extends Component {
 
 				<ListView
 					dataSource={dataSource}
+					ref="listview"
+					initialListSize={initialListSize}
+					onScroll={({ nativeEvent: { contentOffset, layoutMeasurement } }) => this.handleScroll({
+						viewHeight: layoutMeasurement.height,
+						scrollY: contentOffset.y,
+					})}
+					scrollEventThrottle={300}
 					enableEmptySections
-					renderRow={(talk, sectionID, rowID, highlightRow) => {
+					renderRow={(talk, sectionID, rowID) => {
 						const onPress = () => navigator.push({
 							enableSwipeToPop: true,
 							scene: 'Talk',
@@ -86,9 +140,19 @@ class Schedule extends Component {
 						});
 						let status = 'future';
 
+						const pastSpeakers = ['max-stoiber', 'cameron-westland', 'michaela-lehr'];
+
 						// TODO implement time settings
-						if (rowID === 'max-stoiber' || rowID === 'cameron-westland') status = 'past';
-						if (rowID === 'michaela-lehr') status = 'present';
+						if (pastSpeakers.includes(rowID)) status = 'past';
+						if (rowID === 'michael-jackson') status = 'present';
+						// if (rowID === 'guillermo-rauch') status = 'present';
+
+						const onLayout = status === 'present'
+							? ({ nativeEvent: { layout } }) => this.getActiveTalkLayout({
+								height: layout.height,
+								position: layout.y - theme.listheader.height,
+							})
+							: null;
 
 						return (
 							<Talk
@@ -98,6 +162,10 @@ class Schedule extends Component {
 								speakerAvatarUri={talk.speaker.avatar}
 								startTime={moment(talk.time.start).format(TIME_FORMAT)}
 								status={status}
+								ref={(r) => {
+									if (status === 'present') this.activeTalk = r;
+								}}
+								onLayout={onLayout}
 								title={talk.title}
 							/>
 						)
@@ -105,6 +173,10 @@ class Schedule extends Component {
 					renderSectionHeader={sectionData => <ListTitle text={sectionData} />}
 					renderFooter={renderFooter}
 				/>
+
+				{!!showNowButton && (
+					<NowButton onPress={this.scrolltoActiveTalk.bind(this)} />
+				)}
 			</Scene>
 		);
 	}
@@ -124,6 +196,7 @@ const styles = StyleSheet.create({
 		fontSize: theme.fontSize.default,
 		fontWeight: '500',
 		paddingVertical: theme.fontSize.large,
+		marginBottom: 34 * 2,
 		textAlign: 'center',
 	},
 });

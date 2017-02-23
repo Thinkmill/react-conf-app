@@ -1,65 +1,102 @@
 import React, { Component, PropTypes } from 'react';
-import { Image, PixelRatio, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Animated, Easing, Image, PixelRatio, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
+import { darken, fade, lighten } from '../../../../utils/color';
 
-export default function Talk ({
-	endTime,
-	onPress,
-	speakerAvatarUri,
-	speakerName,
-	startTime,
-	status,
-	title,
-}) {
-	const isPast = status === 'past';
-	const isPresent = status === 'present';
-	const touchableProps = {
-		activeOpacity: 1,
-		onPress: onPress,
-		style: [styles.touchable, styles['touchable__' + status]],
-		underlayColor: theme.color.gray05,
-	};
+const animationDefault = (val) => ({
+	toValue: val,
+	duration: 666,
+	easing: Easing.inOut(Easing.quad),
+});
 
-	return (
-		<TouchableHighlight {...touchableProps}>
-			<View style={styles.base}>
-				<View style={[styles.statusbar, styles['statusbar__' + status]]}>
-					{isPresent && (
-						<Icon
-							color={theme.color.green}
-							name="md-arrow-dropright"
-							size={theme.fontSize.large}
-							style={styles.statusbarIcon}
-						/>
-					)}
-				</View>
+export default class Talk extends Component {
+	constructor (props) {
+		super(props);
 
-				<View style={styles.content}>
-					<View style={[styles.text, styles['text__' + status]]}>
-						<Text style={styles.subtitle}>
-							{startTime} &mdash; {speakerName}
-						</Text>
-						<Text style={styles.title}>
-							{title}
-						</Text>
+		this.animValue = new Animated.Value(0);
+	}
+	componentDidMount () {
+		this.cycleAnimation();
+	}
+	cycleAnimation () {
+		Animated.sequence([
+			Animated.timing(this.animValue, animationDefault(1)),
+			Animated.timing(this.animValue, animationDefault(0))
+		]).start(() => this.cycleAnimation())
+	}
+	render () {
+		const {
+			endTime,
+			onPress,
+			speakerAvatarUri,
+			speakerName,
+			startTime,
+			status,
+			title,
+			...props
+		} = this.props;
+
+		const isPast = status === 'past';
+		const isPresent = status === 'present';
+
+		const touchableProps = {
+			activeOpacity: 1,
+			onPress: onPress,
+			style: [styles.touchable, styles['touchable__' + status]],
+			underlayColor: theme.color.gray05,
+		};
+		const animatedStyle = {
+			transform: [{
+				translateX: this.animValue.interpolate({
+					inputRange: [0, 1],
+					outputRange: [0, 4],
+				}),
+			}],
+		};
+
+		return (
+			<TouchableHighlight {...touchableProps} {...props}>
+				<View style={[styles.base, styles['base__' + status]]}>
+					<View style={[styles.statusbar, styles['statusbar__' + status]]}>
+						{isPresent && (
+							<Animated.View style={animatedStyle}>
+								<Icon
+									color={theme.color.green}
+									name="md-arrow-dropright"
+									size={34}
+									style={styles.statusbarIcon}
+								/>
+							</Animated.View>
+						)}
 					</View>
 
-					<View style={styles.right}>
-						<Avatar source={speakerAvatarUri} />
-						<Icon
-							color={theme.color.text}
-							name="ios-arrow-forward"
-							size={20}
-							style={styles.chevron}
-						/>
+					<View style={styles.content}>
+						<View style={[styles.text, styles['text__' + status]]}>
+							<Text style={[styles.subtitle, styles['subtitle__' + status]]}>
+								{startTime} &mdash; {speakerName}
+							</Text>
+							<Text style={[styles.title, styles['title__' + status]]}>
+								{title}
+							</Text>
+						</View>
+
+						<View style={styles.right}>
+							<Avatar source={speakerAvatarUri} />
+							<Icon
+								color={theme.color.text}
+								name="ios-arrow-forward"
+								size={20}
+								style={styles.chevron}
+							/>
+						</View>
 					</View>
 				</View>
-			</View>
-		</TouchableHighlight>
-	);
+			</TouchableHighlight>
+		);
+	}
 };
 
 Talk.propTypes = {
@@ -75,7 +112,7 @@ Talk.defaultProps = {
 	status: 'future',
 };
 
-const statusbarWidth = 6;
+const statusbarWidth = 4;
 const styles = StyleSheet.create({
 	touchable: {
 		backgroundColor: 'white',
@@ -89,6 +126,9 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1 / PixelRatio.get(),
 		flexDirection: 'row',
 	},
+	// base__present: {
+	// 	backgroundColor: fade(theme.color.green, 4),
+	// },
 
 	// status bar [future|present|past]
 	statusbar: {
@@ -97,14 +137,14 @@ const styles = StyleSheet.create({
 	},
 	statusbarIcon: {
 		backgroundColor: 'transparent',
-		height: theme.fontSize.large,
-		left: statusbarWidth,
+		height: 34,
+		left: 0,
 		position: 'absolute',
-		top: theme.fontSize.small,
-		width: theme.fontSize.large,
+		top: 10,
+		width: 34,
 	},
 	statusbar__past: {
-		backgroundColor: theme.color.green,
+		backgroundColor: lighten(theme.color.green, 40),
 	},
 	statusbar__present: {
 		backgroundColor: theme.color.green,
@@ -132,9 +172,15 @@ const styles = StyleSheet.create({
 		fontWeight: '300',
 		marginBottom: theme.fontSize.small,
 	},
+	subtitle__present: {
+		color: theme.color.text,
+	},
 	title: {
 		color: theme.color.text,
 		fontSize: theme.fontSize.default,
+	},
+	title__present: {
+		fontWeight: '500',
 	},
 
 	// right (avatar and chevron)

@@ -13,7 +13,7 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		height: 80,
 		justifyContent: 'center',
-		paddingHorizontal: theme.fontSize.large,
+		paddingHorizontal: theme.fontSize.xlarge,
 	},
 	title: {
 		textAlign: 'center',

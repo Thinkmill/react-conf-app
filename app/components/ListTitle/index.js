@@ -15,8 +15,9 @@ export default function ListTitle ({ text }) {
 			backgroundColor: theme.color.sceneBg,
 			borderBottomColor: theme.color.gray20,
 			borderBottomWidth: 1 / PixelRatio.get(),
-			paddingHorizontal: theme.fontSize.default,
-			paddingTop: theme.fontSize.small,
+			paddingHorizontal: theme.fontSize.default + 6,
+			height: theme.listheader.height,
+			justifyContent: 'flex-end',
 		},
 	};
 

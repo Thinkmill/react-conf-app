@@ -34,6 +34,10 @@ const fontSize = {
 	xlarge:  32,
 };
 
+// ==============================
+// COMPONENT SPECIFIC
+// ==============================
+
 // header
 const header = {
 	backgroundColor: color.sceneBg,
@@ -41,8 +45,14 @@ const header = {
 	textColor: color.text,
 };
 
+// list header
+const listheader = {
+	height: 34,
+};
+
 export default {
 	color,
 	fontSize,
 	header,
+	listheader,
 };

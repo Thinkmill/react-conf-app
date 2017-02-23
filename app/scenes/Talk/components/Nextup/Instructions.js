@@ -11,7 +11,7 @@ const animateToValue = (val) => ({
 	duration: 150,
 });
 
-export default class NextUp extends Component {
+export default class NextupInstructions extends Component {
 	constructor (props) {
 		super(props);
 
@@ -30,13 +30,11 @@ export default class NextUp extends Component {
 		const { talkTitle } = this.props;
 		const { animValue } = this.state;
 
-		console.log('animValue', animValue._value);
-
 		const dynamicStyles = {
 			transform: [{
 				scale: animValue.interpolate({
 					inputRange: [0, 1],
-					outputRange: [1, 1.1],
+					outputRange: [1, 1.2],
 				}),
 			}],
 		};
@@ -60,6 +58,6 @@ export default class NextUp extends Component {
 	}
 };
 
-NextUp.propTypes = {
+NextupInstructions.propTypes = {
 	talkTitle: PropTypes.string.isRequired,
 };

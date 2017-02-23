@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		borderBottomColor: theme.color.gray20,
 		borderBottomWidth: 1 / PixelRatio.get(),
-		paddingHorizontal: theme.fontSize.default,
+		paddingHorizontal: theme.fontSize.large,
 		paddingVertical: theme.fontSize.xlarge,
 	},
 	heroSpeakerName: {
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
 
 	// summary
 	summary: {
-		padding: theme.fontSize.default,
+		padding: theme.fontSize.large,
 	},
 	summaryText: {
 		fontSize: theme.fontSize.default,

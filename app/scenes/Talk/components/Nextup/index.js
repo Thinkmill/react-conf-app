@@ -1,9 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import {
-	Text,
-	TouchableHighlight,
-	View,
-} from 'react-native';
+import React, { PropTypes } from 'react';
+import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 

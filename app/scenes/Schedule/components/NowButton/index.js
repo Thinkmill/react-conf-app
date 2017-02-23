@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated, StyleSheet, TouchableWithoutFeedback, Text, View } from 'react-native';
+import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 

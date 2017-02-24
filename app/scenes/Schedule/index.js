@@ -1,5 +1,15 @@
 import React, { Component, PropTypes } from 'react';
-import { LayoutAnimation, ListView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+	Image,
+	LayoutAnimation,
+	ListView,
+	PixelRatio,
+	ScrollView,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -9,8 +19,9 @@ import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 import theme from '../../theme';
 
+import Break from './components/Break';
 import NowButton from './components/NowButton';
-import Talk from './components/Talk';
+import Talk, { TalkSeparator } from './components/Talk';
 
 function elementIsInView ({ viewTop, viewBottom, elementTop, elementBottom }, fullyInView = true) {
 	if (fullyInView) {
@@ -20,7 +31,7 @@ function elementIsInView ({ viewTop, viewBottom, elementTop, elementBottom }, fu
 	}
 }
 
-class Schedule extends Component {
+export default class Schedule extends Component {
 	constructor (props) {
 		super(props);
 
@@ -67,11 +78,15 @@ class Schedule extends Component {
 	handleScroll ({ scrollY, viewHeight }) {
 		const { activeTalk } = this.state;
 
+
+		// account for row separators
+		const elementTop = activeTalk.position - activeTalk.index;
+
 		const showNowButton = !elementIsInView({
 			viewTop: scrollY,
 			viewBottom: scrollY + viewHeight,
-			elementTop: activeTalk.position,
-			elementBottom: activeTalk.position + activeTalk.height,
+			elementTop: elementTop,
+			elementBottom: elementTop + activeTalk.height,
 		});
 
 		this.toggleNowButton(showNowButton);
@@ -91,9 +106,9 @@ class Schedule extends Component {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ showNowButton });
 	}
-	getActiveTalkLayout ({ height, position }) {
+	getActiveTalkLayout ({ height, index, position }) {
 		this.setState({
-			activeTalk: { height, position },
+			activeTalk: { height, index, position },
 		});
 	}
 	render () {
@@ -118,6 +133,18 @@ class Schedule extends Component {
 			<Scene>
 				<Navbar
 					title="Schedule"
+					titleRenderer={() => (
+						<View style={{
+							alignItems: 'center',
+							flex: 4,
+							justifyContent: 'center',
+						}}>
+							<Image
+								source={require('./images/navbar-logo.png')}
+								style={{ width: 100, height: 100 }}
+							/>
+						</View>
+					)}
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo.bind(this)}
 				/>
@@ -132,24 +159,37 @@ class Schedule extends Component {
 					})}
 					scrollEventThrottle={300}
 					enableEmptySections
+					renderSeparator={(sectionID, rowID) => {
+						const key = sectionID + ':' + rowID;
+						const talk = dataSource._dataBlob[key];
+						const status = getTalkStatus(talk.time.start, talk.time.end);
+
+						return <TalkSeparator key={key} status={status} />;
+					}}
 					renderRow={(talk, sectionID, rowID) => {
+						const status = getTalkStatus(talk.time.start, talk.time.end);
+
+						if (talk.break) {
+							return (
+								<Break
+									endTime={moment(talk.time.end).format(TIME_FORMAT)}
+									startTime={moment(talk.time.start).format(TIME_FORMAT)}
+									status={status}
+								/>
+							);
+						}
+
+						// actual talks
 						const onPress = () => navigator.push({
 							enableSwipeToPop: true,
 							scene: 'Talk',
 							props: { talk },
 						});
-						let status = 'future';
-
-						const pastSpeakers = ['max-stoiber', 'cameron-westland', 'michaela-lehr'];
-
-						// TODO implement time settings
-						if (pastSpeakers.includes(rowID)) status = 'past';
-						if (rowID === 'michael-jackson') status = 'present';
-						// if (rowID === 'guillermo-rauch') status = 'present';
 
 						const onLayout = status === 'present'
 							? ({ nativeEvent: { layout } }) => this.getActiveTalkLayout({
 								height: layout.height,
+								index: this.props.talks.map(t => t.id).indexOf(rowID),
 								position: layout.y - theme.listheader.height,
 							})
 							: null;
@@ -168,9 +208,14 @@ class Schedule extends Component {
 								onLayout={onLayout}
 								title={talk.title}
 							/>
-						)
+						);
 					}}
-					renderSectionHeader={sectionData => <ListTitle text={sectionData} />}
+					renderSectionHeader={(sectionData, sectionID) => (
+						<ListTitle
+							bordered={!!dataSource.sectionIdentities.indexOf(sectionID)}
+							text={sectionData}
+						/>
+					)}
 					renderFooter={renderFooter}
 				/>
 
@@ -201,4 +246,19 @@ const styles = StyleSheet.create({
 	},
 });
 
-module.exports = Schedule;
+// TODO refine this logic
+function getTalkStatus (startTime, endTime) {
+	const now = moment();
+	const end = moment(endTime);
+	const start = moment(startTime);
+
+	const startTimeFromNow = now.diff(start, 'minutes');
+	const endTimeFromNow = now.diff(end, 'minutes');
+	const isPresent = (startTimeFromNow > 0) && (endTimeFromNow < 0);
+
+	let status = startTimeFromNow > 0 ? 'past' : 'future';
+
+	if (isPresent) status = 'present';
+
+	return status;
+};

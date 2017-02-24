@@ -37,19 +37,19 @@ class Info extends Component {
 		super(props);
 
 		this.getDimensions = this.getDimensions.bind(this);
-		this.toggleCodeOfConduct = this.toggleCodeOfConduct.bind(this);
+		this.toggleModal = this.toggleModal.bind(this);
 
 		this.state = {
-			codeOfConductIsOpen: false,
+			modalIsOpen: false,
 		};
 	}
 	getDimensions (event) {
 		let { width } = event.nativeEvent.layout;
 		this.setState({ deviceWidth: width });
 	}
-	toggleCodeOfConduct () {
+	toggleModal () {
 		LayoutAnimation.easeInEaseOut();
-		this.setState({ codeOfConductIsOpen: !this.state.codeOfConductIsOpen });
+		this.setState({ modalIsOpen: !this.state.modalIsOpen });
 	}
 	openMap () {
 		const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
@@ -63,10 +63,10 @@ class Info extends Component {
 	}
 	render () {
 		const { navigator, organisers } = this.props;
-		const { codeOfConductIsOpen, deviceWidth } = this.state;
+		const { modalIsOpen, deviceWidth } = this.state;
 
 		return (
-			<Scene scroll onLayout={this.getDimensions}>
+			<Scene scroll onLayout={this.getDimensions} scrollEnabled={!modalIsOpen}>
 				<MapView initialRegion={mapRegion} style={styles.map}>
 					<MapView.Marker
 						title="React Conf 2017"
@@ -74,17 +74,16 @@ class Info extends Component {
 					/>
 				</MapView>
 
-				<ScrollView style={{ flex: 1 }}>
+				<View style={{ flex: 1 }}>
 					<View style={styles.hero}>
 						<Text style={styles.heroText}>
 							The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
 						</Text>
-						<TouchableOpacity onPress={this.toggleCodeOfConduct} activeOpacity={0.75}>
+						<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
 							<Text style={styles.heroLink}>
 								Code of Conduct
 							</Text>
 						</TouchableOpacity>
-						{!!codeOfConductIsOpen && <CodeOfConduct onClose={this.toggleCodeOfConduct} />}
 					</View>
 
 					<ListTitle text="Organisers" />
@@ -114,7 +113,9 @@ class Info extends Component {
 							We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
 						</Text>
 					</View>
-				</ScrollView>
+				</View>
+
+				{!!modalIsOpen && <CodeOfConduct onClose={this.toggleModal} />}
 			</Scene>
 		);
 	}

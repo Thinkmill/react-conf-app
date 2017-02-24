@@ -16,6 +16,7 @@ const Navbar = ({
 	rightButtonText,
 	textColor,
 	title,
+	titleRenderer,
 	...props
 }) => {
 	return (
@@ -40,9 +41,11 @@ const Navbar = ({
 			)}
 
 			{/* Title */}
-			<View style={styles.title}>
-				<Text style={[styles.titleText, { color: textColor }]}>{title}</Text>
-			</View>
+			{titleRenderer ? titleRenderer() : (
+				<View style={styles.title}>
+					<Text style={[styles.titleText, { color: textColor }]}>{title}</Text>
+				</View>
+			)}
 
 			{/* Right Button */}
 			{rightButtonOnPress ? (
@@ -78,6 +81,7 @@ Navbar.propTypes = {
 	rightButtonText: PropTypes.string,
 	textColor: PropTypes.string,
 	title: PropTypes.string,
+	titleRenderer: PropTypes.func,
 };
 
 Navbar.defaultProps = {
@@ -93,6 +97,7 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1 / PixelRatio.get(),
 		flexDirection: 'row',
 		height: 64,
+		overflow: 'hidden',
 		justifyContent: 'space-between',
 		paddingTop: 20, // account for the statusbar
 	},

@@ -12,6 +12,12 @@ function animateToValueWithOptions (val) {
 	};
 };
 
+const MODAL_ALIGNMENT = {
+	bottom: 'flex-end',
+	top: 'flex-start',
+	center: 'center',
+};
+
 export default class Modal extends Component {
 	constructor (props) {
 		super(props);
@@ -42,21 +48,27 @@ export default class Modal extends Component {
 	}
 	render () {
 		const {
-			alignment,
+			align,
 			blurAmount,
 			blurType,
+			style,
 		} = this.props;
+
 		const blockoutDynamicStyles = {
-			justifyContent: alignment === 'top' ? 'flex-start' : 'center',
+			justifyContent: MODAL_ALIGNMENT[align],
 			opacity: this.state.animValue,
 		};
 		const dialogDynamicStyles = {
 			transform: [{
 				scale: this.state.animValue.interpolate({
 					inputRange: [0, 1],
-					outputRange: [0.9, 1],
-				}),
-			}],
+					outputRange: [0.93, 1],
+				})}, {
+				translateY: this.state.animValue.interpolate({
+					inputRange: [0, 1],
+					outputRange: [100, 1],
+				})}
+			],
 		};
 
 		return (
@@ -65,8 +77,8 @@ export default class Modal extends Component {
 					<BlurView blurAmount={blurAmount} blurType={blurType} style={styles.blur}>
 						<TouchableOpacity onPress={this.onClose} style={styles.touchable} />
 					</BlurView>
-					<Animated.View style={dialogDynamicStyles}>
-						{this.renderChildren()}
+					<Animated.View style={[style, dialogDynamicStyles]}>
+						{this.props.children}
 					</Animated.View>
 				</Animated.View>
 			</RNModal>
@@ -75,14 +87,13 @@ export default class Modal extends Component {
 };
 
 Modal.propTypes = {
-	alignment: PropTypes.oneOf(['center', 'top']),
+	align: PropTypes.oneOf(['bottom', 'center', 'top']),
 	blurAmount: PropTypes.number,
 	blurType: PropTypes.oneOf(['dark', 'light', 'xlight']),
-	children: PropTypes.element.isRequired,
 	onClose: PropTypes.func.isRequired,
 };
 Modal.defaultProps = {
-	alignment: 'center',
+	align: 'center',
 	blurAmount: 12,
 	blurType: 'dark',
 };

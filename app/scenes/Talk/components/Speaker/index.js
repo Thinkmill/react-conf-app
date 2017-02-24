@@ -1,5 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import { PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import {
+	PixelRatio,
+	ScrollView,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Avatar from '../../../../components/Avatar';
@@ -42,7 +50,7 @@ Button.propTypes = {
 };
 
 export default class Speaker extends Component {
-	handleRelease () {
+	handleClose () {
 		this.refs.modal.onClose();
 	}
 	render () {
@@ -58,11 +66,22 @@ export default class Speaker extends Component {
 
 		return (
 			<Modal onClose={onClose} ref="modal">
-				<DraggableView style={styles.wrapper} onRelease={this.handleRelease.bind(this)}>
+				<DraggableView style={styles.wrapper} allowX={false} onRelease={this.handleClose.bind(this)}>
 					<View style={styles.main}>
 						<Avatar source={avatar} size={75} />
 						<Text style={styles.mainTitle}>{name}</Text>
 						<Text style={styles.mainText}>{summary}</Text>
+						<TouchableOpacity onPress={this.handleClose.bind(this)} activeOpacity={0.5} style={{
+							position: 'absolute',
+							top: 0,
+							right: 0,
+							height: 44,
+							width: 44,
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}>
+							<Icon color={theme.color.gray40} name="md-close" size={24} />
+						</TouchableOpacity>
 					</View>
 					{showButtons && (
 						<View style={styles.buttons}>
@@ -101,17 +120,13 @@ Speaker.defaultProps = {
 	onPress: () => {},
 };
 
-const BORDER_RADIUS = 6;
-
 const styles = StyleSheet.create({
 	wrapper: {
 		backgroundColor: 'white',
-		borderRadius: BORDER_RADIUS,
-		marginHorizontal: theme.fontSize.default,
 		shadowColor: 'black',
-		shadowOffset: { height: 1, width: 1 },
-		shadowOpacity: 0.5,
-		shadowRadius: 12,
+		shadowOffset: { height: 1, width: 0 },
+		shadowOpacity: 0.25,
+		shadowRadius: 5,
 	},
 
 	// main
@@ -135,8 +150,6 @@ const styles = StyleSheet.create({
 
 	// buttons
 	buttons: {
-		borderBottomLeftRadius: BORDER_RADIUS,
-		borderBottomRightRadius: BORDER_RADIUS,
 		overflow: 'hidden',
 		flexDirection: 'row',
 	},

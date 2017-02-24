@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Animated, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '../../../../theme';
@@ -22,12 +21,13 @@ export default class NowButton extends Component {
 	render () {
 		const { onPress } = this.props;
 		const { animValue } = this.state;
-		const { green } = theme.color;
+		const { blue } = theme.color;
 
-		const gradientColors = [lighten(green, 6), darken(green, 6)];
+		const gradientColors = [lighten(blue, 6), darken(blue, 6)];
+		const iconSize = 32;
 		const touchableProps = {
 			hitSlop: {
-				bottom: theme.fontSize.large,
+				bottom: 20,
 				left: 10,
 				right: 10,
 				top: 10,
@@ -46,15 +46,10 @@ export default class NowButton extends Component {
 		};
 
 		return (
-			<Animated.View style={[styles.layout, dynamicStyles]}>
+			<Animated.View style={[styles.layout, dynamicStyles]} pointerEvents="box-none">
 				<TouchableWithoutFeedback {...touchableProps}>
 					<LinearGradient colors={gradientColors} style={styles.button}>
-						<Icon
-							color="white"
-							name="ios-timer"
-							size={32}
-							style={{ backgroundColor: 'transparent', height: 32 }}
-						/>
+						<Text style={styles.text}>NOW</Text>
 					</LinearGradient>
 				</TouchableWithoutFeedback>
 			</Animated.View>
@@ -67,12 +62,12 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		bottom: 0,
 		left: 0,
-		paddingBottom: theme.fontSize.large,
+		paddingBottom: 20,
 		position: 'absolute',
 		right: 0,
 	},
 	button: {
-		backgroundColor: theme.color.green,
+		backgroundColor: theme.color.blue,
 		borderRadius: 40,
 		height: 40,
 		justifyContent: 'center',
@@ -83,6 +78,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 2,
 	},
 	text: {
+		backgroundColor: 'transparent',
 		color: 'white',
 		fontWeight: 'bold',
 	},

@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Animated, PanResponder } from 'react-native';
-import clamp from 'clamp';
 
-const SWIPE_THRESHOLD = 100;
+const SWIPE_THRESHOLD = 80;
 
 export default class DraggableView extends Component {
 	constructor(props) {
@@ -15,23 +14,16 @@ export default class DraggableView extends Component {
 		this.state.panResponder = PanResponder.create({
 			onStartShouldSetPanResponder: () => true,
 			onPanResponderMove: Animated.event([null, {
-				dx: this.state.pan.x, // x,y are Animated.Value
-				dy: this.state.pan.y,
+				dx: props.allowX ? this.state.pan.x : 0, // x,y are Animated.Value
+				dy: props.allowY ? this.state.pan.y : 0,
 			}]),
 			onPanResponderRelease: (e, {vx, vy}) => {
 				this.state.pan.flattenOffset();
-				var velocity;
-
-				if (vx >= 0) {
-					velocity = clamp(vx, 3, 5);
-				} else if (vx < 0) {
-					velocity = clamp(vx * -1, 3, 5) * -1;
-				}
 
 				if (Math.abs(this.state.pan.y._value) > SWIPE_THRESHOLD) {
 					this.props.onRelease();
 					Animated.decay(this.state.pan, {
-						velocity: { x: velocity, y: vy },
+						velocity: { x: vx, y: vy },
 						deceleration: 0.98
 					}).start();
 				} else {
@@ -56,8 +48,12 @@ export default class DraggableView extends Component {
 };
 
 DraggableView.propTypes = {
+	allowX: PropTypes.bool,
+	allowY: PropTypes.bool,
 	onRelease: PropTypes.func,
 };
 DraggableView.defaultProps = {
+	allowX: true,
+	allowY: true,
 	style: {},
 };

@@ -3,7 +3,7 @@ import { PixelRatio, Text, View } from 'react-native';
 
 import theme from '../../theme';
 
-export default function ListTitle ({ text }) {
+export default function ListTitle ({ bordered, text }) {
 	const styles = {
 		text: {
 			color: theme.color.text,
@@ -19,15 +19,20 @@ export default function ListTitle ({ text }) {
 			height: theme.listheader.height,
 			justifyContent: 'flex-end',
 		},
+		view__bordered: {
+			borderTopColor: theme.color.gray20,
+			borderTopWidth: 1 / PixelRatio.get(),
+		},
 	};
 
 	return (
-		<View style={styles.view}>
+		<View style={[styles.view, bordered && styles.view__bordered]}>
 			<Text style={styles.text}>{text.toUpperCase()}</Text>
 		</View>
 	);
 };
 
 ListTitle.propTypes = {
+	bordered: PropTypes.bool,
 	text: PropTypes.string.isRequired,
 };

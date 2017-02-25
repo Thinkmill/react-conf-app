@@ -49,11 +49,9 @@ export default class Talk extends Component {
 			: 0;
 		const scrollThreshold = 90; // distance before we load the next talk
 
-		if (scrollY > (heightOffset + scrollThreshold)) {
-			this.setState({ pullToLoadActive: true });
-		} else {
-			this.setState({ pullToLoadActive: false });
-		}
+		this.setState({
+			pullToLoadActive: scrollY > (heightOffset + scrollThreshold),
+		});
 	}
 	handleScrollEndDrag () {
 		if (this.state.pullToLoadActive) {

@@ -17,7 +17,7 @@ export default class CodeOfConduct extends Component {
 		const { onClose } = this.props;
 
 		return (
-			<Modal onClose={onClose} ref="modal" align="bottom" style={{ margin: 40 }}>
+			<Modal onClose={onClose} ref="modal" align="bottom" style={{ margin: 30 }}>
 				<View style={styles.wrapper}>
 					<ScrollView contentContainerStyle={styles.content}>
 						<View>

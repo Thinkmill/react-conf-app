@@ -507,7 +507,9 @@ export function getNextTalkFromId (ID) {
 		return console.error('No talk found for ID', ID);
 	}
 
-	const nextTalk = list[talkIdx + 1];
+	// skip over breaks
+	let nextTalk = list[talkIdx + 1];
+	if (nextTalk.break) nextTalk = list[talkIdx + 2];
 
 	if (!nextTalk) {
 		return console.info('You\'re at the end of the talks!');

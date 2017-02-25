@@ -64,6 +64,9 @@ export default class Speaker extends Component {
 		} = this.props;
 		const showButtons = !!(github || twitter);
 
+		// @jossmac Re: DraggableView - onRelease()
+		// This is a bit janky but I like the Modal reuse, amenable to refactor
+
 		return (
 			<Modal onClose={onClose} ref="modal">
 				<DraggableView style={styles.wrapper} allowX={false} onRelease={this.handleClose.bind(this)}>

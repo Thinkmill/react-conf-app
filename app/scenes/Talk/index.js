@@ -3,7 +3,6 @@ import {
 	ActionSheetIOS,
 	Animated,
 	Dimensions,
-	LayoutAnimation,
 	PixelRatio,
 	ScrollView,
 	StatusBar,
@@ -23,6 +22,7 @@ import theme from '../../theme';
 import { bindMethods } from '../../utils';
 import { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 
+import Hint from './components/Hint';
 import Preview from './components/Preview';
 import PreviewInstructions from './components/Preview/Instructions';
 import Speaker from './components/Speaker';
@@ -38,17 +38,20 @@ export default class Talk extends Component {
 			'toggleSpeakerModal',
 		]);
 
+		this.sceneHeight = Dimensions.get('window').height;
+		this.sceneWidth = Dimensions.get('window').width;
+
 		this.state = {
-			animValue: 0,
-			avatarSize: 44,
 			modalIsOpen: false,
 			nextTalk: props.nextTalk,
 			prevTalk: props.prevTalk,
+			showIntro: props.introduceUI,
 			talk: props.talk,
 		};
 	}
+
 	handleLayout ({ height }) {
-		const availableHeight = Dimensions.get('window').height - (height);
+		const availableHeight = this.sceneHeight - (height);
 
 		this.summary.measure((left, top, width, height) => {
 			if (availableHeight > height) {
@@ -64,7 +67,6 @@ export default class Talk extends Component {
 		const heightOffset = contentHeight > viewHeight
 			? contentHeight - viewHeight
 			: 0;
-		const scrollThreshold = heightOffset + theme.nextup.height; // distance before we load the next talk
 
 		if (scrollY > 0 && this.nextTalk) {
 			const opacity = Math.min((scrollY - heightOffset) / 100, 1);
@@ -76,8 +78,8 @@ export default class Talk extends Component {
 			this.prevTalk.setNativeProps({ style: { opacity } });
 		}
 		this.setState({
-			nextIsActive: scrollY > scrollThreshold,
-			prevIsActive: scrollY < -theme.nextup.height,
+			nextIsActive: scrollY > (heightOffset + 100),
+			prevIsActive: scrollY < -100,
 		});
 	}
 	handleScrollEndDrag () {
@@ -151,6 +153,7 @@ export default class Talk extends Component {
 			nextTalk,
 			prevIsActive,
 			prevTalk,
+			showIntro,
 			talk,
 		} = this.state;
 
@@ -162,10 +165,6 @@ export default class Talk extends Component {
 
 		return (
 			<Scene>
-				<View
-					ref={r => (this.heroPlaceholder = r)}
-					style={styles.heroPlaceholder}
-				/>
 				<Navbar
 					title={headerTitle}
 					leftButtonIconName="ios-arrow-back"
@@ -234,6 +233,11 @@ export default class Talk extends Component {
 					)}
 				</ScrollView>
 
+				{showIntro && (
+					<Hint
+						onClose={() => this.setState({ showIntro: false })}
+					/>
+				)}
 
 				{modalIsOpen && (
 					<Speaker
@@ -284,12 +288,6 @@ const styles = StyleSheet.create({
 		marginTop: -(1 / PixelRatio.get()),
 		paddingHorizontal: theme.fontSize.large,
 		paddingBottom: theme.fontSize.xlarge,
-	},
-	heroPlaceholder: {
-		backgroundColor: 'white',
-		position: 'absolute',
-		top: theme.navbar.height,
-		width: Dimensions.get('window').width,
 	},
 	heroSpeaker: {
 		alignItems: 'center',

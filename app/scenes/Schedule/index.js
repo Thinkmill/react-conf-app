@@ -189,6 +189,7 @@ export default class Schedule extends Component {
 							enableSwipeToPop: true,
 							scene: 'Talk',
 							props: {
+								introduceUI: true,
 								nextTalk: getNextTalkFromId(talk.id),
 								prevTalk: getPrevTalkFromId(talk.id),
 								talk,

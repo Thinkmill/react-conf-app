@@ -96,7 +96,7 @@ export default class Talk extends Component {
 			: null;
 		const prevTalk = this.state.talk;
 
-		this.setTalks({ nextTalk, prevTalk, talk });
+		this.setTalks({ nextTalk, prevTalk, talk }, true);
 	}
 	renderPrevTalk () {
 		if (!this.state.prevTalk) return;
@@ -109,16 +109,17 @@ export default class Talk extends Component {
 
 		this.setTalks({ nextTalk, prevTalk, talk });
 	}
-	setTalks ({ nextTalk, prevTalk, talk }) {
+	setTalks ({ nextTalk, prevTalk, talk }, isNextTalk) {
 
 		this.setState({ nextTalk, prevTalk, talk }, () => {
-			requestAnimationFrame(() => this.refs.scrollview.scrollTo({
-				x: 0,
-				y: 0,
-				animated: true,
-			}));
-
-			// LayoutAnimation.easeInEaseOut();
+			if (isNextTalk) {
+				requestAnimationFrame(() => {
+					this.scrollview.scrollTo({
+						y: 0,
+						animated: true,
+					});
+				});
+			}
 		});
 	}
 	share () {
@@ -173,7 +174,7 @@ export default class Talk extends Component {
 					rightButtonOnPress={this.share}
 				/>
 
-				<ScrollView style={{ flex: 1 }} scrollEventThrottle={30} onScroll={this.handleScroll} onScrollEndDrag={this.handleScrollEndDrag} ref="scrollview">
+				<ScrollView style={{ flex: 1 }} scrollEventThrottle={30} onScroll={this.handleScroll} onScrollEndDrag={this.handleScrollEndDrag} ref={r => (this.scrollview = r)}>
 					{prevTalk && (
 						<View ref={r => (this.prevTalk = r)} style={{ opacity: 0 }}>
 							{prevIsActive ? (

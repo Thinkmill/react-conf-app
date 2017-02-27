@@ -2,8 +2,6 @@ import React, { cloneElement, Component, PropTypes } from 'react';
 import { Animated, Dimensions, Modal as RNModal, StyleSheet, TouchableOpacity } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
-import theme from '../../theme';
-
 function animateToValueWithOptions (val) {
 	return {
 		toValue: val,
@@ -63,11 +61,11 @@ export default class Modal extends Component {
 				scale: this.state.animValue.interpolate({
 					inputRange: [0, 1],
 					outputRange: [0.93, 1],
-				})}, {
-				translateY: this.state.animValue.interpolate({
-					inputRange: [0, 1],
-					outputRange: [100, 1],
-				})}
+				}) }, {
+					translateY: this.state.animValue.interpolate({
+						inputRange: [0, 1],
+						outputRange: [100, 1],
+					}) },
 			],
 		};
 

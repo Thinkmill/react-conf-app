@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Image, ScrollView, View } from 'react-native';
-
-import theme from '../../theme';
+import { ScrollView, View } from 'react-native';
 
 export default function Scene ({ scroll, style, ...props }) {
 	const styles = [{ flex: 1 }, style];

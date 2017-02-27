@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
 	PixelRatio,
-	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableHighlight,
@@ -50,6 +49,11 @@ Button.propTypes = {
 };
 
 export default class Speaker extends Component {
+	constructor (props) {
+		super(props);
+
+		this.handleClose = this.handleClose.bind(this);
+	}
 	handleClose () {
 		this.refs.modal.onClose();
 	}
@@ -69,12 +73,12 @@ export default class Speaker extends Component {
 
 		return (
 			<Modal onClose={onClose} ref="modal">
-				<DraggableView style={styles.wrapper} allowX={false} onRelease={this.handleClose.bind(this)}>
+				<DraggableView style={styles.wrapper} allowX={false} onRelease={this.handleClose}>
 					<View style={styles.main}>
 						<Avatar source={avatar} size={75} />
 						<Text style={styles.mainTitle}>{name}</Text>
 						<Text style={styles.mainText}>{summary}</Text>
-						<TouchableOpacity onPress={this.handleClose.bind(this)} activeOpacity={0.5} style={{
+						<TouchableOpacity onPress={this.handleClose} activeOpacity={0.5} style={{
 							position: 'absolute',
 							top: 0,
 							right: 0,

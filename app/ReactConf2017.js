@@ -37,7 +37,7 @@ class ReactConf2017 extends Component {
 
 		const configureScene = (route) => {
 			if (route.transitionKey && !TRANSITION_KEYS.includes(route.transitionKey)) {
-				console.warn('Warning: Invalid transition key `' + route.transitionKey + '` supplied to `Navigator`. Valid keys: [\n' + TRANSITION_KEYS.join('\n') + '\n]')
+				console.warn('Warning: Invalid transition key `' + route.transitionKey + '` supplied to `Navigator`. Valid keys: [\n' + TRANSITION_KEYS.join('\n') + '\n]');
 				return Navigator.SceneConfigs.PushFromRight;
 			}
 
@@ -46,7 +46,7 @@ class ReactConf2017 extends Component {
 				: {
 					...Navigator.SceneConfigs.PushFromRight,
 					gestures: route.enableSwipeToPop ? {
-						pop: Navigator.SceneConfigs.PushFromRight.gestures.pop
+						pop: Navigator.SceneConfigs.PushFromRight.gestures.pop,
 					} : null,
 				};
 		};

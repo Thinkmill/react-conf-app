@@ -3,17 +3,13 @@ import {
 	Image,
 	LayoutAnimation,
 	PixelRatio,
-	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
 	View,
 } from 'react-native';
 import MapView from 'react-native-maps';
-import moment from 'moment';
 
-import { TIME_FORMAT } from '../../constants';
-import Avatar from '../../components/Avatar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 
@@ -32,20 +28,15 @@ const mapRegion = {
 	longitudeDelta: 0.01,
 };
 
-class Info extends Component {
+export default class Info extends Component {
 	constructor (props) {
 		super(props);
 
-		this.getDimensions = this.getDimensions.bind(this);
 		this.toggleModal = this.toggleModal.bind(this);
 
 		this.state = {
 			modalIsOpen: false,
 		};
-	}
-	getDimensions (event) {
-		let { width } = event.nativeEvent.layout;
-		this.setState({ deviceWidth: width });
 	}
 	toggleModal () {
 		LayoutAnimation.easeInEaseOut();
@@ -62,15 +53,15 @@ class Info extends Component {
 		attemptToOpenUrl(url);
 	}
 	render () {
-		const { navigator, organisers } = this.props;
-		const { modalIsOpen, deviceWidth } = this.state;
+		const { organisers } = this.props;
+		const { modalIsOpen } = this.state;
 
 		return (
-			<Scene scroll onLayout={this.getDimensions} scrollEnabled={!modalIsOpen}>
+			<Scene scroll scrollEnabled={!modalIsOpen}>
 				<MapView initialRegion={mapRegion} style={styles.map}>
 					<MapView.Marker
-						title="React Conf 2017"
 						coordinate={mapRegion}
+						title="React Conf 2017"
 					/>
 				</MapView>
 
@@ -94,7 +85,7 @@ class Info extends Component {
 							<Organiser
 								avatar={organiser.avatar}
 								key={idx}
-								onPress={() => {}}
+								onPress={onPress}
 								name={organiser.name}
 								summary={organiser.summary}
 							/>
@@ -179,5 +170,3 @@ const styles = StyleSheet.create({
 		fontWeight: '500',
 	},
 });
-
-module.exports = Info;

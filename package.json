@@ -4,6 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node_modules/react-native/packager/packager.sh",
+    "lint-fix": "npm run lint -- --fix",
+    "lint": "eslint app/**",
 		"test": "jest"
 	},
 	"dependencies": {

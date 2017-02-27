@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
-	PixelRatio,
 	ScrollView,
 	StyleSheet,
 	Text,

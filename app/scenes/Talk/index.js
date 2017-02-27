@@ -18,6 +18,7 @@ import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
 import theme from '../../theme';
+import { bindMethods } from '../../utils';
 import { getNextTalkFromId } from '../../data/talks';
 
 import Nextup from './components/Nextup';
@@ -28,7 +29,12 @@ export default class Talk extends Component {
 	constructor (props) {
 		super(props);
 
-		this.toggleSpeakerModal = this.toggleSpeakerModal.bind(this);
+		bindMethods.call(this, [
+			'handleScroll',
+			'handleScrollEndDrag',
+			'share',
+			'toggleSpeakerModal',
+		]);
 
 		this.state = {
 			modalIsOpen: false,
@@ -112,10 +118,10 @@ export default class Talk extends Component {
 					leftButtonIconName="ios-arrow-back"
 					leftButtonOnPress={navigator.popToTop}
 					rightButtonText="Share"
-					rightButtonOnPress={this.share.bind(this)}
+					rightButtonOnPress={this.share}
 				/>
 
-				<ScrollView style={{ flex: 1 }} scrollEventThrottle={300} onScroll={this.handleScroll.bind(this)} onScrollEndDrag={this.handleScrollEndDrag.bind(this)} ref="scrollview">
+				<ScrollView style={{ flex: 1 }} scrollEventThrottle={300} onScroll={this.handleScroll} onScrollEndDrag={this.handleScrollEndDrag} ref="scrollview">
 					<TouchableHighlight onPress={() => this.toggleSpeakerModal(true)} underlayColor="rgba(0,0,0,0.04)" activeOpacity={1}>
 						<View style={styles.hero}>
 							<Avatar source={talk.speaker.avatar} />

@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Dimensions, PixelRatio, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '../../../../theme';
-import { lighten } from '../../../../utils/color';
 import { TalkStatusBar } from '../Talk';
 
 const gradientSteps = 14;
@@ -56,7 +55,7 @@ function generateGradientLocations (steps) {
 	return locations;
 };
 function generateGradientColors (steps) {
-	const { sceneBg, gray10} = theme.color;
+	const { gray10 } = theme.color;
 	let colors = [];
 
 	for (let i = 0; i < steps; i++) {

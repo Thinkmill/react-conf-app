@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../theme';
 
-const Navbar = ({
+export default function Navbar ({
 	backgroundColor,
 	leftButtonDisabled,
 	leftButtonIconName,
@@ -17,8 +17,7 @@ const Navbar = ({
 	textColor,
 	title,
 	titleRenderer,
-	...props
-}) => {
+}) {
 	return (
 		<View style={[styles.container, { backgroundColor: backgroundColor }]}>
 			{/* Left Button */}
@@ -83,7 +82,6 @@ Navbar.propTypes = {
 	title: PropTypes.string,
 	titleRenderer: PropTypes.func,
 };
-
 Navbar.defaultProps = {
 	backgroundColor: theme.header.backgroundColor,
 	buttonColor: theme.header.button,
@@ -129,5 +127,3 @@ const styles = StyleSheet.create({
 		fontWeight: '500',
 	},
 });
-
-export default Navbar;

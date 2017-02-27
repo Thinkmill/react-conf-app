@@ -1,10 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated, Easing, Image, PixelRatio, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import {
+	Animated,
+	Easing,
+	PixelRatio,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
-import { darken, fade, lighten } from '../../../../utils/color';
+import { lighten } from '../../../../utils/color';
 
 // ==============================
 // TALK SEPARATOR
@@ -67,12 +75,11 @@ export default class Talk extends Component {
 	cycleAnimation () {
 		Animated.sequence([
 			Animated.timing(this.animValue, animationDefault(1)),
-			Animated.timing(this.animValue, animationDefault(0))
-		]).start(() => this.cycleAnimation())
+			Animated.timing(this.animValue, animationDefault(0)),
+		]).start(() => this.cycleAnimation());
 	}
 	render () {
 		const {
-			endTime,
 			onPress,
 			speakerAvatarUri,
 			speakerName,
@@ -82,11 +89,10 @@ export default class Talk extends Component {
 			...props
 		} = this.props;
 
-		const isPast = status === 'past';
 		const isPresent = status === 'present';
 
 		const touchableProps = {
-			// activeOpacity: 1,
+			activeOpacity: 1,
 			onPress: onPress,
 			style: styles.touchable,
 			underlayColor: theme.color.gray05,
@@ -143,7 +149,6 @@ export default class Talk extends Component {
 };
 
 Talk.propTypes = {
-	endTime: PropTypes.string,
 	onPress: PropTypes.func.isRequired,
 	speakerAvatarUri: PropTypes.string,
 	speakerName: PropTypes.string,

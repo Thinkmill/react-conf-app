@@ -24,7 +24,6 @@ export default class NowButton extends Component {
 		const { blue } = theme.color;
 
 		const gradientColors = [lighten(blue, 6), darken(blue, 6)];
-		const iconSize = 32;
 		const touchableProps = {
 			hitSlop: {
 				bottom: 20,
@@ -55,6 +54,10 @@ export default class NowButton extends Component {
 			</Animated.View>
 		);
 	}
+};
+
+NowButton.propTypes = {
+	onPress: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

@@ -3,8 +3,6 @@ import {
 	Image,
 	LayoutAnimation,
 	ListView,
-	PixelRatio,
-	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -17,7 +15,9 @@ import talks from '../../data/talks';
 import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
+
 import theme from '../../theme';
+import { bindMethods } from '../../utils';
 
 import Break from './components/Break';
 import NowButton from './components/NowButton';
@@ -35,28 +35,32 @@ export default class Schedule extends Component {
 	constructor (props) {
 		super(props);
 
-		this.getActiveTalkLayout = this.getActiveTalkLayout.bind(this);
-		this.handleScroll = this.handleScroll.bind(this);
+		bindMethods.call(this, [
+			'getActiveTalkLayout',
+			'gotoEventInfo',
+			'handleScroll',
+			'scrolltoActiveTalk',
+		]);
 
 		const dataBlob = {};
 		const sectionIDs = [];
 		const rowIDs = [];
 		let sectionIndex = 0;
 
-		props.talks.forEach((talk, i) => {
-				const sID = moment(talk.time.start).format('dddd')
+		props.talks.forEach((talk) => {
+			const sID = moment(talk.time.start).format('dddd');
 
 				// create new section and initialize empty array for section index
-				if (!dataBlob[sID]) {
-					sectionIDs.push(sID);
-					rowIDs[sectionIndex] = [];
-					sectionIndex++
-					dataBlob[sID] = sID;
-				}
+			if (!dataBlob[sID]) {
+				sectionIDs.push(sID);
+				rowIDs[sectionIndex] = [];
+				sectionIndex++;
+				dataBlob[sID] = sID;
+			}
 
-				rowIDs[rowIDs.length - 1].push(talk.id);
-				dataBlob[sID + ':' + talk.id] = talk;
-			});
+			rowIDs[rowIDs.length - 1].push(talk.id);
+			dataBlob[sID + ':' + talk.id] = talk;
+		});
 
 		const ds = new ListView.DataSource({
 			getSectionData: (dataBlob, sectionID) => dataBlob[sectionID],
@@ -119,14 +123,12 @@ export default class Schedule extends Component {
 		const { dataSource, showNowButton } = this.state;
 
 		const renderFooter = () => (
-			<TouchableOpacity onPress={this.gotoEventInfo.bind(this)} activeOpacity={0.75}>
+			<TouchableOpacity onPress={this.gotoEventInfo} activeOpacity={0.75}>
 				<Text style={styles.link}>
 					Event Info
 				</Text>
 			</TouchableOpacity>
 		);
-
-		const mergedRowIds = [].concat.apply([], dataSource.rowIdentities);
 
 		// we need the "active talk" to be rendered to get its scroll position
 		// also, there's so few items it's not a perf concern
@@ -149,7 +151,7 @@ export default class Schedule extends Component {
 						</View>
 					)}
 					rightButtonText="Event Info"
-					rightButtonOnPress={this.gotoEventInfo.bind(this)}
+					rightButtonOnPress={this.gotoEventInfo}
 				/>
 
 				<ListView
@@ -169,7 +171,7 @@ export default class Schedule extends Component {
 
 						return <TalkSeparator key={key} status={status} />;
 					}}
-					renderRow={(talk, sectionID, rowID) => {
+					renderRow={(talk) => {
 						const status = getTalkStatus(talk.time.start, talk.time.end);
 
 						if (talk.break) {
@@ -198,7 +200,6 @@ export default class Schedule extends Component {
 
 						return (
 							<Talk
-								endTime={talk.time.end.toString()}
 								onPress={onPress}
 								speakerName={talk.speaker.name}
 								speakerAvatarUri={talk.speaker.avatar}
@@ -219,7 +220,7 @@ export default class Schedule extends Component {
 				/>
 
 				{!!showNowButton && (
-					<NowButton onPress={this.scrolltoActiveTalk.bind(this)} />
+					<NowButton onPress={this.scrolltoActiveTalk} />
 				)}
 			</Scene>
 		);

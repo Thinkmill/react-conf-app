@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated, Text, View } from 'react-native';
+import { Animated, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
@@ -20,7 +20,7 @@ export default class NextupInstructions extends Component {
 		};
 	}
 	componentDidMount () {
-		const { animValue } = this.state
+		const { animValue } = this.state;
 
 		Animated.timing(animValue, animateToValue(1)).start(() => {
 			Animated.timing(animValue, animateToValue(0)).start();

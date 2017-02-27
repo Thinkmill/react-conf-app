@@ -1,6 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import { Image, PixelRatio, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, { PropTypes } from 'react';
+import {
+	PixelRatio,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	View,
+} from 'react-native';
 
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
@@ -11,8 +16,15 @@ export default function Organiser ({
 	onPress,
 	summary,
 }) {
+	const touchableProps = {
+		activeOpacity: 1,
+		onPress: onPress,
+		style: styles.touchable,
+		underlayColor: theme.color.gray05,
+	};
+
 	return (
-		<TouchableHighlight onPress={onPress} underlayColor={theme.color.gray05} activeOpacity={1} style={styles.touchable}>
+		<TouchableHighlight {...touchableProps}>
 			<View style={styles.base}>
 				<Avatar source={avatar} />
 				<View style={styles.text}>
@@ -30,9 +42,6 @@ Organiser.propTypes = {
 	onPress: PropTypes.func.isRequired,
 	summary: PropTypes.string.isRequired,
 };
-Organiser.defaultProps = {
-	onPress: () => {},
-};
 
 const styles = StyleSheet.create({
 	touchable: {
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
 		padding: theme.fontSize.default,
 	},
 
-	// content\
+	// content
 	text: {
 		flexGrow: 1,
 		flexShrink: 1,

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Animated, Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -21,7 +21,7 @@ export default function NextUp ({
 
 	return (
 		<TouchableHighlight {...touchableProps} {...props}>
-			<LinearGradient colors={['rgba(244,244,244, 0.25)', theme.color.sceneBg]} locations={[0,0.3]} style={styles.base}>
+			<LinearGradient colors={['rgba(244,244,244, 0.25)', theme.color.sceneBg]} locations={[0, 0.3]} style={styles.base}>
 				<Icon
 					color={theme.color.text}
 					name="ios-arrow-down"

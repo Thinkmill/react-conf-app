@@ -35,6 +35,7 @@ export default class Schedule extends Component {
 	constructor (props) {
 		super(props);
 
+		this.getActiveTalkLayout = this.getActiveTalkLayout.bind(this);
 		this.handleScroll = this.handleScroll.bind(this);
 
 		const dataBlob = {};
@@ -79,14 +80,14 @@ export default class Schedule extends Component {
 		const { activeTalk } = this.state;
 
 
-		// account for row separators
-		const elementTop = activeTalk.position - activeTalk.index;
+		// TODO all talks are over. Discuss how to handle
+		if (!activeTalk) return;
 
 		const showNowButton = !elementIsInView({
 			viewTop: scrollY,
 			viewBottom: scrollY + viewHeight,
-			elementTop: elementTop,
-			elementBottom: elementTop + activeTalk.height,
+			elementTop: activeTalk.position,
+			elementBottom: activeTalk.position + activeTalk.height,
 		});
 
 		this.toggleNowButton(showNowButton);
@@ -96,19 +97,21 @@ export default class Schedule extends Component {
 
 		this.refs.listview.scrollTo({ x: 0, y: activeTalk.position, animated: true });
 
-		// HACK scrollTo doesn't have completion callback
+		// HACK scrollTo doesn't have a completion callback
 		// See GitHub issue #11657 https://github.com/facebook/react-native/issues/11657
 
 		const approximateScrollDuration = 360;
-		setTimeout(() => this.setState({ showNowButton: false }), approximateScrollDuration);
+		setTimeout(() => this.setState({
+			showNowButton: false,
+		}), approximateScrollDuration);
 	}
 	toggleNowButton (showNowButton) {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ showNowButton });
 	}
-	getActiveTalkLayout ({ height, index, position }) {
+	getActiveTalkLayout ({ height, position }) {
 		this.setState({
-			activeTalk: { height, index, position },
+			activeTalk: { height, position },
 		});
 	}
 	render () {
@@ -179,7 +182,7 @@ export default class Schedule extends Component {
 							);
 						}
 
-						// actual talks
+						// methods on Talk
 						const onPress = () => navigator.push({
 							enableSwipeToPop: true,
 							scene: 'Talk',
@@ -189,7 +192,6 @@ export default class Schedule extends Component {
 						const onLayout = status === 'present'
 							? ({ nativeEvent: { layout } }) => this.getActiveTalkLayout({
 								height: layout.height,
-								index: this.props.talks.map(t => t.id).indexOf(rowID),
 								position: layout.y - theme.listheader.height,
 							})
 							: null;
@@ -202,9 +204,6 @@ export default class Schedule extends Component {
 								speakerAvatarUri={talk.speaker.avatar}
 								startTime={moment(talk.time.start).format(TIME_FORMAT)}
 								status={status}
-								ref={(r) => {
-									if (status === 'present') this.activeTalk = r;
-								}}
 								onLayout={onLayout}
 								title={talk.title}
 							/>

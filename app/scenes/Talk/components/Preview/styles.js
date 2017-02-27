@@ -1,19 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import theme from '../../../../theme';
 
 export default StyleSheet.create({
-	touchable: {
-		backgroundColor: 'transparent',
-		position: 'absolute',
-		bottom: 0,
-		right: 0,
-		left: 0,
-	},
 	base: {
 		alignItems: 'center',
-		height: 80,
 		justifyContent: 'center',
-		paddingHorizontal: theme.fontSize.xlarge,
+		height: theme.nextup.height,
+		paddingHorizontal: 60,
+		position: 'absolute',
+		left: 0,
+		width: Dimensions.get('window').width,
 	},
 	title: {
 		textAlign: 'center',

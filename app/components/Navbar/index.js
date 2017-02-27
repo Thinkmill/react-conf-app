@@ -83,9 +83,9 @@ Navbar.propTypes = {
 	titleRenderer: PropTypes.func,
 };
 Navbar.defaultProps = {
-	backgroundColor: theme.header.backgroundColor,
-	buttonColor: theme.header.button,
-	textColor: theme.header.textColor,
+	backgroundColor: theme.navbar.backgroundColor,
+	buttonColor: theme.navbar.button,
+	textColor: theme.navbar.textColor,
 };
 
 const styles = StyleSheet.create({
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: 'rgba(0, 0, 0, 0.1)',
 		borderBottomWidth: 1 / PixelRatio.get(),
 		flexDirection: 'row',
-		height: 64,
+		height: theme.navbar.height,
 		overflow: 'hidden',
 		justifyContent: 'space-between',
 		paddingTop: 20, // account for the statusbar

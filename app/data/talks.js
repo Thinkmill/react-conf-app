@@ -489,6 +489,8 @@ const data = {
 	},
 };
 
+// Internal
+
 function sortByStartTime (a, b) {
 	const talkStartTime1 = moment(data[a].time.start);
 	const talkStartTime2 = moment(data[b].time.start);
@@ -500,22 +502,44 @@ const list = Object.keys(data)
 	.sort(sortByStartTime)
 	.map(k => Object.assign(data[k], { id: k }));
 
-export function getNextTalkFromId (ID) {
-	const talkIdx = list.map(t => t.id).indexOf(ID);
+function getIndexFromId (ID) {
+	const idx = list.map(t => t.id).indexOf(ID);
 
-	if (talkIdx === -1) {
+	if (idx === -1) {
 		return console.error('No talk found for ID', ID);
 	}
 
-	// skip over breaks
-	let nextTalk = list[talkIdx + 1];
-	if (nextTalk.break) nextTalk = list[talkIdx + 2];
+	return idx;
+};
 
-	if (!nextTalk) {
-		return console.info('You\'re at the end of the talks!');
+// Exposed
+
+export function getNextTalkFromId (ID) {
+	const idx = getIndexFromId(ID);
+
+	// skip over breaks
+	let talk = list[idx + 1];
+	if (talk && talk.break) talk = list[idx + 2];
+
+	if (!talk) {
+		return console.info('This is the last talk.');
 	}
 
-	return nextTalk;
+	return talk;
+};
+
+export function getPrevTalkFromId (ID) {
+	const idx = getIndexFromId(ID);
+
+	// skip over breaks
+	let talk = list[idx - 1];
+	if (talk && talk.break) talk = list[idx - 2];
+
+	if (!talk) {
+		return console.info('This is the first talk.');
+	}
+
+	return talk;
 };
 
 export default list;

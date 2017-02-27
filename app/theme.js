@@ -39,10 +39,11 @@ const fontSize = {
 // Component Specific
 // ------------------------------
 
-// header
-const header = {
+// navbar
+const navbar = {
 	backgroundColor: color.sceneBg,
 	buttonColor: color.blue,
+	height: 64,
 	textColor: color.text,
 };
 
@@ -51,9 +52,15 @@ const listheader = {
 	height: 34,
 };
 
+// next up
+const nextup = {
+	height: 70,
+};
+
 export default {
 	color,
 	fontSize,
-	header,
+	navbar,
+	nextup,
 	listheader,
 };

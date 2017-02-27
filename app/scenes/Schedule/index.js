@@ -11,7 +11,7 @@ import {
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
-import talks from '../../data/talks';
+import talks, { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
@@ -188,7 +188,11 @@ export default class Schedule extends Component {
 						const onPress = () => navigator.push({
 							enableSwipeToPop: true,
 							scene: 'Talk',
-							props: { talk },
+							props: {
+								nextTalk: getNextTalkFromId(talk.id),
+								prevTalk: getPrevTalkFromId(talk.id),
+								talk,
+							},
 						});
 
 						const onLayout = status === 'present'

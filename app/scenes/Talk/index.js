@@ -165,6 +165,7 @@ export default class Talk extends Component {
 			height: availableHeight,
 			position: 'absolute',
 			top: theme.navbar.height,
+			width: this.sceneWidth,
 		};
 		const incomingTransitionStyles = {
 			transform: [{

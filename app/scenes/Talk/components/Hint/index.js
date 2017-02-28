@@ -28,11 +28,15 @@ export default class Hint extends Component {
 		};
 	}
 	componentDidMount () {
+		this._isMounted = true;
 		const { arrowVal, containerVal } = this.state;
 		const sequence = [];
+		const count = 5;
 
-		for (let i = 0; i < 6; i++) {
-			if (i % 2) {
+		for (let i = 0; i <= count; i++) {
+			if (i === count) {
+				sequence.push(Animated.timing(arrowVal, animationDefault(2)));
+			} else if (i % 2) {
 				sequence.push(Animated.timing(arrowVal, animationDefault(0)));
 			} else {
 				sequence.push(Animated.timing(arrowVal, animationDefault(1)));
@@ -43,19 +47,24 @@ export default class Hint extends Component {
 			toValue: 0,
 			duration: 220,
 			easing: Easing.in(Easing.quad),
-		}).start(() => this.props.onClose()));
+		}).start(() => {
+			if (this._isMounted) this.props.onClose();
+		}));
+	}
+	componentWillUnmount () {
+		this._isMounted = false;
 	}
 	render () {
 		const { arrowVal, containerVal } = this.state;
 		const arrowStyle = {
 			opacity: arrowVal.interpolate({
-				inputRange: [0, 1],
-				outputRange: [0.2, 1],
+				inputRange: [0, 1, 2],
+				outputRange: [0.2, 1, 0],
 			}),
 			transform: [{
 				translateY: arrowVal.interpolate({
-					inputRange: [0, 1],
-					outputRange: [0, -10],
+					inputRange: [0, 1, 2],
+					outputRange: [0, -12, 24],
 				}),
 			}],
 		};

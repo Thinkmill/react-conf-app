@@ -1,20 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import {
-	ActionSheetIOS,
-	Animated,
-	Dimensions,
-	PixelRatio,
-	ScrollView,
-	StatusBar,
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
-import Avatar from '../../components/Avatar';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
@@ -23,9 +11,8 @@ import { bindMethods } from '../../utils';
 import { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 
 import Hint from './components/Hint';
-import Preview from './components/Preview';
-import PreviewInstructions from './components/Preview/Instructions';
 import Speaker from './components/Speaker';
+import TalkPane from './components/Pane';
 
 export default class Talk extends Component {
 	constructor (props) {
@@ -42,6 +29,7 @@ export default class Talk extends Component {
 		this.sceneWidth = Dimensions.get('window').width;
 
 		this.state = {
+			animValue: new Animated.Value(0),
 			modalIsOpen: false,
 			nextTalk: props.nextTalk,
 			prevTalk: props.prevTalk,
@@ -53,9 +41,9 @@ export default class Talk extends Component {
 	handleLayout ({ height }) {
 		const availableHeight = this.sceneHeight - (height);
 
-		this.summary.measure((left, top, width, height) => {
+		this.talkpane.refs.summary.measure((left, top, width, height) => {
 			if (availableHeight > height) {
-				this.summary.setNativeProps({ style: { minHeight: availableHeight - theme.nextup.height } });
+				this.talkpane.refs.summary.setNativeProps({ style: { minHeight: availableHeight - theme.nextup.height } });
 			}
 		});
 
@@ -68,14 +56,14 @@ export default class Talk extends Component {
 			? contentHeight - viewHeight
 			: 0;
 
-		if (scrollY > 0 && this.nextTalk) {
+		if (scrollY > 0 && this.talkpane.refs.nextTalkPreview) {
 			const opacity = Math.min((scrollY - heightOffset) / 100, 1);
 
-			this.nextTalk.setNativeProps({ style: { opacity } });
-		} else if (this.prevTalk) {
+			this.talkpane.refs.nextTalkPreview.setNativeProps({ style: { opacity } });
+		} else if (this.talkpane.refs.prevTalkPreview) {
 			const opacity = Math.min(Math.abs(scrollY) / 100, 1);
 
-			this.prevTalk.setNativeProps({ style: { opacity } });
+			this.talkpane.refs.prevTalkPreview.setNativeProps({ style: { opacity } });
 		}
 		this.setState({
 			nextIsActive: scrollY > (heightOffset + 100),
@@ -98,7 +86,7 @@ export default class Talk extends Component {
 			: null;
 		const prevTalk = this.state.talk;
 
-		this.setTalks({ nextTalk, prevTalk, talk }, true);
+		this.setTalks({ nextTalk, prevTalk, talk }, 'next');
 	}
 	renderPrevTalk () {
 		if (!this.state.prevTalk) return;
@@ -109,19 +97,26 @@ export default class Talk extends Component {
 			? getPrevTalkFromId(this.state.prevTalk.id)
 			: null;
 
-		this.setTalks({ nextTalk, prevTalk, talk });
+		this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
 	}
-	setTalks ({ nextTalk, prevTalk, talk }, isNextTalk) {
+	setTalks (newState, transitionDirection) {
+		this.talkpane.refs.scrollview.setNativeProps({ bounces: false });
 
-		this.setState({ nextTalk, prevTalk, talk }, () => {
-			if (isNextTalk) {
-				requestAnimationFrame(() => {
-					this.scrollview.scrollTo({
+		this.setState({ outgoingTalk: newState.talk, transitionDirection }, () => {
+			Animated.spring(this.state.animValue, {
+				toValue: 1,
+				friction: 7,
+				tension: 30,
+			}).start(() => {
+				this.setState(Object.assign(newState, { outgoingTalk: null }), () => {
+					this.state.animValue.setValue(0);
+					this.talkpane.refs.scrollview.setNativeProps({ bounces: true });
+					this.talkpane.refs.scrollview.scrollTo({
 						y: 0,
-						animated: true,
+						animated: false,
 					});
 				});
-			}
+			});
 		});
 	}
 	share () {
@@ -141,13 +136,12 @@ export default class Talk extends Component {
 		});
 	}
 	toggleSpeakerModal (modalIsOpen) {
-		this.setState({ modalIsOpen }, () => {
-			StatusBar.setBarStyle(modalIsOpen ? 'light-content' : 'default', true);
-		});
+		this.setState({ modalIsOpen });
 	}
 	render () {
 		const { navigator } = this.props;
 		const {
+			animValue,
 			modalIsOpen,
 			nextIsActive,
 			nextTalk,
@@ -158,80 +152,72 @@ export default class Talk extends Component {
 		} = this.state;
 
 		const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
-		const touchableProps = {
-			activeOpacity: 0.66,
-			onPress: () => this.toggleSpeakerModal(true),
+		const availableHeight = this.sceneHeight - theme.navbar.height;
+
+		const incomingFrom = this.state.transitionDirection === 'next'
+			? -this.sceneHeight
+			: this.sceneHeight;
+		const outgoingTo = this.state.transitionDirection === 'next'
+			? this.sceneHeight
+			: -this.sceneHeight;
+
+		const transitionStyles = {
+			height: availableHeight,
+			position: 'absolute',
+			top: theme.navbar.height,
 		};
+		const incomingTransitionStyles = {
+			transform: [{
+				translateY: animValue.interpolate({
+					inputRange: [0, 1],
+					outputRange: [incomingFrom, 0],
+				}),
+			}],
+		};
+		const outgoingTransitionStyles = {
+			transform: [{
+				translateY: animValue.interpolate({
+					inputRange: [0, 1],
+					outputRange: [0, outgoingTo],
+				}),
+			}],
+		};
+
+		// navbar must be rendered after the talk panes for visibility
+		const navbar = (
+			<Navbar
+				title={headerTitle}
+				leftButtonIconName="ios-arrow-back"
+				leftButtonOnPress={navigator.popToTop}
+				rightButtonText="Share"
+				rightButtonOnPress={this.share}
+			/>
+		);
 
 		return (
 			<Scene>
-				<Navbar
-					title={headerTitle}
-					leftButtonIconName="ios-arrow-back"
-					leftButtonOnPress={navigator.popToTop}
-					rightButtonText="Share"
-					rightButtonOnPress={this.share}
-				/>
-
-				<ScrollView style={{ flex: 1 }} scrollEventThrottle={30} onScroll={this.handleScroll} onScrollEndDrag={this.handleScrollEndDrag} ref={r => (this.scrollview = r)}>
-					{prevTalk && (
-						<View ref={r => (this.prevTalk = r)} style={{ opacity: 0 }}>
-							{prevIsActive ? (
-								<PreviewInstructions
-									talkTitle={prevTalk.title}
-									position="top"
-								/>
-							) : (
-								<Preview
-									position="top"
-									speakerName={prevTalk.speaker.name}
-									talkStartTime={moment(prevTalk.time.start).format(TIME_FORMAT)}
-									talkTitle={prevTalk.title}
-								/>
-							)}
-						</View>
-					)}
-					<View style={styles.hero} onLayout={({ nativeEvent: { layout } }) => this.handleLayout(layout)}>
-						<TouchableOpacity {...touchableProps}>
-							<Animated.View style={styles.heroSpeaker}>
-								<Avatar source={talk.speaker.avatar} />
-								<Text style={styles.heroSpeakerName}>
-									{talk.speaker.name}
-								</Text>
-								<Text style={styles.heroSpeakerHint}>
-									(tap for more)
-								</Text>
-							</Animated.View>
-						</TouchableOpacity>
-						<Text style={styles.heroTitle}>
-							{talk.title}
-						</Text>
-					</View>
-
-					<View style={styles.summary} ref={r => (this.summary = r)}>
-						<Text style={styles.summaryText}>
-							{talk.summary}
-						</Text>
-					</View>
-
-					{nextTalk && (
-						<View ref={r => (this.nextTalk = r)} style={{ opacity: 0 }}>
-							{nextIsActive ? (
-								<PreviewInstructions
-									talkTitle={nextTalk.title}
-									position="bottom"
-								/>
-							) : (
-								<Preview
-									position="bottom"
-									speakerName={nextTalk.speaker.name}
-									talkStartTime={moment(nextTalk.time.start).format(TIME_FORMAT)}
-									talkTitle={nextTalk.title}
-								/>
-							)}
-						</View>
-					)}
-				</ScrollView>
+				<Animated.View style={[transitionStyles, outgoingTransitionStyles]}>
+					<TalkPane
+						nextTalk={nextTalk}
+						nextTalkPreviewIsEngaged={nextIsActive}
+						prevTalk={prevTalk}
+						prevTalkPreviewIsEngaged={prevIsActive}
+						showSpeakerModal={() => this.toggleSpeakerModal(true)}
+						visibleTalk={talk}
+						onHeroLayout={({ nativeEvent: { layout } }) => this.handleLayout(layout)}
+						onScroll={this.handleScroll}
+						onScrollEndDrag={this.handleScrollEndDrag}
+						ref={r => (this.talkpane = r)}
+					/>
+				</Animated.View>
+				{!!this.state.outgoingTalk && (
+					<Animated.View style={[transitionStyles, incomingTransitionStyles]} pointerEvents="none">
+						<TalkPane
+							visibleTalk={this.state.outgoingTalk}
+							ref={r => (this.transitionpane = r)}
+						/>
+					</Animated.View>
+				)}
 
 				{showIntro && (
 					<Hint
@@ -249,6 +235,7 @@ export default class Talk extends Component {
 						twitter={talk.speaker.twitter}
 					/>
 				)}
+				{navbar}
 			</Scene>
 		);
 	}
@@ -276,47 +263,3 @@ Talk.defaultProps = {
 		},
 	},
 };
-
-const styles = StyleSheet.create({
-	hero: {
-		alignItems: 'center',
-		backgroundColor: 'white',
-		borderBottomColor: theme.color.gray20,
-		borderBottomWidth: 1 / PixelRatio.get(),
-		borderTopColor: theme.color.gray20,
-		borderTopWidth: 1 / PixelRatio.get(),
-		marginTop: -(1 / PixelRatio.get()),
-		paddingHorizontal: theme.fontSize.large,
-		paddingBottom: theme.fontSize.xlarge,
-	},
-	heroSpeaker: {
-		alignItems: 'center',
-		paddingHorizontal: theme.fontSize.xlarge,
-		paddingTop: theme.fontSize.xlarge,
-	},
-	heroSpeakerHint: {
-		color: theme.color.gray40,
-		fontSize: theme.fontSize.xsmall,
-		paddingBottom: theme.fontSize.large,
-	},
-	heroSpeakerName: {
-		color: theme.color.blue,
-		fontSize: theme.fontSize.default,
-		fontWeight: '500',
-		marginTop: theme.fontSize.small,
-	},
-	heroTitle: {
-		fontSize: theme.fontSize.large,
-		fontWeight: '300',
-		textAlign: 'center',
-	},
-
-	// summary
-	summary: {},
-	summaryText: {
-		fontSize: theme.fontSize.default,
-		fontWeight: '300',
-		lineHeight: theme.fontSize.large,
-		padding: theme.fontSize.large,
-	},
-});

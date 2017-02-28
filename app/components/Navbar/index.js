@@ -1,5 +1,12 @@
 import React, { PropTypes } from 'react';
-import { PixelRatio, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import {
+	Dimensions,
+	PixelRatio,
+	StyleSheet,
+	View,
+	Text,
+	TouchableOpacity,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../theme';
@@ -19,51 +26,54 @@ export default function Navbar ({
 	titleRenderer,
 }) {
 	return (
-		<View style={[styles.container, { backgroundColor: backgroundColor }]}>
-			{/* Left Button */}
-			{leftButtonOnPress ? (
-				<TouchableOpacity disabled={leftButtonDisabled} onPress={leftButtonOnPress} style={[styles.button, styles.leftButton]}>
-					{!!leftButtonIconName && (
-						<Icon
-							color={theme.color.text}
-							name={leftButtonIconName}
-							size={36}
-							style={{ marginRight: 10, height: 36 }}
-						/>
-					)}
-					<Text style={[styles.buttonText, { opacity: leftButtonDisabled ? 0.6 : 1 }]}>
-						{leftButtonText}
-					</Text>
-				</TouchableOpacity>
-			) : (
-				<View style={styles.button} />
-			)}
+		<View>
+			<View style={{ height: theme.navbar.height }} />
+			<View style={[styles.container, { backgroundColor: backgroundColor }]}>
+				{/* Left Button */}
+				{leftButtonOnPress ? (
+					<TouchableOpacity disabled={leftButtonDisabled} onPress={leftButtonOnPress} style={[styles.button, styles.leftButton]}>
+						{!!leftButtonIconName && (
+							<Icon
+								color={theme.color.text}
+								name={leftButtonIconName}
+								size={36}
+								style={{ marginRight: 10, height: 36 }}
+							/>
+						)}
+						<Text style={[styles.buttonText, { opacity: leftButtonDisabled ? 0.6 : 1 }]}>
+							{leftButtonText}
+						</Text>
+					</TouchableOpacity>
+				) : (
+					<View style={styles.button} />
+				)}
 
-			{/* Title */}
-			{titleRenderer ? titleRenderer() : (
-				<View style={styles.title}>
-					<Text style={[styles.titleText, { color: textColor }]}>{title}</Text>
-				</View>
-			)}
+				{/* Title */}
+				{titleRenderer ? titleRenderer() : (
+					<View style={styles.title}>
+						<Text style={[styles.titleText, { color: textColor }]}>{title}</Text>
+					</View>
+				)}
 
-			{/* Right Button */}
-			{rightButtonOnPress ? (
-				<TouchableOpacity disabled={rightButtonDisabled} onPress={rightButtonOnPress} style={[styles.button, styles.button__right]}>
-					{!!rightButtonIconName && (
-						<Icon
-							color={theme.color.text}
-							name={rightButtonIconName}
-							size={36}
-							style={{ marginLeft: 10, height: 36 }}
-						/>
-					)}
-					<Text style={[styles.buttonText, { opacity: rightButtonDisabled ? 0.6 : 1 }]}>
-						{rightButtonText}
-					</Text>
-				</TouchableOpacity>
-			) : (
-				<View style={styles.button} />
-			)}
+				{/* Right Button */}
+				{rightButtonOnPress ? (
+					<TouchableOpacity disabled={rightButtonDisabled} onPress={rightButtonOnPress} style={[styles.button, styles.button__right]}>
+						{!!rightButtonIconName && (
+							<Icon
+								color={theme.color.text}
+								name={rightButtonIconName}
+								size={36}
+								style={{ marginLeft: 10, height: 36 }}
+							/>
+						)}
+						<Text style={[styles.buttonText, { opacity: rightButtonDisabled ? 0.6 : 1 }]}>
+							{rightButtonText}
+						</Text>
+					</TouchableOpacity>
+				) : (
+					<View style={styles.button} />
+				)}
+			</View>
 		</View>
 	);
 };
@@ -98,6 +108,8 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 		justifyContent: 'space-between',
 		paddingTop: 20, // account for the statusbar
+		position: 'absolute',
+		width: Dimensions.get('window').width,
 	},
 
 	// buttons

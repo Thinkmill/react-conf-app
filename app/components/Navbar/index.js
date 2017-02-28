@@ -24,9 +24,10 @@ export default function Navbar ({
 	textColor,
 	title,
 	titleRenderer,
+	...props
 }) {
 	return (
-		<View>
+		<View {...props}>
 			<View style={{ height: theme.navbar.height }} />
 			<View style={[styles.container, { backgroundColor: backgroundColor }]}>
 				{/* Left Button */}

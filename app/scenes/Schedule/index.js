@@ -138,18 +138,6 @@ export default class Schedule extends Component {
 			<Scene>
 				<Navbar
 					title="Schedule"
-					titleRenderer={() => (
-						<View style={{
-							alignItems: 'center',
-							flex: 4,
-							justifyContent: 'center',
-						}}>
-							<Image
-								source={require('./images/navbar-logo.png')}
-								style={{ width: 100, height: 100 }}
-							/>
-						</View>
-					)}
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo}
 				/>

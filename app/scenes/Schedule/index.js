@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import SplashScreen from 'react-native-smart-splash-screen';
+import Splash from 'react-native-smart-splash-screen';
 
 import { TIME_FORMAT } from '../../constants';
 import talks, { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
@@ -22,6 +22,7 @@ import { bindMethods } from '../../utils';
 import Break from './components/Break';
 import NowButton from './components/NowButton';
 import Talk, { TalkSeparator } from './components/Talk';
+import SplashScreen from './components/SplashScreen';
 
 function elementIsInView ({ viewTop, viewBottom, elementTop, elementBottom }, fullyInView = true) {
 	if (fullyInView) {
@@ -70,12 +71,14 @@ export default class Schedule extends Component {
 		});
 
 		this.state = {
+			animatingSplash: true,
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 		};
 	}
 
 	componentDidMount () {
-		SplashScreen.close({});
+		// This is the actual image splash screen, not the animated one.
+		Splash.close({});
 	}
 
 	gotoEventInfo () {
@@ -86,7 +89,6 @@ export default class Schedule extends Component {
 	}
 	handleScroll ({ scrollY, viewHeight }) {
 		const { activeTalk } = this.state;
-
 
 		// TODO all talks are over. Discuss how to handle
 		if (!activeTalk) return;
@@ -124,7 +126,7 @@ export default class Schedule extends Component {
 	}
 	render () {
 		const { navigator, talks } = this.props;
-		const { dataSource, showNowButton } = this.state;
+		const { animatingSplash, dataSource, showNowButton } = this.state;
 
 		const renderFooter = () => (
 			<TouchableOpacity onPress={this.gotoEventInfo} activeOpacity={0.75}>
@@ -140,10 +142,16 @@ export default class Schedule extends Component {
 
 		return (
 			<Scene>
+				{animatingSplash
+					&& <SplashScreen
+						animated
+						onAnimationComplete={() => this.setState({ animatingSplash: false })}
+					/>}
 				<Navbar
 					title="Schedule"
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo}
+					style={styles.navbar}
 				/>
 
 				<ListView
@@ -156,6 +164,7 @@ export default class Schedule extends Component {
 					})}
 					scrollEventThrottle={300}
 					enableEmptySections
+					renderHeader={() => animatingSplash ? null : <SplashScreen />}
 					renderSeparator={(sectionID, rowID) => {
 						const key = sectionID + ':' + rowID;
 						const talk = dataSource._dataBlob[key];
@@ -233,6 +242,12 @@ Schedule.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+	navbar: {
+		position: 'absolute',
+		top: -60,
+		right: 0,
+		left: 0,
+	},
 	link: {
 		color: theme.color.blue,
 		fontSize: theme.fontSize.default,

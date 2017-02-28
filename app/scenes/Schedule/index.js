@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import {
-	Image,
 	LayoutAnimation,
 	ListView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
-	View,
 } from 'react-native';
 import moment from 'moment';
 

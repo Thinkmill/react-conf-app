@@ -239,19 +239,14 @@ const styles = StyleSheet.create({
 	},
 });
 
-// TODO refine this logic
 function getTalkStatus (startTime, endTime) {
 	const now = moment();
-	const end = moment(endTime);
-	const start = moment(startTime);
 
-	const startTimeFromNow = now.diff(start, 'minutes');
-	const endTimeFromNow = now.diff(end, 'minutes');
-	const isPresent = (startTimeFromNow > 0) && (endTimeFromNow < 0);
+	if (now.isBetween(startTime, endTime)) {
+		return 'present';
+	} else if (now.isBefore(startTime)) {
+		return 'future';
+	}
 
-	let status = startTimeFromNow > 0 ? 'past' : 'future';
-
-	if (isPresent) status = 'present';
-
-	return status;
+	return 'past';
 };

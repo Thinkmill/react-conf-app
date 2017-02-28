@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
+import SplashScreen from 'react-native-smart-splash-screen';
+
 import { TIME_FORMAT } from '../../constants';
 import talks, { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 import Navbar from '../../components/Navbar';
@@ -72,6 +74,10 @@ export default class Schedule extends Component {
 		this.state = {
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 		};
+	}
+
+	componentDidMount () {
+		SplashScreen.close({});
 	}
 
 	gotoEventInfo () {
@@ -138,18 +144,6 @@ export default class Schedule extends Component {
 			<Scene>
 				<Navbar
 					title="Schedule"
-					titleRenderer={() => (
-						<View style={{
-							alignItems: 'center',
-							flex: 4,
-							justifyContent: 'center',
-						}}>
-							<Image
-								source={require('./images/navbar-logo.png')}
-								style={{ width: 100, height: 100 }}
-							/>
-						</View>
-					)}
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo}
 				/>
@@ -251,19 +245,14 @@ const styles = StyleSheet.create({
 	},
 });
 
-// TODO refine this logic
 function getTalkStatus (startTime, endTime) {
 	const now = moment();
-	const end = moment(endTime);
-	const start = moment(startTime);
 
-	const startTimeFromNow = now.diff(start, 'minutes');
-	const endTimeFromNow = now.diff(end, 'minutes');
-	const isPresent = (startTimeFromNow > 0) && (endTimeFromNow < 0);
+	if (now.isBetween(startTime, endTime)) {
+		return 'present';
+	} else if (now.isBefore(startTime)) {
+		return 'future';
+	}
 
-	let status = startTimeFromNow > 0 ? 'past' : 'future';
-
-	if (isPresent) status = 'present';
-
-	return status;
+	return 'past';
 };

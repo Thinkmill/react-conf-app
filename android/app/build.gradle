@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-smart-splash-screen')
     compile project(':react-native-linear-gradient')
     compile project(':react-native-maps')
     compile project(':react-native-code-push')

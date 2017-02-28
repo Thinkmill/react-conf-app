@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecomponent.splashscreen.RCTSplashScreenPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -36,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTSplashScreenPackage(),
             new LinearGradientPackage(),
             new MapsPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),

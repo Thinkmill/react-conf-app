@@ -13,6 +13,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#import "RCTSplashScreen.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,12 +28,16 @@
     jsCodeLocation = [CodePush bundleURL];
 #endif
 
+
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactConf2017"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+  [RCTSplashScreen open:rootView withImageNamed:@"Splash"];
 
+  rootView.backgroundColor = [[UIColor alloc] initWithRed:36.0f / 255.0f green:31.0f / 255.0f blue:32.0f / 255.0f alpha:1];
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

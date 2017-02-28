@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
+import SplashScreen from 'react-native-smart-splash-screen';
+
 import { TIME_FORMAT } from '../../constants';
 import talks, { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 import Navbar from '../../components/Navbar';
@@ -72,6 +74,10 @@ export default class Schedule extends Component {
 		this.state = {
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 		};
+	}
+
+	componentDidMount () {
+		SplashScreen.close({});
 	}
 
 	gotoEventInfo () {

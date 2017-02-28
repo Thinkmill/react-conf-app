@@ -4,8 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node_modules/react-native/packager/packager.sh",
-    "lint-fix": "npm run lint -- --fix",
-    "lint": "eslint app/**",
+		"lint-fix": "npm run lint -- --fix",
+		"lint": "eslint app/**",
 		"test": "jest"
 	},
 	"dependencies": {
@@ -16,6 +16,7 @@
 		"react-native-code-push": "^1.17.0-beta",
 		"react-native-linear-gradient": "^2.0.0",
 		"react-native-maps": "airbnb/react-native-maps",
+		"react-native-smart-splash-screen": "^2.3.3",
 		"react-native-vector-icons": "^4.0.0"
 	},
 	"devDependencies": {

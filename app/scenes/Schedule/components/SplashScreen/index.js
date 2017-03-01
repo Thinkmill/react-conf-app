@@ -7,7 +7,14 @@ import {
 } from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
-const DURATION = 800;
+const SLIDE_DURATION = 800;
+const SLIDE_FINAL_HEIGHT = 500;
+
+const SKEW_DELAY = 3000;
+const SKEW_DURATION = 2000;
+const SKEW_UP = -3;
+const SKEW_DOWN = 5;
+
 
 export default class SplashScreen extends Component {
 	constructor (props) {
@@ -16,21 +23,20 @@ export default class SplashScreen extends Component {
 		this.queueTriangleAnimation = this.queueIdleAnimation.bind(this);
 
 		this.state = {
-			height: new Animated.Value(props.animated ? windowHeight + 400 : 500),
+			height: new Animated.Value(props.animated ? windowHeight + 400 : SLIDE_FINAL_HEIGHT),
 			logoOffset: new Animated.Value(props.animated ? 0 : 80),
 			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
-			leftTriangleSkew: new Animated.Value(5),
-			leftTriangleOffset: new Animated.Value(0),
-			rightTriangleSkew: new Animated.Value(-3),
-			rightTriangleOffset: new Animated.Value(0),
+			leftTriangleSkew: new Animated.Value(SKEW_DOWN),
+			rightTriangleSkew: new Animated.Value(SKEW_UP),
 		};
+		this.skewed = false;
 	}
 	componentDidMount () {
 		if (this.props.animated) {
 			const animateTo = (toValue) => {
 				return {
 					delay: 1000,
-					duration: DURATION,
+					duration: SLIDE_DURATION,
 					toValue,
 				};
 			};
@@ -38,7 +44,7 @@ export default class SplashScreen extends Component {
 			Animated.parallel([
 				Animated.timing(this.state.logoOffset, animateTo(80)),
 				Animated.timing(this.state.logoScale, animateTo(0.8)),
-				Animated.timing(this.state.height, animateTo(500)),
+				Animated.timing(this.state.height, animateTo(SLIDE_FINAL_HEIGHT)),
 			]).start(() => {
 				if (this.props.onAnimationComplete) {
 					this.props.onAnimationComplete();
@@ -49,44 +55,40 @@ export default class SplashScreen extends Component {
 		}
 	}
 	queueIdleAnimation () {
-		const { leftTriangleSkew, leftTriangleOffset, rightTriangleSkew, rightTriangleOffset } = this.state;
+		const { leftTriangleSkew, rightTriangleSkew } = this.state;
 
 		const animateTo = (toValue) => {
 			return {
-				delay: 1500,
-				duration: 300,
+				duration: SKEW_DURATION,
 				toValue,
 			};
 		};
 
-		const leftSkew = Math.random() * 10 - 5;
-		const leftOffset = Math.random() * 20 - 10;
-		const rightSkew = Math.random() * 2 + 3;
-		const rightOffset = Math.random() * 20 - 10;
+		const leftSkew = this.skewed ? SKEW_UP : SKEW_DOWN;
+		const rightSkew = this.skewed ? SKEW_DOWN : SKEW_UP;
+
+		// Toggle for next time
+		this.skewed = !this.skewed;
 
 		Animated.parallel([
 			// -------- Left Triangle --------
 			Animated.timing(leftTriangleSkew, animateTo(leftSkew)),
-			Animated.timing(leftTriangleOffset, animateTo(leftOffset)),
-
-			// -------- Right Triangle --------
 			Animated.timing(rightTriangleSkew, animateTo(rightSkew)),
-			Animated.timing(rightTriangleOffset, animateTo(rightOffset)),
-		]).start(() => this.queueIdleAnimation());
+		]).start(() => {
+			setTimeout(() => this.queueIdleAnimation(), SKEW_DELAY);
+		});
 	}
 
 	render () {
-		const { height, logoOffset, logoScale, leftTriangleSkew, leftTriangleOffset, rightTriangleSkew, rightTriangleOffset } = this.state;
+		const { height, logoOffset, logoScale, leftTriangleSkew, rightTriangleSkew } = this.state;
 
 		// Map to string values for transform.
-		const leftSkew = leftTriangleSkew.interpolate({
-			inputRange: [-360, 360],
-			outputRange: ['-360deg', '360deg'],
-		});
-		const rightSkew = rightTriangleSkew.interpolate({
-			inputRange: [-360, 360],
-			outputRange: ['-360deg', '360deg'],
-		});
+		const interpolateToString = (value) => {
+			return value.interpolate({
+				inputRange: [-360, 360],
+				outputRange: ['-360deg', '360deg'],
+			});
+		};
 
 		return (
 			<View style={styles.wrapper}>
@@ -110,14 +112,13 @@ export default class SplashScreen extends Component {
 					/>
 					<Animated.View
 						style={[styles.bottomTriangle, { transform: [
-							{ skewY: leftSkew },
-							{ translateY: leftTriangleOffset },
+							{ skewY: interpolateToString(leftTriangleSkew) },
 						] }]}
 					/>
 					<Animated.View
 						style={[styles.bottomTriangle, { transform: [
-							{ skewY: rightSkew },
-							{ translateY: rightTriangleOffset },
+							{ skewY: interpolateToString(rightTriangleSkew) },
+							{ translateY: -5 },
 						] }]}
 					/>
 				</Animated.View>

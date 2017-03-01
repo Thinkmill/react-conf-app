@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {
 	LayoutAnimation,
 	ListView,
+	StatusBar,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -82,7 +83,7 @@ export default class Schedule extends Component {
 		if (Splash) {
 			Splash.close({
 				animationType: Splash.animationType.fade,
-				duration: 0,
+				duration: 300,
 				delay: 500,
 			});
 		}
@@ -153,6 +154,7 @@ export default class Schedule extends Component {
 
 		return (
 			<Scene>
+				<StatusBar barStyle={navbarTop > -52 ? 'dark-content' : 'light-content'} />
 				{animatingSplash
 					&& <SplashScreen
 						animated

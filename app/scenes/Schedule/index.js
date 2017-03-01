@@ -5,6 +5,7 @@ import {
 	StyleSheet,
 	Text,
 	TouchableOpacity,
+	View,
 } from 'react-native';
 import moment from 'moment';
 
@@ -73,6 +74,7 @@ export default class Schedule extends Component {
 		this.state = {
 			animatingSplash: true,
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
+			navbarTop: -64,
 		};
 	}
 
@@ -88,6 +90,11 @@ export default class Schedule extends Component {
 		});
 	}
 	handleScroll ({ scrollY, viewHeight }) {
+		// Navbar top position
+		const navbarTop = Math.max(Math.min(scrollY - 124, 0), -64);
+		this.setState({ navbarTop });
+
+		// Now button
 		const { activeTalk } = this.state;
 
 		// TODO all talks are over. Discuss how to handle
@@ -126,7 +133,7 @@ export default class Schedule extends Component {
 	}
 	render () {
 		const { navigator, talks } = this.props;
-		const { animatingSplash, dataSource, showNowButton } = this.state;
+		const { animatingSplash, dataSource, navbarTop, showNowButton } = this.state;
 
 		const renderFooter = () => (
 			<TouchableOpacity key="footer" onPress={this.gotoEventInfo} activeOpacity={0.75}>
@@ -147,11 +154,12 @@ export default class Schedule extends Component {
 						animated
 						onAnimationComplete={() => this.setState({ animatingSplash: false })}
 					/>}
+
 				<Navbar
 					title="Schedule"
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo}
-					style={styles.navbar}
+					style={[styles.navbar, { top: navbarTop }]}
 				/>
 
 				<ListView
@@ -162,7 +170,7 @@ export default class Schedule extends Component {
 						viewHeight: layoutMeasurement.height,
 						scrollY: contentOffset.y,
 					})}
-					scrollEventThrottle={300}
+					scrollEventThrottle={16}
 					enableEmptySections
 					renderHeader={() => animatingSplash ? null : <SplashScreen />}
 					renderSeparator={(sectionID, rowID) => {
@@ -225,7 +233,7 @@ export default class Schedule extends Component {
 					renderFooter={renderFooter}
 				/>
 
-				{!!showNowButton && (
+				{showNowButton && (
 					<NowButton onPress={this.scrolltoActiveTalk} />
 				)}
 			</Scene>
@@ -244,9 +252,10 @@ Schedule.defaultProps = {
 const styles = StyleSheet.create({
 	navbar: {
 		position: 'absolute',
-		top: -60,
+		top: 0,
 		right: 0,
 		left: 0,
+		zIndex: 2,
 	},
 	link: {
 		color: theme.color.blue,

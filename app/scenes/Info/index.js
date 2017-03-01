@@ -61,7 +61,8 @@ export default class Info extends Component {
 				<MapView initialRegion={mapRegion} style={styles.map}>
 					<MapView.Marker
 						coordinate={mapRegion}
-						title="React Conf 2017"
+						title="Santa Clara Marriott"
+						description="2700 Mission College Blvd, Santa Clara, CA 95054"
 					/>
 				</MapView>
 

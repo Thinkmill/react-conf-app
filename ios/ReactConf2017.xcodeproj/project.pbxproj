@@ -16,6 +16,7 @@
 		08C212EA2C6E4F879C3B04DE /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCD9257CA4543A0B3F89DBA /* libRNBlur.a */; };
 		0A90F15A1E6530A80080E4A7 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90F1581E6530A80080E4A7 /* Splash.png */; };
 		0A90F15B1E6530A80080E4A7 /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90F1591E6530A80080E4A7 /* Splash@2x.png */; };
+		0A90F18F1E6654B50080E4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A90F18E1E6654B50080E4A7 /* LaunchScreen.storyboard */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -275,6 +276,7 @@
 		0695979435D14261A588CBA2 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		0A90F1581E6530A80080E4A7 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		0A90F1591E6530A80080E4A7 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
+		0A90F18E1E6654B50080E4A7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactConf2017/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1253FCE89D364E57B3512EAD /* libRCTSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTSplashScreen.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				0A90F1591E6530A80080E4A7 /* Splash@2x.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				0A90F18E1E6654B50080E4A7 /* LaunchScreen.storyboard */,
 			);
 			name = ReactConf2017;
 			sourceTree = "<group>";
@@ -949,6 +952,7 @@
 				6B3B26BDE90B4B9FB1BA064A /* FontAwesome.ttf in Resources */,
 				0A90F15A1E6530A80080E4A7 /* Splash.png in Resources */,
 				49C4FC3699B0471986B33F1C /* Foundation.ttf in Resources */,
+				0A90F18F1E6654B50080E4A7 /* LaunchScreen.storyboard in Resources */,
 				C910AA8189B54D5CAD2CB211 /* Ionicons.ttf in Resources */,
 				5181F297E0C74D14AA14901D /* MaterialCommunityIcons.ttf in Resources */,
 				2CE0B66E89CE4B06B7E4CD94 /* MaterialIcons.ttf in Resources */,

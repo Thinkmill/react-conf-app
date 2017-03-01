@@ -502,7 +502,7 @@ const list = Object.keys(data)
 	.sort(sortByStartTime)
 	.map(k => Object.assign(data[k], { id: k }));
 
-function getIndexFromId (ID) {
+export function getIndexFromId (ID) {
 	const idx = list.map(t => t.id).indexOf(ID);
 
 	if (idx === -1) {

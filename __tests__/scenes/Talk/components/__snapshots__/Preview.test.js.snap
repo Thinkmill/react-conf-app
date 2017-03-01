@@ -16,26 +16,38 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
       },
     ]
   }>
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
-      Array [
-        Object {
-          "color": "#383838",
-          "fontSize": 20,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Ionicons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-      ]
+      Object {
+        "backgroundColor": "transparent",
+        "transform": Array [
+          Object {
+            "scale": 1,
+          },
+        ],
+      }
     }>
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#383838",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }>
+      
+    </Text>
+  </View>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -45,9 +57,7 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
       Object {
         "textAlign": "center",
       }
-    }>
-    React Boilerplate
-  </Text>
+    } />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -57,11 +67,7 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
         "color": "#666",
         "textAlign": "center",
       }
-    }>
-    9AM
-     — 
-    Max Stroiber
-  </Text>
+    } />
 </View>
 `;
 
@@ -92,9 +98,7 @@ exports[`Talk - Preview renders correctly in top position 1`] = `
       Object {
         "textAlign": "center",
       }
-    }>
-    React Boilerplate
-  </Text>
+    } />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -104,30 +108,38 @@ exports[`Talk - Preview renders correctly in top position 1`] = `
         "color": "#666",
         "textAlign": "center",
       }
-    }>
-    9AM
-     — 
-    Max Stroiber
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+    } />
+  <View
     style={
-      Array [
-        Object {
-          "color": "#383838",
-          "fontSize": 20,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Ionicons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-      ]
+      Object {
+        "backgroundColor": "transparent",
+        "transform": Array [
+          Object {
+            "scale": 1,
+          },
+        ],
+      }
     }>
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#383838",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }>
+      
+    </Text>
+  </View>
 </View>
 `;

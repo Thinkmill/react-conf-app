@@ -46,30 +46,40 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          9:30am
-           — 
-          Max Stoiber
+          9:30am - Max Stoiber
         </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+        <View
           style={
-            Array [
-              Object {
-                "color": "#383838",
-                "fontSize": 20,
-              },
-              undefined,
-              Object {
-                "fontFamily": "Ionicons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
+            Object {
+              "backgroundColor": "transparent",
+              "transform": Array [
+                Object {
+                  "scale": 1,
+                },
+              ],
+            }
           }>
-          
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#383838",
+                  "fontSize": 20,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }>
+            
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -183,7 +193,11 @@ exports[`Talk - Pane renders correctly 1`] = `
       </Text>
     </View>
     <View
-      style={Object {}}>
+      style={
+        Object {
+          "paddingBottom": 40,
+        }
+      }>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -222,26 +236,38 @@ exports[`Talk - Pane renders correctly 1`] = `
             },
           ]
         }>
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+        <View
           style={
-            Array [
-              Object {
-                "color": "#383838",
-                "fontSize": 20,
-              },
-              undefined,
-              Object {
-                "fontFamily": "Ionicons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
+            Object {
+              "backgroundColor": "transparent",
+              "transform": Array [
+                Object {
+                  "scale": 1,
+                },
+              ],
+            }
           }>
-          
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#383838",
+                  "fontSize": 20,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }>
+            
+          </Text>
+        </View>
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -264,9 +290,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          9:30am
-           — 
-          Max Stoiber
+          9:30am - Max Stoiber
         </Text>
       </View>
     </View>

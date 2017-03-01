@@ -16,7 +16,6 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(48, 44, 45, 1)",
         "height": 500,
         "justifyContent": "center",
         "left": 0,
@@ -37,18 +36,42 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
               "scale": 0.8,
             },
           ],
+          "zIndex": 2,
         }
       } />
-    <Image
-      resizeMode="stretch"
-      source={1}
+    <View
       style={
         Object {
-          "bottom": 0,
-          "height": 63,
-          "left": 0,
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
+          "bottom": 40,
+          "height": 1200,
+          "left": -10,
           "position": "absolute",
-          "right": 0,
+          "right": -10,
+          "transform": Array [
+            Object {
+              "skewY": "5deg",
+            },
+          ],
+        }
+      } />
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
+          "bottom": 40,
+          "height": 1200,
+          "left": -10,
+          "position": "absolute",
+          "right": -10,
+          "transform": Array [
+            Object {
+              "skewY": "-3deg",
+            },
+            Object {
+              "translateY": -5,
+            },
+          ],
         }
       } />
   </View>
@@ -73,7 +96,6 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(48, 44, 45, 1)",
         "height": 1734,
         "justifyContent": "center",
         "left": 0,
@@ -94,18 +116,42 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
               "scale": 1,
             },
           ],
+          "zIndex": 2,
         }
       } />
-    <Image
-      resizeMode="stretch"
-      source={1}
+    <View
       style={
         Object {
-          "bottom": 0,
-          "height": 63,
-          "left": 0,
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
+          "bottom": 40,
+          "height": 1200,
+          "left": -10,
           "position": "absolute",
-          "right": 0,
+          "right": -10,
+          "transform": Array [
+            Object {
+              "skewY": "5deg",
+            },
+          ],
+        }
+      } />
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
+          "bottom": 40,
+          "height": 1200,
+          "left": -10,
+          "position": "absolute",
+          "right": -10,
+          "transform": Array [
+            Object {
+              "skewY": "-3deg",
+            },
+            Object {
+              "translateY": -5,
+            },
+          ],
         }
       } />
   </View>

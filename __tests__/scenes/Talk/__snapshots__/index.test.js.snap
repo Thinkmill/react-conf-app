@@ -135,7 +135,11 @@ exports[`Talk renders correctly 1`] = `
           </Text>
         </View>
         <View
-          style={Object {}}>
+          style={
+            Object {
+              "paddingBottom": 40,
+            }
+          }>
           <Text
             accessible={true}
             allowFontScaling={true}

@@ -66,7 +66,11 @@ export default class Info extends Component {
 					leftButtonOnPress={this.props.navigator.pop}
 				/>
 				<ScrollView scrollEnabled={!modalIsOpen}>
-					<MapView initialRegion={mapRegion} style={styles.map}>
+					<MapView
+						initialRegion={mapRegion}
+						showsUserLocation
+						style={styles.map}
+					>
 						<MapView.Marker
 							coordinate={mapRegion}
 							title="Santa Clara Marriott"

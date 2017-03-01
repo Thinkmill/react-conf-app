@@ -1,50 +1,56 @@
 exports[`Info renders correctly 1`] = `
-<RCTScrollView>
-  <View>
-    <MapView
-      initialRegion={
-        Object {
-          "latitude": 37.354108,
-          "latitudeDelta": 0.01,
-          "longitude": -121.955236,
-          "longitudeDelta": 0.01,
-        }
-      }
-      style={
-        Object {
-          "flex": 1,
-          "height": 200,
-          "maxHeight": 200,
-        }
-      }>
-      <Marker
-        coordinate={
-          Object {
-            "latitude": 37.354108,
-            "latitudeDelta": 0.01,
-            "longitude": -121.955236,
-            "longitudeDelta": 0.01,
-          }
-        }
-        title="React Conf 2017" />
-    </MapView>
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }>
+  <View
+    buttonColor={undefined}>
     <View
       style={
         Object {
-          "flex": 1,
+          "height": 64,
         }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "stretch",
+            "borderBottomColor": "rgba(0, 0, 0, 0.1)",
+            "borderBottomWidth": 0.5,
+            "flexDirection": "row",
+            "height": 64,
+            "justifyContent": "space-between",
+            "overflow": "hidden",
+            "paddingTop": 20,
+            "position": "absolute",
+            "width": 750,
+          },
+          Object {
+            "backgroundColor": "#F4F4F4",
+          },
+        ]
       }>
       <View
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "white",
-            "borderBottomColor": "#CCC",
-            "borderBottomWidth": 0.5,
-            "borderTopColor": "#B3B3B3",
-            "borderTopWidth": 0.5,
+            "flex": 2,
+            "flexDirection": "row",
             "paddingHorizontal": 17,
-            "paddingTop": 32,
+          }
+        } />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 4,
+            "justifyContent": "center",
           }
         }>
         <Text
@@ -52,391 +58,167 @@ exports[`Info renders correctly 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Object {
-              "fontSize": 17,
-              "fontWeight": "300",
-              "lineHeight": 24,
-              "textAlign": "center",
-            }
-          }>
-          The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
-        </Text>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
+            Array [
               Object {
-                "color": "#00A8D8",
+                "color": "#383838",
                 "fontSize": 17,
                 "fontWeight": "500",
-                "padding": 24,
-              }
-            }>
-            Code of Conduct
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#F4F4F4",
-              "borderBottomColor": "#CCC",
-              "borderBottomWidth": 0.5,
-              "height": 34,
-              "justifyContent": "flex-end",
-              "paddingHorizontal": 23,
-            },
-            undefined,
-          ]
-        }>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#383838",
-              "fontSize": 12,
-              "fontWeight": "500",
-              "lineHeight": 24,
-            }
+              },
+              Object {
+                "color": "#383838",
+              },
+            ]
           }>
-          ORGANISERS
+          Event Info
         </Text>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "backgroundColor": "white",
-            },
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#CCC",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "padding": 17,
-            }
-          }>
-          <View
-            style={
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderRadius": 44,
-                "height": 44,
-                "overflow": "hidden",
-                "width": 44,
-              }
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/13bede8f6aa8c5eb590995b32ca04bf2?s=128",
-                }
-              }
-              style={
-                Object {
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
-          </View>
-          <View
-            style={
-              Object {
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "paddingLeft": 17,
-              }
-            }>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#383838",
-                  "fontSize": 17,
-                }
-              }>
-              Cheng Lou
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#666",
-                  "fontSize": 14,
-                  "fontWeight": "300",
-                  "marginBottom": 14,
-                }
-              }>
-              What is a piece of code? What is a library, a tool, a platform and a language?
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "backgroundColor": "white",
-            },
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#CCC",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "padding": 17,
-            }
-          }>
-          <View
-            style={
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderRadius": 44,
-                "height": 44,
-                "overflow": "hidden",
-                "width": 44,
-              }
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128",
-                }
-              }
-              style={
-                Object {
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
-          </View>
-          <View
-            style={
-              Object {
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "paddingLeft": 17,
-              }
-            }>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#383838",
-                  "fontSize": 17,
-                }
-              }>
-              Max Stoiber
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#666",
-                  "fontSize": 14,
-                  "fontWeight": "300",
-                  "marginBottom": 14,
-                }
-              }>
-              What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React?
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "backgroundColor": "white",
-            },
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#CCC",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "padding": 17,
-            }
-          }>
-          <View
-            style={
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderRadius": 44,
-                "height": 44,
-                "overflow": "hidden",
-                "width": 44,
-              }
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/9210a60b1492363560375d9cd6c842de?s=128",
-                }
-              }
-              style={
-                Object {
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
-          </View>
-          <View
-            style={
-              Object {
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "paddingLeft": 17,
-              }
-            }>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#383838",
-                  "fontSize": 17,
-                }
-              }>
-              Michael Jackson
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#666",
-                  "fontSize": 14,
-                  "fontWeight": "300",
-                  "marginBottom": 14,
-                }
-              }>
-              React Router is a full-featured routing layer for React applications that run in the browser, on the server, on React Native, and anywhere else React runs.
-            </Text>
-          </View>
-        </View>
       </View>
       <View
         style={
           Object {
             "alignItems": "center",
+            "flex": 2,
+            "flexDirection": "row",
             "paddingHorizontal": 17,
-            "paddingVertical": 32,
+          }
+        } />
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <MapView
+        initialRegion={
+          Object {
+            "latitude": 37.391084,
+            "latitudeDelta": 0.01,
+            "longitude": -121.9746,
+            "longitudeDelta": 0.01,
+          }
+        }
+        showsUserLocation={true}
+        style={
+          Object {
+            "flex": 1,
+            "height": 200,
+            "maxHeight": 200,
           }
         }>
+        <Marker
+          coordinate={
+            Object {
+              "latitude": 37.391084,
+              "latitudeDelta": 0.01,
+              "longitude": -121.9746,
+              "longitudeDelta": 0.01,
+            }
+          }
+          description="2700 Mission College Blvd, Santa Clara, CA 95054"
+          title="Santa Clara Marriott" />
+      </MapView>
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
+              "borderTopColor": "#B3B3B3",
+              "borderTopWidth": 0.5,
+              "paddingHorizontal": 17,
+              "paddingTop": 32,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 17,
+                "fontWeight": "300",
+                "lineHeight": 24,
+                "textAlign": "center",
+              }
+            }>
+            The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
+          </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#00A8D8",
+                  "fontSize": 17,
+                  "fontWeight": "500",
+                  "padding": 24,
+                }
+              }>
+              Code of Conduct
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "height": 34,
+                "justifyContent": "flex-end",
+                "paddingHorizontal": 23,
+              },
+              undefined,
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#383838",
+                "fontSize": 12,
+                "fontWeight": "500",
+                "lineHeight": 24,
+              }
+            }>
+            ORGANISERS
+          </Text>
+        </View>
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
           accessibilityTraits={undefined}
           accessible={true}
+          hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
           onLayout={undefined}
@@ -447,59 +229,364 @@ exports[`Info renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "alignItems": "center",
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "backgroundColor": "white",
+              },
+            ]
           }
           testID={undefined}
           tvParallaxProperties={undefined}>
-          <Image
-            source={1}
+          <View
             style={
               Object {
-                "height": 100,
-                "width": 100,
+                "alignItems": "center",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "padding": 17,
               }
-            } />
+            }>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#F4F4F4",
+                  "borderRadius": 44,
+                  "height": 44,
+                  "overflow": "hidden",
+                  "width": 44,
+                }
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/13bede8f6aa8c5eb590995b32ca04bf2?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "paddingLeft": 17,
+                }
+              }>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#383838",
+                    "fontSize": 17,
+                  }
+                }>
+                Cheng Lou
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#666",
+                    "fontSize": 14,
+                    "fontWeight": "300",
+                    "marginBottom": 14,
+                  }
+                }>
+                What is a piece of code? What is a library, a tool, a platform and a language?
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "backgroundColor": "white",
+              },
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "padding": 17,
+              }
+            }>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#F4F4F4",
+                  "borderRadius": 44,
+                  "height": 44,
+                  "overflow": "hidden",
+                  "width": 44,
+                }
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "paddingLeft": 17,
+                }
+              }>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#383838",
+                    "fontSize": 17,
+                  }
+                }>
+                Max Stoiber
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#666",
+                    "fontSize": 14,
+                    "fontWeight": "300",
+                    "marginBottom": 14,
+                  }
+                }>
+                What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React?
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "backgroundColor": "white",
+              },
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "padding": 17,
+              }
+            }>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#F4F4F4",
+                  "borderRadius": 44,
+                  "height": 44,
+                  "overflow": "hidden",
+                  "width": 44,
+                }
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/9210a60b1492363560375d9cd6c842de?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "paddingLeft": 17,
+                }
+              }>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#383838",
+                    "fontSize": 17,
+                  }
+                }>
+                Michael Jackson
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#666",
+                    "fontSize": 14,
+                    "fontWeight": "300",
+                    "marginBottom": 14,
+                  }
+                }>
+                React Router is a full-featured routing layer for React applications that run in the browser, on the server, on React Native, and anywhere else React runs.
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "paddingHorizontal": 17,
+              "paddingVertical": 32,
+            }
+          }>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <Image
+              source={1}
+              style={
+                Object {
+                  "height": 100,
+                  "width": 100,
+                }
+              } />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 17,
+                    "fontWeight": "300",
+                    "lineHeight": 24,
+                    "marginTop": 17,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "fontWeight": "500",
+                  },
+                ]
+              }>
+              Made by Thinkmill
+            </Text>
+          </View>
           <Text
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
-              Array [
-                Object {
-                  "fontSize": 17,
-                  "fontWeight": "300",
-                  "lineHeight": 24,
-                  "marginTop": 17,
-                  "textAlign": "center",
-                },
-                Object {
-                  "fontWeight": "500",
-                },
-              ]
+              Object {
+                "fontSize": 17,
+                "fontWeight": "300",
+                "lineHeight": 24,
+                "marginTop": 17,
+                "textAlign": "center",
+              }
             }>
-            Made by Thinkmill
+            We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
           </Text>
         </View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "fontSize": 17,
-              "fontWeight": "300",
-              "lineHeight": 24,
-              "marginTop": 17,
-              "textAlign": "center",
-            }
-          }>
-          We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
-        </Text>
       </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>
+</View>
 `;

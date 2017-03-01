@@ -214,7 +214,7 @@ export default class Schedule extends Component {
 						const onLayout = status === 'present'
 							? ({ nativeEvent: { layout } }) => this.getActiveTalkLayout({
 								height: layout.height,
-								position: layout.y - theme.listheader.height,
+								position: layout.y - theme.navbar.height,
 							})
 							: null;
 

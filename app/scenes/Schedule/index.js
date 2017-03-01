@@ -80,7 +80,13 @@ export default class Schedule extends Component {
 
 	componentDidMount () {
 		// This is the actual image splash screen, not the animated one.
-		if (Splash) Splash.close({});
+		if (Splash) {
+			Splash.close({
+				animationType: Splash.animationType.fade,
+				duration: 0,
+				delay: 500,
+			});
+		}
 	}
 
 	gotoEventInfo () {

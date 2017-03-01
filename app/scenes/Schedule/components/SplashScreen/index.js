@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {
 	Animated,
 	Dimensions,
-	Image,
 	StyleSheet,
 	View,
 } from 'react-native';
@@ -14,16 +13,23 @@ export default class SplashScreen extends Component {
 	constructor (props) {
 		super(props);
 
+		this.queueTriangleAnimation = this.queueIdleAnimation.bind(this);
+
 		this.state = {
 			height: new Animated.Value(props.animated ? windowHeight + 400 : 500),
 			logoOffset: new Animated.Value(props.animated ? 0 : 80),
 			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
+			leftTriangleSkew: new Animated.Value(5),
+			leftTriangleOffset: new Animated.Value(0),
+			rightTriangleSkew: new Animated.Value(-3),
+			rightTriangleOffset: new Animated.Value(0),
 		};
 	}
 	componentDidMount () {
 		if (this.props.animated) {
 			const animateTo = (toValue) => {
 				return {
+					delay: 1000,
 					duration: DURATION,
 					toValue,
 				};
@@ -36,10 +42,61 @@ export default class SplashScreen extends Component {
 					this.props.onAnimationComplete();
 				}
 			});
+		} else {
+			this.queueIdleAnimation();
 		}
 	}
+	queueIdleAnimation () {
+		const { leftTriangleSkew, leftTriangleOffset, rightTriangleSkew, rightTriangleOffset } = this.state;
+
+		const leftSkew = Math.random() * 10 - 5;
+		const leftOffset = Math.random() * 20 - 10;
+		const rightSkew = Math.random() * 2 + 3;
+		const rightOffset = Math.random() * 20 - 10;
+
+		Animated.parallel([
+			// -------- Left Triangle --------
+			Animated.timing(leftTriangleSkew, {
+				duration: 400,
+				delay: 1500,
+				toValue: leftSkew,
+			}),
+
+			Animated.timing(leftTriangleOffset, {
+				duration: 400,
+				delay: 1500,
+				toValue: leftOffset,
+			}),
+
+			// -------- Right Triangle --------
+			Animated.timing(rightTriangleSkew, {
+				duration: 400,
+				delay: 1700,
+				toValue: rightSkew,
+			}),
+
+			Animated.timing(rightTriangleOffset, {
+				duration: 400,
+				delay: 1700,
+				toValue: rightOffset,
+			}),
+		]).start(() => {
+			this.queueIdleAnimation();
+		});
+	}
+
 	render () {
-		const { height, logoOffset, logoScale } = this.state;
+		const { height, logoOffset, logoScale, leftTriangleSkew, leftTriangleOffset, rightTriangleSkew, rightTriangleOffset } = this.state;
+
+		// Map to string values for transform.
+		const leftSkew = leftTriangleSkew.interpolate({
+			inputRange: [-360, 360],
+			outputRange: ['-360deg', '360deg'],
+		});
+		const rightSkew = rightTriangleSkew.interpolate({
+			inputRange: [-360, 360],
+			outputRange: ['-360deg', '360deg'],
+		});
 
 		return (
 			<View style={styles.wrapper}>
@@ -53,15 +110,25 @@ export default class SplashScreen extends Component {
 				>
 					<Animated.Image
 						source={require('../../images/splash-logo.png')}
-						style={{ transform: [
-							{ translateY: logoOffset },
-							{ scale: logoScale },
-						] }}
+						style={{
+							transform: [
+								{ translateY: logoOffset },
+								{ scale: logoScale },
+							],
+							zIndex: 2,
+						}}
 					/>
-					<Image
-						source={require('../../images/splash-bottom.png')}
-						resizeMode="stretch"
-						style={styles.bottomImage}
+					<Animated.View
+						style={[styles.bottomTriangle, { transform: [
+							{ skewY: leftSkew },
+							{ translateY: leftTriangleOffset },
+						] }]}
+					/>
+					<Animated.View
+						style={[styles.bottomTriangle, { transform: [
+							{ skewY: rightSkew },
+							{ translateY: rightTriangleOffset },
+						] }]}
 					/>
 				</Animated.View>
 			</View>
@@ -82,18 +149,18 @@ const styles = StyleSheet.create({
 	splash: {
 		position: 'absolute',
 		alignItems: 'center',
-		backgroundColor: 'rgba(48, 44, 45, 1)',
 		justifyContent: 'center',
 		top: -200,
 		left: 0,
 		right: 0,
 	},
 
-	bottomImage: {
+	bottomTriangle: {
 		position: 'absolute',
-		bottom: 0,
-		left: 0,
-		height: 63,
-		right: 0,
+		backgroundColor: 'rgba(36, 31, 32, 0.9)',
+		bottom: 40,
+		left: -10,
+		right: -10,
+		height: 1200,
 	},
 });

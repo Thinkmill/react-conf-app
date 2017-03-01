@@ -97,7 +97,9 @@ export default class Schedule extends Component {
 	handleScroll ({ scrollY, viewHeight }) {
 		// Navbar top position
 		const navbarTop = Math.max(Math.min(scrollY - 124, 0), -64);
-		this.setState({ navbarTop });
+		this.setState({ navbarTop }, () => {
+			StatusBar.setBarStyle(navbarTop > -52 ? 'dark-content' : 'light-content', true);
+		});
 
 		// Now button
 		const { activeTalk } = this.state;
@@ -154,7 +156,6 @@ export default class Schedule extends Component {
 
 		return (
 			<Scene>
-				<StatusBar barStyle={navbarTop > -52 ? 'dark-content' : 'light-content'} />
 				{animatingSplash
 					&& <SplashScreen
 						animated

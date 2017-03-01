@@ -11,7 +11,7 @@ const DEFAULT_VIEW = 'Schedule';
 class ReactConf2017 extends Component {
 	componentDidMount () {
 		// this.syncAppVersion();
-		StatusBar.setBarStyle('default', true);
+		StatusBar.setBarStyle('light-content', true);
 		AppState.addEventListener('change', this.handleAppStateChange);
 	}
 	componentWillUnmount () {

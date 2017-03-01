@@ -3,6 +3,7 @@ import {
 	Image,
 	LayoutAnimation,
 	PixelRatio,
+	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -10,6 +11,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
+import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 
@@ -56,57 +58,65 @@ export default class Info extends Component {
 		const { modalIsOpen } = this.state;
 
 		return (
-			<Scene scroll scrollEnabled={!modalIsOpen}>
-				<MapView initialRegion={mapRegion} style={styles.map}>
-					<MapView.Marker
-						coordinate={mapRegion}
-						title="Santa Clara Marriott"
-						description="2700 Mission College Blvd, Santa Clara, CA 95054"
-					/>
-				</MapView>
+			<Scene>
+				<Navbar
+					title="Event Info"
+					leftButtonIconName="ios-arrow-back"
+					leftButtonText="Back"
+					leftButtonOnPress={this.props.navigator.pop}
+				/>
+				<ScrollView scrollEnabled={!modalIsOpen}>
+					<MapView initialRegion={mapRegion} style={styles.map}>
+						<MapView.Marker
+							coordinate={mapRegion}
+							title="Santa Clara Marriott"
+							description="2700 Mission College Blvd, Santa Clara, CA 95054"
+						/>
+					</MapView>
 
-				<View style={{ flex: 1 }}>
-					<View style={styles.hero}>
-						<Text style={styles.heroText}>
-							The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
-						</Text>
-						<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
-							<Text style={styles.heroLink}>
-								Code of Conduct
+					<View style={{ flex: 1 }}>
+						<View style={styles.hero}>
+							<Text style={styles.heroText}>
+								The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
 							</Text>
-						</TouchableOpacity>
+							<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
+								<Text style={styles.heroLink}>
+									Code of Conduct
+								</Text>
+							</TouchableOpacity>
+						</View>
+
+						<ListTitle text="Organisers" />
+						{organisers.map((organiser, idx) => {
+							const onPress = () => {};
+
+							return (
+								<Organiser
+									avatar={organiser.avatar}
+									key={idx}
+									onPress={onPress}
+									name={organiser.name}
+									summary={organiser.summary}
+								/>
+							);
+						})}
+
+						<View style={styles.madeby}>
+							<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
+								<Image
+									source={require('./images/thinkmill-logo.png')}
+									style={{ width: 100, height: 100 }}
+								/>
+								<Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text>
+							</TouchableOpacity>
+							<Text style={styles.madebyText}>
+								We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
+							</Text>
+						</View>
 					</View>
 
-					<ListTitle text="Organisers" />
-					{organisers.map((organiser, idx) => {
-						const onPress = () => {};
-
-						return (
-							<Organiser
-								avatar={organiser.avatar}
-								key={idx}
-								onPress={onPress}
-								name={organiser.name}
-								summary={organiser.summary}
-							/>
-						);
-					})}
-
-					<View style={styles.madeby}>
-						<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
-							<Image
-								source={require('./images/thinkmill-logo.png')}
-								style={{ width: 100, height: 100 }}
-							/>
-							<Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text>
-						</TouchableOpacity>
-						<Text style={styles.madebyText}>
-							We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
-						</Text>
-					</View>
-				</View>
-
-				{!!modalIsOpen && <CodeOfConduct onClose={this.toggleModal} />}
+					{!!modalIsOpen && <CodeOfConduct onClose={this.toggleModal} />}
+				</ScrollView>
 			</Scene>
 		);
 	}

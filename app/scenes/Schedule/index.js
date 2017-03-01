@@ -52,7 +52,7 @@ export default class Schedule extends Component {
 		props.talks.forEach((talk) => {
 			const sID = moment(talk.time.start).format('dddd');
 
-				// create new section and initialize empty array for section index
+			// create new section and initialize empty array for section index
 			if (!dataBlob[sID]) {
 				sectionIDs.push(sID);
 				rowIDs[sectionIndex] = [];
@@ -92,7 +92,6 @@ export default class Schedule extends Component {
 	gotoEventInfo () {
 		this.props.navigator.push({
 			scene: 'Info',
-			transitionKey: 'FloatFromBottom',
 		});
 	}
 	handleScroll ({ scrollY, viewHeight }) {

@@ -171,15 +171,16 @@ export default class Schedule extends Component {
 
 		return (
 			<Scene>
-				{animatingSplash
-					&& <SplashScreen
+				{animatingSplash && (
+					<SplashScreen
 						animated
 						onAnimationComplete={() => this.setState({ animatingSplash: false })}
-					/>}
+					/>
+				)}
 
 				<Navbar
 					title="Schedule"
-					rightButtonText="Event Info"
+					rightButtonIconName="ios-information-circle-outline"
 					rightButtonOnPress={this.gotoEventInfo}
 					style={[styles.navbar, { top: navbarTop }]}
 				/>

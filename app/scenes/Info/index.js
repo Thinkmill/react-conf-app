@@ -11,6 +11,7 @@ import {
 import MapView from 'react-native-maps';
 
 import ListTitle from '../../components/ListTitle';
+import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
 import { list as organiserList } from '../../data/organisers';
@@ -53,11 +54,16 @@ export default class Info extends Component {
 		attemptToOpenUrl(url);
 	}
 	render () {
-		const { organisers } = this.props;
+		const { navigator, organisers } = this.props;
 		const { modalIsOpen } = this.state;
 
 		return (
 			<Scene scroll scrollEnabled={!modalIsOpen}>
+				<Navbar
+					title="Event Info"
+					leftButtonIconName="ios-arrow-back"
+					leftButtonOnPress={navigator.popToTop}
+				/>
 				<MapView initialRegion={mapRegion} style={styles.map}>
 					<MapView.Marker
 						coordinate={mapRegion}

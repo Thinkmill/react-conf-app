@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
+import { ActionSheetIOS, Animated, Dimensions, Easing } from 'react-native';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -20,7 +20,6 @@ export default class Talk extends Component {
 
 		bindMethods.call(this, [
 			'handleScroll',
-			'handleScrollEndDrag',
 			'share',
 			'toggleSpeakerModal',
 		]);
@@ -48,38 +47,42 @@ export default class Talk extends Component {
 		});
 
 	}
-	handleScroll (event) {
-		const contentHeight = event.nativeEvent.contentSize.height;
-		const viewHeight = event.nativeEvent.layoutMeasurement.height;
-		const scrollY = event.nativeEvent.contentOffset.y;
+	handleScroll ({ nativeEvent }) {
+		const contentHeight = nativeEvent.contentSize.height;
+		const viewHeight = nativeEvent.layoutMeasurement.height;
+		const scrollY = nativeEvent.contentOffset.y;
 		const heightOffset = contentHeight > viewHeight
 			? contentHeight - viewHeight
 			: 0;
+		const { nextTalkPreview, prevTalkPreview, scrollview } = this.talkpane.refs;
+		const { nextTalk, prevTalk } = this.state;
 
-		if (scrollY > 0 && this.talkpane.refs.nextTalkPreview) {
-			const opacity = Math.min((scrollY - heightOffset) / 100, 1);
-
-			this.talkpane.refs.nextTalkPreview.setNativeProps({ style: { opacity } });
-		} else if (this.talkpane.refs.prevTalkPreview) {
-			const opacity = Math.min(Math.abs(scrollY) / 100, 1);
-
-			this.talkpane.refs.prevTalkPreview.setNativeProps({ style: { opacity } });
+		if (scrollY > 0 && nextTalkPreview) {
+			const opacity = Math.min((scrollY - (heightOffset + 20)) / 100, 1);
+			nextTalkPreview.setNativeProps({ style: { opacity } });
+		} else if (prevTalkPreview) {
+			const opacity = Math.min(Math.abs(scrollY + 20) / 100, 1);
+			prevTalkPreview.setNativeProps({ style: { opacity } });
 		}
-		this.setState({
-			nextIsActive: scrollY > (heightOffset + 100),
-			prevIsActive: scrollY < -100,
-		});
-	}
-	handleScrollEndDrag () {
-		if (this.state.nextIsActive) {
-			this.setState({ nextIsActive: false }, this.renderNextTalk);
-		} else if (this.state.prevIsActive) {
-			this.setState({ prevIsActive: false }, this.renderPrevTalk);
+
+		const jumpToNext = nextTalk && (scrollY > (heightOffset + 110));
+		const jumpToPrev = prevTalk && (scrollY < -110);
+
+		if (jumpToNext) {
+			scrollview.setNativeProps({
+				scrollEnabled: false,
+				bounces: false,
+			});
+			this.renderNextTalk();
+		} else if (jumpToPrev) {
+			scrollview.setNativeProps({
+				bounces: false,
+				scrollEnabled: false,
+			});
+			this.renderPrevTalk();
 		}
 	}
 	renderNextTalk () {
-		if (!this.state.nextTalk) return;
-
 		const talk = this.state.nextTalk;
 		const nextTalk = this.state.nextTalk
 			? getNextTalkFromId(this.state.nextTalk.id)
@@ -89,8 +92,6 @@ export default class Talk extends Component {
 		this.setTalks({ nextTalk, prevTalk, talk }, 'next');
 	}
 	renderPrevTalk () {
-		if (!this.state.prevTalk) return;
-
 		const talk = this.state.prevTalk;
 		const nextTalk = this.state.talk;
 		const prevTalk = this.state.prevTalk
@@ -100,21 +101,22 @@ export default class Talk extends Component {
 		this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
 	}
 	setTalks (newState, transitionDirection) {
-		this.talkpane.refs.scrollview.setNativeProps({ bounces: false });
-
-		this.setState({ outgoingTalk: newState.talk, transitionDirection }, () => {
+		this.setState({
+			incomingTalk: newState.talk,
+			transitionDirection,
+		}, () => {
 			Animated.spring(this.state.animValue, {
 				toValue: 1,
 				friction: 7,
 				tension: 30,
 			}).start(() => {
-				this.setState(Object.assign(newState, { outgoingTalk: null }), () => {
+				this.setState(Object.assign(newState, { incomingTalk: null }), () => {
 					this.state.animValue.setValue(0);
-					this.talkpane.refs.scrollview.setNativeProps({ bounces: true });
-					this.talkpane.refs.scrollview.scrollTo({
-						y: 0,
-						animated: false,
+					this.talkpane.refs.scrollview.setNativeProps({
+						bounces: true,
+						scrollEnabled: true,
 					});
+					this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
 				});
 			});
 		});
@@ -143,9 +145,8 @@ export default class Talk extends Component {
 		const {
 			animValue,
 			modalIsOpen,
-			nextIsActive,
 			nextTalk,
-			prevIsActive,
+			incomingTalk,
 			prevTalk,
 			showIntro,
 			talk,
@@ -155,11 +156,11 @@ export default class Talk extends Component {
 		const availableHeight = this.sceneHeight - theme.navbar.height;
 
 		const incomingFrom = this.state.transitionDirection === 'next'
-			? -this.sceneHeight
-			: this.sceneHeight;
-		const outgoingTo = this.state.transitionDirection === 'next'
 			? this.sceneHeight
 			: -this.sceneHeight;
+		const outgoingTo = this.state.transitionDirection === 'next'
+			? -this.sceneHeight
+			: this.sceneHeight;
 
 		const transitionStyles = {
 			height: availableHeight,
@@ -200,21 +201,18 @@ export default class Talk extends Component {
 				<Animated.View style={[transitionStyles, outgoingTransitionStyles]}>
 					<TalkPane
 						nextTalk={nextTalk}
-						nextTalkPreviewIsEngaged={nextIsActive}
-						prevTalk={prevTalk}
-						prevTalkPreviewIsEngaged={prevIsActive}
-						showSpeakerModal={() => this.toggleSpeakerModal(true)}
-						visibleTalk={talk}
 						onHeroLayout={({ nativeEvent: { layout } }) => this.handleLayout(layout)}
 						onScroll={this.handleScroll}
-						onScrollEndDrag={this.handleScrollEndDrag}
+						prevTalk={prevTalk}
 						ref={r => (this.talkpane = r)}
+						showSpeakerModal={() => this.toggleSpeakerModal(true)}
+						visibleTalk={talk}
 					/>
 				</Animated.View>
-				{!!this.state.outgoingTalk && (
+				{!!incomingTalk && (
 					<Animated.View style={[transitionStyles, incomingTransitionStyles]} pointerEvents="none">
 						<TalkPane
-							visibleTalk={this.state.outgoingTalk}
+							visibleTalk={incomingTalk}
 							ref={r => (this.transitionpane = r)}
 						/>
 					</Animated.View>

@@ -15,7 +15,6 @@ import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
 
 import Preview from '../Preview';
-import PreviewInstructions from '../Preview/Instructions';
 
 export default class TalkPane extends Component {
 	render () {
@@ -23,12 +22,11 @@ export default class TalkPane extends Component {
 			nextTalk,
 			nextTalkPreviewIsEngaged,
 			onHeroLayout,
-			onScroll,
-			onScrollEndDrag,
 			prevTalk,
 			prevTalkPreviewIsEngaged,
 			showSpeakerModal,
 			visibleTalk,
+			...props
 		} = this.props;
 
 		const touchableProps = {
@@ -37,22 +35,15 @@ export default class TalkPane extends Component {
 		};
 
 		return (
-			<ScrollView style={{ flex: 1 }} scrollEventThrottle={30} onScroll={onScroll} onScrollEndDrag={onScrollEndDrag} ref="scrollview">
+			<ScrollView style={{ flex: 1 }} scrollEventThrottle={90} ref="scrollview" {...props}>
 				{!!prevTalk && (
 					<View ref="prevTalkPreview" style={{ opacity: 0 }}>
-						{prevTalkPreviewIsEngaged ? (
-							<PreviewInstructions
-								talkTitle={prevTalk.title}
-								position="top"
-							/>
-						) : (
-							<Preview
-								position="top"
-								speakerName={prevTalk.speaker.name}
-								talkStartTime={moment(prevTalk.time.start).format(TIME_FORMAT)}
-								talkTitle={prevTalk.title}
-							/>
-						)}
+						<Preview
+							isActive={prevTalkPreviewIsEngaged}
+							position="top"
+							subtitle={`${moment(prevTalk.time.start).format(TIME_FORMAT)} - ${prevTalk.speaker.name}`}
+							title={prevTalk.title}
+						/>
 					</View>
 				)}
 				<View style={styles.hero} onLayout={onHeroLayout}>
@@ -80,19 +71,12 @@ export default class TalkPane extends Component {
 
 				{!!nextTalk && (
 					<View ref="nextTalkPreview" style={{ opacity: 0 }}>
-						{nextTalkPreviewIsEngaged ? (
-							<PreviewInstructions
-								talkTitle={nextTalk.title}
-								position="bottom"
-							/>
-						) : (
-							<Preview
-								position="bottom"
-								speakerName={nextTalk.speaker.name}
-								talkStartTime={moment(nextTalk.time.start).format(TIME_FORMAT)}
-								talkTitle={nextTalk.title}
-							/>
-						)}
+						<Preview
+							isActive={nextTalkPreviewIsEngaged}
+							position="bottom"
+							subtitle={`${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`}
+							title={nextTalk.title}
+						/>
 					</View>
 				)}
 			</ScrollView>
@@ -146,7 +130,9 @@ const styles = StyleSheet.create({
 	},
 
 	// summary
-	summary: {},
+	summary: {
+		paddingBottom: 40,
+	},
 	summaryText: {
 		fontSize: theme.fontSize.default,
 		fontWeight: '300',

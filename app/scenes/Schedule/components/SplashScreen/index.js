@@ -22,24 +22,20 @@ export default class SplashScreen extends Component {
 	}
 	componentDidMount () {
 		if (this.props.animated) {
-			Animated.timing(this.state.height, {
-				toValue: 500,
-				duration: DURATION,
-			}).start(() => {
+			const animateTo = (toValue) => {
+				return {
+					duration: DURATION,
+					toValue,
+				};
+			};
+
+			Animated.timing(this.state.logoOffset, animateTo(80)).start();
+			Animated.timing(this.state.logoScale, animateTo(0.8)).start();
+			Animated.timing(this.state.height, animateTo(500)).start(() => {
 				if (this.props.onAnimationComplete) {
 					this.props.onAnimationComplete();
 				}
 			});
-
-			Animated.timing(this.state.logoOffset, {
-				toValue: 80,
-				duration: DURATION,
-			}).start();
-
-			Animated.timing(this.state.logoScale, {
-				toValue: 0.8,
-				duration: DURATION,
-			}).start();
 		}
 	}
 	render () {

@@ -53,18 +53,11 @@ class ReactConf2017 extends Component {
 
 		return (
 			<Navigator
+				configureScene={configureScene}
 				initialRoute={{ scene: DEFAULT_VIEW, index: 0 }}
 				renderScene={renderScene}
-				configureScene={configureScene}
+				sceneStyle={styles.scenes}
 				style={styles.navigator}
-				sceneStyle={{
-					backgroundColor: theme.color.sceneBg,
-					overflow: 'visible',
-					shadowColor: 'black',
-					shadowOffset: { height: 0, width: 0 },
-					shadowOpacity: 0.33,
-					shadowRadius: 5,
-				}}
 			/>
 		);
 	}
@@ -74,6 +67,14 @@ const styles = StyleSheet.create({
 	navigator: {
 		backgroundColor: 'black',
 		flex: 1,
+	},
+	scenes: {
+		backgroundColor: theme.color.sceneBg,
+		overflow: 'visible',
+		shadowColor: 'black',
+		shadowOffset: { height: 0, width: 0 },
+		shadowOpacity: 0.33,
+		shadowRadius: 5,
 	},
 });
 

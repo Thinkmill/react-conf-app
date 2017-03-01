@@ -40,6 +40,7 @@ export default class Schedule extends Component {
 		bindMethods.call(this, [
 			'getActiveTalkLayout',
 			'gotoEventInfo',
+			'handleNavigatorWillFocus',
 			'handleScroll',
 			'scrolltoActiveTalk',
 		]);
@@ -79,6 +80,8 @@ export default class Schedule extends Component {
 	}
 
 	componentDidMount () {
+		this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener('willfocus', this.handleNavigatorWillFocus);
+
 		// This is the actual image splash screen, not the animated one.
 		if (Splash) {
 			Splash.close({
@@ -88,11 +91,23 @@ export default class Schedule extends Component {
 			});
 		}
 	}
+	componentWillUnmount () {
+		this._navigatorWillFocusSubscription.remove();
+	}
 
 	gotoEventInfo () {
 		this.props.navigator.push({
+			enableSwipeToPop: true,
 			scene: 'Info',
 		});
+	}
+	handleNavigatorWillFocus (event) {
+		const { scene } = event.data.route;
+		const { navbarTop } = this.state;
+
+		if (scene === 'Schedule' && navbarTop < -52) {
+			StatusBar.setBarStyle('light-content', true);
+		}
 	}
 	handleScroll ({ scrollY, viewHeight }) {
 		// Navbar top position

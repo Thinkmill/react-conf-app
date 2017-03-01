@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
+import { ActionSheetIOS, Animated, Dimensions, StatusBar } from 'react-native';
 import moment from 'moment';
 
 import { TIME_FORMAT } from '../../constants';
@@ -35,6 +35,9 @@ export default class Talk extends Component {
 			showIntro: props.introduceUI,
 			talk: props.talk,
 		};
+	}
+	componentDidMount () {
+		StatusBar.setBarStyle('default', true);
 	}
 
 	handleLayout ({ height }) {

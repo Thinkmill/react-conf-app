@@ -20,10 +20,9 @@ import { attemptToOpenUrl } from '../../utils';
 import CodeOfConduct from './components/CodeOfConduct';
 import Organiser from './components/Organiser';
 
-// Santa Clara, California
 const mapRegion = {
-	latitude: 37.354108,
-	longitude: -121.955236,
+	latitude: 37.391084,
+	longitude: -121.974600,
 	latitudeDelta: 0.01,
 	longitudeDelta: 0.01,
 };

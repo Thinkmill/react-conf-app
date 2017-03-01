@@ -96,12 +96,12 @@ export default class Info extends Component {
 						<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
 							<Image
 								source={require('./images/thinkmill-logo.png')}
-								style={{ width: 100, height: 100 }}
+								style={{ width: 80, height: 80 }}
 							/>
-							<Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text>
+							{/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
 						</TouchableOpacity>
 						<Text style={styles.madebyText}>
-							We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
+							Made with love in Sydney, Australia, and open sourced by Thinkmill
 						</Text>
 					</View>
 				</View>

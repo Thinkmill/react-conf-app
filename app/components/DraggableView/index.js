@@ -13,17 +13,25 @@ export default class DraggableView extends Component {
 
 		this._panResponder = PanResponder.create({
 			onStartShouldSetPanResponder: () => true,
-			onPanResponderMove: Animated.event([null, {
-				dx: props.allowX ? this.state.pan.x : 0, // x,y are Animated.Value
-				dy: props.allowY ? this.state.pan.y : 0,
-			}]),
+			onPanResponderMove: (e, gestureState) => {
+				if (this.props.onMove) this.props.onMove(e, gestureState);
+
+				Animated.event([null, {
+					dx: props.allowX ? this.state.pan.x : 0, // x,y are Animated.Value
+					dy: props.allowY ? this.state.pan.y : 0,
+				}])(e, gestureState);
+			},
 			onPanResponderRelease: (e, { vx, vy }) => {
 				this.state.pan.flattenOffset();
 
+
 				if (Math.abs(this.state.pan.y._value) > SWIPE_THRESHOLD) {
-					this.props.onRelease();
+					if (this.props.onRelease) this.props.onRelease(e, { vx, vy });
 					Animated.decay(this.state.pan, {
-						velocity: { x: vx, y: vy },
+						velocity: {
+							x: props.allowX ? vx : 0,
+							y: props.allowY ? vy : 0,
+						},
 						deceleration: 0.98,
 					}).start();
 				} else {
@@ -50,6 +58,7 @@ export default class DraggableView extends Component {
 DraggableView.propTypes = {
 	allowX: PropTypes.bool,
 	allowY: PropTypes.bool,
+	onMove: PropTypes.func,
 	onRelease: PropTypes.func,
 };
 DraggableView.defaultProps = {

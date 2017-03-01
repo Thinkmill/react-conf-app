@@ -1,0 +1,591 @@
+exports[`Talk - Speaker renders correctly with all props 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 1334,
+        "justifyContent": "center",
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 750,
+      }
+    }>
+    <BlurView
+      blurAmount={12}
+      blurType="dark"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "height": 1334,
+            "left": 0,
+            "position": "absolute",
+            "top": 0,
+            "width": 750,
+          },
+        ]
+      }>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined} />
+    </BlurView>
+    <View
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 0.93,
+            },
+            Object {
+              "translateY": 100,
+            },
+          ],
+        }
+      }>
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "left": 0,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.25,
+            "shadowRadius": 5,
+            "top": 0,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "padding": 24,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 75,
+                "height": 75,
+                "overflow": "hidden",
+                "width": 75,
+              }
+            }>
+            <Image
+              source={
+                Object {
+                  "uri": "avatar",
+                }
+              }
+              style={
+                Object {
+                  "height": 75,
+                  "width": 75,
+                }
+              } />
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#383838",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "marginVertical": 17,
+              }
+            }>
+            Max Stroiber
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#383838",
+                "fontSize": 15,
+                "fontWeight": "300",
+                "lineHeight": 21,
+                "textAlign": "center",
+              }
+            }>
+            This is my summary.
+          </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 44,
+                "justifyContent": "center",
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 44,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#999",
+                    "fontSize": 24,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "overflow": "hidden",
+            }
+          }>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "backgroundColor": "white",
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderTopColor": "#CCC",
+                    "borderTopWidth": 0.5,
+                    "paddingVertical": 24,
+                  },
+                  Object {
+                    "borderLeftColor": null,
+                    "borderLeftWidth": null,
+                  },
+                ]
+              }>
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "color": "#00A8D8",
+                    },
+                    Object {
+                      "fontFamily": "Ionicons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }>
+                
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#666",
+                  }
+                }>
+                @twitter
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "backgroundColor": "white",
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderTopColor": "#CCC",
+                    "borderTopWidth": 0.5,
+                    "paddingVertical": 24,
+                  },
+                  Object {
+                    "borderLeftColor": "#CCC",
+                    "borderLeftWidth": 0.5,
+                  },
+                ]
+              }>
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "color": "#00A8D8",
+                    },
+                    Object {
+                      "fontFamily": "Ionicons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }>
+                
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#666",
+                  }
+                }>
+                github
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`Talk - Speaker renders correctly with missing github and twitter 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 1334,
+        "justifyContent": "center",
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 750,
+      }
+    }>
+    <BlurView
+      blurAmount={12}
+      blurType="dark"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "height": 1334,
+            "left": 0,
+            "position": "absolute",
+            "top": 0,
+            "width": 750,
+          },
+        ]
+      }>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined} />
+    </BlurView>
+    <View
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 0.93,
+            },
+            Object {
+              "translateY": 100,
+            },
+          ],
+        }
+      }>
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "left": 0,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.25,
+            "shadowRadius": 5,
+            "top": 0,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "padding": 24,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 75,
+                "height": 75,
+                "overflow": "hidden",
+                "width": 75,
+              }
+            }>
+            <Image
+              source={
+                Object {
+                  "uri": "avatar",
+                }
+              }
+              style={
+                Object {
+                  "height": 75,
+                  "width": 75,
+                }
+              } />
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#383838",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "marginVertical": 17,
+              }
+            }>
+            Max Stroiber
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#383838",
+                "fontSize": 15,
+                "fontWeight": "300",
+                "lineHeight": 21,
+                "textAlign": "center",
+              }
+            }>
+            This is my summary.
+          </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 44,
+                "justifyContent": "center",
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 44,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#999",
+                    "fontSize": 24,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

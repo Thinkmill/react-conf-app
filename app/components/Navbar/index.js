@@ -35,7 +35,7 @@ export default function Navbar ({
 					<TouchableOpacity disabled={leftButtonDisabled} onPress={leftButtonOnPress} style={[styles.button, styles.leftButton]}>
 						{!!leftButtonIconName && (
 							<Icon
-								color={theme.color.text}
+								color={theme.navbar.buttonColor}
 								name={leftButtonIconName}
 								size={36}
 								style={{ marginRight: 10, height: 36 }}
@@ -61,7 +61,7 @@ export default function Navbar ({
 					<TouchableOpacity disabled={rightButtonDisabled} onPress={rightButtonOnPress} style={[styles.button, styles.button__right]}>
 						{!!rightButtonIconName && (
 							<Icon
-								color={theme.color.text}
+								color={theme.navbar.buttonColor}
 								name={rightButtonIconName}
 								size={36}
 								style={{ marginLeft: 10, height: 36 }}

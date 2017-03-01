@@ -14,7 +14,7 @@ const animateToValue = (val) => ({
 	duration: 150,
 });
 
-export default class NextUp extends Component {
+export default class Preview extends Component {
 	constructor (props) {
 		super(props);
 
@@ -88,7 +88,7 @@ export default class NextUp extends Component {
 	}
 };
 
-NextUp.propTypes = {
+Preview.propTypes = {
 	isActive: PropTypes.bool,
 	position: PropTypes.oneOf(['bottom', 'top']),
 	subtitle: PropTypes.string.isRequired,

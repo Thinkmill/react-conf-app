@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {
 	LayoutAnimation,
 	ListView,
+	StatusBar,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -51,7 +52,7 @@ export default class Schedule extends Component {
 		props.talks.forEach((talk) => {
 			const sID = moment(talk.time.start).format('dddd');
 
-				// create new section and initialize empty array for section index
+			// create new section and initialize empty array for section index
 			if (!dataBlob[sID]) {
 				sectionIDs.push(sID);
 				rowIDs[sectionIndex] = [];
@@ -73,21 +74,32 @@ export default class Schedule extends Component {
 		this.state = {
 			animatingSplash: true,
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
+			navbarTop: -64,
 		};
 	}
 
 	componentDidMount () {
 		// This is the actual image splash screen, not the animated one.
-		Splash.close({});
+		if (Splash) {
+			Splash.close({
+				animationType: Splash.animationType.fade,
+				duration: 300,
+				delay: 500,
+			});
+		}
 	}
 
 	gotoEventInfo () {
 		this.props.navigator.push({
 			scene: 'Info',
-			transitionKey: 'FloatFromBottom',
 		});
 	}
 	handleScroll ({ scrollY, viewHeight }) {
+		// Navbar top position
+		const navbarTop = Math.max(Math.min(scrollY - 124, 0), -64);
+		this.setState({ navbarTop });
+
+		// Now button
 		const { activeTalk } = this.state;
 
 		// TODO all talks are over. Discuss how to handle
@@ -126,10 +138,10 @@ export default class Schedule extends Component {
 	}
 	render () {
 		const { navigator, talks } = this.props;
-		const { animatingSplash, dataSource, showNowButton } = this.state;
+		const { animatingSplash, dataSource, navbarTop, showNowButton } = this.state;
 
 		const renderFooter = () => (
-			<TouchableOpacity onPress={this.gotoEventInfo} activeOpacity={0.75}>
+			<TouchableOpacity key="footer" onPress={this.gotoEventInfo} activeOpacity={0.75}>
 				<Text style={styles.link}>
 					Event Info
 				</Text>
@@ -142,16 +154,18 @@ export default class Schedule extends Component {
 
 		return (
 			<Scene>
+				<StatusBar barStyle={navbarTop > -52 ? 'dark-content' : 'light-content'} />
 				{animatingSplash
 					&& <SplashScreen
 						animated
 						onAnimationComplete={() => this.setState({ animatingSplash: false })}
 					/>}
+
 				<Navbar
 					title="Schedule"
 					rightButtonText="Event Info"
 					rightButtonOnPress={this.gotoEventInfo}
-					style={styles.navbar}
+					style={[styles.navbar, { top: navbarTop }]}
 				/>
 
 				<ListView
@@ -162,7 +176,7 @@ export default class Schedule extends Component {
 						viewHeight: layoutMeasurement.height,
 						scrollY: contentOffset.y,
 					})}
-					scrollEventThrottle={300}
+					scrollEventThrottle={16}
 					enableEmptySections
 					renderHeader={() => animatingSplash ? null : <SplashScreen />}
 					renderSeparator={(sectionID, rowID) => {
@@ -225,7 +239,7 @@ export default class Schedule extends Component {
 					renderFooter={renderFooter}
 				/>
 
-				{!!showNowButton && (
+				{showNowButton && (
 					<NowButton onPress={this.scrolltoActiveTalk} />
 				)}
 			</Scene>
@@ -244,9 +258,10 @@ Schedule.defaultProps = {
 const styles = StyleSheet.create({
 	navbar: {
 		position: 'absolute',
-		top: -60,
+		top: 0,
 		right: 0,
 		left: 0,
+		zIndex: 2,
 	},
 	link: {
 		color: theme.color.blue,

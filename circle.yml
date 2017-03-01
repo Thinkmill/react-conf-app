@@ -1,4 +1,6 @@
 machine:
+  timezone:
+    Australia/Sydney
   node:
     version: 6
 test:

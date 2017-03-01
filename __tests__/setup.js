@@ -2,6 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 
 // ------------------------
+// Javascript Built-Ins
+// ------------------------
+// Ensure Date.now and new Date() give us the same date for snapshots.
+import mockdate from 'mockdate';
+mockdate.set(1422778155399, -660);
+
+// ------------------------
 // React Native Built-Ins
 // ------------------------
 // React Native UI Manager needs a focus function.

@@ -230,7 +230,7 @@ exports[`Schedule renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "backgroundColor": "#66cbe8",
+                  "backgroundColor": "#CCC",
                   "width": 6,
                 }
               } />
@@ -245,9 +245,7 @@ exports[`Schedule renders correctly 1`] = `
                     "flexShrink": 1,
                     "padding": 17,
                   },
-                  Object {
-                    "opacity": 0.5,
-                  },
+                  undefined,
                 ]
               }>
               <View
@@ -394,7 +392,7 @@ exports[`Schedule renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "backgroundColor": "#66cbe8",
+                  "backgroundColor": "#CCC",
                   "width": 6,
                 }
               } />
@@ -409,9 +407,7 @@ exports[`Schedule renders correctly 1`] = `
                     "flexShrink": 1,
                     "padding": 17,
                   },
-                  Object {
-                    "opacity": 0.5,
-                  },
+                  undefined,
                 ]
               }>
               <View
@@ -531,7 +527,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -691,9 +687,7 @@ exports[`Schedule renders correctly 1`] = `
                     "fontWeight": "300",
                     "left": -17,
                   },
-                  Object {
-                    "color": "#999",
-                  },
+                  undefined,
                 ]
               }>
               11:30am
@@ -744,7 +738,7 @@ exports[`Schedule renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "backgroundColor": "#66cbe8",
+                  "backgroundColor": "#CCC",
                   "width": 6,
                 }
               } />
@@ -759,9 +753,7 @@ exports[`Schedule renders correctly 1`] = `
                     "flexShrink": 1,
                     "padding": 17,
                   },
-                  Object {
-                    "opacity": 0.5,
-                  },
+                  undefined,
                 ]
               }>
               <View
@@ -908,7 +900,7 @@ exports[`Schedule renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "backgroundColor": "#66cbe8",
+                  "backgroundColor": "#CCC",
                   "width": 6,
                 }
               } />
@@ -923,9 +915,7 @@ exports[`Schedule renders correctly 1`] = `
                     "flexShrink": 1,
                     "padding": 17,
                   },
-                  Object {
-                    "opacity": 0.5,
-                  },
+                  undefined,
                 ]
               }>
               <View
@@ -1039,7 +1029,7 @@ exports[`Schedule renders correctly 1`] = `
           hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
-          onLayout={[Function]}
+          onLayout={null}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1072,49 +1062,10 @@ exports[`Schedule renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "backgroundColor": "#00A8D8",
+                  "backgroundColor": "#CCC",
                   "width": 6,
                 }
-              }>
-              <View
-                style={
-                  Object {
-                    "transform": Array [
-                      Object {
-                        "translateX": 0,
-                      },
-                    ],
-                  }
-                }>
-                <Text
-                  accessible={true}
-                  allowFontScaling={false}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#00A8D8",
-                        "fontSize": 34,
-                      },
-                      Object {
-                        "backgroundColor": "transparent",
-                        "height": 34,
-                        "left": 0,
-                        "position": "absolute",
-                        "top": 10,
-                        "width": 34,
-                      },
-                      Object {
-                        "fontFamily": "Ionicons",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                    ]
-                  }>
-                  
-                </Text>
-              </View>
-            </View>
+              } />
             <View
               style={
                 Array [
@@ -1152,9 +1103,7 @@ exports[`Schedule renders correctly 1`] = `
                         "fontWeight": "300",
                         "marginBottom": 14,
                       },
-                      Object {
-                        "color": "#383838",
-                      },
+                      undefined,
                     ]
                   }>
                   2:30pm
@@ -1171,9 +1120,7 @@ exports[`Schedule renders correctly 1`] = `
                         "color": "#383838",
                         "fontSize": 17,
                       },
-                      Object {
-                        "fontWeight": "500",
-                      },
+                      undefined,
                     ]
                   }>
                   Web-Like Development and Release Agility for React Native

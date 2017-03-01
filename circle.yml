@@ -1,0 +1,8 @@
+machine:
+  node:
+    version: 6
+test:
+  pre:
+    - npm run lint
+  override:
+    - npm test -- --runInBand # Jest overloads our poor container when it tries to parallelise tests, and they all fail.

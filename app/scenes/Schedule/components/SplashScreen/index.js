@@ -35,9 +35,11 @@ export default class SplashScreen extends Component {
 				};
 			};
 
-			Animated.timing(this.state.logoOffset, animateTo(80)).start();
-			Animated.timing(this.state.logoScale, animateTo(0.8)).start();
-			Animated.timing(this.state.height, animateTo(500)).start(() => {
+			Animated.parallel([
+				Animated.timing(this.state.logoOffset, animateTo(80)),
+				Animated.timing(this.state.logoScale, animateTo(0.8)),
+				Animated.timing(this.state.height, animateTo(500)),
+			]).start(() => {
 				if (this.props.onAnimationComplete) {
 					this.props.onAnimationComplete();
 				}
@@ -49,6 +51,14 @@ export default class SplashScreen extends Component {
 	queueIdleAnimation () {
 		const { leftTriangleSkew, leftTriangleOffset, rightTriangleSkew, rightTriangleOffset } = this.state;
 
+		const animateTo = (toValue) => {
+			return {
+				delay: 1500,
+				duration: 300,
+				toValue,
+			};
+		};
+
 		const leftSkew = Math.random() * 10 - 5;
 		const leftOffset = Math.random() * 20 - 10;
 		const rightSkew = Math.random() * 2 + 3;
@@ -56,33 +66,13 @@ export default class SplashScreen extends Component {
 
 		Animated.parallel([
 			// -------- Left Triangle --------
-			Animated.timing(leftTriangleSkew, {
-				duration: 400,
-				delay: 1500,
-				toValue: leftSkew,
-			}),
-
-			Animated.timing(leftTriangleOffset, {
-				duration: 400,
-				delay: 1500,
-				toValue: leftOffset,
-			}),
+			Animated.timing(leftTriangleSkew, animateTo(leftSkew)),
+			Animated.timing(leftTriangleOffset, animateTo(leftOffset)),
 
 			// -------- Right Triangle --------
-			Animated.timing(rightTriangleSkew, {
-				duration: 400,
-				delay: 1700,
-				toValue: rightSkew,
-			}),
-
-			Animated.timing(rightTriangleOffset, {
-				duration: 400,
-				delay: 1700,
-				toValue: rightOffset,
-			}),
-		]).start(() => {
-			this.queueIdleAnimation();
-		});
+			Animated.timing(rightTriangleSkew, animateTo(rightSkew)),
+			Animated.timing(rightTriangleOffset, animateTo(rightOffset)),
+		]).start(() => this.queueIdleAnimation());
 	}
 
 	render () {
@@ -157,7 +147,7 @@ const styles = StyleSheet.create({
 
 	bottomTriangle: {
 		position: 'absolute',
-		backgroundColor: 'rgba(36, 31, 32, 0.9)',
+		backgroundColor: 'rgba(36, 31, 32, 0.8)',
 		bottom: 40,
 		left: -10,
 		right: -10,

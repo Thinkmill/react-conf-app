@@ -11,7 +11,7 @@ import moment from 'moment';
 import Splash from 'react-native-smart-splash-screen';
 
 import { TIME_FORMAT } from '../../constants';
-import talks, { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
+import talks, { getIndexFromId, getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
@@ -190,7 +190,7 @@ export default class Schedule extends Component {
 							enableSwipeToPop: true,
 							scene: 'Talk',
 							props: {
-								introduceUI: true,
+								introduceUI: getIndexFromId(talk.id) < (talks.length - 1),
 								nextTalk: getNextTalkFromId(talk.id),
 								prevTalk: getPrevTalkFromId(talk.id),
 								talk,

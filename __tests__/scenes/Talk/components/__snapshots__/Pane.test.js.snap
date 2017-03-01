@@ -1,0 +1,275 @@
+exports[`Talk - Pane renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Object {
+          "opacity": 0,
+        }
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 70,
+              "justifyContent": "center",
+              "left": 0,
+              "paddingHorizontal": 60,
+              "position": "absolute",
+              "width": 750,
+            },
+            Object {
+              "top": -70,
+            },
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }>
+          The Road to Styled Components
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#666",
+              "textAlign": "center",
+            }
+          }>
+          9:30am
+           — 
+          Max Stoiber
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "borderTopColor": "#CCC",
+          "borderTopWidth": 0.5,
+          "marginTop": -0.5,
+          "paddingBottom": 32,
+          "paddingHorizontal": 24,
+        }
+      }>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "paddingHorizontal": 32,
+              "paddingTop": 32,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              }
+            }>
+            <Image
+              source={
+                Object {
+                  "uri": "https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128",
+                }
+              }
+              style={
+                Object {
+                  "height": 44,
+                  "width": 44,
+                }
+              } />
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#00A8D8",
+                "fontSize": 17,
+                "fontWeight": "500",
+                "marginTop": 14,
+              }
+            }>
+            Max Stoiber
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": 12,
+                "paddingBottom": 24,
+              }
+            }>
+            (tap for more)
+          </Text>
+        </View>
+      </View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 24,
+            "fontWeight": "300",
+            "textAlign": "center",
+          }
+        }>
+        The Road to Styled Components
+      </Text>
+    </View>
+    <View
+      style={Object {}}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 17,
+            "fontWeight": "300",
+            "lineHeight": 24,
+            "padding": 24,
+          }
+        }>
+        What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let\'s talk about what we thought about and why we arrived where we did – 💅 styled-components.
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "opacity": 0,
+        }
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 70,
+              "justifyContent": "center",
+              "left": 0,
+              "paddingHorizontal": 60,
+              "position": "absolute",
+              "width": 750,
+            },
+            Object {
+              "bottom": -70,
+            },
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }>
+          The Road to Styled Components
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#666",
+              "textAlign": "center",
+            }
+          }>
+          9:30am
+           — 
+          Max Stoiber
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

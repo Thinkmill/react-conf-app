@@ -78,7 +78,7 @@ export default class Schedule extends Component {
 
 	componentDidMount () {
 		// This is the actual image splash screen, not the animated one.
-		Splash.close({});
+		if (Splash) Splash.close({});
 	}
 
 	gotoEventInfo () {
@@ -129,7 +129,7 @@ export default class Schedule extends Component {
 		const { animatingSplash, dataSource, showNowButton } = this.state;
 
 		const renderFooter = () => (
-			<TouchableOpacity onPress={this.gotoEventInfo} activeOpacity={0.75}>
+			<TouchableOpacity key="footer" onPress={this.gotoEventInfo} activeOpacity={0.75}>
 				<Text style={styles.link}>
 					Event Info
 				</Text>

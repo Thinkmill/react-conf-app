@@ -1,0 +1,80 @@
+exports[`Schedule - Now Button renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "left": 0,
+      "paddingBottom": 20,
+      "position": "absolute",
+      "right": 0,
+      "transform": Array [
+        Object {
+          "scale": 1,
+        },
+      ],
+    }
+  }>
+  <BVLinearGradient
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    colors={
+      Array [
+        4279217626,
+        4278230731,
+      ]
+    }
+    end={undefined}
+    hitSlop={
+      Object {
+        "bottom": 20,
+        "left": 10,
+        "right": 10,
+        "top": 10,
+      }
+    }
+    locations={null}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    start={undefined}
+    style={
+      Object {
+        "backgroundColor": "#00A8D8",
+        "borderRadius": 40,
+        "height": 40,
+        "justifyContent": "center",
+        "paddingHorizontal": 32,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 2,
+      }
+    }
+    testID={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "white",
+          "fontWeight": "bold",
+        }
+      }>
+      NOW
+    </Text>
+  </BVLinearGradient>
+</View>
+`;

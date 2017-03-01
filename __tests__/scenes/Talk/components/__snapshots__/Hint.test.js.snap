@@ -1,0 +1,65 @@
+exports[`Talk - Hint renders correctly 1`] = `
+<BVLinearGradient
+  colors={
+    Array [
+      452261108,
+      4294243572,
+    ]
+  }
+  end={undefined}
+  locations={
+    Array [
+      0,
+      0.66,
+    ]
+  }
+  pointerEvents="none"
+  start={undefined}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "bottom": 0,
+      "height": 80,
+      "justifyContent": "flex-end",
+      "left": 0,
+      "opacity": 1,
+      "paddingBottom": 10,
+      "position": "absolute",
+      "width": 750,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "opacity": 0.2,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#383838",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }>
+      
+    </Text>
+  </View>
+</BVLinearGradient>
+`;

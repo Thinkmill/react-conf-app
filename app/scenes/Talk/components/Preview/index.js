@@ -10,7 +10,7 @@ const ICON_VARIANT = {
 	top: 'ios-arrow-down',
 };
 
-export default class NextUp extends Component {
+export default class Preview extends Component {
 	render () {
 		const {
 			position,
@@ -54,7 +54,7 @@ export default class NextUp extends Component {
 	}
 };
 
-NextUp.propTypes = {
+Preview.propTypes = {
 	position: PropTypes.oneOf(['bottom', 'top']),
 	speakerName: PropTypes.string.isRequired,
 	talkStartTime: PropTypes.string.isRequired,

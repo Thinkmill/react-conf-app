@@ -1,0 +1,113 @@
+exports[`Schedule - Splash Screen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "zIndex": 2,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "height": 300,
+      }
+    } />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(48, 44, 45, 1)",
+        "height": 500,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -200,
+      }
+    }>
+    <Image
+      source={1}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "translateY": 80,
+            },
+            Object {
+              "scale": 0.8,
+            },
+          ],
+        }
+      } />
+    <Image
+      resizeMode="stretch"
+      source={1}
+      style={
+        Object {
+          "bottom": 0,
+          "height": 63,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+        }
+      } />
+  </View>
+</View>
+`;
+
+exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
+<View
+  style={
+    Object {
+      "zIndex": 2,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "height": 300,
+      }
+    } />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(48, 44, 45, 1)",
+        "height": 1734,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -200,
+      }
+    }>
+    <Image
+      source={1}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      } />
+    <Image
+      resizeMode="stretch"
+      source={1}
+      style={
+        Object {
+          "bottom": 0,
+          "height": 63,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+        }
+      } />
+  </View>
+</View>
+`;

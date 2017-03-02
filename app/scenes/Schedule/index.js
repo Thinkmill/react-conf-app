@@ -88,7 +88,7 @@ export default class Schedule extends Component {
 			Splash.close({
 				animationType: Splash.animationType.fade,
 				duration: 300,
-				delay: 500,
+				delay: 200,
 			});
 		}
 	}

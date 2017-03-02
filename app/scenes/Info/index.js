@@ -3,6 +3,7 @@ import {
 	Image,
 	LayoutAnimation,
 	PixelRatio,
+	ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -58,59 +59,64 @@ export default class Info extends Component {
 		const { modalIsOpen } = this.state;
 
 		return (
-			<Scene scroll scrollEnabled={!modalIsOpen}>
+			<Scene>
 				<Navbar
 					title="Event Info"
 					leftButtonIconName="ios-arrow-back"
 					leftButtonOnPress={navigator.popToTop}
 				/>
-				<MapView initialRegion={mapRegion} style={styles.map}>
-					<MapView.Marker
-						coordinate={mapRegion}
-						title="React Conf 2017"
-					/>
-				</MapView>
+				<ScrollView>
+					<MapView initialRegion={mapRegion} style={styles.map}>
+						<MapView.Marker
+							coordinate={mapRegion}
+							title="React Conf 2017"
+						/>
+					</MapView>
 
-				<View style={{ flex: 1 }}>
-					<View style={styles.hero}>
-						<Text style={styles.heroText}>
-							The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
-						</Text>
-						<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
-							<Text style={styles.heroLink}>
-								Code of Conduct
+					<View style={{ flex: 1 }}>
+						<View style={styles.hero}>
+							<Text style={styles.heroText}>
+								The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
 							</Text>
-						</TouchableOpacity>
+							<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
+								<Text style={styles.heroLink}>
+									Code of Conduct
+								</Text>
+							</TouchableOpacity>
+						</View>
+
+						<ListTitle text="Organisers" />
+						{organisers.map((organiser, idx) => {
+							const onPress = () => {};
+
+							return (
+								<Organiser
+									avatar={organiser.avatar}
+									key={idx}
+									onPress={onPress}
+									name={organiser.name}
+									summary={organiser.summary}
+								/>
+							);
+						})}
+
+						<View style={styles.madeby}>
+							<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
+								<Image
+									source={require('./images/thinkmill-logo.png')}
+									style={{ width: 80, height: 80 }}
+								/>
+								{/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
+							</TouchableOpacity>
+							<Text style={styles.madebyText}>
+								React Conf App made with love in Sydney, Australia, and open sourced by Thinkmill
+							</Text>
+							<Text style={styles.madebyText}>
+								github.com/Thinkmill/react-conf-2017
+							</Text>
+						</View>
 					</View>
-
-					<ListTitle text="Organisers" />
-					{organisers.map((organiser, idx) => {
-						const onPress = () => {};
-
-						return (
-							<Organiser
-								avatar={organiser.avatar}
-								key={idx}
-								onPress={onPress}
-								name={organiser.name}
-								summary={organiser.summary}
-							/>
-						);
-					})}
-
-					<View style={styles.madeby}>
-						<TouchableOpacity onPress={this.openThinkmill} activeOpacity={0.75} style={styles.madebyLink}>
-							<Image
-								source={require('./images/thinkmill-logo.png')}
-								style={{ width: 80, height: 80 }}
-							/>
-							{/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
-						</TouchableOpacity>
-						<Text style={styles.madebyText}>
-							Made with love in Sydney, Australia, and open sourced by Thinkmill
-						</Text>
-					</View>
-				</View>
+				</ScrollView>
 
 				{!!modalIsOpen && <CodeOfConduct onClose={this.toggleModal} />}
 			</Scene>

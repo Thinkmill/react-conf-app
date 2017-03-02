@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
+	Animated,
 	Dimensions,
 	LayoutAnimation,
 	ListView,
@@ -74,9 +75,9 @@ export default class Schedule extends Component {
 		});
 
 		this.state = {
-			animatingSplash: true,
+			animatingSplash: false,
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
-			navbarTop: -64,
+			scrollY: new Animated.Value(0),
 		};
 	}
 
@@ -162,7 +163,13 @@ export default class Schedule extends Component {
 	}
 	render () {
 		const { navigator, talks } = this.props;
-		const { animatingSplash, dataSource, navbarTop, showNowButton } = this.state;
+		const { animatingSplash, dataSource, scrollY, showNowButton } = this.state;
+
+		const navbarTop = scrollY.interpolate({
+			inputRange: [80, 120],
+			outputRange: [-64, 0],
+			extrapolate: 'clamp',
+		});
 
 		const renderFooter = () => (
 			<TouchableOpacity key="footer" onPress={this.gotoEventInfo} activeOpacity={0.75}>
@@ -185,23 +192,24 @@ export default class Schedule extends Component {
 					/>
 				)}
 
-				<Navbar
-					title="Schedule"
-					rightButtonIconName="ios-information-circle-outline"
-					rightButtonOnPress={this.gotoEventInfo}
-					style={[styles.navbar, { top: navbarTop }]}
-				/>
+				<Animated.View style={[styles.navbar, { top: navbarTop }]}>
+					<Navbar
+						title="Schedule"
+						rightButtonIconName="ios-information-circle-outline"
+						rightButtonOnPress={this.gotoEventInfo}
+					/>
+				</Animated.View>
 
 				<ListView
 					dataSource={dataSource}
 					ref="listview"
 					initialListSize={initialListSize}
-					onScroll={({ nativeEvent: { contentOffset, layoutMeasurement } }) => this.handleScroll({
-						viewHeight: layoutMeasurement.height,
-						scrollY: contentOffset.y,
-					})}
+					onScroll={Animated.event(
+						[{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }]
+					)}
 					scrollEventThrottle={16}
 					enableEmptySections
+					removeClippedSubviews={false}
 					renderHeader={() => animatingSplash ? null : <SplashScreen />}
 					renderSeparator={(sectionID, rowID) => {
 						const key = sectionID + ':' + rowID;

@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		backgroundColor: 'rgba(36, 31, 32, 0.8)',
 		bottom: 40,
-		left: -10,
-		right: -10,
+		left: -100,
+		right: -100,
 		height: 1200,
 	},
 });

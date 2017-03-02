@@ -107,7 +107,10 @@ export default class Info extends Component {
 							{/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
 						</TouchableOpacity>
 						<Text style={styles.madebyText}>
-							Made with love in Sydney, Australia, and open sourced by Thinkmill
+							React Conf App made with love in Sydney, Australia, and open sourced by Thinkmill
+						</Text>
+						<Text style={styles.madebyText}>
+							github.com/Thinkmill/react-conf-2017
 						</Text>
 					</View>
 				</View>

@@ -75,10 +75,22 @@ export default class Schedule extends Component {
 		});
 
 		this.state = {
-			animatingSplash: false,
+			animatingSplash: true,
 			dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
 			scrollY: new Animated.Value(0),
 		};
+
+		this.state.scrollY.addListener(({ value }) => {
+			if (value < 60) {
+				StatusBar.setHidden(false, true);
+				StatusBar.setBarStyle('light-content', true);
+			} else if (value >= 60 && value <= 140) {
+				StatusBar.setHidden(true, true);
+			} else {
+				StatusBar.setHidden(false, true);
+				StatusBar.setBarStyle('dark-content', true);
+			}
+		});
 	}
 
 	componentDidMount () {

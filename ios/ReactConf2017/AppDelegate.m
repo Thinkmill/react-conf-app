@@ -21,14 +21,15 @@
 {
   NSURL *jsCodeLocation;
 
-  
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
 #ifdef DEBUG
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 #else
     jsCodeLocation = [CodePush bundleURL];
 #endif
-  
-  
+
+
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactConf2017"
                                                initialProperties:nil
@@ -36,7 +37,7 @@
   [RCTSplashScreen open:rootView withImageNamed:@"Splash"];
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:36.0f / 255.0f green:31.0f / 255.0f blue:32.0f / 255.0f alpha:1];
-  
+
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

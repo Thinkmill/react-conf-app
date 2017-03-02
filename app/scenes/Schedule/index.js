@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
+	Dimensions,
 	LayoutAnimation,
 	ListView,
 	StatusBar,
@@ -133,8 +134,14 @@ export default class Schedule extends Component {
 	}
 	scrolltoActiveTalk () {
 		const { activeTalk } = this.state;
+		const { contentLength } = this.refs.listview.scrollProperties;
+		const sceneHeight = Dimensions.get('window').height;
+		const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
+		const scrollToY = (maxScroll < activeTalk.position)
+			? maxScroll
+			: activeTalk.position;
 
-		this.refs.listview.scrollTo({ x: 0, y: activeTalk.position, animated: true });
+		this.refs.listview.scrollTo({ y: scrollToY, animated: true });
 
 		// HACK scrollTo doesn't have a completion callback
 		// See GitHub issue #11657 https://github.com/facebook/react-native/issues/11657

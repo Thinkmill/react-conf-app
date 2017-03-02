@@ -81,10 +81,10 @@ export default class Schedule extends Component {
 		};
 
 		this.state.scrollY.addListener(({ value }) => {
-			if (value < 60) {
+			if (value < 40) {
 				StatusBar.setHidden(false, true);
 				StatusBar.setBarStyle('light-content', true);
-			} else if (value >= 60 && value <= 140) {
+			} else if (value >= 40 && value <= 140) {
 				StatusBar.setHidden(true, true);
 			} else {
 				StatusBar.setHidden(false, true);

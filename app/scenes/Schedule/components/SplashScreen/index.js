@@ -8,7 +8,7 @@ import {
 
 const windowHeight = Dimensions.get('window').height;
 const SLIDE_DURATION = 800;
-const SLIDE_FINAL_HEIGHT = 500;
+const SLIDE_FINAL_HEIGHT = 430;
 
 const SKEW_DELAY = 3000;
 const SKEW_DURATION = 2000;
@@ -23,7 +23,7 @@ export default class SplashScreen extends Component {
 		this.queueTriangleAnimation = this.queueIdleAnimation.bind(this);
 
 		this.state = {
-			height: new Animated.Value(props.animated ? windowHeight + 400 : SLIDE_FINAL_HEIGHT),
+			height: new Animated.Value(props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
 			logoOffset: new Animated.Value(props.animated ? 0 : 80),
 			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
 			leftTriangleSkew: new Animated.Value(SKEW_DOWN),
@@ -93,7 +93,7 @@ export default class SplashScreen extends Component {
 		return (
 			<View style={styles.wrapper}>
 				{/* I'm a spacer to push other content below me down */}
-				<View style={{ height: 300 }} />
+				<View style={{ height: SLIDE_FINAL_HEIGHT - 220 }} />
 
 				{/* The actual splash screen */}
 				<Animated.View

@@ -113,9 +113,10 @@ export default class Schedule extends Component {
 		if (!currentTalk) return;
 
 		const day = moment(currentTalk.time.start).format('dddd');
+		const talksForToday = visibleRows[day];
 
 		// Set the now button to visible based on whether the talk is visible or not.
-		this.toggleNowButton(!visibleRows[day][currentTalk.id]);
+		this.toggleNowButton(!(talksForToday && talksForToday[currentTalk.id]));
 	}
 	scrolltoActiveTalk () {
 		const { activeTalkLayout } = this.state;

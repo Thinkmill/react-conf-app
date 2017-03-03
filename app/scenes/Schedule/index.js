@@ -33,7 +33,6 @@ export default class Schedule extends Component {
 		super(props);
 
 		bindMethods.call(this, [
-			'getActiveTalkLayout',
 			'gotoEventInfo',
 			'onChangeVisibleRows',
 			'scrolltoActiveTalk',
@@ -119,24 +118,19 @@ export default class Schedule extends Component {
 		this.toggleNowButton(!visibleRows[day][currentTalk.id]);
 	}
 	scrolltoActiveTalk () {
-		const { activeTalk } = this.state;
+		const { activeTalkLayout } = this.state;
 		const { contentLength } = this.refs.listview.scrollProperties;
 		const sceneHeight = Dimensions.get('window').height;
 		const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
-		const scrollToY = (maxScroll < activeTalk.position)
+		const scrollToY = (maxScroll < activeTalkLayout.position)
 			? maxScroll
-			: activeTalk.position;
+			: activeTalkLayout.position;
 
 		this.refs.listview.scrollTo({ y: scrollToY, animated: true });
 	}
 	toggleNowButton (showNowButton) {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ showNowButton });
-	}
-	getActiveTalkLayout ({ height, position }) {
-		this.setState({
-			activeTalk: { height, position },
-		});
 	}
 	render () {
 		const { navigator, talks } = this.props;
@@ -228,10 +222,14 @@ export default class Schedule extends Component {
 						});
 
 						const onLayout = status === 'present'
-							? ({ nativeEvent: { layout } }) => this.getActiveTalkLayout({
-								height: layout.height,
-								position: layout.y - theme.navbar.height,
-							})
+							? ({ nativeEvent: { layout } }) => {
+								this.setState({
+									activeTalkLayout: {
+										height: layout.height,
+										position: layout.y - theme.navbar.height / 2,
+									},
+								});
+							}
 							: null;
 
 						return (

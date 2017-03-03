@@ -34,7 +34,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          The Road to Styled Components
+          Keynote
         </Text>
         <Text
           accessible={true}
@@ -46,7 +46,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          9:30am - Max Stoiber
+          9:00am - Sebastian Markbage
         </Text>
         <View
           style={
@@ -139,7 +139,7 @@ exports[`Talk - Pane renders correctly 1`] = `
             <Image
               source={
                 Object {
-                  "uri": "https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128",
+                  "uri": "https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128",
                 }
               }
               style={
@@ -161,7 +161,7 @@ exports[`Talk - Pane renders correctly 1`] = `
                 "marginTop": 14,
               }
             }>
-            Max Stoiber
+            Sebastian Markbage
           </Text>
           <Text
             accessible={true}
@@ -189,7 +189,7 @@ exports[`Talk - Pane renders correctly 1`] = `
             "textAlign": "center",
           }
         }>
-        The Road to Styled Components
+        Keynote
       </Text>
     </View>
     <View
@@ -210,7 +210,7 @@ exports[`Talk - Pane renders correctly 1`] = `
             "padding": 24,
           }
         }>
-        What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let\'s talk about what we thought about and why we arrived where we did – 💅 styled-components.
+        Keynote Part 1: React
       </Text>
     </View>
     <View
@@ -278,7 +278,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          The Road to Styled Components
+          Keynote
         </Text>
         <Text
           accessible={true}
@@ -290,7 +290,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          9:30am - Max Stoiber
+          9:00am - Sebastian Markbage
         </Text>
       </View>
     </View>

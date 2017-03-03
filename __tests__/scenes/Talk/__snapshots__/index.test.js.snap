@@ -182,7 +182,7 @@ exports[`Talk renders correctly 1`] = `
             "width": 750,
           },
           Object {
-            "backgroundColor": "#F4F4F4",
+            "backgroundColor": "#2e2829",
           },
         ]
       }>
@@ -210,12 +210,12 @@ exports[`Talk renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#383838",
+                "color": "white",
                 "fontSize": 17,
                 "fontWeight": "500",
               },
               Object {
-                "color": "#383838",
+                "color": "#F4F4F4",
               },
             ]
           }>

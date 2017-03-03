@@ -32,7 +32,7 @@ exports[`Info renders correctly 1`] = `
             "width": 750,
           },
           Object {
-            "backgroundColor": "#F4F4F4",
+            "backgroundColor": "#2e2829",
           },
         ]
       }>
@@ -60,12 +60,12 @@ exports[`Info renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#383838",
+                "color": "white",
                 "fontSize": 17,
                 "fontWeight": "500",
               },
               Object {
-                "color": "#383838",
+                "color": "#F4F4F4",
               },
             ]
           }>
@@ -88,13 +88,12 @@ exports[`Info renders correctly 1`] = `
       <MapView
         initialRegion={
           Object {
-            "latitude": 37.391084,
+            "latitude": 37.354108,
             "latitudeDelta": 0.01,
-            "longitude": -121.9746,
+            "longitude": -121.955236,
             "longitudeDelta": 0.01,
           }
         }
-        showsUserLocation={true}
         style={
           Object {
             "flex": 1,
@@ -105,14 +104,13 @@ exports[`Info renders correctly 1`] = `
         <Marker
           coordinate={
             Object {
-              "latitude": 37.391084,
+              "latitude": 37.354108,
               "latitudeDelta": 0.01,
-              "longitude": -121.9746,
+              "longitude": -121.955236,
               "longitudeDelta": 0.01,
             }
           }
-          description="2700 Mission College Blvd, Santa Clara, CA 95054"
-          title="Santa Clara Marriott" />
+          title="React Conf 2017" />
       </MapView>
       <View
         style={
@@ -265,7 +263,7 @@ exports[`Info renders correctly 1`] = `
               <Image
                 source={
                   Object {
-                    "uri": "https://www.gravatar.com/avatar/13bede8f6aa8c5eb590995b32ca04bf2?s=128",
+                    "uri": "https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128",
                   }
                 }
                 style={
@@ -293,7 +291,7 @@ exports[`Info renders correctly 1`] = `
                     "fontSize": 17,
                   }
                 }>
-                Cheng Lou
+                Sebastian Markbage
               </Text>
               <Text
                 accessible={true}
@@ -307,7 +305,7 @@ exports[`Info renders correctly 1`] = `
                     "marginBottom": 14,
                   }
                 }>
-                What is a piece of code? What is a library, a tool, a platform and a language?
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.
               </Text>
             </View>
           </View>
@@ -364,7 +362,7 @@ exports[`Info renders correctly 1`] = `
               <Image
                 source={
                   Object {
-                    "uri": "https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128",
+                    "uri": "https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128",
                   }
                 }
                 style={
@@ -392,7 +390,7 @@ exports[`Info renders correctly 1`] = `
                     "fontSize": 17,
                   }
                 }>
-                Max Stoiber
+                Jing Chen
               </Text>
               <Text
                 accessible={true}
@@ -406,106 +404,7 @@ exports[`Info renders correctly 1`] = `
                     "marginBottom": 14,
                   }
                 }>
-                What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React?
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "backgroundColor": "white",
-              },
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "padding": 17,
-              }
-            }>
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#F4F4F4",
-                  "borderRadius": 44,
-                  "height": 44,
-                  "overflow": "hidden",
-                  "width": 44,
-                }
-              }>
-              <Image
-                source={
-                  Object {
-                    "uri": "https://www.gravatar.com/avatar/9210a60b1492363560375d9cd6c842de?s=128",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 44,
-                    "width": 44,
-                  }
-                } />
-            </View>
-            <View
-              style={
-                Object {
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "paddingLeft": 17,
-                }
-              }>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#383838",
-                    "fontSize": 17,
-                  }
-                }>
-                Michael Jackson
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#666",
-                    "fontSize": 14,
-                    "fontWeight": "300",
-                    "marginBottom": 14,
-                  }
-                }>
-                React Router is a full-featured routing layer for React applications that run in the browser, on the server, on React Native, and anywhere else React runs.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.
               </Text>
             </View>
           </View>
@@ -544,30 +443,10 @@ exports[`Info renders correctly 1`] = `
               source={1}
               style={
                 Object {
-                  "height": 100,
-                  "width": 100,
+                  "height": 80,
+                  "width": 80,
                 }
               } />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "fontSize": 17,
-                    "fontWeight": "300",
-                    "lineHeight": 24,
-                    "marginTop": 17,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "fontWeight": "500",
-                  },
-                ]
-              }>
-              Made by Thinkmill
-            </Text>
           </View>
           <Text
             accessible={true}
@@ -582,7 +461,22 @@ exports[`Info renders correctly 1`] = `
                 "textAlign": "center",
               }
             }>
-            We provide design & development expertise on-tap to help you build and ship your next digital product, platform, or app.
+            React Conf App made with love in Sydney, Australia, and open sourced by Thinkmill
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 17,
+                "fontWeight": "300",
+                "lineHeight": 24,
+                "marginTop": 17,
+                "textAlign": "center",
+              }
+            }>
+            github.com/Thinkmill/react-conf-2017
           </Text>
         </View>
       </View>

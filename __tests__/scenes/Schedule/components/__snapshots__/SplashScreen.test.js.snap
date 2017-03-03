@@ -8,15 +8,14 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
   <View
     style={
       Object {
-        "height": 300,
+        "height": 180,
       }
     } />
   <View
-    pointerEvents="none"
     style={
       Object {
         "alignItems": "center",
-        "height": 500,
+        "height": 400,
         "justifyContent": "center",
         "left": 0,
         "position": "absolute",
@@ -24,30 +23,53 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
         "top": -200,
       }
     }>
-    <Image
-      source={1}
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "transform": Array [
-            Object {
-              "translateY": 80,
-            },
-            Object {
-              "scale": 0.8,
-            },
-          ],
-          "zIndex": 2,
-        }
-      } />
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "transform": Array [
+              Object {
+                "translateY": 48,
+              },
+              Object {
+                "scale": 0.8,
+              },
+            ],
+            "zIndex": 2,
+          },
+        ]
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}>
+      <Image
+        source={1} />
+    </View>
     <View
       style={
         Object {
           "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
-          "left": -10,
+          "left": -100,
           "position": "absolute",
-          "right": -10,
+          "right": -100,
           "transform": Array [
             Object {
               "skewY": "5deg",
@@ -61,9 +83,9 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
           "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
-          "left": -10,
+          "left": -100,
           "position": "absolute",
-          "right": -10,
+          "right": -100,
           "transform": Array [
             Object {
               "skewY": "-3deg",
@@ -88,11 +110,10 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
   <View
     style={
       Object {
-        "height": 300,
+        "height": 180,
       }
     } />
   <View
-    pointerEvents="none"
     style={
       Object {
         "alignItems": "center",
@@ -104,30 +125,53 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
         "top": -200,
       }
     }>
-    <Image
-      source={1}
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-          ],
-          "zIndex": 2,
-        }
-      } />
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "scale": 1,
+              },
+            ],
+            "zIndex": 2,
+          },
+        ]
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}>
+      <Image
+        source={1} />
+    </View>
     <View
       style={
         Object {
           "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
-          "left": -10,
+          "left": -100,
           "position": "absolute",
-          "right": -10,
+          "right": -100,
           "transform": Array [
             Object {
               "skewY": "5deg",
@@ -141,9 +185,9 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
           "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
-          "left": -10,
+          "left": -100,
           "position": "absolute",
-          "right": -10,
+          "right": -100,
           "transform": Array [
             Object {
               "skewY": "-3deg",

@@ -11,7 +11,8 @@ describe('Talk - Preview', () => {
 				position="top"
 				speakerName="Max Stroiber"
 				talkStartTime="9AM"
-				talkTitle="React Boilerplate"
+				title="React Boilerplate"
+				subtitle="React Boilerplate"
 			/>
 		).toJSON();
 
@@ -24,7 +25,8 @@ describe('Talk - Preview', () => {
 				position="bottom"
 				speakerName="Max Stroiber"
 				talkStartTime="9AM"
-				talkTitle="React Boilerplate"
+				title="React Boilerplate"
+				subtitle="React Boilerplate"
 			/>
 		).toJSON();
 

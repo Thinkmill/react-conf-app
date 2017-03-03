@@ -57,7 +57,9 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
       Object {
         "textAlign": "center",
       }
-    } />
+    }>
+    React Boilerplate
+  </Text>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -67,7 +69,9 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
         "color": "#666",
         "textAlign": "center",
       }
-    } />
+    }>
+    React Boilerplate
+  </Text>
 </View>
 `;
 
@@ -98,7 +102,9 @@ exports[`Talk - Preview renders correctly in top position 1`] = `
       Object {
         "textAlign": "center",
       }
-    } />
+    }>
+    React Boilerplate
+  </Text>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -108,7 +114,9 @@ exports[`Talk - Preview renders correctly in top position 1`] = `
         "color": "#666",
         "textAlign": "center",
       }
-    } />
+    }>
+    React Boilerplate
+  </Text>
   <View
     style={
       Object {

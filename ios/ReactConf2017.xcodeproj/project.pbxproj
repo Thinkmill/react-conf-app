@@ -1018,7 +1018,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.thinkmill.ReactConf2017;
 				PRODUCT_NAME = ReactConf2017;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1046,7 +1046,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.thinkmill.ReactConf2017;
 				PRODUCT_NAME = ReactConf2017;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

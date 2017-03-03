@@ -6,10 +6,12 @@
 
 // color
 const color = {
-	blue:    '#00A8D8',
-	green:   '#9BE13A',
-	text:    '#383838',
-	sceneBg: '#F4F4F4',
+	blue:      '#00A8D8',
+	green:     '#9BE13A',
+	text:      '#383838',
+	lightText: 'white',
+	sceneBg:   '#F4F4F4',
+	splashBg: '#2e2829',
 
 	// neutrals
 	gray90:  '#1A1A1A',
@@ -41,10 +43,10 @@ const fontSize = {
 
 // navbar
 const navbar = {
-	backgroundColor: color.sceneBg,
+	backgroundColor: color.splashBg,
 	buttonColor: color.blue,
 	height: 64,
-	textColor: color.text,
+	textColor: color.sceneBg,
 };
 
 // list header

@@ -81,14 +81,10 @@ export default class Schedule extends Component {
 		};
 
 		this.state.scrollY.addListener(({ value }) => {
-			if (value < 40) {
-				StatusBar.setHidden(false, true);
-				StatusBar.setBarStyle('light-content', true);
-			} else if (value >= 40 && value <= 140) {
+			if (value >= 40 && value <= 140) {
 				StatusBar.setHidden(true, true);
 			} else {
 				StatusBar.setHidden(false, true);
-				StatusBar.setBarStyle('dark-content', true);
 			}
 		});
 	}
@@ -222,7 +218,7 @@ export default class Schedule extends Component {
 					scrollEventThrottle={16}
 					enableEmptySections
 					removeClippedSubviews={false}
-					renderHeader={() => animatingSplash ? null : <SplashScreen />}
+					renderHeader={() => animatingSplash ? null : <SplashScreen onLogoPress={this.gotoEventInfo}/>}
 					renderSeparator={(sectionID, rowID) => {
 						const key = sectionID + ':' + rowID;
 						const talk = dataSource._dataBlob[key];

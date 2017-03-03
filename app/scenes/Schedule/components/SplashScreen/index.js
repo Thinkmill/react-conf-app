@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import {
 	Animated,
 	Dimensions,
+	Image,
 	StyleSheet,
+	TouchableHighlight,
 	View,
 } from 'react-native';
 
@@ -15,6 +17,7 @@ const SKEW_DURATION = 2000;
 const SKEW_UP = -3;
 const SKEW_DOWN = 5;
 
+Animated.TouchableHighlight = Animated.createAnimatedComponent(TouchableHighlight);
 
 export default class SplashScreen extends Component {
 	constructor (props) {
@@ -94,34 +97,38 @@ export default class SplashScreen extends Component {
 			<View style={styles.wrapper}>
 				{/* I'm a spacer to push other content below me down */}
 				<View style={{ height: SLIDE_FINAL_HEIGHT - 220 }} />
-
-				{/* The actual splash screen */}
-				<Animated.View
-					pointerEvents="none"
-					style={[styles.splash, { height }]}
-				>
-					<Animated.Image
-						source={require('../../images/splash-logo.png')}
-						style={{
-							transform: [
-								{ translateY: logoOffset },
-								{ scale: logoScale },
-							],
-							zIndex: 2,
-						}}
-					/>
+					{/* The actual splash screen */}
 					<Animated.View
-						style={[styles.bottomTriangle, { transform: [
-							{ skewY: interpolateToString(leftTriangleSkew) },
-						] }]}
-					/>
-					<Animated.View
-						style={[styles.bottomTriangle, { transform: [
-							{ skewY: interpolateToString(rightTriangleSkew) },
-							{ translateY: -5 },
-						] }]}
-					/>
-				</Animated.View>
+						style={[styles.splash, { height }]}
+					>
+						<Animated.TouchableHighlight underlayColor="transparent"
+							onPress={() => {
+								if (this.props.onLogoPress) this.props.onLogoPress();
+							}}
+							style={{
+								transform: [
+									{ translateY: logoOffset },
+									{ scale: logoScale },
+								],
+								zIndex: 2,
+							}}
+						>
+							<Image
+								source={require('../../images/splash-logo.png')}
+							/>
+						</Animated.TouchableHighlight>
+						<Animated.View
+							style={[styles.bottomTriangle, { transform: [
+								{ skewY: interpolateToString(leftTriangleSkew) },
+							] }]}
+						/>
+						<Animated.View
+							style={[styles.bottomTriangle, { transform: [
+								{ skewY: interpolateToString(rightTriangleSkew) },
+								{ translateY: -5 },
+							] }]}
+						/>
+					</Animated.View>
 			</View>
 		);
 	}
@@ -130,6 +137,7 @@ export default class SplashScreen extends Component {
 SplashScreen.PropTypes = {
 	animated: PropTypes.bool,
 	onAnimationComplete: PropTypes.func,
+	onLogoPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

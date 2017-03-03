@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	titleText: {
-		color: theme.color.text,
+		color: theme.color.lightText,
 		fontSize: theme.fontSize.default,
 		fontWeight: '500',
 	},

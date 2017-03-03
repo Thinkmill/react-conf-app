@@ -36,10 +36,6 @@ export default class Talk extends Component {
 			talk: props.talk,
 		};
 	}
-	componentDidMount () {
-		StatusBar.setBarStyle('default', true);
-	}
-
 	handleLayout ({ height }) {
 		const availableHeight = this.sceneHeight - (height);
 

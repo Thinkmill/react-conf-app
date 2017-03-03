@@ -8,9 +8,11 @@ import {
 	View,
 } from 'react-native';
 
+import theme from '../../../../theme';
+
 const windowHeight = Dimensions.get('window').height;
 const SLIDE_DURATION = 800;
-const SLIDE_FINAL_HEIGHT = 430;
+const SLIDE_FINAL_HEIGHT = 400;
 
 const SKEW_DELAY = 3000;
 const SKEW_DURATION = 2000;
@@ -27,7 +29,7 @@ export default class SplashScreen extends Component {
 
 		this.state = {
 			height: new Animated.Value(props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
-			logoOffset: new Animated.Value(props.animated ? 0 : 80),
+			logoOffset: new Animated.Value(props.animated ? 0 : 48),
 			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
 			leftTriangleSkew: new Animated.Value(SKEW_DOWN),
 			rightTriangleSkew: new Animated.Value(SKEW_UP),
@@ -47,7 +49,7 @@ export default class SplashScreen extends Component {
 			Animated.parallel([
 				Animated.timing(this.state.logoOffset, animateTo(80)),
 				Animated.timing(this.state.logoScale, animateTo(0.8)),
-				Animated.timing(this.state.height, animateTo(SLIDE_FINAL_HEIGHT)),
+				Animated.timing(this.state.height, animateTo(SLIDE_FINAL_HEIGHT + theme.navbar.height)),
 			]).start(() => {
 				if (this.props.onAnimationComplete) {
 					this.props.onAnimationComplete();

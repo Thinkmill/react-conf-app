@@ -8,6 +8,7 @@ import {
 	StyleSheet,
 	Text,
 	TouchableOpacity,
+	View,
 } from 'react-native';
 import moment from 'moment';
 
@@ -27,14 +28,6 @@ import NowButton from './components/NowButton';
 import Talk, { TalkSeparator } from './components/Talk';
 import SplashScreen from './components/SplashScreen';
 
-function elementIsInView ({ viewTop, viewBottom, elementTop, elementBottom }, fullyInView = true) {
-	if (fullyInView) {
-		return ((viewTop < elementTop) && (viewBottom > elementBottom));
-	} else {
-		return ((elementTop <= viewBottom) && (elementBottom >= viewTop));
-	}
-}
-
 export default class Schedule extends Component {
 	constructor (props) {
 		super(props);
@@ -42,8 +35,7 @@ export default class Schedule extends Component {
 		bindMethods.call(this, [
 			'getActiveTalkLayout',
 			'gotoEventInfo',
-			'handleNavigatorWillFocus',
-			'handleScroll',
+			'onChangeVisibleRows',
 			'scrolltoActiveTalk',
 		]);
 
@@ -90,8 +82,6 @@ export default class Schedule extends Component {
 	}
 
 	componentDidMount () {
-		this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener('willfocus', this.handleNavigatorWillFocus);
-
 		// This is the actual image splash screen, not the animated one.
 		if (Splash) {
 			Splash.close({
@@ -111,35 +101,22 @@ export default class Schedule extends Component {
 			scene: 'Info',
 		});
 	}
-	handleNavigatorWillFocus (event) {
-		const { scene } = event.data.route;
-		const { navbarTop } = this.state;
-
-		if (scene === 'Schedule' && navbarTop < -52) {
-			StatusBar.setBarStyle('light-content', true);
-		}
-	}
-	handleScroll ({ scrollY, viewHeight }) {
-		// Navbar top position
-		const navbarTop = Math.max(Math.min(scrollY - 124, 0), -64);
-		this.setState({ navbarTop }, () => {
-			StatusBar.setBarStyle(navbarTop > -52 ? 'dark-content' : 'light-content', true);
-		});
-
+	onChangeVisibleRows (visibleRows, changedRows) {
 		// Now button
-		const { activeTalk } = this.state;
+		const now = moment();
+		const currentTalk = this.props.talks.find(talk => {
+			const start = moment(talk.time.start);
+			const end = moment(talk.time.end);
+			return now.isBetween(start, end);
+		});
 
 		// TODO all talks are over. Discuss how to handle
-		if (!activeTalk) return;
+		if (!currentTalk) return;
 
-		const showNowButton = !elementIsInView({
-			viewTop: scrollY,
-			viewBottom: scrollY + viewHeight,
-			elementTop: activeTalk.position,
-			elementBottom: activeTalk.position + activeTalk.height,
-		});
+		const day = moment(currentTalk.time.start).format('dddd');
 
-		this.toggleNowButton(showNowButton);
+		// Set the now button to visible based on whether the talk is visible or not.
+		this.toggleNowButton(!visibleRows[day][currentTalk.id]);
 	}
 	scrolltoActiveTalk () {
 		const { activeTalk } = this.state;
@@ -151,14 +128,6 @@ export default class Schedule extends Component {
 			: activeTalk.position;
 
 		this.refs.listview.scrollTo({ y: scrollToY, animated: true });
-
-		// HACK scrollTo doesn't have a completion callback
-		// See GitHub issue #11657 https://github.com/facebook/react-native/issues/11657
-
-		const approximateScrollDuration = 360;
-		setTimeout(() => this.setState({
-			showNowButton: false,
-		}), approximateScrollDuration);
 	}
 	toggleNowButton (showNowButton) {
 		LayoutAnimation.easeInEaseOut();
@@ -208,6 +177,12 @@ export default class Schedule extends Component {
 					/>
 				</Animated.View>
 
+				{/* Spacer for the headings to stick correctly */}
+				{animatingSplash
+					? <View style={[styles.spacer, { backgroundColor: 'transparent' }]} />
+					: <View style={styles.spacer} />
+				}
+
 				<ListView
 					dataSource={dataSource}
 					ref="listview"
@@ -216,6 +191,7 @@ export default class Schedule extends Component {
 						[{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }]
 					)}
 					scrollEventThrottle={16}
+					onChangeVisibleRows={this.onChangeVisibleRows}
 					enableEmptySections
 					removeClippedSubviews={false}
 					renderHeader={() => animatingSplash ? null : <SplashScreen onLogoPress={this.gotoEventInfo}/>}
@@ -302,6 +278,11 @@ const styles = StyleSheet.create({
 		right: 0,
 		left: 0,
 		zIndex: 2,
+	},
+	spacer: {
+		backgroundColor: theme.color.splashBg,
+		height: theme.navbar.height + 2,
+		zIndex: 1,
 	},
 	link: {
 		color: theme.color.blue,

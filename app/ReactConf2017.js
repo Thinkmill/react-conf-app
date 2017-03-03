@@ -18,10 +18,9 @@ class ReactConf2017 extends Component {
 		AppState.removeEventListener('change', this.handleAppStateChange);
 	}
 	handleAppStateChange (currentAppState) {
-		console.log('handleAppStateChange', currentAppState);
-		// if (currentAppState === 'active') {
-			// this.syncAppVersion();
-		// }
+		if (currentAppState === 'active') {
+			this.syncAppVersion();
+		}
 	}
 	syncAppVersion () {
 		codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });

@@ -11,6 +11,7 @@ const gradientJump = 1.05;
 export default class Break extends Component {
 	render () {
 		const { endTime, startTime, status } = this.props;
+		const title = this.props.title || 'Break';
 
 		return (
 			<View style={[styles.base, styles['base__' + status]]}>
@@ -23,7 +24,7 @@ export default class Break extends Component {
 					style={styles.gradient}
 					>
 					<Text style={[styles.text, styles['text__' + status]]}>
-						{startTime}&mdash;{endTime} Break
+						{startTime} &mdash; {title}
 					</Text>
 				</LinearGradient>
 			</View>

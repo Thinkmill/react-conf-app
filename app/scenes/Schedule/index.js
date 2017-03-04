@@ -206,6 +206,7 @@ export default class Schedule extends Component {
 									endTime={moment(talk.time.end).format(TIME_FORMAT)}
 									startTime={moment(talk.time.start).format(TIME_FORMAT)}
 									status={status}
+									title={talk.title}
 								/>
 							);
 						}

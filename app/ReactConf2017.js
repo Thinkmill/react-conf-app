@@ -9,8 +9,14 @@ const Scenes = { Info, Schedule, Talk };
 const DEFAULT_VIEW = 'Schedule';
 
 class ReactConf2017 extends Component {
+	constructor () {
+		super();
+
+		this.handleAppStateChange = this.handleAppStateChange.bind(this);
+		this.syncAppVersion = this.syncAppVersion.bind(this);
+	}
 	componentDidMount () {
-		// this.syncAppVersion();
+		this.syncAppVersion();
 		StatusBar.setBarStyle('light-content', true);
 		AppState.addEventListener('change', this.handleAppStateChange);
 	}

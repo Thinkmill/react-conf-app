@@ -76,7 +76,10 @@ export default class Info extends Component {
 					<View style={{ flex: 1 }}>
 						<View style={styles.hero}>
 							<Text style={styles.heroText}>
-								The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
+								The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+							</Text>
+							<Text style={styles.heroText}>
+								Proceeds from all ticket sales are being donated to Code2040.
 							</Text>
 							<TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
 								<Text style={styles.heroLink}>
@@ -109,7 +112,7 @@ export default class Info extends Component {
 								{/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
 							</TouchableOpacity>
 							<Text style={styles.madebyText}>
-								React Conf App made with love in Sydney, Australia, and open sourced by Thinkmill
+								This app made with love in Sydney, Australia and open sourced by Thinkmill
 							</Text>
 							<Text style={styles.madebyText}>
 								github.com/Thinkmill/react-conf-2017
@@ -147,9 +150,9 @@ const styles = StyleSheet.create({
 		borderTopColor: theme.color.gray30,
 		borderTopWidth: 1 / PixelRatio.get(),
 		paddingHorizontal: theme.fontSize.default,
-		paddingTop: theme.fontSize.xlarge,
 	},
 	heroText: {
+		paddingTop: theme.fontSize.xlarge,
 		fontSize: theme.fontSize.default,
 		fontWeight: '300',
 		lineHeight: theme.fontSize.large,

@@ -530,6 +530,9 @@ export function getPrevTalkFromId (ID) {
 	// skip over breaks
 	let talk = list[idx - 1];
 	if (talk && talk.break) talk = list[idx - 2];
+	// allow two breaks together
+	// TODO: this is pretty brittle, should really be in a loop
+	if (talk && talk.break) talk = list[idx - 3];
 
 	if (!talk) {
 		return console.info('This is the first talk.');

@@ -88,7 +88,7 @@ export default class Info extends Component {
 							</TouchableOpacity>
 						</View>
 
-						<ListTitle text="Organisers" />
+						<ListTitle text="Organizers" />
 						{organisers.map((organiser, idx) => {
 							const onPress = () => {};
 

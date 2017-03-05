@@ -294,7 +294,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#66cbe8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />
@@ -454,9 +454,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                Object {
-                  "color": "#999",
-                },
+                undefined,
               ]
             }>
             8:30am
@@ -479,7 +477,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#66cbe8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />
@@ -639,9 +637,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                Object {
-                  "color": "#999",
-                },
+                undefined,
               ]
             }>
             9:30am
@@ -691,7 +687,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -706,9 +702,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -855,7 +849,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -870,9 +864,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1019,7 +1011,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -1034,9 +1026,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1156,7 +1146,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#66cbe8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />
@@ -1316,9 +1306,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                Object {
-                  "color": "#999",
-                },
+                undefined,
               ]
             }>
             11:00am
@@ -1368,7 +1356,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -1383,9 +1371,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1532,7 +1518,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -1547,9 +1533,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1696,7 +1680,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -1711,9 +1695,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1833,7 +1815,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#66cbe8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />
@@ -1993,9 +1975,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                Object {
-                  "color": "#999",
-                },
+                undefined,
               ]
             }>
             1:00pm
@@ -2045,7 +2025,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2060,9 +2040,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2209,7 +2187,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2224,9 +2202,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2373,7 +2349,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2388,9 +2364,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2537,7 +2511,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2552,9 +2526,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2701,7 +2673,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2716,9 +2688,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2865,7 +2835,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -2880,9 +2850,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3029,7 +2997,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -3044,9 +3012,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3166,7 +3132,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#66cbe8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />
@@ -3326,9 +3292,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                Object {
-                  "color": "#999",
-                },
+                undefined,
               ]
             }>
             4:00pm
@@ -3378,7 +3342,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -3393,9 +3357,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3542,7 +3504,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -3557,9 +3519,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3706,7 +3666,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -3721,9 +3681,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3870,7 +3828,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -3885,9 +3843,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4034,7 +3990,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -4049,9 +4005,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4198,7 +4152,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -4213,9 +4167,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4362,7 +4314,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#66cbe8",
+                "backgroundColor": "#CCC",
                 "width": 6,
               }
             } />
@@ -4377,9 +4329,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4499,7 +4449,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#00A8D8",
+              "backgroundColor": "#CCC",
               "width": 6,
             }
           } />

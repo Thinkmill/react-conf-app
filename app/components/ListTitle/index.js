@@ -1,5 +1,5 @@
 // @flow
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { PixelRatio, Text, View } from 'react-native';
 
 import theme from '../../theme';

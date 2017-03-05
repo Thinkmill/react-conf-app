@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Animated, PanResponder } from 'react-native';
 
 const SWIPE_THRESHOLD = 80;

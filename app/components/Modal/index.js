@@ -1,5 +1,5 @@
 // @flow
-import React, { cloneElement, Component, PropTypes } from 'react';
+import React, { cloneElement, Component } from 'react';
 import { Animated, Dimensions, Modal as RNModal, StyleSheet, TouchableOpacity } from 'react-native';
 import { BlurView } from 'react-native-blur';
 

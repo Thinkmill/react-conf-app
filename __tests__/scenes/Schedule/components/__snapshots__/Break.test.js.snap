@@ -176,8 +176,8 @@ exports[`Schedule - Break renders correctly 1`] = `
           undefined,
         ]
       }>
-      —
-       Break
+       — 
+      Break
     </Text>
   </BVLinearGradient>
 </View>

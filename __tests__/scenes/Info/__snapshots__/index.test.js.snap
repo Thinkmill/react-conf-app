@@ -128,7 +128,6 @@ exports[`Info renders correctly 1`] = `
               "borderTopColor": "#B3B3B3",
               "borderTopWidth": 0.5,
               "paddingHorizontal": 17,
-              "paddingTop": 32,
             }
           }>
           <Text
@@ -140,10 +139,26 @@ exports[`Info renders correctly 1`] = `
                 "fontSize": 17,
                 "fontWeight": "300",
                 "lineHeight": 24,
+                "paddingTop": 32,
                 "textAlign": "center",
               }
             }>
-            The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink
+            The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 17,
+                "fontWeight": "300",
+                "lineHeight": 24,
+                "paddingTop": 32,
+                "textAlign": "center",
+              }
+            }>
+            Proceeds from all ticket sales are being donated to Code2040.
           </Text>
           <View
             accessibilityComponentType={undefined}
@@ -208,7 +223,7 @@ exports[`Info renders correctly 1`] = `
                 "lineHeight": 24,
               }
             }>
-            ORGANISERS
+            ORGANIZERS
           </Text>
         </View>
         <View
@@ -263,7 +278,7 @@ exports[`Info renders correctly 1`] = `
               <Image
                 source={
                   Object {
-                    "uri": "https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128",
+                    "uri": "https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128",
                   }
                 }
                 style={
@@ -291,7 +306,7 @@ exports[`Info renders correctly 1`] = `
                     "fontSize": 17,
                   }
                 }>
-                Sebastian Markbage
+                Tom Occhino
               </Text>
               <Text
                 accessible={true}
@@ -305,106 +320,7 @@ exports[`Info renders correctly 1`] = `
                     "marginBottom": 14,
                   }
                 }>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "backgroundColor": "white",
-              },
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "padding": 17,
-              }
-            }>
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#F4F4F4",
-                  "borderRadius": 44,
-                  "height": 44,
-                  "overflow": "hidden",
-                  "width": 44,
-                }
-              }>
-              <Image
-                source={
-                  Object {
-                    "uri": "https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 44,
-                    "width": 44,
-                  }
-                } />
-            </View>
-            <View
-              style={
-                Object {
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "paddingLeft": 17,
-                }
-              }>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#383838",
-                    "fontSize": 17,
-                  }
-                }>
-                Jing Chen
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#666",
-                    "fontSize": 14,
-                    "fontWeight": "300",
-                    "marginBottom": 14,
-                  }
-                }>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.
+                Lead Conference Wrangler
               </Text>
             </View>
           </View>
@@ -461,7 +377,7 @@ exports[`Info renders correctly 1`] = `
                 "textAlign": "center",
               }
             }>
-            React Conf App made with love in Sydney, Australia, and open sourced by Thinkmill
+            This app made with love in Sydney, Australia and open sourced by Thinkmill
           </Text>
           <Text
             accessible={true}

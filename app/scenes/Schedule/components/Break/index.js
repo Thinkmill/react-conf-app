@@ -10,7 +10,7 @@ const gradientJump = 1.05;
 
 export default class Break extends Component {
 	render () {
-		const { endTime, startTime, status } = this.props;
+		const { startTime, status } = this.props;
 		const title = this.props.title || 'Break';
 
 		return (
@@ -33,7 +33,6 @@ export default class Break extends Component {
 };
 
 Break.propTypes = {
-	endTime: PropTypes.string,
 	startTime: PropTypes.string,
 	status: PropTypes.oneOf(['future', 'past', 'present']),
 };

@@ -112,7 +112,7 @@ const data = {
 	[br()]: {
 		break: true,
 		time: getTime(DAY_ONE, 90),
-		title: 'Lunch'
+		title: 'Lunch',
 	},
 	'preethi-kasireddy': {
 		summary: 'Redux has become the defacto way to manage state in React— yet, there\'s a new kid on the block that is seeing promising growth and adoption: Mobx. The goal of the talk is to explore a thorough and balanced view on Mobx vs. Redux for state management. They both have distinct mental models for handling state (i.e. Functional vs. Object-oriented and Reactive, Mutable vs. Immutable, Plain objects vs. Observables, Single-store vs. Multi-store, Normalized state view vs. Nested state view, etc.). And naturally, the opposing mental models each have their benefits and tradeoffs — so how do you pick? While the choice is somewhat subjective, we\'ll discuss a few objective factors to consider. We\'ll also look at a few concrete examples for which scenarios it makes sense to choose Redux vs. Mobx vs. Something else vs. Nothing at all (i.e. React setState).',
@@ -288,7 +288,7 @@ const data = {
 	[br()]: {
 		break: true,
 		time: getTime(DAY_ONE, 120),
-		title: 'Happy Hour'
+		title: 'Happy Hour',
 	},
 
 	/* DAY TWO */

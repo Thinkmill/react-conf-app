@@ -9,13 +9,13 @@ describe('Talk - Pane', () => {
 	it('renders correctly', () => {
 		const tree = renderer.create(
 			<Pane
-				nextTalk={talks[0]}
+				nextTalk={talks[2]}
 				onHeroLayout={() => {}}
 				onScroll={() => {}}
 				onScrollEndDrag={() => {}}
-				prevTalk={talks[0]}
+				prevTalk={talks[2]}
 				showSpeakerModal={() => {}}
-				visibleTalk={talks[0]}
+				visibleTalk={talks[2]}
 			/>
 		).toJSON();
 

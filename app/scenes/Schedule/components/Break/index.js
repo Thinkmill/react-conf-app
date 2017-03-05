@@ -12,28 +12,39 @@ const gradientJump = 1.05;
 export default class Break extends Component {
 	props: {
 		endTime?: string,
+		important: boolean,
 		startTime?: string,
 		status: 'future' | 'past' | 'present',
+		title: string,
 	};
 
 	render () {
-		const { startTime, status } = this.props;
+		const { important, startTime, status } = this.props;
 		const title = this.props.title || 'Break';
 
 		return (
 			<View style={[styles.base, styles['base__' + status]]}>
 				<TalkStatusBar status={status} />
-				<LinearGradient
-					start={{ x: 0.0, y: 0.0 }}
-					end={{ x: 1.0, y: 0.125 }}
-					locations={generateGradientLocations(gradientSteps)}
-					colors={generateGradientColors(gradientSteps)}
-					style={styles.gradient}
-					>
-					<Text style={[styles.text, styles['text__' + status]]}>
-						{startTime} &mdash; {title}
-					</Text>
-				</LinearGradient>
+				{important ? (
+					<View style={styles.gradient}>
+						<Text style={[styles.text, styles['text__' + status]]}>
+							{startTime} &mdash;
+								<Text style={[styles.importantText, styles['text__' + status]]}> {title}</Text>
+						</Text>
+					</View>
+				) : (
+					<LinearGradient
+						start={{ x: 0.0, y: 0.0 }}
+						end={{ x: 1.0, y: 0.125 }}
+						locations={generateGradientLocations(gradientSteps)}
+						colors={generateGradientColors(gradientSteps)}
+						style={styles.gradient}
+						>
+						<Text style={[styles.text, styles['text__' + status]]}>
+							{startTime} &mdash; {title}
+						</Text>
+					</LinearGradient>
+				)}
 			</View>
 		);
 	}
@@ -93,5 +104,8 @@ const styles = StyleSheet.create({
 	},
 	text__past: {
 		color: theme.color.gray40,
+	},
+	importantText: {
+		color: theme.color.blue,
 	},
 });

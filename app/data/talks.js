@@ -28,11 +28,13 @@ const data = {
 
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_ONE, 60),
 		title: 'Registration / Breakfast',
 	},
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_ONE, 30),
 		title: 'Hall Doors Open',
 	},
@@ -290,6 +292,7 @@ const data = {
 	},
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_ONE, 120),
 		title: 'Happy Hour',
 	},
@@ -298,11 +301,13 @@ const data = {
 
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_TWO, 30),
 		title: 'Registration / Breakfast',
 	},
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_TWO, 30),
 		title: 'Hall Doors Open',
 	},
@@ -478,11 +483,13 @@ const data = {
 	},
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_TWO, 60),
 		title: 'Panel / Q&A',
 	},
 	[br()]: {
 		break: true,
+		important: true,
 		time: getTime(DAY_TWO, 240),
 		title: 'Closing Party at 104',
 	},

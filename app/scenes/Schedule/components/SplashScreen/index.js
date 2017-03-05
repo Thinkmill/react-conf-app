@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import {
 	Animated,
 	Dimensions,
@@ -22,20 +23,22 @@ const SKEW_DOWN = 5;
 Animated.TouchableHighlight = Animated.createAnimatedComponent(TouchableHighlight);
 
 export default class SplashScreen extends Component {
-	constructor (props) {
-		super(props);
+	props: {
+		animated?: boolean,
+		onAnimationComplete?: () => mixed,
+		onLogoPress?: () => mixed,
+	};
 
-		this.queueTriangleAnimation = this.queueIdleAnimation.bind(this);
+	state = {
+		height: new Animated.Value(this.props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
+		logoOffset: new Animated.Value(this.props.animated ? 0 : 48),
+		logoScale: new Animated.Value(this.props.animated ? 1 : 0.8),
+		leftTriangleSkew: new Animated.Value(SKEW_DOWN),
+		rightTriangleSkew: new Animated.Value(SKEW_UP),
+	};
 
-		this.state = {
-			height: new Animated.Value(props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
-			logoOffset: new Animated.Value(props.animated ? 0 : 48),
-			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
-			leftTriangleSkew: new Animated.Value(SKEW_DOWN),
-			rightTriangleSkew: new Animated.Value(SKEW_UP),
-		};
-		this.skewed = false;
-	}
+	skewed = false;
+
 	componentDidMount () {
 		if (this.props.animated) {
 			const animateTo = (toValue) => {
@@ -59,7 +62,7 @@ export default class SplashScreen extends Component {
 			this.queueIdleAnimation();
 		}
 	}
-	queueIdleAnimation () {
+	queueIdleAnimation = () => {
 		const { leftTriangleSkew, rightTriangleSkew } = this.state;
 
 		const animateTo = (toValue) => {
@@ -134,12 +137,6 @@ export default class SplashScreen extends Component {
 			</View>
 		);
 	}
-};
-
-SplashScreen.PropTypes = {
-	animated: PropTypes.bool,
-	onAnimationComplete: PropTypes.func,
-	onLogoPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

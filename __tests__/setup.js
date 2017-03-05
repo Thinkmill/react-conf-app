@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View } from 'react-native';
 
@@ -12,6 +13,7 @@ mockdate.set(1422778155399, -660);
 // React Native Built-Ins
 // ------------------------
 // React Native UI Manager needs a focus function.
+// $FlowFixMe
 import { UIManager } from 'NativeModules';
 UIManager.focus = jest.fn();
 UIManager.createView = jest.fn(() => <View />);

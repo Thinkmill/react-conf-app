@@ -8,8 +8,7 @@ exports[`Info renders correctly 1`] = `
       undefined,
     ]
   }>
-  <View
-    buttonColor={undefined}>
+  <View>
     <View
       style={
         Object {

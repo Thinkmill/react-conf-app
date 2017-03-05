@@ -1,8 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import { Animated, Dimensions, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
+
+type Props = {
+	isActive?: boolean,
+	position: 'top' | 'bottom',
+	subtitle: string,
+	title: string,
+};
 
 const ICON_VARIANT = {
 	bottom: 'ios-arrow-up',
@@ -15,14 +23,13 @@ const animateToValue = (val) => ({
 });
 
 export default class Preview extends Component {
-	constructor (props) {
-		super(props);
+	props: Props;
 
-		this.state = {
-			animValue: new Animated.Value(0),
-		};
-	}
-	componentWillReceiveProps (nextProps) {
+	state = {
+		animValue: new Animated.Value(0),
+	};
+
+	componentWillReceiveProps (nextProps: Props) {
 		if (!this.props.isActive && nextProps.isActive) {
 			this.tada();
 		}
@@ -86,13 +93,6 @@ export default class Preview extends Component {
 			</View>
 		);
 	}
-};
-
-Preview.propTypes = {
-	isActive: PropTypes.bool,
-	position: PropTypes.oneOf(['bottom', 'top']),
-	subtitle: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

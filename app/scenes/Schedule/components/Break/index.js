@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -9,6 +10,12 @@ const gradientSteps = 14;
 const gradientJump = 1.05;
 
 export default class Break extends Component {
+	props: {
+		endTime?: string,
+		startTime?: string,
+		status: 'future' | 'past' | 'present',
+	};
+
 	render () {
 		const { startTime, status } = this.props;
 		const title = this.props.title || 'Break';
@@ -30,11 +37,6 @@ export default class Break extends Component {
 			</View>
 		);
 	}
-};
-
-Break.propTypes = {
-	startTime: PropTypes.string,
-	status: PropTypes.oneOf(['future', 'past', 'present']),
 };
 
 function generateGradientLocations (steps) {

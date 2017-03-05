@@ -1,9 +1,15 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import { Image, View } from 'react-native';
 
 import theme from '../../theme';
 
-export default function Avatar ({ size, source }) {
+type Props = {
+	size?: number,
+	source: string,
+};
+
+export default function Avatar ({ size = 44, source }: Props) {
 	const styles = {
 		wrapper: {
 			backgroundColor: theme.color.sceneBg,
@@ -26,12 +32,4 @@ export default function Avatar ({ size, source }) {
 			/>
 		</View>
 	);
-};
-
-Avatar.propTypes = {
-	size: PropTypes.number,
-	source: PropTypes.string,
-};
-Avatar.defaultProps = {
-	size: 44,
 };

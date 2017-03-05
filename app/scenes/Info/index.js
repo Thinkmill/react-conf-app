@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import {
 	Image,
 	LayoutAnimation,
@@ -31,19 +32,23 @@ const mapRegion = {
 };
 
 export default class Info extends Component {
-	constructor (props) {
-		super(props);
+	props: {
+		navigator: Object,
+		organisers: typeof organiserList,
+	};
 
-		this.toggleModal = this.toggleModal.bind(this);
+	state = {
+		modalIsOpen: false,
+	};
 
-		this.state = {
-			modalIsOpen: false,
-		};
-	}
-	toggleModal () {
+	static defaultProps = {
+		organisers: organiserList,
+	};
+
+	toggleModal = () => {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ modalIsOpen: !this.state.modalIsOpen });
-	}
+	};
 	openMap () {
 		const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
 
@@ -125,14 +130,6 @@ export default class Info extends Component {
 			</Scene>
 		);
 	}
-};
-
-Info.propTypes = {
-	navigator: PropTypes.object.isRequired,
-	organisers: PropTypes.array.isRequired,
-};
-Info.defaultProps = {
-	organisers: organiserList,
 };
 
 const styles = StyleSheet.create({

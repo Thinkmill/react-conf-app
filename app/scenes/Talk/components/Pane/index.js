@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import {
 	Animated,
 	PixelRatio,
@@ -10,6 +11,8 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
+import type {ScheduleTalk} from '../../../../types';
+
 import { TIME_FORMAT } from '../../../../constants';
 import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
@@ -17,6 +20,18 @@ import Avatar from '../../../../components/Avatar';
 import Preview from '../Preview';
 
 export default class TalkPane extends Component {
+	props: {
+		nextTalk?: ScheduleTalk | null,
+		nextTalkPreviewIsEngaged?: boolean,
+		onHeroLayout?: (Object) => mixed,
+		onScroll?: (Object) => mixed,
+		onScrollEndDrag?: () => mixed,
+		prevTalk?: ScheduleTalk | null,
+		prevTalkPreviewIsEngaged?: boolean,
+		showSpeakerModal?: () => mixed,
+		visibleTalk: ScheduleTalk,
+	};
+
 	render () {
 		const {
 			nextTalk,
@@ -82,17 +97,6 @@ export default class TalkPane extends Component {
 			</ScrollView>
 		);
 	}
-};
-TalkPane.propTypes = {
-	nextTalk: PropTypes.object,
-	nextTalkPreviewIsEngaged: PropTypes.bool,
-	onHeroLayout: PropTypes.func, // isRequired
-	onScroll: PropTypes.func, // isRequired
-	onScrollEndDrag: PropTypes.func, // isRequired
-	prevTalk: PropTypes.object,
-	prevTalkPreviewIsEngaged: PropTypes.bool,
-	showSpeakerModal: PropTypes.func, // isRequired
-	visibleTalk: PropTypes.object, // isRequired
 };
 
 const styles = StyleSheet.create({

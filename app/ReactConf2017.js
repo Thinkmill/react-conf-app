@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
 import codePush from 'react-native-code-push';
@@ -9,12 +10,6 @@ const Scenes = { Info, Schedule, Talk };
 const DEFAULT_VIEW = 'Schedule';
 
 class ReactConf2017 extends Component {
-	constructor () {
-		super();
-
-		this.handleAppStateChange = this.handleAppStateChange.bind(this);
-		this.syncAppVersion = this.syncAppVersion.bind(this);
-	}
 	componentDidMount () {
 		this.syncAppVersion();
 		StatusBar.setBarStyle('light-content', true);
@@ -23,14 +18,17 @@ class ReactConf2017 extends Component {
 	componentWillUnmount () {
 		AppState.removeEventListener('change', this.handleAppStateChange);
 	}
-	handleAppStateChange (currentAppState) {
+
+	handleAppStateChange = (currentAppState: string) => {
 		if (currentAppState === 'active') {
 			this.syncAppVersion();
 		}
-	}
-	syncAppVersion () {
+	};
+
+	syncAppVersion = () => {
 		codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
-	}
+	};
+
 	render () {
 		const renderScene = (route, navigator) => {
 			const SceneComponent = Scenes[route.scene];

@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
 	Animated,
@@ -19,14 +20,17 @@ const animationDefault = (val) => ({
 });
 
 export default class Hint extends Component {
-	constructor (props) {
-		super(props);
+	props: {
+		onClose: () => mixed
+	};
 
-		this.state = {
-			arrowVal: new Animated.Value(0),
-			containerVal: new Animated.Value(1),
-		};
-	}
+	state = {
+		arrowVal: new Animated.Value(0),
+		containerVal: new Animated.Value(1),
+	};
+
+	_isMounted = false;
+
 	componentDidMount () {
 		this._isMounted = true;
 		const { arrowVal, containerVal } = this.state;

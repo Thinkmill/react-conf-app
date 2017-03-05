@@ -1,3 +1,4 @@
+// @flow
 /**
 	Validate Hex
 	==============================
@@ -34,7 +35,7 @@ function validateHex (color) {
 	2. combine and add alpha channel
 */
 
-function fade (color, opacity = 100) {
+function fade (color: string, opacity: number = 100) {
 	const decimalFraction = opacity / 100;
 	const hex = validateHex(color);
 
@@ -68,7 +69,7 @@ function fade (color, opacity = 100) {
 	2. combine back into a hex value
 */
 
-function shade (color, percent) {
+function shade (color: string, percent: number) {
 	const decimalFraction = percent / 100;
 	const hex = validateHex(color);
 
@@ -90,7 +91,7 @@ function shade (color, percent) {
 
 // shade helpers
 const lighten = shade;
-function darken (color, percent) {
+function darken (color: string, percent: number) {
 	return shade(color, percent * -1);
 };
 
@@ -109,7 +110,7 @@ function darken (color, percent) {
 	2. combine back into a hex value
 */
 
-function blend (color1, color2, percent) {
+function blend (color1: string, color2: string, percent: number) {
 	const decimalFraction = percent / 100;
 	const hex1 = validateHex(color1);
 	const hex2 = validateHex(color2);

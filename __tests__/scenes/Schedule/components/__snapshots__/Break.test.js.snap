@@ -13,7 +13,7 @@ exports[`Schedule - Break renders correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#CCC",
+        "backgroundColor": "#00A8D8",
         "width": 6,
       }
     } />

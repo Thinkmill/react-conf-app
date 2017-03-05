@@ -40,10 +40,49 @@ exports[`Schedule - Talk renders correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#CCC",
+          "backgroundColor": "#00A8D8",
           "width": 6,
         }
-      } />
+      }>
+      <View
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#00A8D8",
+                "fontSize": 34,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "height": 34,
+                "left": 0,
+                "position": "absolute",
+                "top": 10,
+                "width": 34,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
     <View
       style={
         Array [
@@ -81,10 +120,14 @@ exports[`Schedule - Talk renders correctly 1`] = `
                 "fontWeight": "300",
                 "marginBottom": 14,
               },
-              undefined,
+              Object {
+                "color": "#383838",
+              },
             ]
           }>
+          
            — 
+          
         </Text>
         <Text
           accessible={true}
@@ -96,9 +139,13 @@ exports[`Schedule - Talk renders correctly 1`] = `
                 "color": "#383838",
                 "fontSize": 17,
               },
-              undefined,
+              Object {
+                "fontWeight": "500",
+              },
             ]
-          } />
+          }>
+          
+        </Text>
       </View>
       <View
         style={
@@ -121,7 +168,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={

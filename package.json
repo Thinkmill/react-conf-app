@@ -1,6 +1,6 @@
 {
   "name": "ReactConf2017",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",

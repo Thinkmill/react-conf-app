@@ -1,7 +1,7 @@
 // @flow
 import moment from 'moment';
 
-import type {ScheduleTalk} from '../types';
+import type { ScheduleTalk } from '../types';
 
 /*
 	TODO: Use the actual conference start time once we've got the schedule info
@@ -505,7 +505,7 @@ export function getIndexFromId (ID: string): number | null {
 	const idx = list.map(t => t.id).indexOf(ID);
 
 	if (idx === -1) {
-		console.error('No talk found for ID', ID)
+		console.error('No talk found for ID', ID);
 		return null;
 	}
 
@@ -524,7 +524,7 @@ export function getNextTalkFromId (ID: string): ScheduleTalk | null {
 	if (talk && talk.break) talk = list[++search];
 
 	if (!talk) {
-		console.info('This is the last talk.')
+		console.info('This is the last talk.');
 		return null;
 	}
 
@@ -541,7 +541,7 @@ export function getPrevTalkFromId (ID: string): ScheduleTalk | null {
 	while (talk && talk.break) talk = list[--search];
 
 	if (!talk) {
-		console.info('This is the first talk.')
+		console.info('This is the first talk.');
 		return null;
 	}
 

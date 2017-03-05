@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
 import moment from 'moment';
 
-import type {ScheduleTalk} from '../../types';
+import type { ScheduleTalk } from '../../types';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';

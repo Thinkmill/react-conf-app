@@ -6,19 +6,19 @@ import renderer from 'react-test-renderer';
 import Talk from '../../../app/scenes/Talk';
 
 const talk = {
-	id: "",
-	summary: "",
-	title: "",
+	id: '',
+	summary: '',
+	title: '',
 	speaker: {
-		avatar: "",
-		github: "",
-		name: "",
-		twitter: "",
-		summary: "",
+		avatar: '',
+		github: '',
+		name: '',
+		twitter: '',
+		summary: '',
 	},
 	time: {
-		start: new Date,
-	  end: new Date,
+		start: new Date(),
+		end: new Date(),
 	},
 };
 

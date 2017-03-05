@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import type {ScheduleTalk} from '../../../../types';
+import type { ScheduleTalk } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
 import theme from '../../../../theme';

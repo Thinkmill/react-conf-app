@@ -1,5 +1,13 @@
 exports[`Talk - Pane renders correctly 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  onScroll={[Function]}
+  onScrollEndDrag={[Function]}
+  scrollEventThrottle={90}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
   <View>
     <View
       style={

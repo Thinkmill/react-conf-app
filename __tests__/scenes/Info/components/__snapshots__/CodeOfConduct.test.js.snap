@@ -86,7 +86,12 @@ exports[`Info - Code of Conduct renders correctly 1`] = `
             "shadowRadius": 5,
           }
         }>
-        <RCTScrollView>
+        <RCTScrollView
+          contentContainerStyle={
+            Object {
+              "padding": 17,
+            }
+          }>
           <View>
             <View>
               <Text

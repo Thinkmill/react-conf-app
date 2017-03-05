@@ -3,16 +3,6 @@ import React, { cloneElement, Component } from 'react';
 import { Animated, Dimensions, Modal as RNModal, StyleSheet, TouchableOpacity } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
-type Props = {
-	align: 'bottom' | 'center' | 'top',
-	blurAmount: number,
-	blurType: 'dark' | 'light' | 'xlight',
-	onClose: () => mixed,
-
-	style?: {},
-	children?: React.Element<{ onClose?: () => mixed }>,
-};
-
 function animateToValueWithOptions (val) {
 	return {
 		toValue: val,
@@ -27,13 +17,19 @@ const MODAL_ALIGNMENT = {
 	center: 'center',
 };
 
-type State = {
-	animValue: Animated.Value,
-};
-
 export default class Modal extends Component {
-	props: Props;
-	state: State;
+	props: {
+		align: 'bottom' | 'center' | 'top',
+		blurAmount: number,
+		blurType: 'dark' | 'light' | 'xlight',
+		onClose: () => mixed,
+		style?: {},
+		children?: React.Element<{ onClose?: () => mixed }>,
+	};
+
+	state = {
+		animValue: new Animated.Value(0),
+	};
 
 	static defaultProps = {
 		align: 'center',
@@ -43,13 +39,6 @@ export default class Modal extends Component {
 
 	__isClosed: boolean | void;
 
-	constructor (props: Props) {
-		super(props);
-
-		this.state = {
-			animValue: new Animated.Value(0),
-		};
-	}
 	componentDidMount () {
 		Animated.spring(this.state.animValue, animateToValueWithOptions(1)).start();
 	}

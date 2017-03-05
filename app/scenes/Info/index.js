@@ -31,30 +31,20 @@ const mapRegion = {
 	longitudeDelta: 0.01,
 };
 
-type Props = {
-	navigator: Object,
-	organisers: typeof organiserList,
-};
-
-type State = {
-	modalIsOpen: boolean,
-};
-
 export default class Info extends Component {
-	props: Props;
-	state: State;
+	props: {
+		navigator: Object,
+		organisers: typeof organiserList,
+	};
+
+	state = {
+		modalIsOpen: false,
+	};
 
 	static defaultProps = {
 		organisers: organiserList,
 	};
 
-	constructor (props: Props) {
-		super(props);
-
-		this.state = {
-			modalIsOpen: false,
-		};
-	}
 	toggleModal = () => {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ modalIsOpen: !this.state.modalIsOpen });

@@ -6,23 +6,15 @@ import LinearGradient from 'react-native-linear-gradient';
 import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';
 
-type Props = {
-	onPress: () => mixed,
-};
-
-type State = {
-	animValue: Animated.Value,
-};
-
 export default class NowButton extends Component {
-	props: Props;
-	state: State;
+	props: {
+		onPress: () => mixed,
+	};
 
-	constructor (props: Props) {
-		super(props);
+	state = {
+		animValue: new Animated.Value(0),
+	};
 
-		this.state = { animValue: new Animated.Value(0) };
-	}
 	springToValue (val: number) {
 		Animated.spring(this.state.animValue, {
 			toValue: val,

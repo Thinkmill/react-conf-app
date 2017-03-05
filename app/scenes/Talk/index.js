@@ -9,7 +9,6 @@ import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
 import theme from '../../theme';
-import { bindMethods } from '../../utils';
 import { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
 
 import Hint from './components/Hint';
@@ -44,14 +43,18 @@ type SetTalksState = {
 };
 
 export default class Talk extends Component {
-	sceneHeight: number;
-	sceneWidth: number;
-
 	talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 	transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 
-	state: State;
 	props: Props;
+	state: State = {
+		animValue: new Animated.Value(0),
+		modalIsOpen: false,
+		nextTalk: this.props.nextTalk,
+		prevTalk: this.props.prevTalk,
+		showIntro: this.props.introduceUI,
+		talk: this.props.talk,
+	};
 
 	static defaultProps = {
 		talk: {
@@ -72,27 +75,9 @@ export default class Talk extends Component {
 		},
 	};
 
-	constructor (props: Props) {
-		super(props);
+	sceneHeight = Dimensions.get('window').height;
+	sceneWidth = Dimensions.get('window').width;
 
-		bindMethods.call(this, [
-			'handleScroll',
-			'share',
-			'toggleSpeakerModal',
-		]);
-
-		this.sceneHeight = Dimensions.get('window').height;
-		this.sceneWidth = Dimensions.get('window').width;
-
-		this.state = {
-			animValue: new Animated.Value(0),
-			modalIsOpen: false,
-			nextTalk: props.nextTalk,
-			prevTalk: props.prevTalk,
-			showIntro: props.introduceUI,
-			talk: props.talk,
-		};
-	}
 	handleLayout ({ height }: { height: number }) {
 		const availableHeight = this.sceneHeight - (height);
 
@@ -103,7 +88,7 @@ export default class Talk extends Component {
 		});
 
 	}
-	handleScroll ({ nativeEvent }: Object) {
+	handleScroll = ({ nativeEvent }: Object) => {
 		const contentHeight = nativeEvent.contentSize.height;
 		const viewHeight = nativeEvent.layoutMeasurement.height;
 		const scrollY = nativeEvent.contentOffset.y;
@@ -137,7 +122,7 @@ export default class Talk extends Component {
 			});
 			this.renderPrevTalk();
 		}
-	}
+	};
 	renderNextTalk () {
 		const talk = this.state.nextTalk;
 		const nextTalk = this.state.nextTalk
@@ -181,7 +166,7 @@ export default class Talk extends Component {
 			});
 		});
 	}
-	share () {
+	share = () => {
 		const { talk } = this.state;
 		const speakerHandle = talk.speaker.twitter
 			? ('@' + talk.speaker.twitter)
@@ -196,10 +181,10 @@ export default class Talk extends Component {
 
 			console.log(result);
 		});
-	}
-	toggleSpeakerModal (modalIsOpen: boolean) {
+	};
+	toggleSpeakerModal = (modalIsOpen: boolean) => {
 		this.setState({ modalIsOpen });
-	}
+	};
 	render () {
 		const { navigator } = this.props;
 		const {

@@ -22,38 +22,23 @@ const SKEW_DOWN = 5;
 
 Animated.TouchableHighlight = Animated.createAnimatedComponent(TouchableHighlight);
 
-type Props = {
-	animated?: boolean,
-	onAnimationComplete?: () => mixed,
-	onLogoPress?: () => mixed,
-};
-
-type State = {
-	height: Animated.Value,
-	logoOffset: Animated.Value,
-	logoScale: Animated.Value,
-	leftTriangleSkew: Animated.Value,
-	rightTriangleSkew: Animated.Value,
-};
-
 export default class SplashScreen extends Component {
-	props: Props;
-	state: State;
+	props: {
+		animated?: boolean,
+		onAnimationComplete?: () => mixed,
+		onLogoPress?: () => mixed,
+	};
 
-	skewed: boolean;
+	state = {
+		height: new Animated.Value(this.props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
+		logoOffset: new Animated.Value(this.props.animated ? 0 : 48),
+		logoScale: new Animated.Value(this.props.animated ? 1 : 0.8),
+		leftTriangleSkew: new Animated.Value(SKEW_DOWN),
+		rightTriangleSkew: new Animated.Value(SKEW_UP),
+	};
 
-	constructor (props: Props) {
-		super(props);
+	skewed = false;
 
-		this.state = {
-			height: new Animated.Value(props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
-			logoOffset: new Animated.Value(props.animated ? 0 : 48),
-			logoScale: new Animated.Value(props.animated ? 1 : 0.8),
-			leftTriangleSkew: new Animated.Value(SKEW_DOWN),
-			rightTriangleSkew: new Animated.Value(SKEW_UP),
-		};
-		this.skewed = false;
-	}
 	componentDidMount () {
 		if (this.props.animated) {
 			const animateTo = (toValue) => {

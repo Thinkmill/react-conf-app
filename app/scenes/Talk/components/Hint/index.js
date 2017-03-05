@@ -13,15 +13,6 @@ const Gradient = Animated.createAnimatedComponent(LinearGradient);
 import theme from '../../../../theme';
 import { fade } from '../../../../utils/color';
 
-type Props = {
-	onClose: () => mixed
-};
-
-type State = {
-	arrowVal: Animated.Value,
-	containerVal: Animated.Value,
-};
-
 const animationDefault = (val) => ({
 	toValue: val,
 	duration: 550,
@@ -29,19 +20,17 @@ const animationDefault = (val) => ({
 });
 
 export default class Hint extends Component {
-	props: Props;
-	state: State;
+	props: {
+		onClose: () => mixed
+	};
 
-	_isMounted: boolean | void;
+	state = {
+		arrowVal: new Animated.Value(0),
+		containerVal: new Animated.Value(1),
+	};
 
-	constructor (props: Props) {
-		super(props);
+	_isMounted = false;
 
-		this.state = {
-			arrowVal: new Animated.Value(0),
-			containerVal: new Animated.Value(1),
-		};
-	}
 	componentDidMount () {
 		this._isMounted = true;
 		const { arrowVal, containerVal } = this.state;

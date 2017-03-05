@@ -12,10 +12,6 @@ type Props = {
 	title: string,
 };
 
-type State = {
-	animValue: Animated.Value,
-};
-
 const ICON_VARIANT = {
 	bottom: 'ios-arrow-up',
 	top: 'ios-arrow-down',
@@ -28,15 +24,11 @@ const animateToValue = (val) => ({
 
 export default class Preview extends Component {
 	props: Props;
-	state: State;
 
-	constructor (props: Props) {
-		super(props);
+	state = {
+		animValue: new Animated.Value(0),
+	};
 
-		this.state = {
-			animValue: new Animated.Value(0),
-		};
-	}
 	componentWillReceiveProps (nextProps: Props) {
 		if (!this.props.isActive && nextProps.isActive) {
 			this.tada();

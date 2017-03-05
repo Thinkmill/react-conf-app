@@ -24,7 +24,6 @@ import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
 
 import theme from '../../theme';
-import { bindMethods } from '../../utils';
 
 import Break from './components/Break';
 import NowButton from './components/NowButton';
@@ -70,12 +69,6 @@ export default class Schedule extends Component {
 
 	constructor (props: Props) {
 		super(props);
-
-		bindMethods.call(this, [
-			'gotoEventInfo',
-			'onChangeVisibleRows',
-			'scrolltoActiveTalk',
-		]);
 
 		const dataBlob = {};
 		const sectionIDs = [];
@@ -133,13 +126,13 @@ export default class Schedule extends Component {
 		this._navigatorWillFocusSubscription.remove();
 	}
 
-	gotoEventInfo () {
+	gotoEventInfo = () => {
 		this.props.navigator.push({
 			enableSwipeToPop: true,
 			scene: 'Info',
 		});
-	}
-	onChangeVisibleRows (visibleRows: VisibleRows, changedRows: ChangedRows) {
+	};
+	onChangeVisibleRows = (visibleRows: VisibleRows, changedRows: ChangedRows) => {
 		// Now button
 		const now = moment();
 		const currentTalk = this.props.talks.find(talk => {
@@ -156,8 +149,8 @@ export default class Schedule extends Component {
 
 		// Set the now button to visible based on whether the talk is visible or not.
 		this.toggleNowButton(!(talksForToday && talksForToday[currentTalk.id]));
-	}
-	scrolltoActiveTalk () {
+	};
+	scrolltoActiveTalk = () => {
 		const { activeTalkLayout } = this.state;
 		if (!activeTalkLayout) return;
 		const { contentLength } = this.refs.listview.scrollProperties;
@@ -168,7 +161,7 @@ export default class Schedule extends Component {
 			: activeTalkLayout.position;
 
 		this.refs.listview.scrollTo({ y: scrollToY, animated: true });
-	}
+	};
 	toggleNowButton (showNowButton: boolean) {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ showNowButton });

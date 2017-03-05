@@ -378,21 +378,42 @@ exports[`Info renders correctly 1`] = `
             }>
             This app made with love in Sydney, Australia and open sourced by Thinkmill
           </Text>
-          <Text
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
             accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "fontSize": 17,
-                "fontWeight": "300",
-                "lineHeight": 24,
-                "marginTop": 17,
-                "textAlign": "center",
+                "opacity": 1,
               }
-            }>
-            github.com/Thinkmill/react-conf-2017
-          </Text>
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#00A8D8",
+                  "fontSize": 17,
+                  "fontWeight": "500",
+                  "padding": 24,
+                }
+              }>
+              View Source Code
+            </Text>
+          </View>
         </View>
       </View>
     </View>

@@ -61,7 +61,7 @@ export default class Speaker extends Component {
 	};
 
 	static defaultProps = {
-		onPress() {},
+		onPress () {},
 	};
 
 	handleClose = () => {

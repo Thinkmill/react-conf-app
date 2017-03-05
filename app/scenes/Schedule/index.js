@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import type {ScheduleTalk} from '../../types';
+import type { ScheduleTalk } from '../../types';
 
 import Splash from 'react-native-smart-splash-screen';
 

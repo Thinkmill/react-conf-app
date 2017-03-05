@@ -61,7 +61,6 @@ type ChangedRows = {
 export default class Schedule extends Component {
 	props: Props;
 	state: State;
-	_navigatorWillFocusSubscription: any;
 
 	static defaultProps = {
 		talks: talks,
@@ -111,7 +110,6 @@ export default class Schedule extends Component {
 			}
 		});
 	}
-
 	componentDidMount () {
 		// This is the actual image splash screen, not the animated one.
 		if (Splash) {
@@ -122,10 +120,6 @@ export default class Schedule extends Component {
 			});
 		}
 	}
-	componentWillUnmount () {
-		this._navigatorWillFocusSubscription.remove();
-	}
-
 	gotoEventInfo = () => {
 		this.props.navigator.push({
 			enableSwipeToPop: true,

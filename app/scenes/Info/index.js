@@ -60,7 +60,7 @@ export default class Info extends Component {
 		attemptToOpenUrl(url);
 	}
 
-	openRepository() {
+	openRepository () {
 		const url = 'https://github.com/Thinkmill/react-conf-2017';
 		attemptToOpenUrl(url);
 	}

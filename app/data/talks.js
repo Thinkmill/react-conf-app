@@ -1,4 +1,7 @@
+// @flow
 import moment from 'moment';
+
+import type {ScheduleTalk} from '../types';
 
 /*
 	TODO: Use the actual conference start time once we've got the schedule info
@@ -496,13 +499,14 @@ function sortByStartTime (a, b) {
 
 const list = Object.keys(data)
 	.sort(sortByStartTime)
-	.map(k => Object.assign(data[k], { id: k }));
+	.map(k => Object.assign({}, data[k], { id: k }));
 
-export function getIndexFromId (ID) {
+export function getIndexFromId (ID: string): number | null {
 	const idx = list.map(t => t.id).indexOf(ID);
 
 	if (idx === -1) {
-		return console.error('No talk found for ID', ID);
+		console.error('No talk found for ID', ID)
+		return null;
 	}
 
 	return idx;
@@ -510,32 +514,35 @@ export function getIndexFromId (ID) {
 
 // Exposed
 
-export function getNextTalkFromId (ID) {
+export function getNextTalkFromId (ID: string): ScheduleTalk | null {
 	const idx = getIndexFromId(ID);
+	if (idx === null) return null;
 
 	// skip over breaks
-	let talk = list[idx + 1];
-	if (talk && talk.break) talk = list[idx + 2];
+	let search = idx + 1;
+	let talk = list[search];
+	if (talk && talk.break) talk = list[++search];
 
 	if (!talk) {
-		return console.info('This is the last talk.');
+		console.info('This is the last talk.')
+		return null;
 	}
 
 	return talk;
 };
 
-export function getPrevTalkFromId (ID) {
+export function getPrevTalkFromId (ID: string): ScheduleTalk | null {
 	const idx = getIndexFromId(ID);
+	if (idx === null) return null;
 
 	// skip over breaks
-	let talk = list[idx - 1];
-	if (talk && talk.break) talk = list[idx - 2];
-	// allow two breaks together
-	// TODO: this is pretty brittle, should really be in a loop
-	if (talk && talk.break) talk = list[idx - 3];
+	let search = idx - 1;
+	let talk = list[search];
+	while (talk && talk.break) talk = list[--search];
 
 	if (!talk) {
-		return console.info('This is the first talk.');
+		console.info('This is the first talk.')
+		return null;
 	}
 
 	return talk;

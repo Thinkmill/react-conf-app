@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import { Animated, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -5,13 +6,24 @@ import LinearGradient from 'react-native-linear-gradient';
 import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';
 
+type Props = {
+	onPress: () => mixed,
+};
+
+type State = {
+	animValue: Animated.Value,
+};
+
 export default class NowButton extends Component {
-	constructor (props) {
+	props: Props;
+	state: State;
+
+	constructor (props: Props) {
 		super(props);
 
 		this.state = { animValue: new Animated.Value(0) };
 	}
-	springToValue (val) {
+	springToValue (val: number) {
 		Animated.spring(this.state.animValue, {
 			toValue: val,
 			friction: 3,
@@ -54,10 +66,6 @@ export default class NowButton extends Component {
 			</Animated.View>
 		);
 	}
-};
-
-NowButton.propTypes = {
-	onPress: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

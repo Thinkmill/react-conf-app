@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import {
 	Animated,
@@ -11,6 +12,8 @@ import {
 	View,
 } from 'react-native';
 import moment from 'moment';
+
+import type {ScheduleTalk} from '../../types';
 
 import Splash from 'react-native-smart-splash-screen';
 
@@ -28,8 +31,44 @@ import NowButton from './components/NowButton';
 import Talk, { TalkSeparator } from './components/Talk';
 import SplashScreen from './components/SplashScreen';
 
+type Props = {
+	navigator: Object,
+	talks: Array<ScheduleTalk>,
+};
+
+type State = {
+	animatingSplash: boolean,
+	dataSource: Object,
+	scrollY: Animated.Value,
+	showNowButton?: boolean,
+	activeTalkLayout?: {
+		height: number,
+		position: number,
+	}
+};
+
+type VisibleRows = {
+	[sectionID: string]: {
+		[rowID: string]: true,
+	},
+};
+
+type ChangedRows = {
+	[sectionID: string]: {
+		[rowID: string]: true | false,
+	},
+};
+
 export default class Schedule extends Component {
-	constructor (props) {
+	props: Props;
+	state: State;
+	_navigatorWillFocusSubscription: any;
+
+	static defaultProps = {
+		talks: talks,
+	};
+
+	constructor (props: Props) {
 		super(props);
 
 		bindMethods.call(this, [
@@ -100,7 +139,7 @@ export default class Schedule extends Component {
 			scene: 'Info',
 		});
 	}
-	onChangeVisibleRows (visibleRows, changedRows) {
+	onChangeVisibleRows (visibleRows: VisibleRows, changedRows: ChangedRows) {
 		// Now button
 		const now = moment();
 		const currentTalk = this.props.talks.find(talk => {
@@ -120,6 +159,7 @@ export default class Schedule extends Component {
 	}
 	scrolltoActiveTalk () {
 		const { activeTalkLayout } = this.state;
+		if (!activeTalkLayout) return;
 		const { contentLength } = this.refs.listview.scrollProperties;
 		const sceneHeight = Dimensions.get('window').height;
 		const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
@@ -129,7 +169,7 @@ export default class Schedule extends Component {
 
 		this.refs.listview.scrollTo({ y: scrollToY, animated: true });
 	}
-	toggleNowButton (showNowButton) {
+	toggleNowButton (showNowButton: boolean) {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ showNowButton });
 	}
@@ -212,16 +252,19 @@ export default class Schedule extends Component {
 						}
 
 						// methods on Talk
-						const onPress = () => navigator.push({
-							enableSwipeToPop: true,
-							scene: 'Talk',
-							props: {
-								introduceUI: getIndexFromId(talk.id) < (talks.length - 1),
-								nextTalk: getNextTalkFromId(talk.id),
-								prevTalk: getPrevTalkFromId(talk.id),
-								talk,
-							},
-						});
+						const onPress = () => {
+							let talkIdx = getIndexFromId(talk.id);
+							navigator.push({
+								enableSwipeToPop: true,
+								scene: 'Talk',
+								props: {
+									introduceUI: talkIdx && talkIdx < (talks.length - 1),
+									nextTalk: getNextTalkFromId(talk.id),
+									prevTalk: getPrevTalkFromId(talk.id),
+									talk,
+								},
+							});
+						};
 
 						const onLayout = status === 'present'
 							? ({ nativeEvent: { layout } }) => {
@@ -261,14 +304,6 @@ export default class Schedule extends Component {
 			</Scene>
 		);
 	}
-};
-
-Schedule.propTypes = {
-	navigator: PropTypes.object.isRequired,
-	talks: PropTypes.array.isRequired,
-};
-Schedule.defaultProps = {
-	talks: talks,
 };
 
 const styles = StyleSheet.create({

@@ -1,6 +1,17 @@
+// @flow
 import React, { cloneElement, Component, PropTypes } from 'react';
 import { Animated, Dimensions, Modal as RNModal, StyleSheet, TouchableOpacity } from 'react-native';
 import { BlurView } from 'react-native-blur';
+
+type Props = {
+	align: 'bottom' | 'center' | 'top',
+	blurAmount: number,
+	blurType: 'dark' | 'light' | 'xlight',
+	onClose: () => mixed,
+
+	style?: {},
+	children?: React.Element<{ onClose?: () => mixed }>,
+};
 
 function animateToValueWithOptions (val) {
 	return {
@@ -16,11 +27,24 @@ const MODAL_ALIGNMENT = {
 	center: 'center',
 };
 
-export default class Modal extends Component {
-	constructor (props) {
-		super(props);
+type State = {
+	animValue: Animated.Value,
+};
 
-		this.onClose = this.onClose.bind(this);
+export default class Modal extends Component {
+	props: Props;
+	state: State;
+
+	static defaultProps = {
+		align: 'center',
+		blurAmount: 12,
+		blurType: 'dark',
+	};
+
+	__isClosed: boolean | void;
+
+	constructor (props: Props) {
+		super(props);
 
 		this.state = {
 			animValue: new Animated.Value(0),
@@ -29,7 +53,7 @@ export default class Modal extends Component {
 	componentDidMount () {
 		Animated.spring(this.state.animValue, animateToValueWithOptions(1)).start();
 	}
-	onClose () {
+	onClose = () => {
 		const { animValue } = this.state;
 		const { onClose } = this.props;
 
@@ -38,8 +62,10 @@ export default class Modal extends Component {
 		this.__isClosed = true;
 
 		Animated.spring(animValue, animateToValueWithOptions(0)).start(onClose);
-	}
+	};
+
 	renderChildren () {
+		// $FlowFixMe: https://github.com/facebook/flow/issues/1964
 		return cloneElement(this.props.children, {
 			onClose: this.onClose,
 		});
@@ -82,18 +108,6 @@ export default class Modal extends Component {
 			</RNModal>
 		);
 	}
-};
-
-Modal.propTypes = {
-	align: PropTypes.oneOf(['bottom', 'center', 'top']),
-	blurAmount: PropTypes.number,
-	blurType: PropTypes.oneOf(['dark', 'light', 'xlight']),
-	onClose: PropTypes.func.isRequired,
-};
-Modal.defaultProps = {
-	align: 'center',
-	blurAmount: 12,
-	blurType: 'dark',
 };
 
 const fillSpace = {

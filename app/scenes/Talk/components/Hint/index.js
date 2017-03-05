@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
 	Animated,
@@ -12,6 +13,15 @@ const Gradient = Animated.createAnimatedComponent(LinearGradient);
 import theme from '../../../../theme';
 import { fade } from '../../../../utils/color';
 
+type Props = {
+	onClose: () => mixed
+};
+
+type State = {
+	arrowVal: Animated.Value,
+	containerVal: Animated.Value,
+};
+
 const animationDefault = (val) => ({
 	toValue: val,
 	duration: 550,
@@ -19,7 +29,12 @@ const animationDefault = (val) => ({
 });
 
 export default class Hint extends Component {
-	constructor (props) {
+	props: Props;
+	state: State;
+
+	_isMounted: boolean | void;
+
+	constructor (props: Props) {
 		super(props);
 
 		this.state = {

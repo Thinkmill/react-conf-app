@@ -1,10 +1,34 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import { Animated, PanResponder } from 'react-native';
 
 const SWIPE_THRESHOLD = 80;
 
+type Props = {
+	allowX: boolean,
+	allowY: boolean,
+	onMove?: () => mixed,
+	onRelease: () => mixed,
+	children?: Array<React.Element<mixed>>,
+};
+
+type State = {
+	pan: Animated.Value,
+};
+
 export default class DraggableView extends Component {
-	constructor (props) {
+	props: Props;
+	state: State;
+
+	_panResponder: PanResponder;
+
+	static defaultProps = {
+		allowX: true,
+		allowY: true,
+		style: {},
+	};
+
+	constructor (props: Props) {
 		super(props);
 
 		this.state = {
@@ -53,16 +77,4 @@ export default class DraggableView extends Component {
 			</Animated.View>
 		);
 	}
-};
-
-DraggableView.propTypes = {
-	allowX: PropTypes.bool,
-	allowY: PropTypes.bool,
-	onMove: PropTypes.func,
-	onRelease: PropTypes.func,
-};
-DraggableView.defaultProps = {
-	allowX: true,
-	allowY: true,
-	style: {},
 };

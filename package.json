@@ -6,13 +6,14 @@
     "start": "node_modules/react-native/packager/packager.sh",
     "lint": "eslint .",
     "lint-fix": "npm run lint -- --fix",
+    "flow": "flow",
     "test": "jest",
     "update-snapshots": "jest -u"
   },
   "dependencies": {
     "moment": "^2.17.1",
     "react": "15.4.2",
-    "react-native": "^0.41.2",
+    "react-native": "^0.42.0",
     "react-native-blur": "^2.0.0",
     "react-native-code-push": "^1.17.0-beta",
     "react-native-linear-gradient": "^2.0.0",
@@ -27,6 +28,8 @@
     "eslint-config-keystone": "^3.0.0",
     "eslint-config-keystone-react": "^1.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "flow-bin": "^0.39.0",
+    "flow-typed": "^2.0.0",
     "jest": "18.1.0",
     "mockdate": "^2.0.1",
     "react-test-renderer": "15.4.2"

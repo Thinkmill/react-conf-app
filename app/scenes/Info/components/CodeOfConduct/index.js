@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
@@ -12,6 +13,10 @@ import theme from '../../../../theme';
 import Modal from '../../../../components/Modal';
 
 export default class CodeOfConduct extends Component {
+	props: {
+		onClose: () => mixed,
+	};
+
 	render () {
 		const { onClose } = this.props;
 
@@ -52,10 +57,6 @@ export default class CodeOfConduct extends Component {
 			</Modal>
 		);
 	}
-};
-
-CodeOfConduct.propTypes = {
-	onClose: PropTypes.func.isRequired,
 };
 
 const BORDER_RADIUS = 6;

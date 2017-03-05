@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import {
 	Animated,
@@ -14,11 +15,13 @@ import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 import { lighten } from '../../../../utils/color';
 
+type Status = 'past' | 'present' | 'future';
+
 // ==============================
 // TALK SEPARATOR
 // ==============================
 
-export function TalkSeparator ({ status }) {
+export function TalkSeparator ({ status }: { status: Status }) {
 	let barColor = theme.color.gray20;
 	if (status === 'past') barColor = lighten(theme.color.blue, 40);
 	else if (status === 'present') barColor = theme.color.blue;
@@ -40,7 +43,7 @@ export function TalkSeparator ({ status }) {
 // TALK STATUSBAR
 // ==============================
 
-export function TalkStatusBar ({ status, ...props }) {
+export function TalkStatusBar ({ status, ...props }: { status: Status }) {
 	let barColor = theme.color.gray20;
 	if (status === 'past') barColor = lighten(theme.color.blue, 40);
 	if (status === 'present') barColor = theme.color.blue;
@@ -57,6 +60,15 @@ export function TalkStatusBar ({ status, ...props }) {
 // TALK ROW
 // ==============================
 
+type Props = {
+	onPress: () => mixed,
+	speakerAvatarUri: string,
+	speakerName: string,
+	startTime: string,
+	status: Status,
+	title: string,
+};
+
 const animationDefault = (val) => ({
 	toValue: val,
 	duration: 666,
@@ -64,7 +76,14 @@ const animationDefault = (val) => ({
 });
 
 export default class Talk extends Component {
-	constructor (props) {
+	props: Props;
+	animValue: Animated.Value;
+
+	static defaultProps = {
+		status: 'future',
+	};
+
+	constructor (props: Props) {
 		super(props);
 
 		this.animValue = new Animated.Value(0);
@@ -146,18 +165,6 @@ export default class Talk extends Component {
 			</TouchableHighlight>
 		);
 	}
-};
-
-Talk.propTypes = {
-	onPress: PropTypes.func.isRequired,
-	speakerAvatarUri: PropTypes.string,
-	speakerName: PropTypes.string,
-	startTime: PropTypes.string,
-	status: PropTypes.oneOf(['future', 'past', 'present']),
-	title: PropTypes.string,
-};
-Talk.defaultProps = {
-	status: 'future',
 };
 
 const styles = StyleSheet.create({

@@ -1,3 +1,4 @@
+// @flow
 import React, { PropTypes } from 'react';
 import {
 	Dimensions,
@@ -11,8 +12,25 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../theme';
 
+type Props = {
+	backgroundColor?: string,
+	buttonColor?: string,
+	leftButtonDisabled?: boolean,
+	leftButtonIconName?: string,
+	leftButtonOnPress?: () => mixed,
+	leftButtonText?: string,
+	rightButtonDisabled?: boolean,
+	rightButtonIconName?: string,
+	rightButtonOnPress?: () => mixed,
+	rightButtonText?: string,
+	textColor?: string,
+	title: string,
+	titleRenderer?: () => mixed,
+};
+
 export default function Navbar ({
-	backgroundColor,
+	backgroundColor = theme.navbar.backgroundColor,
+	buttonColor = theme.navbar.buttonColor,
 	leftButtonDisabled,
 	leftButtonIconName,
 	leftButtonOnPress,
@@ -21,11 +39,11 @@ export default function Navbar ({
 	rightButtonIconName,
 	rightButtonOnPress,
 	rightButtonText,
-	textColor,
+	textColor = theme.navbar.textColor,
 	title,
 	titleRenderer,
 	...props
-}) {
+}: Props) {
 	return (
 		<View {...props}>
 			<View style={{ height: theme.navbar.height }} />
@@ -77,26 +95,6 @@ export default function Navbar ({
 			</View>
 		</View>
 	);
-};
-
-Navbar.propTypes = {
-	backgroundColor: PropTypes.string,
-	leftButtonDisabled: PropTypes.bool,
-	leftButtonIconName: PropTypes.string,
-	leftButtonOnPress: PropTypes.func,
-	leftButtonText: PropTypes.string,
-	rightButtonDisabled: PropTypes.bool,
-	rightButtonIconName: PropTypes.string,
-	rightButtonOnPress: PropTypes.func,
-	rightButtonText: PropTypes.string,
-	textColor: PropTypes.string,
-	title: PropTypes.string,
-	titleRenderer: PropTypes.func,
-};
-Navbar.defaultProps = {
-	backgroundColor: theme.navbar.backgroundColor,
-	buttonColor: theme.navbar.button,
-	textColor: theme.navbar.textColor,
 };
 
 const styles = StyleSheet.create({

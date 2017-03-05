@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import {
 	PixelRatio,
@@ -49,14 +50,22 @@ Button.propTypes = {
 };
 
 export default class Speaker extends Component {
-	constructor (props) {
-		super(props);
+	props: {
+		avatar: string,
+		github?: string,
+		name: string,
+		onClose: () => mixed,
+		summary: string,
+		twitter?: string,
+	};
 
-		this.handleClose = this.handleClose.bind(this);
-	}
-	handleClose () {
+	static defaultProps = {
+		onPress() {},
+	};
+
+	handleClose = () => {
 		this.refs.modal.onClose();
-	}
+	};
 	render () {
 		const {
 			avatar,
@@ -113,18 +122,6 @@ export default class Speaker extends Component {
 			</Modal>
 		);
 	}
-};
-
-Speaker.propTypes = {
-	avatar: PropTypes.string.isRequired,
-	github: PropTypes.string,
-	name: PropTypes.string.isRequired,
-	onClose: PropTypes.func.isRequired,
-	summary: PropTypes.string.isRequired,
-	twitter: PropTypes.string,
-};
-Speaker.defaultProps = {
-	onPress: () => {},
 };
 
 const styles = StyleSheet.create({

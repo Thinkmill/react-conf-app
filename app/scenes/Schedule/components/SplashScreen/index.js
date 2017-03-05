@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import {
 	Animated,
@@ -21,11 +22,28 @@ const SKEW_DOWN = 5;
 
 Animated.TouchableHighlight = Animated.createAnimatedComponent(TouchableHighlight);
 
-export default class SplashScreen extends Component {
-	constructor (props) {
-		super(props);
+type Props = {
+	animated?: boolean,
+	onAnimationComplete?: () => mixed,
+	onLogoPress?: () => mixed,
+};
 
-		this.queueTriangleAnimation = this.queueIdleAnimation.bind(this);
+type State = {
+	height: Animated.Value,
+	logoOffset: Animated.Value,
+	logoScale: Animated.Value,
+	leftTriangleSkew: Animated.Value,
+	rightTriangleSkew: Animated.Value,
+};
+
+export default class SplashScreen extends Component {
+	props: Props;
+	state: State;
+
+	skewed: boolean;
+
+	constructor (props: Props) {
+		super(props);
 
 		this.state = {
 			height: new Animated.Value(props.animated ? windowHeight + SLIDE_FINAL_HEIGHT : SLIDE_FINAL_HEIGHT),
@@ -59,7 +77,7 @@ export default class SplashScreen extends Component {
 			this.queueIdleAnimation();
 		}
 	}
-	queueIdleAnimation () {
+	queueIdleAnimation = () => {
 		const { leftTriangleSkew, rightTriangleSkew } = this.state;
 
 		const animateTo = (toValue) => {
@@ -134,12 +152,6 @@ export default class SplashScreen extends Component {
 			</View>
 		);
 	}
-};
-
-SplashScreen.PropTypes = {
-	animated: PropTypes.bool,
-	onAnimationComplete: PropTypes.func,
-	onLogoPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
+// @flow
 import { Linking } from 'react-native';
 
-export default function attemptToOpenUrl (url) {
+export default function attemptToOpenUrl (url: string) {
 	if (!url) return console.error('Invalid URL supplied.');
 
 	Linking.canOpenURL(url).then(supported => {

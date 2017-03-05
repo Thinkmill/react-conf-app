@@ -1,3 +1,4 @@
+// @flow
 import React, { PropTypes } from 'react';
 import {
 	PixelRatio,
@@ -10,12 +11,19 @@ import {
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 
+type Props = {
+	avatar: string,
+	name: string,
+	onPress: () => mixed,
+	summary: string,
+};
+
 export default function Organiser ({
 	avatar,
 	name,
 	onPress,
 	summary,
-}) {
+}: Props) {
 	const touchableProps = {
 		activeOpacity: 1,
 		onPress: onPress,
@@ -34,13 +42,6 @@ export default function Organiser ({
 			</View>
 		</TouchableHighlight>
 	);
-};
-
-Organiser.propTypes = {
-	avatar: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	onPress: PropTypes.func.isRequired,
-	summary: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

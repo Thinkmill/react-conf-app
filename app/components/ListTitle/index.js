@@ -1,9 +1,15 @@
+// @flow
 import React, { PropTypes } from 'react';
 import { PixelRatio, Text, View } from 'react-native';
 
 import theme from '../../theme';
 
-export default function ListTitle ({ bordered, text }) {
+type Props = {
+	bordered?: boolean,
+	text: string,
+};
+
+export default function ListTitle ({ bordered, text }: Props) {
 	const styles = {
 		text: {
 			color: theme.color.text,
@@ -30,9 +36,4 @@ export default function ListTitle ({ bordered, text }) {
 			<Text style={styles.text}>{text.toUpperCase()}</Text>
 		</View>
 	);
-};
-
-ListTitle.propTypes = {
-	bordered: PropTypes.bool,
-	text: PropTypes.string.isRequired,
 };

@@ -1,3 +1,4 @@
+// @flow
 /*
 	Bind your component's methods
 
@@ -7,6 +8,6 @@
 	}
 */
 
-export default function bindMethods (functions) {
+export default function bindMethods (functions: Array<string>) {
 	functions.forEach(f => (this[f] = this[f].bind(this)));
 };

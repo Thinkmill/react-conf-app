@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import {
 	Image,
@@ -30,20 +31,34 @@ const mapRegion = {
 	longitudeDelta: 0.01,
 };
 
-export default class Info extends Component {
-	constructor (props) {
-		super(props);
+type Props = {
+	navigator: Object,
+	organisers: typeof organiserList,
+};
 
-		this.toggleModal = this.toggleModal.bind(this);
+type State = {
+	modalIsOpen: boolean,
+};
+
+export default class Info extends Component {
+	props: Props;
+	state: State;
+
+	static defaultProps = {
+		organisers: organiserList,
+	};
+
+	constructor (props: Props) {
+		super(props);
 
 		this.state = {
 			modalIsOpen: false,
 		};
 	}
-	toggleModal () {
+	toggleModal = () => {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ modalIsOpen: !this.state.modalIsOpen });
-	}
+	};
 	openMap () {
 		const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
 
@@ -125,14 +140,6 @@ export default class Info extends Component {
 			</Scene>
 		);
 	}
-};
-
-Info.propTypes = {
-	navigator: PropTypes.object.isRequired,
-	organisers: PropTypes.array.isRequired,
-};
-Info.defaultProps = {
-	organisers: organiserList,
 };
 
 const styles = StyleSheet.create({

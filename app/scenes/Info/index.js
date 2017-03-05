@@ -59,6 +59,12 @@ export default class Info extends Component {
 
 		attemptToOpenUrl(url);
 	}
+
+	openRepository() {
+		const url = 'https://github.com/Thinkmill/react-conf-2017';
+		attemptToOpenUrl(url);
+	}
+
 	render () {
 		const { navigator, organisers } = this.props;
 		const { modalIsOpen } = this.state;
@@ -119,9 +125,11 @@ export default class Info extends Component {
 							<Text style={styles.madebyText}>
 								This app made with love in Sydney, Australia and open sourced by Thinkmill
 							</Text>
-							<Text style={styles.madebyText}>
-								github.com/Thinkmill/react-conf-2017
-							</Text>
+							<TouchableOpacity onPress={this.openRepository} activeOpacity={0.75}>
+								<Text style={styles.heroLink}>
+									View Source Code
+								</Text>
+							</TouchableOpacity>
 						</View>
 					</View>
 				</ScrollView>

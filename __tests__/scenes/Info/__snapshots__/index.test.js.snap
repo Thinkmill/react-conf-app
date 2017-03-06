@@ -31,7 +31,7 @@ exports[`Info renders correctly 1`] = `
             "width": 750,
           },
           Object {
-            "backgroundColor": "#2e2829",
+            "backgroundColor": "#2E2829",
           },
         ]
       }>

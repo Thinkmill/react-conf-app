@@ -140,7 +140,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 750,
             },
             Object {
-              "backgroundColor": "#2e2829",
+              "backgroundColor": "#2E2829",
             },
           ]
         }>
@@ -252,7 +252,7 @@ exports[`Schedule renders correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#2e2829",
+          "backgroundColor": "#2E2829",
           "height": 66,
           "zIndex": 1,
         },

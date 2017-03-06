@@ -12,7 +12,7 @@ const color = {
 	text:      '#383838',
 	lightText: 'white',
 	sceneBg:   '#F4F4F4',
-	splashBg: '#2e2829',
+	splashBg:  '#2E2829',
 
 	// neutrals
 	gray90:  '#1A1A1A',
@@ -21,9 +21,9 @@ const color = {
 	gray60:  '#666',
 	gray50:  '#7F7F7F',
 	gray40:  '#999',
-	gray35:  '#a6a6a6',
+	gray35:  '#A6A6A6',
 	gray30:  '#B3B3B3',
-	gray25:  '#bfbfbf',
+	gray25:  '#BFBFBF',
 	gray20:  '#CCC',
 	gray15:  '#D9D9D9',
 	gray10:  '#E5E5E5',

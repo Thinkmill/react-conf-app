@@ -155,10 +155,17 @@ const styles = StyleSheet.create({
 
 	bottomTriangle: {
 		position: 'absolute',
-		backgroundColor: 'rgba(36, 31, 32, 0.8)',
+		backgroundColor: 'rgba(36, 31, 32, 0.6)',
 		bottom: 40,
+		height: 1200,
 		left: -100,
 		right: -100,
-		height: 1200,
+		shadowColor: 'black',
+		shadowOffset: {
+			width: 10,
+			height: 15,
+		},
+		shadowOpacity: 0.6,
+		shadowRadius: 10,
 	},
 });

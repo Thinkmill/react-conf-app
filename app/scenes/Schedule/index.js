@@ -64,6 +64,8 @@ type ChangedRows = {
 export default class Schedule extends Component {
   props: Props;
   state: State;
+  scrollYListener: string;
+  _navigatorWillFocusSubscription: Object;
 
   static defaultProps = {
     talks: talks
@@ -105,7 +107,7 @@ export default class Schedule extends Component {
       scrollY: new Animated.Value(0)
     };
 
-    this.state.scrollY.addListener(({ value }) => {
+    this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
       if (value > 120) {
         StatusBar.setBarStyle("default", true);
         StatusBar.setHidden(false, true);
@@ -116,6 +118,9 @@ export default class Schedule extends Component {
         StatusBar.setHidden(true, true);
       }
     });
+  }
+  componentWillUnmount() {
+    this.state.scrollY.removeListener(this.scrollYListener);
   }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(

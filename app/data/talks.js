@@ -4,12 +4,15 @@ import moment from 'moment';
 import type { ScheduleTalk } from '../types';
 
 /*
-	TODO: Use the actual conference start time once we've got the schedule info
-	For now, we use the current day and add talks by duration in order to demo
-	the "current talk" indicator
+	NOTE: switch DAY_ONE and DAY_TWO below to use the current day, useful for
+	testing the "current talk" indicator
 */
-const DAY_ONE = moment().startOf('day').add(8, 'hours').add(30, 'minutes');
-const DAY_TWO = moment().startOf('day').add(1, 'days').add(9, 'hours');
+// const DAY_ONE = moment().startOf('day').add(8, 'hours').add(30, 'minutes');
+// const DAY_TWO = moment().startOf('day').add(1, 'days').add(9, 'hours');
+
+const DAY_ONE = moment('2017-03-13 08:30:00');
+const DAY_TWO = moment('2017-03-14 09:00:00');
+
 function getTime (day, duration) {
 	return {
 		start: day.toDate(),

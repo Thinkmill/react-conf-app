@@ -5,7 +5,7 @@
   "scripts": {
     "precommit": "lint-staged --verbose",
     "start": "node_modules/react-native/packager/packager.sh",
-    "format": "prettier '{app,__{tests,mocks}__}/**/*.js' --write",
+    "format": "prettier --single-quote --trailing-comma es5 '{app,__{tests,mocks}__}/**/*.js' --write",
     "flow": "flow",
     "test": "jest",
     "update-snapshots": "jest -u"

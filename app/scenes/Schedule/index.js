@@ -106,14 +106,23 @@ export default class Schedule extends Component {
     };
 
     this.state.scrollY.addListener(({ value }) => {
-      if (value >= 40 && value <= 140) {
-        StatusBar.setHidden(true, true);
-      } else {
+      if (value > 120) {
+        StatusBar.setBarStyle("default", true);
         StatusBar.setHidden(false, true);
+      } else if (value < 80) {
+        StatusBar.setBarStyle("light-content", true);
+        StatusBar.setHidden(false, true);
+      } else {
+        StatusBar.setHidden(true, true);
       }
     });
   }
   componentDidMount() {
+    this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
+      "willfocus",
+      this.handleNavigatorWillFocus
+    );
+
     // This is the actual image splash screen, not the animated one.
     if (Splash) {
       Splash.close({
@@ -123,6 +132,17 @@ export default class Schedule extends Component {
       });
     }
   }
+  componentWillUnmount() {
+    this._navigatorWillFocusSubscription.remove();
+  }
+
+  handleNavigatorWillFocus = event => {
+    const { scene } = event.data.route;
+
+    if (scene === "Schedule" && this.state.scrollY._value < 120) {
+      StatusBar.setBarStyle("light-content", true);
+    }
+  };
   gotoEventInfo = () => {
     this.props.navigator.push({
       enableSwipeToPop: true,
@@ -179,12 +199,6 @@ export default class Schedule extends Component {
     const splashTop = scrollY.interpolate({
       inputRange: [-200, 400],
       outputRange: [200, -400],
-      extrapolate: "clamp"
-    });
-
-    const spacerHeight = scrollY.interpolate({
-      inputRange: [200, 260],
-      outputRange: [0, 60],
       extrapolate: "clamp"
     });
 
@@ -259,6 +273,7 @@ export default class Schedule extends Component {
             // methods on Talk
             const onPress = () => {
               let talkIdx = getIndexFromId(talk.id);
+              StatusBar.setBarStyle("default", true);
               navigator.push({
                 enableSwipeToPop: true,
                 scene: "Talk",
@@ -319,7 +334,7 @@ const styles = StyleSheet.create({
   },
   spacer: {
     backgroundColor: "transparent",
-    height: theme.navbar.height + 2,
+    height: theme.navbar.height,
     zIndex: 1
   },
   link: {

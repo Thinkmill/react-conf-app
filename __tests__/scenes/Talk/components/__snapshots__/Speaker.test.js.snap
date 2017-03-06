@@ -152,6 +152,7 @@ exports[`Talk - Speaker renders correctly with all props 1`] = `
                 "fontWeight": "300",
                 "lineHeight": 21,
                 "textAlign": "center",
+                "width": "80%",
               }
             }>
             This is my summary.
@@ -530,6 +531,7 @@ exports[`Talk - Speaker renders correctly with missing github and twitter 1`] = 
                 "fontWeight": "300",
                 "lineHeight": 21,
                 "textAlign": "center",
+                "width": "80%",
               }
             }>
             This is my summary.

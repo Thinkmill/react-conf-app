@@ -294,143 +294,11 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#66cbe8",
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -454,14 +322,32 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                undefined,
+                Object {
+                  "color": "#999",
+                },
               ]
             }>
             8:30am
-             — 
-            Registration / Breakfast
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  Object {
+                    "color": "#999",
+                  },
+                ]
+              }>
+               
+              Registration / Breakfast
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         style={
@@ -477,143 +363,11 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#66cbe8",
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -637,14 +391,32 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                undefined,
+                Object {
+                  "color": "#999",
+                },
               ]
             }>
             9:30am
-             — 
-            Hall Doors Open
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  Object {
+                    "color": "#999",
+                  },
+                ]
+              }>
+               
+              Hall Doors Open
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -687,7 +459,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -702,7 +474,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -849,7 +623,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -864,7 +638,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -1011,7 +787,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -1026,7 +802,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -1146,7 +924,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#66cbe8",
               "width": 6,
             }
           } />
@@ -1306,7 +1084,9 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                undefined,
+                Object {
+                  "color": "#999",
+                },
               ]
             }>
             11:00am
@@ -1356,7 +1136,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -1371,7 +1151,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -1518,7 +1300,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -1533,7 +1315,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -1680,7 +1464,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -1695,7 +1479,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -1815,7 +1601,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#66cbe8",
               "width": 6,
             }
           } />
@@ -1975,7 +1761,9 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                undefined,
+                Object {
+                  "color": "#999",
+                },
               ]
             }>
             1:00pm
@@ -2025,7 +1813,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2040,7 +1828,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2187,7 +1977,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2202,7 +1992,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2349,7 +2141,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2364,7 +2156,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2511,7 +2305,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2526,7 +2320,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2673,7 +2469,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2688,7 +2484,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2835,7 +2633,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -2850,7 +2648,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -2997,7 +2797,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -3012,7 +2812,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -3132,7 +2934,7 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#66cbe8",
               "width": 6,
             }
           } />
@@ -3292,7 +3094,9 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "300",
                   "left": -17,
                 },
-                undefined,
+                Object {
+                  "color": "#999",
+                },
               ]
             }>
             4:00pm
@@ -3342,7 +3146,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -3357,7 +3161,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -3504,7 +3310,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -3519,7 +3325,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -3666,7 +3474,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -3681,7 +3489,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -3828,7 +3638,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -3843,7 +3653,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -3990,7 +3802,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -4005,7 +3817,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -4152,7 +3966,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -4167,7 +3981,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -4314,7 +4130,7 @@ exports[`Schedule renders correctly 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#CCC",
+                "backgroundColor": "#66cbe8",
                 "width": 6,
               }
             } />
@@ -4329,7 +4145,9 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                undefined,
+                Object {
+                  "opacity": 0.5,
+                },
               ]
             }>
             <View
@@ -4449,143 +4267,11 @@ exports[`Schedule renders correctly 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#CCC",
+              "backgroundColor": "#00A8D8",
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -4613,10 +4299,24 @@ exports[`Schedule renders correctly 1`] = `
               ]
             }>
             6:00pm
-             — 
-            Happy Hour
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  undefined,
+                ]
+              }>
+               
+              Happy Hour
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         style={
@@ -4636,139 +4336,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -4796,10 +4364,24 @@ exports[`Schedule renders correctly 1`] = `
               ]
             }>
             9:00am
-             — 
-            Registration / Breakfast
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  undefined,
+                ]
+              }>
+               
+              Registration / Breakfast
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         style={
@@ -4819,139 +4401,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -4979,10 +4429,24 @@ exports[`Schedule renders correctly 1`] = `
               ]
             }>
             9:30am
-             — 
-            Hall Doors Open
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  undefined,
+                ]
+              }>
+               
+              Hall Doors Open
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -7657,139 +7121,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -7817,10 +7149,24 @@ exports[`Schedule renders correctly 1`] = `
               ]
             }>
             5:00pm
-             — 
-            Panel / Q&A
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  undefined,
+                ]
+              }>
+               
+              Panel / Q&A
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         style={
@@ -7840,139 +7186,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 6,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-              4294967295,
-              4294967295,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.125,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06999999999999999,
-              0.06999999999999999,
-              0.075,
-              0.075,
-              0.145,
-              0.145,
-              0.15,
-              0.15,
-              0.21999999999999997,
-              0.21999999999999997,
-              0.22499999999999998,
-              0.22499999999999998,
-              0.295,
-              0.295,
-              0.3,
-              0.3,
-              0.37,
-              0.37,
-              0.375,
-              0.375,
-              0.44499999999999995,
-              0.44499999999999995,
-              0.44999999999999996,
-              0.44999999999999996,
-              0.52,
-              0.52,
-              0.525,
-              0.525,
-              0.595,
-              0.595,
-              0.6,
-              0.6,
-              0.6699999999999999,
-              0.6699999999999999,
-              0.6749999999999999,
-              0.6749999999999999,
-              0.745,
-              0.745,
-              0.75,
-              0.75,
-              0.82,
-              0.82,
-              0.825,
-              0.825,
-              0.8949999999999999,
-              0.8949999999999999,
-              0.8999999999999999,
-              0.8999999999999999,
-              0.97,
-              0.97,
-              0.975,
-              0.975,
-              1.0450000000000002,
-              1.0450000000000002,
-              1.05,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
+        <View
           style={
             Object {
               "alignItems": "center",
@@ -8000,10 +7214,24 @@ exports[`Schedule renders correctly 1`] = `
               ]
             }>
             6:00pm
-             — 
-            Closing Party at 104
+             —
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#00A8D8",
+                  },
+                  undefined,
+                ]
+              }>
+               
+              Closing Party at 104
+            </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}

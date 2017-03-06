@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
 		fontWeight: '300',
 		lineHeight: 21,
 		textAlign: 'center',
+		width: '80%',
 	},
 
 	// buttons

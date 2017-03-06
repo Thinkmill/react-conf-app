@@ -10,7 +10,7 @@ describe('Talk - Preview', () => {
 		const tree = renderer.create(
 			<Preview
 				position="top"
-				speakerName="Max Stroiber"
+				speakerName="Max Stoiber"
 				talkStartTime="9AM"
 				title="React Boilerplate"
 				subtitle="React Boilerplate"
@@ -24,7 +24,7 @@ describe('Talk - Preview', () => {
 		const tree = renderer.create(
 			<Preview
 				position="bottom"
-				speakerName="Max Stroiber"
+				speakerName="Max Stoiber"
 				talkStartTime="9AM"
 				title="React Boilerplate"
 				subtitle="React Boilerplate"

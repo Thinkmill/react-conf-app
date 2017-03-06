@@ -138,7 +138,7 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "borderBottomColor": "rgba(0, 0, 0, 0.1)",
+              "borderBottomColor": "#CCC",
               "borderBottomWidth": 0.5,
               "flexDirection": "row",
               "height": 64,
@@ -149,7 +149,7 @@ exports[`Schedule renders correctly 1`] = `
               "width": 750,
             },
             Object {
-              "backgroundColor": "#2B2828",
+              "backgroundColor": "#F4F4F4",
             },
           ]
         }>
@@ -182,7 +182,7 @@ exports[`Schedule renders correctly 1`] = `
                   "fontWeight": "500",
                 },
                 Object {
-                  "color": "#F4F4F4",
+                  "color": "#383838",
                 },
               ]
             }>
@@ -261,7 +261,7 @@ exports[`Schedule renders correctly 1`] = `
     style={
       Object {
         "backgroundColor": "transparent",
-        "height": 66,
+        "height": 64,
         "zIndex": 1,
       }
     } />
@@ -291,6 +291,8 @@ exports[`Schedule renders correctly 1`] = `
           }
         } />
       <View
+        endTime="9:30am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -300,7 +302,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Registration / Breakfast">
         <View
           style={
             Object {
@@ -356,6 +359,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="10:00am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -365,7 +370,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Hall Doors Open">
         <View
           style={
             Object {
@@ -907,6 +913,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="11:30am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -916,7 +924,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title={undefined}>
         <View
           style={
             Object {
@@ -1576,6 +1585,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="2:30pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -1585,7 +1596,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Lunch">
         <View
           style={
             Object {
@@ -2893,6 +2905,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="4:30pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -2902,7 +2916,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title={undefined}>
         <View
           style={
             Object {
@@ -4210,6 +4225,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="8:00pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -4219,7 +4236,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Happy Hour">
         <View
           style={
             Object {
@@ -4275,6 +4293,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="9:30am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -4284,7 +4304,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Registration / Breakfast">
         <View
           style={
             Object {
@@ -4340,6 +4361,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="10:00am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -4349,7 +4372,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Hall Doors Open">
         <View
           style={
             Object {
@@ -4729,6 +4753,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="11:30am"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -4738,7 +4764,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title={undefined}>
         <View
           style={
             Object {
@@ -5398,6 +5425,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="2:30pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -5407,7 +5436,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Lunch">
         <View
           style={
             Object {
@@ -6715,6 +6745,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="4:30pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -6724,7 +6756,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title={undefined}>
         <View
           style={
             Object {
@@ -7060,6 +7093,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="6:00pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -7069,7 +7104,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Panel / Q&A">
         <View
           style={
             Object {
@@ -7125,6 +7161,8 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        endTime="10:00pm"
+        onLayout={null}
         style={
           Array [
             Object {
@@ -7134,7 +7172,8 @@ exports[`Schedule renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+        title="Closing Party at 104">
         <View
           style={
             Object {

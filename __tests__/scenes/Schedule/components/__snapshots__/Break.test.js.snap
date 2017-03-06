@@ -9,7 +9,8 @@ exports[`Schedule - Break renders correctly 1`] = `
       },
       undefined,
     ]
-  }>
+  }
+  title="">
   <View
     style={
       Object {

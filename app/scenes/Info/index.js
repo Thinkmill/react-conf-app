@@ -94,7 +94,7 @@ export default class Info extends Component {
           <View style={{ flex: 1 }}>
             <View style={styles.hero}>
               <Text style={styles.heroText}>
-                The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+                The conference will be taking place on March 13th and 14th, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
               </Text>
               <Text style={styles.heroText}>
                 Proceeds from all ticket sales are being donated to Code2040.

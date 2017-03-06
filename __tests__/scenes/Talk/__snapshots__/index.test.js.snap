@@ -188,7 +188,7 @@ exports[`Talk renders correctly 1`] = `
             "width": 750,
           },
           Object {
-            "backgroundColor": "#2E2829",
+            "backgroundColor": "#2B2828",
           },
         ]
       }>

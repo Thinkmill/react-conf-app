@@ -12,7 +12,7 @@ const color = {
 	text:      '#383838',
 	lightText: 'white',
 	sceneBg:   '#F4F4F4',
-	splashBg:  '#2E2829',
+	splashBg:  '#2B2828',
 
 	// neutrals
 	gray90:  '#1A1A1A',

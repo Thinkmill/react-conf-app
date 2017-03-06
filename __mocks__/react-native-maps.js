@@ -10,6 +10,8 @@ class Marker extends React.Component {
 	render () {
 		return React.createElement('Marker', this.props, this.props.children);
 	}
+
+	showCallout () {}
 }
 
 MapView.Marker = Marker;

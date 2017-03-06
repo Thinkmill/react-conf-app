@@ -89,7 +89,7 @@ exports[`Info renders correctly 1`] = `
           Object {
             "latitude": 37.354108,
             "latitudeDelta": 0.01,
-            "longitude": -121.955236,
+            "longitude": -121.955246,
             "longitudeDelta": 0.01,
           }
         }
@@ -105,11 +105,12 @@ exports[`Info renders correctly 1`] = `
             Object {
               "latitude": 37.354108,
               "latitudeDelta": 0.01,
-              "longitude": -121.955236,
+              "longitude": -121.955246,
               "longitudeDelta": 0.01,
             }
           }
-          title="React Conf 2017" />
+          description="2700 Mission College Blvd, Santa Clara, CA 95054"
+          title="Santa Clara Marriott" />
       </MapView>
       <View
         style={

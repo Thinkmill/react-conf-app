@@ -3,8 +3,8 @@
   "version": "1.0.5",
   "private": true,
   "scripts": {
+    "precommit": "lint-staged --verbose",
     "start": "node_modules/react-native/packager/packager.sh",
-    "format-check": "prettier-check '{app,__{tests,mocks}__}/**/*.js'",
     "format": "prettier '{app,__{tests,mocks}__}/**/*.js' --write",
     "flow": "flow",
     "test": "jest",
@@ -26,7 +26,9 @@
     "babel-preset-react-native": "1.9.1",
     "flow-bin": "^0.39.0",
     "flow-typed": "^2.0.0",
+    "husky": "^0.13.2",
     "jest": "18.1.0",
+    "lint-staged": "^3.3.1",
     "mockdate": "^2.0.1",
     "prettier": "^0.21.0",
     "prettier-check": "^1.0.0",
@@ -37,6 +39,12 @@
     "testRegex": "(/__tests__/.+\\.test\\.js$)",
     "setupFiles": [
       "<rootDir>/__tests__/setup.js"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
     ]
   }
 }

@@ -12,18 +12,18 @@
   },
   "dependencies": {
     "@exponent/vector-icons": "~4.0.0",
-    "exponent": "~13.1.0",
+    "exponent": "^14.0.0",
     "moment": "^2.17.1",
-    "react": "~15.3.2",
+    "react": "^15.4.2",
     "react-native": "github:exponent/react-native#sdk-14.0.0"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
     "babel-preset-react-native": "1.9.1",
-    "flow-bin": "^0.39.0",
+    "flow-bin": "^0.41.0",
     "flow-typed": "^2.0.0",
     "husky": "^0.13.2",
-    "jest": "18.1.0",
+    "jest": "^19.0.2",
     "lint-staged": "^3.3.1",
     "mockdate": "^2.0.1",
     "prettier": "^0.21.0",

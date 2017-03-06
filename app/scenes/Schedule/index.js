@@ -233,7 +233,7 @@ export default class Schedule extends Component {
           onChangeVisibleRows={this.onChangeVisibleRows}
           enableEmptySections
           removeClippedSubviews={false}
-          renderHeader={() => <View style={{ height: 190 }} />}
+          renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
           renderSeparator={(sectionID, rowID) => {
             const key = sectionID + ":" + rowID;
             const talk = dataSource._dataBlob[key];

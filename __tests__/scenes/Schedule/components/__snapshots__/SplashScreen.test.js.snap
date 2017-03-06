@@ -8,14 +8,8 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
   <View
     style={
       Object {
-        "height": 180,
-      }
-    } />
-  <View
-    style={
-      Object {
         "alignItems": "center",
-        "height": 400,
+        "height": 1734,
         "justifyContent": "center",
         "left": 0,
         "position": "absolute",
@@ -46,10 +40,10 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
           Object {
             "transform": Array [
               Object {
-                "translateY": 48,
+                "translateY": 0,
               },
               Object {
-                "scale": 0.8,
+                "scale": 1,
               },
             ],
             "zIndex": 2,
@@ -121,12 +115,6 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
       "zIndex": 2,
     }
   }>
-  <View
-    style={
-      Object {
-        "height": 180,
-      }
-    } />
   <View
     style={
       Object {

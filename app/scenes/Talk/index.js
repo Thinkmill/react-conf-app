@@ -56,25 +56,6 @@ export default class Talk extends Component {
     talk: this.props.talk,
   };
 
-  static defaultProps = {
-    talk: {
-      id: 'max-stoiber',
-      summary: "What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let's talk about what we thought about and why we arrived where we did – 💅 styled-components.",
-      title: 'The Road to Styled Components',
-      speaker: {
-        avatar: 'https://www.gravatar.com/avatar/48619fc17b3ab68472aebd56c0106278?s=128',
-        github: 'mxstbr',
-        name: 'Max Stoiber',
-        twitter: 'mxstbr',
-        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus ligula, sed congue eros. Proin nunc nunc, facilisis sit amet tempor et, finibus eu turpis.',
-      },
-      time: {
-        start: new Date('2017-02-26T22:30:00.000Z'),
-        end: new Date('2017-02-26T23:30:00.000Z'),
-      },
-    },
-  };
-
   sceneHeight = Dimensions.get('window').height;
   sceneWidth = Dimensions.get('window').width;
 

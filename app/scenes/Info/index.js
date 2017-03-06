@@ -26,7 +26,7 @@ import Organiser from './components/Organiser';
 // Santa Clara, California
 const mapRegion = {
 	latitude: 37.354108,
-	longitude: -121.955236,
+	longitude: -121.955246,
 	latitudeDelta: 0.01,
 	longitudeDelta: 0.01,
 };
@@ -45,10 +45,15 @@ export default class Info extends Component {
 		organisers: organiserList,
 	};
 
+	componentDidMount () {
+		setTimeout(this.refs.marker.showCallout, 1000);
+	}
+
 	toggleModal = () => {
 		LayoutAnimation.easeInEaseOut();
 		this.setState({ modalIsOpen: !this.state.modalIsOpen });
 	};
+
 	openMap () {
 		const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
 
@@ -80,7 +85,9 @@ export default class Info extends Component {
 					<MapView initialRegion={mapRegion} style={styles.map}>
 						<MapView.Marker
 							coordinate={mapRegion}
-							title="React Conf 2017"
+							title="Santa Clara Marriott"
+							description="2700 Mission College Blvd, Santa Clara, CA 95054"
+							ref="marker"
 						/>
 					</MapView>
 

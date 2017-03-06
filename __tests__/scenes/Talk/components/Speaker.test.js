@@ -10,7 +10,7 @@ describe('Talk - Speaker', () => {
 		const tree = renderer.create(
 			<Speaker
 				avatar="avatar"
-				name="Max Stroiber"
+				name="Max Stoiber"
 				onClose={() => {}}
 				summary="This is my summary."
 			/>
@@ -23,7 +23,7 @@ describe('Talk - Speaker', () => {
 			<Speaker
 				avatar="avatar"
 				github="github"
-				name="Max Stroiber"
+				name="Max Stoiber"
 				onClose={() => {}}
 				summary="This is my summary."
 				twitter="twitter"

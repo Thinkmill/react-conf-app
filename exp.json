@@ -10,7 +10,7 @@
   "icon": "./icons/app.png",
   "loading": {
     "icon": "./icons/loading.png",
-    "backgroundColor": "#000000",
+    "backgroundColor": "#241f20",
     "hideExponentText": true
   },
   "packagerOpts": {

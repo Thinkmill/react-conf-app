@@ -10,7 +10,7 @@
 */
 
 function validateHex(color) {
-  const hex = color.replace("#", "");
+  const hex = color.replace('#', '');
 
   if (hex.length === 3) {
     return hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
@@ -45,7 +45,7 @@ function fade(color: string, opacity: number = 100) {
   const b = parseInt(hex.substring(4, 6), 16);
 
   // 2.
-  const result = "rgba(" + r + "," + g + "," + b + "," + decimalFraction + ")";
+  const result = 'rgba(' + r + ',' + g + ',' + b + ',' + decimalFraction + ')';
 
   return result;
 }
@@ -77,7 +77,7 @@ function shade(color: string, percent: number) {
   const B = f & 0x0000ff;
 
   // 2.
-  return "#" +
+  return '#' +
     (0x1000000 +
       (Math.round((t - R) * p) + R) * 0x10000 +
       (Math.round((t - G) * p) + G) * 0x100 +
@@ -124,7 +124,7 @@ function blend(color1: string, color2: string, percent: number) {
   const B2 = t & 0x0000ff;
 
   // 2.
-  return "#" +
+  return '#' +
     (0x1000000 +
       (Math.round((R2 - R1) * decimalFraction) + R1) * 0x10000 +
       (Math.round((G2 - G1) * decimalFraction) + G1) * 0x100 +
@@ -137,5 +137,5 @@ module.exports = {
   blend,
   darken,
   fade,
-  lighten
+  lighten,
 };

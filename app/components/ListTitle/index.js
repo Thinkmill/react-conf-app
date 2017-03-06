@@ -1,12 +1,12 @@
 // @flow
-import React from "react";
-import { PixelRatio, Text, View } from "react-native";
+import React from 'react';
+import { PixelRatio, Text, View } from 'react-native';
 
-import theme from "../../theme";
+import theme from '../../theme';
 
 type Props = {
   bordered?: boolean,
-  text: string
+  text: string,
 };
 
 export default function ListTitle({ bordered, text }: Props) {
@@ -14,8 +14,8 @@ export default function ListTitle({ bordered, text }: Props) {
     text: {
       color: theme.color.text,
       fontSize: theme.fontSize.xsmall,
-      fontWeight: "500",
-      lineHeight: theme.fontSize.large
+      fontWeight: '500',
+      lineHeight: theme.fontSize.large,
     },
     view: {
       backgroundColor: theme.color.sceneBg,
@@ -23,14 +23,14 @@ export default function ListTitle({ bordered, text }: Props) {
       borderBottomWidth: 1 / PixelRatio.get(),
       paddingHorizontal: theme.fontSize.default + 6,
       height: theme.listheader.height,
-      justifyContent: "flex-end"
+      justifyContent: 'flex-end',
     },
     view__bordered: {
       shadowColor: theme.color.gray20,
       shadowOffset: { height: (-1) / PixelRatio.get(), width: 0 },
       shadowOpacity: 1,
-      shadowRadius: 0
-    }
+      shadowRadius: 0,
+    },
   };
 
   return (

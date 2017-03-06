@@ -1,12 +1,12 @@
 // @flow
-import "react-native";
-import React from "react";
-import renderer from "react-test-renderer";
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-import Preview from "../../../../app/scenes/Talk/components/Preview";
+import Preview from '../../../../app/scenes/Talk/components/Preview';
 
-describe("Talk - Preview", () => {
-  it("renders correctly in top position", () => {
+describe('Talk - Preview', () => {
+  it('renders correctly in top position', () => {
     const tree = renderer
       .create(
         <Preview
@@ -22,7 +22,7 @@ describe("Talk - Preview", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly in bottom position", () => {
+  it('renders correctly in bottom position', () => {
     const tree = renderer
       .create(
         <Preview

@@ -1,17 +1,17 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   Dimensions,
   Image,
   StyleSheet,
   TouchableHighlight,
-  View
-} from "react-native";
+  View,
+} from 'react-native';
 
-import theme from "../../../../theme";
+import theme from '../../../../theme';
 
-const windowHeight = Dimensions.get("window").height;
+const windowHeight = Dimensions.get('window').height;
 const SLIDE_DURATION = 800;
 const SLIDE_FINAL_HEIGHT = 400;
 
@@ -27,7 +27,7 @@ Animated.TouchableHighlight = Animated.createAnimatedComponent(
 export default class SplashScreen extends Component {
   props: {
     onAnimationComplete?: () => mixed,
-    onLogoPress?: () => mixed
+    onLogoPress?: () => mixed,
   };
 
   state = {
@@ -36,7 +36,7 @@ export default class SplashScreen extends Component {
     logoOffset: new Animated.Value(0),
     logoScale: new Animated.Value(1),
     leftTriangleSkew: new Animated.Value(SKEW_DOWN),
-    rightTriangleSkew: new Animated.Value(SKEW_UP)
+    rightTriangleSkew: new Animated.Value(SKEW_UP),
   };
 
   skewed = false;
@@ -46,7 +46,7 @@ export default class SplashScreen extends Component {
       return {
         delay: 1000,
         duration: SLIDE_DURATION,
-        toValue
+        toValue,
       };
     };
 
@@ -56,7 +56,7 @@ export default class SplashScreen extends Component {
       Animated.timing(
         this.state.height,
         animateTo(SLIDE_FINAL_HEIGHT + theme.navbar.height)
-      )
+      ),
     ]).start(() => {
       if (this.props.onAnimationComplete) {
         this.props.onAnimationComplete();
@@ -81,7 +81,7 @@ export default class SplashScreen extends Component {
     const animateTo = toValue => {
       return {
         duration: SKEW_DURATION,
-        toValue
+        toValue,
       };
     };
 
@@ -94,7 +94,7 @@ export default class SplashScreen extends Component {
     Animated.parallel([
       // -------- Left Triangle --------
       Animated.timing(leftTriangleSkew, animateTo(leftSkew)),
-      Animated.timing(rightTriangleSkew, animateTo(rightSkew))
+      Animated.timing(rightTriangleSkew, animateTo(rightSkew)),
     ]).start(() => {
       setTimeout(() => this.queueIdleAnimation(), SKEW_DELAY);
     });
@@ -107,14 +107,14 @@ export default class SplashScreen extends Component {
       logoOffset,
       logoScale,
       leftTriangleSkew,
-      rightTriangleSkew
+      rightTriangleSkew,
     } = this.state;
 
     // Map to string values for transform.
     const interpolateToString = value => {
       return value.interpolate({
         inputRange: [-360, 360],
-        outputRange: ["-360deg", "360deg"]
+        outputRange: ['-360deg', '360deg'],
       });
     };
 
@@ -129,17 +129,17 @@ export default class SplashScreen extends Component {
             }}
             style={{
               transform: [{ translateY: logoOffset }, { scale: logoScale }],
-              zIndex: 2
+              zIndex: 2,
             }}
           >
-            <Image source={require("../../images/splash-logo.png")} />
+            <Image source={require('../../images/splash-logo.png')} />
           </Animated.TouchableHighlight>
           <Animated.View
             style={[
               styles.bottomTriangle,
               {
-                transform: [{ skewY: interpolateToString(leftTriangleSkew) }]
-              }
+                transform: [{ skewY: interpolateToString(leftTriangleSkew) }],
+              },
             ]}
           />
           <Animated.View
@@ -148,9 +148,9 @@ export default class SplashScreen extends Component {
               {
                 transform: [
                   { skewY: interpolateToString(rightTriangleSkew) },
-                  { translateY: -5 }
-                ]
-              }
+                  { translateY: -5 },
+                ],
+              },
             ]}
           />
         </Animated.View>
@@ -161,31 +161,31 @@ export default class SplashScreen extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    zIndex: 2
+    zIndex: 2,
   },
 
   splash: {
-    position: "absolute",
-    alignItems: "center",
-    justifyContent: "center",
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
     top: -200,
     left: 0,
-    right: 0
+    right: 0,
   },
 
   bottomTriangle: {
-    position: "absolute",
-    backgroundColor: "rgba(36, 31, 32, 0.6)",
+    position: 'absolute',
+    backgroundColor: 'rgba(36, 31, 32, 0.6)',
     bottom: 40,
     height: 1200,
     left: -100,
     right: -100,
-    shadowColor: "black",
+    shadowColor: 'black',
     shadowOffset: {
       width: 10,
-      height: 15
+      height: 15,
     },
     shadowOpacity: 0.6,
-    shadowRadius: 10
-  }
+    shadowRadius: 10,
+  },
 });

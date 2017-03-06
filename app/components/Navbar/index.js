@@ -1,16 +1,16 @@
 // @flow
-import React from "react";
+import React from 'react';
 import {
   Dimensions,
   PixelRatio,
   StyleSheet,
   View,
   Text,
-  TouchableOpacity
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+  TouchableOpacity,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import theme from "../../theme";
+import theme from '../../theme';
 
 type Props = {
   backgroundColor?: string,
@@ -25,7 +25,7 @@ type Props = {
   rightButtonText?: string,
   textColor?: string,
   title: string,
-  titleRenderer?: () => mixed
+  titleRenderer?: () => mixed,
 };
 
 export default function Navbar(
@@ -67,7 +67,7 @@ export default function Navbar(
               <Text
                 style={[
                   styles.buttonText,
-                  { opacity: leftButtonDisabled ? 0.6 : 1 }
+                  { opacity: leftButtonDisabled ? 0.6 : 1 },
                 ]}
               >
                 {leftButtonText}
@@ -101,7 +101,7 @@ export default function Navbar(
               <Text
                 style={[
                   styles.buttonText,
-                  { opacity: rightButtonDisabled ? 0.6 : 1 }
+                  { opacity: rightButtonDisabled ? 0.6 : 1 },
                 ]}
               >
                 {rightButtonText}
@@ -115,42 +115,42 @@ export default function Navbar(
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "stretch",
+    alignItems: 'stretch',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
-    flexDirection: "row",
+    flexDirection: 'row',
     height: theme.navbar.height,
-    overflow: "hidden",
-    justifyContent: "space-between",
+    overflow: 'hidden',
+    justifyContent: 'space-between',
     paddingTop: 20, // account for the statusbar
-    position: "absolute",
-    width: Dimensions.get("window").width
+    position: 'absolute',
+    width: Dimensions.get('window').width,
   },
 
   // buttons
   button: {
-    alignItems: "center",
+    alignItems: 'center',
     flex: 2,
-    flexDirection: "row",
-    paddingHorizontal: theme.fontSize.default
+    flexDirection: 'row',
+    paddingHorizontal: theme.fontSize.default,
   },
   button__right: {
-    justifyContent: "flex-end"
+    justifyContent: 'flex-end',
   },
   buttonText: {
     color: theme.color.blue,
-    fontSize: theme.fontSize.default
+    fontSize: theme.fontSize.default,
   },
 
   // title
   title: {
-    alignItems: "center",
+    alignItems: 'center',
     flex: 4,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   titleText: {
     color: theme.color.lightText,
     fontSize: theme.fontSize.default,
-    fontWeight: "500"
-  }
+    fontWeight: '500',
+  },
 });

@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   PixelRatio,
@@ -7,17 +7,17 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} from "react-native";
-import moment from "moment";
+  View,
+} from 'react-native';
+import moment from 'moment';
 
-import type { ScheduleTalk } from "../../../../types";
+import type { ScheduleTalk } from '../../../../types';
 
-import { TIME_FORMAT } from "../../../../constants";
-import theme from "../../../../theme";
-import Avatar from "../../../../components/Avatar";
+import { TIME_FORMAT } from '../../../../constants';
+import theme from '../../../../theme';
+import Avatar from '../../../../components/Avatar';
 
-import Preview from "../Preview";
+import Preview from '../Preview';
 
 export default class TalkPane extends Component {
   props: {
@@ -29,7 +29,7 @@ export default class TalkPane extends Component {
     prevTalk?: ScheduleTalk | null,
     prevTalkPreviewIsEngaged?: boolean,
     showSpeakerModal?: () => mixed,
-    visibleTalk: ScheduleTalk
+    visibleTalk: ScheduleTalk,
   };
 
   render() {
@@ -46,7 +46,7 @@ export default class TalkPane extends Component {
 
     const touchableProps = {
       activeOpacity: 0.66,
-      onPress: showSpeakerModal
+      onPress: showSpeakerModal,
     };
 
     return (
@@ -108,46 +108,46 @@ export default class TalkPane extends Component {
 
 const styles = StyleSheet.create({
   hero: {
-    alignItems: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    backgroundColor: 'white',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray20,
     borderTopWidth: 1 / PixelRatio.get(),
     marginTop: -(1 / PixelRatio.get()),
     paddingHorizontal: theme.fontSize.large,
-    paddingBottom: theme.fontSize.xlarge
+    paddingBottom: theme.fontSize.xlarge,
   },
   heroSpeaker: {
-    alignItems: "center",
+    alignItems: 'center',
     paddingHorizontal: theme.fontSize.xlarge,
-    paddingTop: theme.fontSize.xlarge
+    paddingTop: theme.fontSize.xlarge,
   },
   heroSpeakerHint: {
     color: theme.color.gray40,
     fontSize: theme.fontSize.xsmall,
-    paddingBottom: theme.fontSize.large
+    paddingBottom: theme.fontSize.large,
   },
   heroSpeakerName: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: "500",
-    marginTop: theme.fontSize.small
+    fontWeight: '500',
+    marginTop: theme.fontSize.small,
   },
   heroTitle: {
     fontSize: theme.fontSize.large,
-    fontWeight: "300",
-    textAlign: "center"
+    fontWeight: '300',
+    textAlign: 'center',
   },
 
   // summary
   summary: {
-    paddingBottom: 40
+    paddingBottom: 40,
   },
   summaryText: {
     fontSize: theme.fontSize.default,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
-    padding: theme.fontSize.large
-  }
+    padding: theme.fontSize.large,
+  },
 });

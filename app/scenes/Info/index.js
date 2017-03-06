@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Image,
   LayoutAnimation,
@@ -8,41 +8,41 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} from "react-native";
-import MapView from "react-native-maps";
+  View,
+} from 'react-native';
+import MapView from 'react-native-maps';
 
-import ListTitle from "../../components/ListTitle";
-import Navbar from "../../components/Navbar";
-import Scene from "../../components/Scene";
+import ListTitle from '../../components/ListTitle';
+import Navbar from '../../components/Navbar';
+import Scene from '../../components/Scene';
 
-import { list as organiserList } from "../../data/organisers";
-import theme from "../../theme";
-import { attemptToOpenUrl } from "../../utils";
+import { list as organiserList } from '../../data/organisers';
+import theme from '../../theme';
+import { attemptToOpenUrl } from '../../utils';
 
-import CodeOfConduct from "./components/CodeOfConduct";
-import Organiser from "./components/Organiser";
+import CodeOfConduct from './components/CodeOfConduct';
+import Organiser from './components/Organiser';
 
 // Santa Clara, California
 const mapRegion = {
   latitude: 37.354108,
   longitude: -121.955246,
   latitudeDelta: 0.01,
-  longitudeDelta: 0.01
+  longitudeDelta: 0.01,
 };
 
 export default class Info extends Component {
   props: {
     navigator: Object,
-    organisers: typeof organiserList
+    organisers: typeof organiserList,
   };
 
   state = {
-    modalIsOpen: false
+    modalIsOpen: false,
   };
 
   static defaultProps = {
-    organisers: organiserList
+    organisers: organiserList,
   };
 
   componentDidMount() {
@@ -60,13 +60,13 @@ export default class Info extends Component {
     attemptToOpenUrl(url);
   }
   openThinkmill() {
-    const url = "https://www.thinkmill.com.au";
+    const url = 'https://www.thinkmill.com.au';
 
     attemptToOpenUrl(url);
   }
 
   openRepository() {
-    const url = "https://github.com/Thinkmill/react-conf-2017";
+    const url = 'https://github.com/Thinkmill/react-conf-2017';
     attemptToOpenUrl(url);
   }
 
@@ -128,7 +128,7 @@ export default class Info extends Component {
                 style={styles.madebyLink}
               >
                 <Image
-                  source={require("./images/thinkmill-logo.png")}
+                  source={require('./images/thinkmill-logo.png')}
                   style={{ width: 80, height: 80 }}
                 />
                 {/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
@@ -158,49 +158,49 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
     height: 200,
-    maxHeight: 200
+    maxHeight: 200,
   },
   // hero
   hero: {
-    alignItems: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    backgroundColor: 'white',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray30,
     borderTopWidth: 1 / PixelRatio.get(),
-    paddingHorizontal: theme.fontSize.default
+    paddingHorizontal: theme.fontSize.default,
   },
   heroText: {
     paddingTop: theme.fontSize.xlarge,
     fontSize: theme.fontSize.default,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
-    textAlign: "center"
+    textAlign: 'center',
   },
   heroLink: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: "500",
-    padding: theme.fontSize.large
+    fontWeight: '500',
+    padding: theme.fontSize.large,
   },
 
   // made by thinkmill
   madeby: {
-    alignItems: "center",
+    alignItems: 'center',
     paddingHorizontal: theme.fontSize.default,
-    paddingVertical: theme.fontSize.xlarge
+    paddingVertical: theme.fontSize.xlarge,
   },
   madebyLink: {
-    alignItems: "center"
+    alignItems: 'center',
   },
   madebyText: {
     fontSize: theme.fontSize.default,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
     marginTop: theme.fontSize.default,
-    textAlign: "center"
+    textAlign: 'center',
   },
   madebyTitle: {
-    fontWeight: "500"
-  }
+    fontWeight: '500',
+  },
 });

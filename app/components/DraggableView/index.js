@@ -1,6 +1,6 @@
 // @flow
-import React, { Component } from "react";
-import { Animated, PanResponder } from "react-native";
+import React, { Component } from 'react';
+import { Animated, PanResponder } from 'react-native';
 
 const SWIPE_THRESHOLD = 80;
 
@@ -10,17 +10,17 @@ export default class DraggableView extends Component {
     allowY: boolean,
     onMove?: () => mixed,
     onRelease: () => mixed,
-    children?: Array<React.Element<mixed>>
+    children?: Array<React.Element<mixed>>,
   };
 
   state = {
-    pan: new Animated.ValueXY() // inits to zero
+    pan: new Animated.ValueXY(), // inits to zero
   };
 
   static defaultProps = {
     allowX: true,
     allowY: true,
-    style: {}
+    style: {},
   };
 
   _panResponder = PanResponder.create({
@@ -32,8 +32,8 @@ export default class DraggableView extends Component {
         null,
         {
           dx: this.props.allowX ? this.state.pan.x : 0, // x,y are Animated.Value
-          dy: this.props.allowY ? this.state.pan.y : 0
-        }
+          dy: this.props.allowY ? this.state.pan.y : 0,
+        },
       ])(e, gestureState);
     },
     onPanResponderRelease: (e, { vx, vy }) => {
@@ -44,18 +44,18 @@ export default class DraggableView extends Component {
         Animated.decay(this.state.pan, {
           velocity: {
             x: this.props.allowX ? vx : 0,
-            y: this.props.allowY ? vy : 0
+            y: this.props.allowY ? vy : 0,
           },
-          deceleration: 0.98
+          deceleration: 0.98,
         }).start();
       } else {
         Animated.spring(this.state.pan, {
           toValue: { x: 0, y: 0 },
           friction: 8,
-          tension: 80
+          tension: 80,
         }).start();
       }
-    }
+    },
   });
 
   render() {

@@ -1,12 +1,12 @@
 // @flow
-import React from "react";
-import { Image, View } from "react-native";
+import React from 'react';
+import { Image, View } from 'react-native';
 
-import theme from "../../theme";
+import theme from '../../theme';
 
 type Props = {
   size?: number,
-  source: string
+  source: string,
 };
 
 export default function Avatar({ size = 44, source }: Props) {
@@ -14,14 +14,14 @@ export default function Avatar({ size = 44, source }: Props) {
     wrapper: {
       backgroundColor: theme.color.sceneBg,
       borderRadius: size,
-      overflow: "hidden",
+      overflow: 'hidden',
       height: size,
-      width: size
+      width: size,
     },
     image: {
       height: size,
-      width: size
-    }
+      width: size,
+    },
   };
 
   return (

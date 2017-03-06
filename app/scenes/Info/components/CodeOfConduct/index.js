@@ -1,20 +1,20 @@
 // @flow
-import React, { Component } from "react";
-import Icon from "react-native-vector-icons/Ionicons";
+import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} from "react-native";
+  View,
+} from 'react-native';
 
-import theme from "../../../../theme";
-import Modal from "../../../../components/Modal";
+import theme from '../../../../theme';
+import Modal from '../../../../components/Modal';
 
 export default class CodeOfConduct extends Component {
   props: {
-    onClose: () => mixed
+    onClose: () => mixed,
   };
 
   render() {
@@ -96,16 +96,16 @@ const BORDER_RADIUS = 6;
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: BORDER_RADIUS,
     maxHeight: 400,
-    shadowColor: "black",
+    shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.25,
-    shadowRadius: 5
+    shadowRadius: 5,
   },
   content: {
-    padding: theme.fontSize.default
+    padding: theme.fontSize.default,
   },
 
   // text
@@ -113,36 +113,36 @@ const styles = StyleSheet.create({
     color: theme.color.gray60,
     fontSize: 13,
     lineHeight: theme.fontSize.default,
-    marginTop: theme.fontSize.small
+    marginTop: theme.fontSize.small,
   },
   heading: {
     color: theme.color.gray70,
     fontSize: theme.fontSize.small,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   heading1: {
-    fontSize: theme.fontSize.default
+    fontSize: theme.fontSize.default,
   },
   heading2: {
     fontSize: theme.fontSize.small,
-    marginTop: theme.fontSize.large
+    marginTop: theme.fontSize.large,
   },
 
   // close
   close: {
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: theme.color.gray05,
     borderBottomLeftRadius: BORDER_RADIUS,
     borderBottomRightRadius: BORDER_RADIUS,
     height: 40,
-    justifyContent: "center",
-    shadowColor: "black",
+    justifyContent: 'center',
+    shadowColor: 'black',
     shadowOffset: { height: -1, width: 0 },
     shadowOpacity: 0.1,
-    shadowRadius: 0
+    shadowRadius: 0,
   },
   closeText: {
     color: theme.color.gray40,
-    fontWeight: "500"
-  }
+    fontWeight: '500',
+  },
 });

@@ -2,7 +2,7 @@
 
 export type ScheduleTimeRange = {
   start: Date,
-  end: Date
+  end: Date,
 };
 
 export type ScheduleTalk = {
@@ -14,17 +14,17 @@ export type ScheduleTalk = {
     github?: string,
     name: string,
     twitter?: string,
-    summary: string
+    summary: string,
   },
-  time: ScheduleTimeRange
+  time: ScheduleTimeRange,
 };
 
 export type ScheduleBreak = {
   break: true,
   time: ScheduleTimeRange,
-  title: string
+  title: string,
 };
 
 export type Schedule = {
-  [string]: ScheduleTalk | ScheduleBreak
+  [string]: ScheduleTalk | ScheduleBreak,
 };

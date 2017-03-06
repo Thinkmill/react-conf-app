@@ -1,12 +1,12 @@
 // @flow
-import "react-native";
-import React from "react";
-import renderer from "react-test-renderer";
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-import Speaker from "../../../../app/scenes/Talk/components/Speaker";
+import Speaker from '../../../../app/scenes/Talk/components/Speaker';
 
-describe("Talk - Speaker", () => {
-  it("renders correctly with missing github and twitter", () => {
+describe('Talk - Speaker', () => {
+  it('renders correctly with missing github and twitter', () => {
     const tree = renderer
       .create(
         <Speaker
@@ -20,7 +20,7 @@ describe("Talk - Speaker", () => {
 
     expect(tree).toMatchSnapshot();
   });
-  it("renders correctly with all props", () => {
+  it('renders correctly with all props', () => {
     const tree = renderer
       .create(
         <Speaker

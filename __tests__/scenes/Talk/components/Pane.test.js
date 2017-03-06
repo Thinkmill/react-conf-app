@@ -1,13 +1,13 @@
 // @flow
-import "react-native";
-import React from "react";
-import renderer from "react-test-renderer";
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-import Pane from "../../../../app/scenes/Talk/components/Pane";
-import talks from "../../../../app/data/talks";
+import Pane from '../../../../app/scenes/Talk/components/Pane';
+import talks from '../../../../app/data/talks';
 
-describe("Talk - Pane", () => {
-  it("renders correctly", () => {
+describe('Talk - Pane', () => {
+  it('renders correctly', () => {
     const tree = renderer
       .create(
         <Pane

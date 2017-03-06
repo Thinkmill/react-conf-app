@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   Dimensions,
@@ -9,34 +9,34 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} from "react-native";
-import moment from "moment";
+  View,
+} from 'react-native';
+import moment from 'moment';
 
-import type { ScheduleTalk } from "../../types";
+import type { ScheduleTalk } from '../../types';
 
-import Splash from "react-native-smart-splash-screen";
+import Splash from 'react-native-smart-splash-screen';
 
-import { TIME_FORMAT } from "../../constants";
+import { TIME_FORMAT } from '../../constants';
 import talks, {
   getIndexFromId,
   getNextTalkFromId,
-  getPrevTalkFromId
-} from "../../data/talks";
-import Navbar from "../../components/Navbar";
-import ListTitle from "../../components/ListTitle";
-import Scene from "../../components/Scene";
+  getPrevTalkFromId,
+} from '../../data/talks';
+import Navbar from '../../components/Navbar';
+import ListTitle from '../../components/ListTitle';
+import Scene from '../../components/Scene';
 
-import theme from "../../theme";
+import theme from '../../theme';
 
-import Break from "./components/Break";
-import NowButton from "./components/NowButton";
-import Talk, { TalkSeparator } from "./components/Talk";
-import SplashScreen from "./components/SplashScreen";
+import Break from './components/Break';
+import NowButton from './components/NowButton';
+import Talk, { TalkSeparator } from './components/Talk';
+import SplashScreen from './components/SplashScreen';
 
 type Props = {
   navigator: Object,
-  talks: Array<ScheduleTalk>
+  talks: Array<ScheduleTalk>,
 };
 
 type State = {
@@ -45,20 +45,20 @@ type State = {
   showNowButton?: boolean,
   activeTalkLayout?: {
     height: number,
-    position: number
-  }
+    position: number,
+  },
 };
 
 type VisibleRows = {
   [sectionID: string]: {
-    [rowID: string]: true
-  }
+    [rowID: string]: true,
+  },
 };
 
 type ChangedRows = {
   [sectionID: string]: {
-    [rowID: string]: true | false
-  }
+    [rowID: string]: true | false,
+  },
 };
 
 export default class Schedule extends Component {
@@ -68,7 +68,7 @@ export default class Schedule extends Component {
   _navigatorWillFocusSubscription: Object;
 
   static defaultProps = {
-    talks: talks
+    talks: talks,
   };
 
   constructor(props: Props) {
@@ -80,7 +80,7 @@ export default class Schedule extends Component {
     let sectionIndex = 0;
 
     props.talks.forEach(talk => {
-      const sID = moment(talk.time.start).format("dddd");
+      const sID = moment(talk.time.start).format('dddd');
 
       // create new section and initialize empty array for section index
       if (!dataBlob[sID]) {
@@ -91,28 +91,28 @@ export default class Schedule extends Component {
       }
 
       rowIDs[rowIDs.length - 1].push(talk.id);
-      dataBlob[sID + ":" + talk.id] = talk;
+      dataBlob[sID + ':' + talk.id] = talk;
     });
 
     const ds = new ListView.DataSource({
       getSectionData: (dataBlob, sectionID) => dataBlob[sectionID],
       getRowData: (dataBlob, sectionID, rowID) =>
-        dataBlob[sectionID + ":" + rowID],
+        dataBlob[sectionID + ':' + rowID],
       rowHasChanged: (r1, r2) => r1 !== r2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
-      scrollY: new Animated.Value(0)
+      scrollY: new Animated.Value(0),
     };
 
     this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
       if (value > 120) {
-        StatusBar.setBarStyle("default", true);
+        StatusBar.setBarStyle('default', true);
         StatusBar.setHidden(false, true);
       } else if (value < 80) {
-        StatusBar.setBarStyle("light-content", true);
+        StatusBar.setBarStyle('light-content', true);
         StatusBar.setHidden(false, true);
       } else {
         StatusBar.setHidden(true, true);
@@ -124,7 +124,7 @@ export default class Schedule extends Component {
   }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
-      "willfocus",
+      'willfocus',
       this.handleNavigatorWillFocus
     );
 
@@ -133,7 +133,7 @@ export default class Schedule extends Component {
       Splash.close({
         animationType: Splash.animationType.fade,
         duration: 300,
-        delay: 200
+        delay: 200,
       });
     }
   }
@@ -144,14 +144,14 @@ export default class Schedule extends Component {
   handleNavigatorWillFocus = event => {
     const { scene } = event.data.route;
 
-    if (scene === "Schedule" && this.state.scrollY._value < 120) {
-      StatusBar.setBarStyle("light-content", true);
+    if (scene === 'Schedule' && this.state.scrollY._value < 120) {
+      StatusBar.setBarStyle('light-content', true);
     }
   };
   gotoEventInfo = () => {
     this.props.navigator.push({
       enableSwipeToPop: true,
-      scene: "Info"
+      scene: 'Info',
     });
   };
   onChangeVisibleRows = (
@@ -169,7 +169,7 @@ export default class Schedule extends Component {
     // TODO all talks are over. Discuss how to handle
     if (!currentTalk) return;
 
-    const day = moment(currentTalk.time.start).format("dddd");
+    const day = moment(currentTalk.time.start).format('dddd');
     const talksForToday = visibleRows[day];
 
     // Set the now button to visible based on whether the talk is visible or not.
@@ -179,7 +179,7 @@ export default class Schedule extends Component {
     const { activeTalkLayout } = this.state;
     if (!activeTalkLayout) return;
     const { contentLength } = this.refs.listview.scrollProperties;
-    const sceneHeight = Dimensions.get("window").height;
+    const sceneHeight = Dimensions.get('window').height;
     const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
     const scrollToY = maxScroll < activeTalkLayout.position
       ? maxScroll
@@ -198,13 +198,13 @@ export default class Schedule extends Component {
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-64, 0],
-      extrapolate: "clamp"
+      extrapolate: 'clamp',
     });
 
     const splashTop = scrollY.interpolate({
       inputRange: [-200, 400],
       outputRange: [200, -400],
-      extrapolate: "clamp"
+      extrapolate: 'clamp',
     });
 
     const renderFooter = () => (
@@ -246,7 +246,7 @@ export default class Schedule extends Component {
           ref="listview"
           initialListSize={initialListSize}
           onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { y: this.state.scrollY } } }
+            { nativeEvent: { contentOffset: { y: this.state.scrollY } } },
           ])}
           scrollEventThrottle={16}
           onChangeVisibleRows={this.onChangeVisibleRows}
@@ -254,7 +254,7 @@ export default class Schedule extends Component {
           removeClippedSubviews={false}
           renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
           renderSeparator={(sectionID, rowID) => {
-            const key = sectionID + ":" + rowID;
+            const key = sectionID + ':' + rowID;
             const talk = dataSource._dataBlob[key];
             const status = getTalkStatus(talk.time.start, talk.time.end);
 
@@ -262,13 +262,13 @@ export default class Schedule extends Component {
           }}
           renderRow={talk => {
             const status = getTalkStatus(talk.time.start, talk.time.end);
-            const onLayout = status === "present"
+            const onLayout = status === 'present'
               ? ({ nativeEvent: { layout } }) => {
                   this.setState({
                     activeTalkLayout: {
                       height: layout.height,
-                      position: layout.y - theme.navbar.height / 2
-                    }
+                      position: layout.y - theme.navbar.height / 2,
+                    },
                   });
                 }
               : null;
@@ -289,16 +289,16 @@ export default class Schedule extends Component {
             // methods on Talk
             const onPress = () => {
               let talkIdx = getIndexFromId(talk.id);
-              StatusBar.setBarStyle("default", true);
+              StatusBar.setBarStyle('default', true);
               navigator.push({
                 enableSwipeToPop: true,
-                scene: "Talk",
+                scene: 'Talk',
                 props: {
                   introduceUI: talkIdx && talkIdx < talks.length - 1,
                   nextTalk: getNextTalkFromId(talk.id),
                   prevTalk: getPrevTalkFromId(talk.id),
-                  talk
-                }
+                  talk,
+                },
               });
             };
 
@@ -331,35 +331,35 @@ export default class Schedule extends Component {
 
 const styles = StyleSheet.create({
   navbar: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     right: 0,
     left: 0,
-    zIndex: 2
+    zIndex: 2,
   },
   spacer: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     height: theme.navbar.height,
-    zIndex: 1
+    zIndex: 1,
   },
   link: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: "500",
+    fontWeight: '500',
     paddingVertical: theme.fontSize.large,
     marginBottom: 34 * 2,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 function getTalkStatus(startTime, endTime) {
   const now = moment();
 
   if (now.isBetween(startTime, endTime)) {
-    return "present";
+    return 'present';
   } else if (now.isBefore(startTime)) {
-    return "future";
+    return 'future';
   }
 
-  return "past";
+  return 'past';
 }

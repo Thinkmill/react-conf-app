@@ -1,26 +1,26 @@
 // @flow
-import React, { Component } from "react";
-import { AppState, Navigator, StatusBar, StyleSheet } from "react-native";
-import codePush from "react-native-code-push";
+import React, { Component } from 'react';
+import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
+import codePush from 'react-native-code-push';
 
-import theme from "./theme";
-import { Info, Schedule, Talk } from "./scenes";
+import theme from './theme';
+import { Info, Schedule, Talk } from './scenes';
 const Scenes = { Info, Schedule, Talk };
 
-const DEFAULT_VIEW = "Schedule";
+const DEFAULT_VIEW = 'Schedule';
 
 class ReactConf2017 extends Component {
   componentDidMount() {
     this.syncAppVersion();
-    StatusBar.setBarStyle("light-content", true);
-    AppState.addEventListener("change", this.handleAppStateChange);
+    StatusBar.setBarStyle('light-content', true);
+    AppState.addEventListener('change', this.handleAppStateChange);
   }
   componentWillUnmount() {
-    AppState.removeEventListener("change", this.handleAppStateChange);
+    AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
   handleAppStateChange = (currentAppState: string) => {
-    if (currentAppState === "active") {
+    if (currentAppState === 'active') {
       this.syncAppVersion();
     }
   };
@@ -43,11 +43,11 @@ class ReactConf2017 extends Component {
         route.transitionKey && !TRANSITION_KEYS.includes(route.transitionKey)
       ) {
         console.warn(
-          "Warning: Invalid transition key `" +
+          'Warning: Invalid transition key `' +
             route.transitionKey +
-            "` supplied to `Navigator`. Valid keys: [\n" +
-            TRANSITION_KEYS.join("\n") +
-            "\n]"
+            '` supplied to `Navigator`. Valid keys: [\n' +
+            TRANSITION_KEYS.join('\n') +
+            '\n]'
         );
         return Navigator.SceneConfigs.PushFromRight;
       }
@@ -58,9 +58,9 @@ class ReactConf2017 extends Component {
             ...Navigator.SceneConfigs.PushFromRight,
             gestures: route.enableSwipeToPop
               ? {
-                  pop: Navigator.SceneConfigs.PushFromRight.gestures.pop
+                  pop: Navigator.SceneConfigs.PushFromRight.gestures.pop,
                 }
-              : null
+              : null,
           };
     };
 
@@ -78,17 +78,17 @@ class ReactConf2017 extends Component {
 
 const styles = StyleSheet.create({
   navigator: {
-    backgroundColor: "black",
-    flex: 1
+    backgroundColor: 'black',
+    flex: 1,
   },
   scenes: {
     backgroundColor: theme.color.sceneBg,
-    overflow: "visible",
-    shadowColor: "black",
+    overflow: 'visible',
+    shadowColor: 'black',
     shadowOffset: { height: 0, width: 0 },
     shadowOpacity: 0.33,
-    shadowRadius: 5
-  }
+    shadowRadius: 5,
+  },
 });
 
 module.exports = ReactConf2017;

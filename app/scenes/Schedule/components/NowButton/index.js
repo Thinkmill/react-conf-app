@@ -1,30 +1,30 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback
-} from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+  TouchableWithoutFeedback,
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
-import theme from "../../../../theme";
-import { lighten, darken } from "../../../../utils/color";
+import theme from '../../../../theme';
+import { lighten, darken } from '../../../../utils/color';
 
 export default class NowButton extends Component {
   props: {
-    onPress: () => mixed
+    onPress: () => mixed,
   };
 
   state = {
-    animValue: new Animated.Value(0)
+    animValue: new Animated.Value(0),
   };
 
   springToValue(val: number) {
     Animated.spring(this.state.animValue, {
       toValue: val,
       friction: 3,
-      tension: 50
+      tension: 50,
     }).start();
   }
   render() {
@@ -38,21 +38,21 @@ export default class NowButton extends Component {
         bottom: 20,
         left: 10,
         right: 10,
-        top: 10
+        top: 10,
       },
       onPress,
       onPressIn: () => this.springToValue(1),
-      onPressOut: () => this.springToValue(0)
+      onPressOut: () => this.springToValue(0),
     };
     const dynamicStyles = {
       transform: [
         {
           scale: animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [1, 0.9]
-          })
-        }
-      ]
+            outputRange: [1, 0.9],
+          }),
+        },
+      ],
     };
 
     return (
@@ -72,27 +72,27 @@ export default class NowButton extends Component {
 
 const styles = StyleSheet.create({
   layout: {
-    alignItems: "center",
+    alignItems: 'center',
     bottom: 0,
     left: 0,
     paddingBottom: 20,
-    position: "absolute",
-    right: 0
+    position: 'absolute',
+    right: 0,
   },
   button: {
     backgroundColor: theme.color.blue,
     borderRadius: 40,
     height: 40,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingHorizontal: 32,
-    shadowColor: "black",
+    shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.24,
-    shadowRadius: 2
+    shadowRadius: 2,
   },
   text: {
-    backgroundColor: "transparent",
-    color: "white",
-    fontWeight: "bold"
-  }
+    backgroundColor: 'transparent',
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });

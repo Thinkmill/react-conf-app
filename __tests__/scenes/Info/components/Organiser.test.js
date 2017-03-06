@@ -1,12 +1,12 @@
 // @flow
-import "react-native";
-import React from "react";
-import renderer from "react-test-renderer";
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-import Organiser from "../../../../app/scenes/Info/components/Organiser";
+import Organiser from '../../../../app/scenes/Info/components/Organiser';
 
-describe("Info - Organiser", () => {
-  it("renders correctly", () => {
+describe('Info - Organiser', () => {
+  it('renders correctly', () => {
     const tree = renderer
       .create(
         <Organiser

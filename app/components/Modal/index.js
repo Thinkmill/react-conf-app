@@ -1,46 +1,46 @@
 // @flow
-import React, { cloneElement, Component } from "react";
+import React, { cloneElement, Component } from 'react';
 import {
   Animated,
   Dimensions,
   Modal as RNModal,
   StyleSheet,
-  TouchableOpacity
-} from "react-native";
-import { BlurView } from "react-native-blur";
+  TouchableOpacity,
+} from 'react-native';
+import { BlurView } from 'react-native-blur';
 
 function animateToValueWithOptions(val) {
   return {
     toValue: val,
     friction: 10,
-    tension: 100
+    tension: 100,
   };
 }
 
 const MODAL_ALIGNMENT = {
-  bottom: "flex-end",
-  top: "flex-start",
-  center: "center"
+  bottom: 'flex-end',
+  top: 'flex-start',
+  center: 'center',
 };
 
 export default class Modal extends Component {
   props: {
-    align: "bottom" | "center" | "top",
+    align: 'bottom' | 'center' | 'top',
     blurAmount: number,
-    blurType: "dark" | "light" | "xlight",
+    blurType: 'dark' | 'light' | 'xlight',
     onClose: () => mixed,
     style?: {},
-    children?: React.Element<{ onClose?: () => mixed }>
+    children?: React.Element<{ onClose?: () => mixed }>,
   };
 
   state = {
-    animValue: new Animated.Value(0)
+    animValue: new Animated.Value(0),
   };
 
   static defaultProps = {
-    align: "center",
+    align: 'center',
     blurAmount: 12,
-    blurType: "dark"
+    blurType: 'dark',
   };
 
   __isClosed: boolean | void;
@@ -62,7 +62,7 @@ export default class Modal extends Component {
   renderChildren() {
     // $FlowFixMe: https://github.com/facebook/flow/issues/1964
     return cloneElement(this.props.children, {
-      onClose: this.onClose
+      onClose: this.onClose,
     });
   }
   render() {
@@ -70,28 +70,28 @@ export default class Modal extends Component {
       align,
       blurAmount,
       blurType,
-      style
+      style,
     } = this.props;
 
     const blockoutDynamicStyles = {
       justifyContent: MODAL_ALIGNMENT[align],
-      opacity: this.state.animValue
+      opacity: this.state.animValue,
     };
     const dialogDynamicStyles = {
       transform: [
         {
           scale: this.state.animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [0.93, 1]
-          })
+            outputRange: [0.93, 1],
+          }),
         },
         {
           translateY: this.state.animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [100, 1]
-          })
-        }
-      ]
+            outputRange: [100, 1],
+          }),
+        },
+      ],
     };
 
     return (
@@ -114,19 +114,19 @@ export default class Modal extends Component {
 }
 
 const fillSpace = {
-  height: Dimensions.get("window").height,
+  height: Dimensions.get('window').height,
   left: 0,
-  position: "absolute",
+  position: 'absolute',
   top: 0,
-  width: Dimensions.get("window").width
+  width: Dimensions.get('window').width,
 };
 const styles = StyleSheet.create({
   blockout: {
-    alignItems: "center",
-    ...fillSpace
+    alignItems: 'center',
+    ...fillSpace,
   },
   blur: fillSpace,
   touchable: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

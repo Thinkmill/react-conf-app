@@ -1,10 +1,10 @@
 // @flow
-import React from "react";
-import { ScrollView, View } from "react-native";
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 
 type Props = {
   scroll?: boolean,
-  style?: Object
+  style?: Object,
 };
 
 export default function Scene({ scroll, style, ...props }: Props) {

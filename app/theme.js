@@ -7,27 +7,27 @@
 
 // color
 const color = {
-  blue: "#00A8D8",
-  green: "#9BE13A",
-  text: "#383838",
-  lightText: "white",
-  sceneBg: "#F4F4F4",
-  splashBg: "#2B2828",
+  blue: '#00A8D8',
+  green: '#9BE13A',
+  text: '#383838',
+  lightText: 'white',
+  sceneBg: '#F4F4F4',
+  splashBg: '#2B2828',
 
   // neutrals
-  gray90: "#1A1A1A",
-  gray80: "#333",
-  gray70: "#4D4D4D",
-  gray60: "#666",
-  gray50: "#7F7F7F",
-  gray40: "#999",
-  gray35: "#A6A6A6",
-  gray30: "#B3B3B3",
-  gray25: "#BFBFBF",
-  gray20: "#CCC",
-  gray15: "#D9D9D9",
-  gray10: "#E5E5E5",
-  gray05: "#F2F2F2"
+  gray90: '#1A1A1A',
+  gray80: '#333',
+  gray70: '#4D4D4D',
+  gray60: '#666',
+  gray50: '#7F7F7F',
+  gray40: '#999',
+  gray35: '#A6A6A6',
+  gray30: '#B3B3B3',
+  gray25: '#BFBFBF',
+  gray20: '#CCC',
+  gray15: '#D9D9D9',
+  gray10: '#E5E5E5',
+  gray05: '#F2F2F2',
 };
 
 // font sizes
@@ -36,7 +36,7 @@ const fontSize = {
   small: 14,
   default: 17,
   large: 24,
-  xlarge: 32
+  xlarge: 32,
 };
 
 // Component Specific
@@ -47,17 +47,17 @@ const navbar = {
   backgroundColor: color.sceneBg,
   buttonColor: color.blue,
   height: 64,
-  textColor: color.text
+  textColor: color.text,
 };
 
 // list header
 const listheader = {
-  height: 34
+  height: 34,
 };
 
 // next up
 const nextup = {
-  height: 70
+  height: 70,
 };
 
 export default {
@@ -65,5 +65,5 @@ export default {
   fontSize,
   navbar,
   nextup,
-  listheader
+  listheader,
 };

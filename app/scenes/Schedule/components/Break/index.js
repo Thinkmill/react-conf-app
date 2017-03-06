@@ -1,10 +1,12 @@
 // @flow
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '../../../../theme';
 import { TalkStatusBar } from '../Talk';
+
+import { Components } from 'exponent';
+const { LinearGradient } = Components;
 
 const gradientSteps = 14;
 const gradientJump = 1.05;
@@ -35,8 +37,8 @@ export default class Break extends Component {
               </Text>
             </View>
           : <LinearGradient
-              start={{ x: 0.0, y: 0.0 }}
-              end={{ x: 1.0, y: 0.125 }}
+              start={[0.0, 0.0]}
+              end={[1.0, 0.125]}
               locations={generateGradientLocations(gradientSteps)}
               colors={generateGradientColors(gradientSteps)}
               style={styles.gradient}

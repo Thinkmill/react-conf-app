@@ -6,10 +6,12 @@ import {
   Text,
   TouchableWithoutFeedback,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';
+
+import { Components } from 'exponent';
+const { LinearGradient } = Components;
 
 export default class NowButton extends Component {
   props: {

@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
-import codePush from 'react-native-code-push';
 
 import theme from './theme';
 import { Info, Schedule, Talk } from './scenes';
@@ -11,23 +10,8 @@ const DEFAULT_VIEW = 'Schedule';
 
 class ReactConf2017 extends Component {
   componentDidMount() {
-    this.syncAppVersion();
     StatusBar.setBarStyle('light-content', true);
-    AppState.addEventListener('change', this.handleAppStateChange);
   }
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleAppStateChange);
-  }
-
-  handleAppStateChange = (currentAppState: string) => {
-    if (currentAppState === 'active') {
-      this.syncAppVersion();
-    }
-  };
-
-  syncAppVersion = () => {
-    codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
-  };
 
   render() {
     const renderScene = (route, navigator) => {

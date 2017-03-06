@@ -10,7 +10,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MapView from 'react-native-maps';
+import { Components } from 'exponent';
+const { MapView } = Components;
 
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';

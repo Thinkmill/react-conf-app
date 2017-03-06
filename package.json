@@ -11,15 +11,11 @@
     "update-snapshots": "jest -u"
   },
   "dependencies": {
+    "@exponent/vector-icons": "~4.0.0",
+    "exponent": "~13.1.0",
     "moment": "^2.17.1",
-    "react": "15.4.2",
-    "react-native": "^0.42.0",
-    "react-native-blur": "^2.0.0",
-    "react-native-code-push": "^1.17.0-beta",
-    "react-native-linear-gradient": "^2.0.0",
-    "react-native-maps": "airbnb/react-native-maps",
-    "react-native-smart-splash-screen": "^2.3.3",
-    "react-native-vector-icons": "^4.0.0"
+    "react": "~15.3.2",
+    "react-native": "github:exponent/react-native#sdk-14.0.0"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
@@ -46,5 +42,6 @@
       "prettier --single-quote --trailing-comma es5 --write",
       "git add"
     ]
-  }
+  },
+  "main": ""
 }

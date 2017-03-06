@@ -7,7 +7,8 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { BlurView } from 'react-native-blur';
+import { Components } from 'exponent';
+const { BlurView } = Components;
 
 function animateToValueWithOptions(val) {
   return {

@@ -105,13 +105,16 @@ export default class Schedule extends Component {
       scrollY: new Animated.Value(0)
     };
 
-    this.state.scrollY.addListener(({ value }) => {
+    this.scrollYId = this.state.scrollY.addListener(({ value }) => {
       if (value >= 40 && value <= 140) {
         StatusBar.setHidden(true, true);
       } else {
         StatusBar.setHidden(false, true);
       }
     });
+  }
+  componentWillUnmount() {
+	  this.state.scrollY.removeListener(this.scrollYId);
   }
   componentDidMount() {
     // This is the actual image splash screen, not the animated one.

@@ -530,7 +530,8 @@ export function getNextTalkFromId(ID: string): ScheduleTalk | null {
   // skip over breaks
   let search = idx + 1;
   let talk = list[search];
-  if (talk && talk.break) talk = list[++search];
+  while (talk && talk.break)
+    talk = list[++search];
 
   if (!talk) {
     console.info('This is the last talk.');

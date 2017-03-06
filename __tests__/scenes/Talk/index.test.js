@@ -17,8 +17,8 @@ const talk = {
 		summary: '',
 	},
 	time: {
-		start: new Date(),
-		end: new Date(),
+		start: new Date('Thu, 01 Jan 1970 00:00:00 GMT'),
+		end: new Date('Thu, 01 Jan 1970 00:00:00 GMT'),
 	},
 };
 

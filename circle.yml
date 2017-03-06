@@ -12,7 +12,7 @@ dependencies:
     - ~/.cache/yarn
 test:
   pre:
-    - yarn lint
+    - yarn format-check
     - yarn flow
   override:
     - yarn test -- --runInBand # Jest overloads our poor container when it tries to parallelise tests, and they all fail.

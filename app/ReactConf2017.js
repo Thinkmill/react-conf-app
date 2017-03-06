@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import Exponent, { Asset } from 'exponent';
 import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
 
 import theme from './theme';
@@ -9,6 +10,25 @@ const Scenes = { Info, Schedule, Talk };
 const DEFAULT_VIEW = 'Schedule';
 
 class ReactConf2017 extends Component {
+  state = {
+    ready: false,
+  };
+
+  componentWillMount() {
+    this._downloadAssetsAsync();
+  }
+
+  _downloadAssetsAsync = async () => {
+    const downloadAsset = asset => Asset.fromModule(asset).downloadAsync();
+
+    await Promise.all([
+      downloadAsset(require('./scenes/Schedule/images/splash-logo.png')),
+      downloadAsset(require('./scenes/Info/images/thinkmill-logo.png')),
+    ]);
+
+    this.setState({ ready: true });
+  };
+
   componentDidMount() {
     StatusBar.setBarStyle('light-content', true);
   }

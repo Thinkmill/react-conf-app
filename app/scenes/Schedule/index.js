@@ -257,13 +257,24 @@ export default class Schedule extends Component {
           }}
           renderRow={talk => {
             const status = getTalkStatus(talk.time.start, talk.time.end);
+            const onLayout = status === "present"
+              ? ({ nativeEvent: { layout } }) => {
+                  this.setState({
+                    activeTalkLayout: {
+                      height: layout.height,
+                      position: layout.y - theme.navbar.height / 2
+                    }
+                  });
+                }
+              : null;
 
             if (talk.break) {
               return (
                 <Break
                   endTime={moment(talk.time.end).format(TIME_FORMAT)}
-                  startTime={moment(talk.time.start).format(TIME_FORMAT)}
                   important={!!talk.important}
+                  onLayout={onLayout}
+                  startTime={moment(talk.time.start).format(TIME_FORMAT)}
                   status={status}
                   title={talk.title}
                 />
@@ -285,17 +296,6 @@ export default class Schedule extends Component {
                 }
               });
             };
-
-            const onLayout = status === "present"
-              ? ({ nativeEvent: { layout } }) => {
-                  this.setState({
-                    activeTalkLayout: {
-                      height: layout.height,
-                      position: layout.y - theme.navbar.height / 2
-                    }
-                  });
-                }
-              : null;
 
             return (
               <Talk

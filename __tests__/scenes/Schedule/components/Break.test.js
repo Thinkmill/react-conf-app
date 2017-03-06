@@ -8,7 +8,7 @@ import Break from '../../../../app/scenes/Schedule/components/Break';
 describe('Schedule - Break', () => {
 	it('renders correctly', () => {
 		const tree = renderer.create(
-			<Break status="present" />
+			<Break status="present" important={false} title="" />
 		).toJSON();
 
 		expect(tree).toMatchSnapshot();

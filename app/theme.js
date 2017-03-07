@@ -44,7 +44,7 @@ const fontSize = {
 
 // navbar
 const navbar = {
-  backgroundColor: color.sceneBg,
+  backgroundColor: 'white',
   buttonColor: color.blue,
   height: 64,
   textColor: color.text,

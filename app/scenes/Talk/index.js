@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
+import { Animated, Dimensions, Share } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
@@ -160,17 +160,10 @@ export default class Talk extends Component {
       ? '@' + talk.speaker.twitter
       : talk.speaker.name;
 
-    ActionSheetIOS.showShareActionSheetWithOptions(
-      {
-        message: `Enjoying ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
-      },
-      error => alert(error),
-      (success, method) => {
-        const result = success ? `Shared via ${method}` : 'Share cancelled';
-
-        console.log(result);
-      }
-    );
+    Share.share({
+      title: 'ReactConf 2017',
+      message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
+    });
   };
   toggleSpeakerModal = (data: Object) => {
     console.log('data', data);

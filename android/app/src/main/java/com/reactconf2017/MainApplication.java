@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.microsoft.azure.mobile.react.crashes.RNCrashesPackage;
+import com.microsoft.azure.mobile.react.analytics.RNAnalyticsPackage;
 import com.reactnativecomponent.splashscreen.RCTSplashScreenPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -37,6 +39,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
+            new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
             new RCTSplashScreenPackage(),
             new LinearGradientPackage(),
             new MapsPackage(),

@@ -1,4 +1,6 @@
 <resources>
+    <string moduleConfig="true" name="mobileCenterCrashes_whenToSendCrashes">ALWAYS_SEND</string>
+    <string moduleConfig="true" name="mobileCenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>
     <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
     <string name="app_name">ReactConf2017</string>
 </resources>

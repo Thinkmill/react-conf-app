@@ -11,6 +11,8 @@
     "update-snapshots": "jest -u"
   },
   "dependencies": {
+    "mobile-center-analytics": "^0.3.0",
+    "mobile-center-crashes": "^0.3.0",
     "moment": "^2.17.1",
     "react": "15.4.2",
     "react-native": "^0.42.0",

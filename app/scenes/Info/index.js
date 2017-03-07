@@ -4,6 +4,7 @@ import {
   Image,
   LayoutAnimation,
   PixelRatio,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -69,7 +70,10 @@ export default class Info extends Component {
   openMap() {
     const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
     const query = encodeURI('Santa Clara Marriott');
-    const url = `maps://maps.apple.com/?ll=${latlon}&q=${query}`;
+    const url = Platform.OS === 'ios'
+      ? `maps://maps.apple.com/?ll=${latlon}&q=${query}`
+      : `https://maps.google.com/?ll=${latlon}&q=${query}`;
+
     attemptToOpenUrl(url);
   }
   openThinkmill() {

@@ -76,11 +76,11 @@ exports[`Schedule renders correctly 1`] = `
             "right": -100,
             "shadowColor": "black",
             "shadowOffset": Object {
-              "height": 15,
+              "height": 5,
               "width": 10,
             },
-            "shadowOpacity": 0.6,
-            "shadowRadius": 10,
+            "shadowOpacity": 0.4,
+            "shadowRadius": 6,
             "transform": Array [
               Object {
                 "skewY": "5deg",
@@ -99,11 +99,11 @@ exports[`Schedule renders correctly 1`] = `
             "right": -100,
             "shadowColor": "black",
             "shadowOffset": Object {
-              "height": 15,
+              "height": 5,
               "width": 10,
             },
-            "shadowOpacity": 0.6,
-            "shadowRadius": 10,
+            "shadowOpacity": 0.4,
+            "shadowRadius": 6,
             "transform": Array [
               Object {
                 "skewY": "-3deg",

@@ -87,9 +87,9 @@ exports[`Info renders correctly 1`] = `
       <MapView
         initialRegion={
           Object {
-            "latitude": 37.354108,
+            "latitude": 37.391084,
             "latitudeDelta": 0.01,
-            "longitude": -121.955246,
+            "longitude": -121.9746,
             "longitudeDelta": 0.01,
           }
         }
@@ -103,13 +103,14 @@ exports[`Info renders correctly 1`] = `
         <Marker
           coordinate={
             Object {
-              "latitude": 37.354108,
+              "latitude": 37.391084,
               "latitudeDelta": 0.01,
-              "longitude": -121.955246,
+              "longitude": -121.9746,
               "longitudeDelta": 0.01,
             }
           }
           description="2700 Mission College Blvd, Santa Clara, CA 95054"
+          onCalloutPress={[Function]}
           title="Santa Clara Marriott" />
       </MapView>
       <View
@@ -143,7 +144,7 @@ exports[`Info renders correctly 1`] = `
                 "textAlign": "center",
               }
             }>
-            The conference will be taking place on February 22nd and 23rd, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+            The conference will be taking place on March 13th and 14th, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
           </Text>
           <Text
             accessible={true}

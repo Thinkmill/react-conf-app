@@ -183,9 +183,9 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOffset: {
       width: 10,
-      height: 15,
+      height: 5,
     },
-    shadowOpacity: 0.6,
-    shadowRadius: 10,
+    shadowOpacity: 0.4,
+    shadowRadius: 6,
   },
 });

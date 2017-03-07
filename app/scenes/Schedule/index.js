@@ -139,7 +139,7 @@ export default class Schedule extends Component {
     this._navigatorWillFocusSubscription.remove();
   }
 
-  handleNavigatorWillFocus = event => {
+  handleNavigatorWillFocus = (event: any) => {
     const { scene } = event.data.route;
 
     if (scene === 'Schedule' && this.state.scrollY._value < 120) {

@@ -48,7 +48,17 @@ export default class Info extends Component {
   _marker: any;
 
   componentDidMount() {
-    setTimeout(this._marker.showCallout, 1000);
+    // Sometimes it takes more than a second for the map to load, so in those cases it's best to
+    // just keep trying with an exponential* back off. (* exponential: e to the power of 0) ;-)
+    const tryToShowCallout = () => {
+      if (this._marker) {
+        this._marker.showCallout();
+      } else {
+        setTimeout(tryToShowCallout, 1000);
+      }
+    };
+
+    tryToShowCallout();
   }
 
   toggleModal = () => {

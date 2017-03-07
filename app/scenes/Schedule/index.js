@@ -147,6 +147,7 @@ export default class Schedule extends Component {
     }
   };
   gotoEventInfo = () => {
+    StatusBar.setBarStyle('default', true);
     this.props.navigator.push({
       enableSwipeToPop: true,
       scene: 'Info',
@@ -231,7 +232,7 @@ export default class Schedule extends Component {
         <Animated.View style={[styles.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonIconName="ios-information-circle-outline"
+            rightButtonText="About"
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -275,7 +276,7 @@ export default class Schedule extends Component {
               return (
                 <Break
                   endTime={moment(talk.time.end).format(TIME_FORMAT)}
-                  important={!!talk.important}
+                  lightning={talk.lightning}
                   onLayout={onLayout}
                   startTime={moment(talk.time.start).format(TIME_FORMAT)}
                   status={status}
@@ -302,12 +303,13 @@ export default class Schedule extends Component {
 
             return (
               <Talk
+                keynote={talk.keynote}
+                lightning={talk.lightning}
+                onLayout={onLayout}
                 onPress={onPress}
-                speakerName={talk.speaker.name}
-                speakerAvatarUri={talk.speaker.avatar}
+                speaker={talk.speaker}
                 startTime={moment(talk.time.start).format(TIME_FORMAT)}
                 status={status}
-                onLayout={onLayout}
                 title={talk.title}
               />
             );

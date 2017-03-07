@@ -25,8 +25,8 @@ import Organiser from './components/Organiser';
 
 // Santa Clara, California
 const mapRegion = {
-  latitude: 37.354108,
-  longitude: -121.955246,
+  latitude: 37.391084,
+  longitude: -121.9746,
   latitudeDelta: 0.01,
   longitudeDelta: 0.01,
 };
@@ -46,7 +46,7 @@ export default class Info extends Component {
   };
 
   componentDidMount() {
-    setTimeout(this.refs.marker.showCallout, 1000);
+    setTimeout(this.marker.showCallout, 1000);
   }
 
   toggleModal = () => {
@@ -55,13 +55,13 @@ export default class Info extends Component {
   };
 
   openMap() {
-    const url = `http://maps.apple.com/?ll=${mapRegion.latitude},${mapRegion.longitude}`;
-
+    const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
+    const query = encodeURI('Santa Clara Marriott');
+    const url = `maps://maps.apple.com/?ll=${latlon}&q=${query}`;
     attemptToOpenUrl(url);
   }
   openThinkmill() {
     const url = 'https://www.thinkmill.com.au';
-
     attemptToOpenUrl(url);
   }
 
@@ -85,9 +85,10 @@ export default class Info extends Component {
           <MapView initialRegion={mapRegion} style={styles.map}>
             <MapView.Marker
               coordinate={mapRegion}
-              title="Santa Clara Marriott"
               description="2700 Mission College Blvd, Santa Clara, CA 95054"
-              ref="marker"
+              onCalloutPress={this.openMap}
+              ref={r => this.marker = r}
+              title="Santa Clara Marriott"
             />
           </MapView>
 

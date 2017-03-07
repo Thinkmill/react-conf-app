@@ -78,7 +78,7 @@ export default class Speaker extends Component {
     // This is a bit janky but I like the Modal reuse, amenable to refactor
 
     return (
-      <Modal onClose={onClose} ref="modal">
+      <Modal onClose={onClose} ref="modal" forceDownwardAnimation={false}>
         <DraggableView
           style={styles.wrapper}
           allowX={false}

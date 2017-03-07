@@ -119,9 +119,6 @@ export default class Schedule extends Component {
       }
     });
   }
-  componentWillUnmount() {
-    this.state.scrollY.removeListener(this.scrollYListener);
-  }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
       'willfocus',
@@ -138,6 +135,7 @@ export default class Schedule extends Component {
     }
   }
   componentWillUnmount() {
+    this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
   }
 

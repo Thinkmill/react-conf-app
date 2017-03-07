@@ -163,7 +163,7 @@ export default class SplashScreen extends Component {
   }
 }
 
-const screen = Dimensions.get('screen');
+const screen = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   wrapper: {

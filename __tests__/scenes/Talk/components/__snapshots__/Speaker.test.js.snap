@@ -106,13 +106,16 @@ exports[`Talk - Speaker renders correctly with all props 1`] = `
           }>
           <View
             style={
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderRadius": 75,
-                "height": 75,
-                "overflow": "hidden",
-                "width": 75,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "#F4F4F4",
+                  "borderRadius": 75,
+                  "height": 75,
+                  "overflow": "hidden",
+                  "width": 75,
+                },
+                undefined,
+              ]
             }>
             <Image
               source={
@@ -122,6 +125,7 @@ exports[`Talk - Speaker renders correctly with all props 1`] = `
               }
               style={
                 Object {
+                  "borderRadius": 75,
                   "height": 75,
                   "width": 75,
                 }
@@ -485,13 +489,16 @@ exports[`Talk - Speaker renders correctly with missing github and twitter 1`] = 
           }>
           <View
             style={
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderRadius": 75,
-                "height": 75,
-                "overflow": "hidden",
-                "width": 75,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "#F4F4F4",
+                  "borderRadius": 75,
+                  "height": 75,
+                  "overflow": "hidden",
+                  "width": 75,
+                },
+                undefined,
+              ]
             }>
             <Image
               source={
@@ -501,6 +508,7 @@ exports[`Talk - Speaker renders correctly with missing github and twitter 1`] = 
               }
               style={
                 Object {
+                  "borderRadius": 75,
                   "height": 75,
                   "width": 75,
                 }

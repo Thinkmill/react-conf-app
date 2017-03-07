@@ -41,7 +41,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#00A8D8",
-          "width": 6,
+          "width": 5,
         }
       }>
       <View
@@ -103,7 +103,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
             Object {
               "flexGrow": 1,
               "flexShrink": 1,
-              "paddingRight": 17,
+              "paddingRight": 12,
             },
             undefined,
           ]
@@ -115,18 +115,18 @@ exports[`Schedule - Talk renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#666",
-                "fontSize": 14,
-                "fontWeight": "300",
+                "alignItems": "center",
+                "flexDirection": "row",
                 "marginBottom": 14,
               },
               Object {
-                "color": "#383838",
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
               },
             ]
           }>
-          
-           — 
           
         </Text>
         <Text
@@ -139,9 +139,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
                 "color": "#383838",
                 "fontSize": 17,
               },
-              Object {
-                "fontWeight": "500",
-              },
+              undefined,
             ]
           }>
           
@@ -157,22 +155,26 @@ exports[`Schedule - Talk renders correctly 1`] = `
         }>
         <View
           style={
-            Object {
-              "backgroundColor": "#F4F4F4",
-              "borderRadius": 44,
-              "height": 44,
-              "overflow": "hidden",
-              "width": 44,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
           }>
           <Image
             source={
               Object {
-                "uri": "",
+                "uri": undefined,
               }
             }
             style={
               Object {
+                "borderRadius": 44,
                 "height": 44,
                 "width": 44,
               }
@@ -185,7 +187,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#383838",
+                "color": "#999",
                 "fontSize": 20,
               },
               Object {

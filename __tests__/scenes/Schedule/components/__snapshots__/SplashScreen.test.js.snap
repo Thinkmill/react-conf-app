@@ -2,9 +2,9 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
 <View
   style={
     Object {
-      "height": 1734,
+      "height": 1534,
       "position": "absolute",
-      "width": 1024,
+      "width": 750,
       "zIndex": 2,
     }
   }>
@@ -101,9 +101,9 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
 <View
   style={
     Object {
-      "height": 1734,
+      "height": 1534,
       "position": "absolute",
-      "width": 1024,
+      "width": 750,
       "zIndex": 2,
     }
   }>

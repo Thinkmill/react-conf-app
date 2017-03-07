@@ -181,9 +181,12 @@ export default class Talk extends Component {
     };
 
     // subtitle variants
+    let subtitleText = startTime;
+    if (speaker) subtitleText += ` - ${speaker.name}`;
+
     let subtitle = (
       <Text style={[styles.subtitle, styles.subtitleText]}>
-        {startTime} - {speaker.name}
+        {subtitleText}
       </Text>
     );
     if (lightning) subtitle = <LightningSubtitle text={speaker.name} />;
@@ -207,7 +210,7 @@ export default class Talk extends Component {
             />
           );
         })
-      : <Avatar source={speaker.avatar} />;
+      : <Avatar source={speaker && speaker.avatar} />;
 
     // const avatar = <Avatar source={speaker.avatar} />;
 

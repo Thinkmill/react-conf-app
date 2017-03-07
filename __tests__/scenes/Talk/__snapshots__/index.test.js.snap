@@ -44,6 +44,7 @@ exports[`Talk renders correctly 1`] = `
               "marginTop": -0.5,
               "paddingBottom": 32,
               "paddingHorizontal": 24,
+              "paddingTop": 32,
             }
           }>
           <View
@@ -72,18 +73,20 @@ exports[`Talk renders correctly 1`] = `
                 Object {
                   "alignItems": "center",
                   "paddingHorizontal": 32,
-                  "paddingTop": 32,
                 }
               }>
               <View
                 style={
-                  Object {
-                    "backgroundColor": "#F4F4F4",
-                    "borderRadius": 44,
-                    "height": 44,
-                    "overflow": "hidden",
-                    "width": 44,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "#F4F4F4",
+                      "borderRadius": 44,
+                      "height": 44,
+                      "overflow": "hidden",
+                      "width": 44,
+                    },
+                    undefined,
+                  ]
                 }>
                 <Image
                   source={
@@ -93,6 +96,7 @@ exports[`Talk renders correctly 1`] = `
                   }
                   style={
                     Object {
+                      "borderRadius": 44,
                       "height": 44,
                       "width": 44,
                     }
@@ -188,7 +192,7 @@ exports[`Talk renders correctly 1`] = `
             "width": 750,
           },
           Object {
-            "backgroundColor": "#F4F4F4",
+            "backgroundColor": "white",
           },
         ]
       }>
@@ -196,7 +200,7 @@ exports[`Talk renders correctly 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "flex": 2,
+            "flex": 3,
             "flexDirection": "row",
             "paddingHorizontal": 17,
           }
@@ -245,7 +249,7 @@ exports[`Talk renders correctly 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "flex": 2,
+            "flex": 3,
             "flexDirection": "row",
             "justifyContent": "flex-end",
             "opacity": 1,

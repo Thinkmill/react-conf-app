@@ -86,8 +86,7 @@ export default class TalkPane extends Component {
               isActive={prevTalkPreviewIsEngaged}
               position="top"
               subtitle={
-                `${moment(prevTalk.time.start).format(TIME_FORMAT)}
-                ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
+                `${moment(prevTalk.time.start).format(TIME_FORMAT)} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
               }
               title={prevTalk.title}
             />

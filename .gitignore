@@ -37,4 +37,5 @@ jspm_packages
 .node_repl_history
 
 # Android secrets
-**/*/res/values/configuration.xml
+android/**/*/res/values/configuration.xml
+android/**/*.keystore

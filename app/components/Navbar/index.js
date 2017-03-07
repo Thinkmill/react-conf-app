@@ -3,6 +3,7 @@ import React from 'react';
 import {
   Dimensions,
   PixelRatio,
+  Platform,
   StyleSheet,
   View,
   Text,
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     height: theme.navbar.height,
     overflow: 'hidden',
     justifyContent: 'space-between',
-    paddingTop: 20, // account for the statusbar
+    paddingTop: Platform.OS === 'ios' ? 20 : 0, // account for the statusbar
     position: 'absolute',
     width: Dimensions.get('window').width,
   },

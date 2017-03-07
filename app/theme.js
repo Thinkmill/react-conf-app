@@ -1,9 +1,9 @@
 // @flow
+import { Platform } from 'react-native';
+
 // ==============================
 // APP STYLE CONSTANTS
 // ==============================
-
-/* eslint-disable key-spacing */
 
 // color
 const color = {
@@ -47,7 +47,7 @@ const fontSize = {
 const navbar = {
   backgroundColor: 'white',
   buttonColor: color.blue,
-  height: 64,
+  height: Platform.OS === 'ios' ? 64 : 44,
   textColor: color.text,
 };
 

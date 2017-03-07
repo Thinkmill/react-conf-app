@@ -7,6 +7,7 @@ import theme from '../../theme';
 type Props = {
   size?: number,
   source: string,
+  style?: Object,
 };
 
 export default function Avatar({ size = 44, source, style, ...props }: Props) {
@@ -19,6 +20,7 @@ export default function Avatar({ size = 44, source, style, ...props }: Props) {
       width: size,
     },
     image: {
+      borderRadius: size,
       height: size,
       width: size,
     },

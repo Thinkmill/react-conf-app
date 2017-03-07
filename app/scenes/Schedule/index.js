@@ -244,10 +244,9 @@ export default class Schedule extends Component {
           ref="listview"
           initialListSize={initialListSize}
           onScroll={Animated.event([
-            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: true },
+            { nativeEvent: { contentOffset: { y: this.state.scrollY } } },
           ])}
-          scrollEventThrottle={1}
+          scrollEventThrottle={16}
           onChangeVisibleRows={this.onChangeVisibleRows}
           enableEmptySections
           removeClippedSubviews={false}

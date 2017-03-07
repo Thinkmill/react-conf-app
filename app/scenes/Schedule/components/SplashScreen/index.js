@@ -44,7 +44,7 @@ export default class SplashScreen extends Component {
   componentDidMount() {
     const animateTo = toValue => {
       return {
-        delay: 1000,
+        delay: 200,
         duration: SLIDE_DURATION,
         toValue,
       };

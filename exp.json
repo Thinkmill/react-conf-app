@@ -6,10 +6,12 @@
   "version": "1.0.0",
   "orientation": "portrait",
   "primaryColor": "#cccccc",
-  "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+  "privacy": "public",
+  "icon": "./icons/app.png",
   "loading": {
-    "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
-    "hideExponentText": false
+    "icon": "./icons/loading.png",
+    "backgroundColor": "#241f20",
+    "hideExponentText": true
   },
   "packagerOpts": {
     "assetExts": [

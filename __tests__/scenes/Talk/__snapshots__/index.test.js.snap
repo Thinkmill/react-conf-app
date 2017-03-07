@@ -96,7 +96,7 @@ exports[`Talk renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }

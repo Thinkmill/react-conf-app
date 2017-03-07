@@ -54,8 +54,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               "textAlign": "center",
             }
           }>
-          10:00am
-                          
+          10:00am 
         </Text>
         <View
           style={
@@ -156,7 +155,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               }
               style={
                 Object {
-                  "borderRadius": 44,
+                  "borderRadius": 0,
                   "height": 44,
                   "width": 44,
                 }
@@ -240,7 +239,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               }
               style={
                 Object {
-                  "borderRadius": 44,
+                  "borderRadius": 0,
                   "height": 44,
                   "width": 44,
                 }
@@ -324,7 +323,7 @@ exports[`Talk - Pane renders correctly 1`] = `
               }
               style={
                 Object {
-                  "borderRadius": 44,
+                  "borderRadius": 0,
                   "height": 44,
                   "width": 44,
                 }

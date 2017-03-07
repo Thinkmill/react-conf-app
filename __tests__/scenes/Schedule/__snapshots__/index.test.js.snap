@@ -71,7 +71,7 @@ exports[`Schedule renders correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "rgba(36, 31, 32, 0.6)",
+            "backgroundColor": "rgba(36, 31, 32, 0.8)",
             "bottom": 40,
             "height": 1200,
             "left": -100,
@@ -87,7 +87,7 @@ exports[`Schedule renders correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "rgba(36, 31, 32, 0.6)",
+            "backgroundColor": "rgba(36, 31, 32, 0.8)",
             "bottom": 40,
             "height": 1200,
             "left": -100,
@@ -835,7 +835,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 50,
+                      "borderRadius": 0,
                       "height": 50,
                       "width": 50,
                     }
@@ -871,7 +871,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 50,
+                      "borderRadius": 0,
                       "height": 50,
                       "width": 50,
                     }
@@ -904,7 +904,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 50,
+                      "borderRadius": 0,
                       "height": 50,
                       "width": 50,
                     }
@@ -1269,7 +1269,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -1437,7 +1437,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -1605,7 +1605,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -1970,7 +1970,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -2138,7 +2138,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -2409,7 +2409,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -2615,7 +2615,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -2821,7 +2821,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -3027,7 +3027,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -3233,7 +3233,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -3598,7 +3598,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -3766,7 +3766,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -4037,7 +4037,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -4243,7 +4243,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -4449,7 +4449,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -4655,7 +4655,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -4861,7 +4861,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -5620,7 +5620,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -5788,7 +5788,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -6153,7 +6153,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -6321,7 +6321,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -6489,7 +6489,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -6854,7 +6854,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -7022,7 +7022,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -7293,7 +7293,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -7499,7 +7499,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -7705,7 +7705,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -7911,7 +7911,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -8117,7 +8117,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }
@@ -8482,7 +8482,7 @@ exports[`Schedule renders correctly 1`] = `
                   }
                   style={
                     Object {
-                      "borderRadius": 44,
+                      "borderRadius": 0,
                       "height": 44,
                       "width": 44,
                     }

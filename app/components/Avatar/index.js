@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, Platform, View } from 'react-native';
 
 import theme from '../../theme';
 
@@ -20,7 +20,7 @@ export default function Avatar({ size = 44, source, style, ...props }: Props) {
       width: size,
     },
     image: {
-      borderRadius: size,
+      borderRadius: Platform.OS === 'android' ? size : 0,
       height: size,
       width: size,
     },

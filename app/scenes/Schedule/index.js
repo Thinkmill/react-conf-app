@@ -231,7 +231,7 @@ export default class Schedule extends Component {
         <Animated.View style={[styles.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonIconName="ios-information-circle-outline"
+            rightButtonText="About"
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>

@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
 
   bottomTriangle: {
     position: 'absolute',
-    backgroundColor: 'rgba(36, 31, 32, 0.6)',
+    backgroundColor: 'rgba(36, 31, 32, 0.8)',
     bottom: 40,
     height: 1200,
     left: -100,

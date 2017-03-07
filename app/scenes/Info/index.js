@@ -45,8 +45,10 @@ export default class Info extends Component {
     organisers: organiserList,
   };
 
+  _marker: any;
+
   componentDidMount() {
-    setTimeout(this.marker.showCallout, 1000);
+    setTimeout(this._marker.showCallout, 1000);
   }
 
   toggleModal = () => {
@@ -87,7 +89,9 @@ export default class Info extends Component {
               coordinate={mapRegion}
               description="2700 Mission College Blvd, Santa Clara, CA 95054"
               onCalloutPress={this.openMap}
-              ref={r => this.marker = r}
+              ref={r => {
+                this._marker = r;
+              }}
               title="Santa Clara Marriott"
             />
           </MapView>

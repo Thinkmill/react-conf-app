@@ -26,6 +26,7 @@ export default class CodeOfConduct extends Component {
         ref="modal"
         align="bottom"
         style={{ margin: 30 }}
+        forceDownwardAnimation
       >
         <View style={styles.wrapper}>
           <ScrollView contentContainerStyle={styles.content}>

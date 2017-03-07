@@ -31,6 +31,7 @@ export default class Modal extends Component {
     onClose: () => mixed,
     style?: {},
     children?: React.Element<{ onClose?: () => mixed }>,
+    forceDownwardAnimation?: boolean,
   };
 
   state = {
@@ -77,21 +78,25 @@ export default class Modal extends Component {
       justifyContent: MODAL_ALIGNMENT[align],
       opacity: this.state.animValue,
     };
-    const dialogDynamicStyles = {
-      transform: [
-        {
-          scale: this.state.animValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0.93, 1],
-          }),
-        },
-        {
+
+    const getDialogDynamicStyles = () => {
+      const scaleTransform = {
+        scale: this.state.animValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0.93, 1],
+        }),
+      };
+      var transformAnimations = [scaleTransform];
+      if (this.props.forceDownwardAnimation) {
+        const translateTransform = {
           translateY: this.state.animValue.interpolate({
             inputRange: [0, 1],
             outputRange: [100, 1],
           }),
-        },
-      ],
+        };
+        transformAnimations.push(translateTransform);
+      }
+      return { transform: transformAnimations };
     };
 
     return (
@@ -104,7 +109,7 @@ export default class Modal extends Component {
           >
             <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
           </BlurView>
-          <Animated.View style={[style, dialogDynamicStyles]}>
+          <Animated.View style={[style, getDialogDynamicStyles()]}>
             {this.props.children}
           </Animated.View>
         </Animated.View>

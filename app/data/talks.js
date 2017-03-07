@@ -10,8 +10,8 @@ import type { ScheduleTalk } from '../types';
 // const DAY_ONE = moment().startOf('day').add(8, 'hours').add(30, 'minutes');
 // const DAY_TWO = moment().startOf('day').add(1, 'days').add(9, 'hours');
 
-const DAY_ONE = moment('2017-03-08 08:30:00');
-const DAY_TWO = moment('2017-03-09 09:00:00');
+const DAY_ONE = moment('2017-03-13 08:30:00');
+const DAY_TWO = moment('2017-03-14 09:00:00');
 
 function getTime(day, duration) {
   return {

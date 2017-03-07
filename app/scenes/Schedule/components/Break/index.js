@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '../../../../theme';
@@ -12,7 +12,7 @@ const gradientJump = 1.04;
 export default class Break extends Component {
   props: {
     endTime?: string,
-    lightning: boolean,
+    lightning?: boolean,
     startTime?: string,
     status: 'future' | 'past' | 'present',
     title: string,
@@ -21,7 +21,7 @@ export default class Break extends Component {
   render() {
     const { lightning, startTime, status, ...props } = this.props;
     const title = this.props.title || 'Break';
-    const contentProps = lightning
+    const contentProps = lightning || Platform.OS === 'android'
       ? { style: styles.gradient }
       : {
           start: { x: 0.0, y: 0.15 },
@@ -31,7 +31,9 @@ export default class Break extends Component {
           style: styles.gradient,
         };
 
-    const Content = lightning ? View : LinearGradient;
+    const Content = lightning || Platform.OS === 'android'
+      ? View
+      : LinearGradient;
 
     return (
       <View style={[styles.base, styles['base__' + status]]} {...props}>

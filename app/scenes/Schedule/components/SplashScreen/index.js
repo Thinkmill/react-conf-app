@@ -118,8 +118,12 @@ export default class SplashScreen extends Component {
       });
     };
 
+    const wrapperHeight = Animated.add(height, new Animated.Value(-200));
+
     return (
-      <Animated.View style={[styles.wrapper, this.props.style, { height }]}>
+      <Animated.View
+        style={[styles.wrapper, this.props.style, { height: wrapperHeight }]}
+      >
         {/* The actual splash screen */}
         <Animated.View style={[styles.splash, { height }]}>
           <Animated.TouchableHighlight

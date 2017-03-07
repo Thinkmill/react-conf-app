@@ -4,6 +4,7 @@ import {
   Animated,
   Easing,
   PixelRatio,
+  Platform,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -195,19 +196,12 @@ export default class Talk extends Component {
     // avatar variants
     const avatar = Array.isArray(speaker)
       ? speaker.map((s, i) => {
-          const borderWidth = 3;
-          const border = { borderColor: 'white', borderWidth };
           const pull = i + 1 !== speaker.length
-            ? { backgroundColor: 'transparent', marginRight: -20 }
+            ? { backgroundColor: 'transparent', marginRight: -16 }
             : null;
 
           return (
-            <Avatar
-              key={s.name}
-              source={s.avatar}
-              style={[border, pull]}
-              size={44 + borderWidth * 2}
-            />
+            <Avatar key={s.name} source={s.avatar} style={pull} size={50} />
           );
         })
       : <Avatar source={speaker && speaker.avatar} />;

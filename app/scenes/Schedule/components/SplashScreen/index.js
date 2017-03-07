@@ -119,7 +119,7 @@ export default class SplashScreen extends Component {
     };
 
     return (
-      <Animated.View style={[styles.wrapper, this.props.style]}>
+      <Animated.View style={[styles.wrapper, this.props.style, { height }]}>
         {/* The actual splash screen */}
         <Animated.View style={[styles.splash, { height }]}>
           <Animated.TouchableHighlight
@@ -159,8 +159,12 @@ export default class SplashScreen extends Component {
   }
 }
 
+const screen = Dimensions.get('screen');
+
 const styles = StyleSheet.create({
   wrapper: {
+    position: 'absolute',
+    width: screen.width,
     zIndex: 2,
   },
 
@@ -180,12 +184,5 @@ const styles = StyleSheet.create({
     height: 1200,
     left: -100,
     right: -100,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 10,
-      height: 15,
-    },
-    shadowOpacity: 0.6,
-    shadowRadius: 10,
   },
 });

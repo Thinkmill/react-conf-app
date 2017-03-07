@@ -5,6 +5,7 @@ import {
   Dimensions,
   LayoutAnimation,
   ListView,
+  Platform,
   StatusBar,
   StyleSheet,
   Text,
@@ -107,17 +108,20 @@ export default class Schedule extends Component {
       scrollY: new Animated.Value(0),
     };
 
-    this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
-      if (value > 120) {
-        StatusBar.setBarStyle('default', true);
-        StatusBar.setHidden(false, true);
-      } else if (value < 80) {
-        StatusBar.setBarStyle('light-content', true);
-        StatusBar.setHidden(false, true);
-      } else {
-        StatusBar.setHidden(true, true);
-      }
-    });
+    if (Platform.OS === 'ios') {
+      // This isn't relevant on Android.
+      this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
+        if (value > 120) {
+          StatusBar.setBarStyle('default', true);
+          StatusBar.setHidden(false, true);
+        } else if (value < 80) {
+          StatusBar.setBarStyle('light-content', true);
+          StatusBar.setHidden(false, true);
+        } else {
+          StatusBar.setHidden(true, true);
+        }
+      });
+    }
   }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
@@ -135,7 +139,8 @@ export default class Schedule extends Component {
     }
   }
   componentWillUnmount() {
-    this.state.scrollY.removeListener(this.scrollYListener);
+    if (this.scrollYListener)
+      this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
   }
 

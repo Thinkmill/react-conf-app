@@ -11,7 +11,10 @@ exports[`Schedule renders correctly 1`] = `
   <View
     style={
       Object {
+        "height": 1734,
+        "position": "absolute",
         "top": 0,
+        "width": 1024,
         "zIndex": 2,
       }
     }>
@@ -74,13 +77,6 @@ exports[`Schedule renders correctly 1`] = `
             "left": -100,
             "position": "absolute",
             "right": -100,
-            "shadowColor": "black",
-            "shadowOffset": Object {
-              "height": 5,
-              "width": 10,
-            },
-            "shadowOpacity": 0.4,
-            "shadowRadius": 6,
             "transform": Array [
               Object {
                 "skewY": "5deg",
@@ -97,13 +93,6 @@ exports[`Schedule renders correctly 1`] = `
             "left": -100,
             "position": "absolute",
             "right": -100,
-            "shadowColor": "black",
-            "shadowOffset": Object {
-              "height": 5,
-              "width": 10,
-            },
-            "shadowOpacity": 0.4,
-            "shadowRadius": 6,
             "transform": Array [
               Object {
                 "skewY": "-3deg",

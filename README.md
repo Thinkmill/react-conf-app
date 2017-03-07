@@ -20,6 +20,12 @@ To run the app, clone this repo then use `yarn` to install its dependencies.
 
 Open the project in XCode and click "Play". You should be good to go!
 
+## Support / Contributing
+
+If you have any trouble with the app, please [open an issue](https://github.com/Thinkmill/react-conf-app/issues/new) to let us know!
+
+Even better, help us improve it by forking and submitting a Pull Request.
+
 ## Credits
 
 [Thinkmill](https://www.thinkmill.com.au) set aside some project time to build this app because we wanted to hack on a fresh React Native project, try some new things and we're excited about the conference.

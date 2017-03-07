@@ -172,14 +172,19 @@ export default class Talk extends Component {
       }
     );
   };
-  toggleSpeakerModal = (modalIsOpen: boolean) => {
-    this.setState({ modalIsOpen });
+  toggleSpeakerModal = (data: Object) => {
+    console.log('data', data);
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+      modalSpeaker: data,
+    });
   };
   render() {
     const { navigator } = this.props;
     const {
       animValue,
       modalIsOpen,
+      modalSpeaker,
       nextTalk,
       incomingTalk,
       prevTalk,
@@ -245,7 +250,7 @@ export default class Talk extends Component {
             onScroll={this.handleScroll}
             prevTalk={prevTalk}
             ref={r => this.talkpane = r}
-            showSpeakerModal={() => this.toggleSpeakerModal(true)}
+            showSpeakerModal={this.toggleSpeakerModal}
             visibleTalk={talk}
           />
         </Animated.View>
@@ -265,12 +270,12 @@ export default class Talk extends Component {
 
         {modalIsOpen &&
           <Speaker
-            avatar={talk.speaker.avatar}
-            github={talk.speaker.github}
-            name={talk.speaker.name}
-            onClose={() => this.toggleSpeakerModal(false)}
-            summary={talk.speaker.summary}
-            twitter={talk.speaker.twitter}
+            avatar={modalSpeaker.avatar}
+            github={modalSpeaker.github}
+            name={modalSpeaker.name}
+            onClose={this.toggleSpeakerModal}
+            summary={modalSpeaker.summary}
+            twitter={modalSpeaker.twitter}
           />}
         {navbar}
       </Scene>

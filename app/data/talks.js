@@ -10,8 +10,8 @@ import type { ScheduleTalk } from '../types';
 // const DAY_ONE = moment().startOf('day').add(8, 'hours').add(30, 'minutes');
 // const DAY_TWO = moment().startOf('day').add(1, 'days').add(9, 'hours');
 
-const DAY_ONE = moment('2017-03-13 08:30:00');
-const DAY_TWO = moment('2017-03-14 09:00:00');
+const DAY_ONE = moment('2017-03-08 08:30:00');
+const DAY_TWO = moment('2017-03-09 09:00:00');
 
 function getTime(day, duration) {
   return {
@@ -40,41 +40,34 @@ const data = {
     time: getTime(DAY_ONE, 30),
     title: 'Hall Doors Open',
   },
-  'tom-occhino': {
-    summary: 'Keynote Part 1',
-    title: 'Keynote',
-    speaker: {
-      avatar: 'https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128',
-      github: 'tomocchino',
-      name: 'Tom Occhino',
-      twitter: 'tomocchino',
-      summary: "Tom manages the React team at Facebook. Since joining in 2009 he's helped build various frameworks, features, and systems across the company.",
-    },
-    time: getTime(DAY_ONE, 20),
-  },
-  'sebastian-markbage': {
-    summary: 'Keynote Part 2: React',
-    title: 'Keynote',
-    speaker: {
-      avatar: 'https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128',
-      github: 'sebmarkbage',
-      name: 'Sebastian Markbage',
-      twitter: 'sebmarkbage',
-      summary: 'Sebastian is an engineer on the React core team, and dabbles in all things JavaScript, at Facebook.',
-    },
-    time: getTime(DAY_ONE, 20),
-  },
-  'jing-chen': {
-    summary: 'Keynote Part 3: React Native',
-    title: 'Keynote',
-    speaker: {
-      avatar: 'https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128',
-      github: 'jingc',
-      name: 'Jing Chen',
-      twitter: 'jingc',
-      summary: 'Jing is an engineer on the React Native team, and previously worked on Flux and Relay.',
-    },
-    time: getTime(DAY_ONE, 20),
+  keynote: {
+    keynote: true,
+    time: getTime(DAY_ONE, 60),
+    title: 'Conference Keynote',
+    summary: '',
+    speaker: [
+      {
+        avatar: 'https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128',
+        github: 'tomocchino',
+        name: 'Tom Occhino',
+        twitter: 'tomocchino',
+        summary: "Tom manages the React team at Facebook. Since joining in 2009 he's helped build various frameworks, features, and systems across the company.",
+      },
+      {
+        avatar: 'https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128',
+        github: 'sebmarkbage',
+        name: 'Sebastian Markbage',
+        twitter: 'sebmarkbage',
+        summary: 'Sebastian is an engineer on the React core team, and dabbles in all things JavaScript, at Facebook.',
+      },
+      {
+        avatar: 'https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128',
+        github: 'jingc',
+        name: 'Jing Chen',
+        twitter: 'jingc',
+        summary: 'Jing is an engineer on the React Native team, and previously worked on Flux and Relay.',
+      },
+    ],
   },
   [br()]: {
     break: true,
@@ -145,6 +138,12 @@ const data = {
     },
     time: getTime(DAY_ONE, 30),
   },
+  [br()]: {
+    break: true,
+    time: getTime(DAY_ONE, 1),
+    title: 'Lightning Talks',
+    lightning: true,
+  },
   'andres-suarez': {
     summary: 'In my talk last year, "Nuclide hacks for React Native development" I briefly touched on how Flow can lead to writing better React Native apps. This year, the focus is entirely on using Nuclide\'s rich UI for Flow features to move fast with React.',
     title: 'Moving Fast with Nuclide and Flow',
@@ -155,7 +154,8 @@ const data = {
       twitter: 'zertosh',
       summary: 'I can convert Red Bull into JavaScript at Facebook',
     },
-    time: getTime(DAY_ONE, 6),
+    time: getTime(DAY_ONE, 5),
+    lightning: true,
   },
   'nicole-chung': {
     summary: "Delivering your React app offline, with a look and feel of a native app, is becoming increasingly feasible. Technical benefits include fast installs (since it's just a web page), push notifications, caching page content, delivering a faster feeling experience, and keeping the user logged even when the network drops a connection. By using JS plugins and libraries such such as offline.js and offline-plugin, and browser technologies such as Service Workers, IndexedDB, and AppCache, you can be sure your users will be able to use your web app even as their internet connection drops off.",
@@ -168,6 +168,7 @@ const data = {
       summary: 'As a Software Engineer at Toronto-based product studio TWG, Nicole  Chung works with Node.js, React, and Redux to build fast and efficient user interfaces. When she’s not at work, she’s a full-stack JS mentor at HackerYou.',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'merrick-christensen': {
     summary: 'In this talk we will explore React’s composable &amp; flexible programming model in the domain of, well… programming. Here we will see how React can be used to codify your teams best practices, teach beginners JavaScript &amp; help proficient programmers refactor more efficiently. You know what they say? “When all you have is hammer… React is good for everything.”',
@@ -180,6 +181,7 @@ const data = {
       summary: '',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'max-stoiber': {
     summary: "What if we took the best of JavaScript and the best of CSS, and combined them together to create the ultimate styling solution for React? Glen Maddern (CSS Modules co-creator) and I sat down and starting thinking about this. Let's talk about what we thought about and why we arrived where we did – 💅 styled-components.",
@@ -192,6 +194,7 @@ const data = {
       summary: 'Max works as an open source developer at Thinkmill. He makes styled-components, react-boilerplate, KeystoneJS and micro-analytics.',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'feather-knee': {
     summary: 'How does Netflix select which new content to offer from a myriad of choices? The service is famously data-driven, but sometimes there is very little data to inform decisions. Data science meets art. Learn about a prediction tool that was recently redesigned, expanded and re-written in React.',
@@ -203,6 +206,7 @@ const data = {
       summary: '',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   [br()]: {
     break: true,
@@ -232,6 +236,12 @@ const data = {
     },
     time: getTime(DAY_ONE, 30),
   },
+  [br()]: {
+    break: true,
+    time: getTime(DAY_ONE, 1),
+    title: 'Lightning Talks',
+    lightning: true,
+  },
   'adam-perry': {
     summary: 'A presentation of the create-react-native-app (CRNA) tool. CRNA follows in the well-trodden path of create-react-app, providing a cross-platform, boilerplate-free developer experience for new React Native projects. CRNA is the product of a collaboration between Exponent, Facebook, and open-source contributors.',
     title: 'Create React Native App: 5 Minutes to "Hello, World!"',
@@ -242,7 +252,8 @@ const data = {
       twitter: 'dika10sune',
       summary: '',
     },
-    time: getTime(DAY_ONE, 6),
+    time: getTime(DAY_ONE, 5),
+    lightning: true,
   },
   'samer-buna': {
     summary: 'GraphQL is the future, and you can use it today in React applications with minimal changes. No fancy frameworks are needed. Start using GraphQL right away to get the power of composition and declarative data requirements and work with more efficient APIs.',
@@ -255,6 +266,7 @@ const data = {
       summary: "Author of online courses on Pluralsight and Lynda. Coder at jsComplete. Teacher for O'Reilly and Forwardjs. Editor of EdgeCoders.",
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'peggy-rayzis': {
     summary: "Data is all around us! From health tracking to sports statistics, users expect to see the data they're consuming presented consistently on every platform. In this talk, you'll learn how to use Victory, a library available for React and React Native, to build interactive, composable charts with ease. You'll also see some cool real-world examples on both platforms showcasing the power of Victory to inspire you for your next data viz project.",
@@ -267,6 +279,7 @@ const data = {
       summary: 'Peggy is a Software Engineer at Major League Soccer who builds awesome fan experiences in React & React Native. She also loves hacking on nteract and skiing.',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'ken-wheeler': {
     summary: 'An exploration in past and current alternative uses for React, non-standard rendering targets, and the future of such shenanigans.',
@@ -279,6 +292,7 @@ const data = {
       summary: 'Ken is the Director of Open Source at Formidable, and the creator of libraries such as Slick, Spectacle, react-music and webpack dashboard.',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   'dustan-kasten': {
     summary: 'The React components we know and love are a powerful and constrained abstraction for building user interface. The React team has managed to not only rewrite the entire reconciler with Fiber, but also create a simple and constrained API for implementing a React renderer! Let’s take a short exploration into what happens when we expand the definition of user interface so that React can render everywhere.',
@@ -291,6 +305,7 @@ const data = {
       summary: '',
     },
     time: getTime(DAY_ONE, 6),
+    lightning: true,
   },
   [br()]: {
     break: true,
@@ -407,6 +422,12 @@ const data = {
     time: getTime(DAY_TWO, 30),
   },
 
+  [br()]: {
+    break: true,
+    time: getTime(DAY_TWO, 1),
+    title: 'Lightning Talks',
+    lightning: true,
+  },
   'troy-connor': {
     summary: 'Last year I won the diversity scholarship and this year I’m going to talk about how we can grow this community outside of our peers. I’m going to talk about the importance of diversity within the tech culture and how doing that has brought React to be as awesome as it is. Also steps we can do to improve contributing, ideas of how we can collaborate, and how we can continue to develop a environment where React can be easier for people who are intimidated to learn it.',
     title: 'Building React Communities Outside of Your Circle',
@@ -417,7 +438,8 @@ const data = {
       twitter: 'troy0820',
       summary: 'Troy is a software engineer at ETA. In his spare time, he likes to play with robots, read, code, and chase conferences and meetups.',
     },
-    time: getTime(DAY_TWO, 6),
+    time: getTime(DAY_TWO, 5),
+    lightning: true,
   },
   'james-long': {
     summary: "All editors format code slightly differently and don't even help with more complex situations like deeply indented syntax, which forces you to manually break it up across lines. This becomes a point of strife within teams, and we waste so much time trying to enforce a consistent coding style. I will show how a new JavaScript formatter, Prettier, takes a different approach and solves this problem completely, freeing you from the burden of thinking about code structure.",
@@ -430,6 +452,7 @@ const data = {
       summary: '',
     },
     time: getTime(DAY_TWO, 6),
+    lightning: true,
   },
   'sophia-shoemaker': {
     summary: 'AWS Lambda is an event-driven, "serverless" service that makes it easier and cheaper than ever to get an application up and running. In this talk I\'ll dive into some of the details of what AWS Lambda is, how it works, how to integrate it with another AWS service, API Gateway and how you can "go serverless" with React applications.',
@@ -442,6 +465,7 @@ const data = {
       summary: 'Sophia Shoemaker is a web developer and a member of the Fullstack React team',
     },
     time: getTime(DAY_TWO, 6),
+    lightning: true,
   },
   'aditya-punjani': {
     summary: "Web Apps and Native Apps are going through a convergence on mobile. Technologies such as Progressive Web Apps and React Native are blurring the lines between the web and native. At Flipkart, we are building platforms and products at scale, designed around this convergence by utilizing the best of both worlds. In this talk I'll go over the architectural design, decisions, and implementation details with React that power the platforms at Flipkart during this era of convergence.",
@@ -454,6 +478,7 @@ const data = {
       summary: 'Aditya Punjani is a Senior Frontend Engineer at Flipkart, focusing on building stellar mobile experiences for customer delight. Aditya likes to push the Web forward and is passionate about JavaScript, network and rendering performance, developer tooling, browser internals, and user experience.',
     },
     time: getTime(DAY_TWO, 6),
+    lightning: true,
   },
   'michael-jackson': {
     summary: 'React Router is a full-featured routing layer for React applications that run in the browser, on the server, on React Native, and anywhere else React runs. This talk will highlight the capabilities of the first truly universal JavaScript router, enabling developers to learn a single URL-based API for routing and then apply those same principles for adding new screens, flows, and transitions to any React application, regardless of the platform. Learn once, route anywhere.',
@@ -466,6 +491,7 @@ const data = {
       summary: '',
     },
     time: getTime(DAY_TWO, 6),
+    lightning: true,
   },
   [br()]: {
     break: true,

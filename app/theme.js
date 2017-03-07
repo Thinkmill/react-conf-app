@@ -13,6 +13,7 @@ const color = {
   lightText: 'white',
   sceneBg: '#F4F4F4',
   splashBg: '#2B2828',
+  yellow: '#FFC979',
 
   // neutrals
   gray90: '#1A1A1A',

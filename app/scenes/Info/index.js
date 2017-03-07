@@ -79,9 +79,11 @@ export default class Info extends Component {
     return (
       <Scene>
         <Navbar
-          title="Event Info"
+          title="About"
           leftButtonIconName="ios-arrow-back"
           leftButtonOnPress={navigator.popToTop}
+          rightButtonText="Directions"
+          rightButtonOnPress={this.openMap}
         />
         <ScrollView>
           <MapView initialRegion={mapRegion} style={styles.map}>

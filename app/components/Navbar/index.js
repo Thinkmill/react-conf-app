@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   // buttons
   button: {
     alignItems: 'center',
-    flex: 2,
+    flex: 3,
     flexDirection: 'row',
     paddingHorizontal: theme.fontSize.default,
   },

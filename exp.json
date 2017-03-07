@@ -1,0 +1,19 @@
+{
+  "name": "ReactConf2017",
+  "description": "The companion app for React Conf 2017 in Santa Clara, California. Powered by React Native, and built in Sydney by Thinkmill.",
+  "slug": "reactconf2017",
+  "sdkVersion": "14.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#cccccc",
+  "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+  "loading": {
+    "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": [
+      "ttf"
+    ]
+  }
+}

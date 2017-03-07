@@ -38,3 +38,9 @@ jspm_packages
 
 # Android secrets
 **/*/res/values/configuration.xml
+
+# macOS
+.DS_Store
+
+# exponent
+.exponent/**/*

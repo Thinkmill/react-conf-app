@@ -7,44 +7,41 @@ import theme from '../../../../theme';
 import { TalkStatusBar } from '../Talk';
 
 const gradientSteps = 14;
-const gradientJump = 1.05;
+const gradientJump = 1.04;
 
 export default class Break extends Component {
   props: {
     endTime?: string,
-    important: boolean,
+    lightning: boolean,
     startTime?: string,
     status: 'future' | 'past' | 'present',
     title: string,
   };
 
   render() {
-    const { important, startTime, status, ...props } = this.props;
+    const { lightning, startTime, status, ...props } = this.props;
     const title = this.props.title || 'Break';
+    const contentProps = lightning
+      ? { style: styles.gradient }
+      : {
+          start: { x: 0.0, y: 0.15 },
+          end: { x: 1.0, y: 0.3 },
+          locations: generateGradientLocations(gradientSteps),
+          colors: generateGradientColors(gradientSteps),
+          style: styles.gradient,
+        };
+
+    const Content = lightning ? View : LinearGradient;
 
     return (
       <View style={[styles.base, styles['base__' + status]]} {...props}>
         <TalkStatusBar status={status} />
-        {important
-          ? <View style={styles.gradient}>
-              <Text style={[styles.text, styles['text__' + status]]}>
-                {startTime} —
-                <Text style={[styles.importantText, styles['text__' + status]]}>
-                  {' '}{title}
-                </Text>
-              </Text>
-            </View>
-          : <LinearGradient
-              start={{ x: 0.0, y: 0.0 }}
-              end={{ x: 1.0, y: 0.125 }}
-              locations={generateGradientLocations(gradientSteps)}
-              colors={generateGradientColors(gradientSteps)}
-              style={styles.gradient}
-            >
-              <Text style={[styles.text, styles['text__' + status]]}>
-                {startTime} — {title}
-              </Text>
-            </LinearGradient>}
+        <Content {...contentProps}>
+          <Text style={[styles.text, styles['text__' + status]]}>
+            {startTime} -
+            <Text style={styles.title}> {title}</Text>
+          </Text>
+        </Content>
       </View>
     );
   }
@@ -72,8 +69,8 @@ function generateGradientColors(steps) {
   let colors = [];
 
   for (let i = 0; i < steps; i++) {
-    colors.push('white');
-    colors.push('white');
+    colors.push('#fcfcfc');
+    colors.push('#fcfcfc');
     colors.push(gray10);
     colors.push(gray10);
   }
@@ -84,12 +81,12 @@ function generateGradientColors(steps) {
 const styles = StyleSheet.create({
   base: {
     alignItems: 'stretch',
-    backgroundColor: 'white',
+    backgroundColor: '#fcfcfc',
     flexDirection: 'row',
   },
   gradient: {
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#fcfcfc',
     flexGrow: 1,
     height: 44,
     left: theme.fontSize.default,
@@ -105,7 +102,7 @@ const styles = StyleSheet.create({
   text__past: {
     color: theme.color.gray40,
   },
-  importantText: {
-    color: theme.color.blue,
+  title: {
+    fontWeight: '500',
   },
 });

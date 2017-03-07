@@ -21,7 +21,7 @@ export default function ListTitle({ bordered, text }: Props) {
       backgroundColor: theme.color.sceneBg,
       borderBottomColor: theme.color.gray20,
       borderBottomWidth: 1 / PixelRatio.get(),
-      paddingHorizontal: theme.fontSize.default + 6,
+      paddingHorizontal: theme.fontSize.default + 5,
       height: theme.listheader.height,
       justifyContent: 'flex-end',
     },

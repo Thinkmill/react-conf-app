@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  Animated,
   PixelRatio,
   ScrollView,
   StyleSheet,
@@ -18,6 +17,27 @@ import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
 
 import Preview from '../Preview';
+
+function Speaker({ data, onPress }) {
+  const touchableProps = {
+    activeOpacity: 0.66,
+    onPress,
+  };
+
+  return (
+    <TouchableOpacity {...touchableProps}>
+      <View style={styles.heroSpeaker}>
+        <Avatar source={data.avatar} />
+        <Text style={styles.heroSpeakerName}>
+          {data.name}
+        </Text>
+        <Text style={styles.heroSpeakerHint}>
+          (tap for more)
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
 
 export default class TalkPane extends Component {
   props: {
@@ -44,10 +64,14 @@ export default class TalkPane extends Component {
       ...props
     } = this.props;
 
-    const touchableProps = {
-      activeOpacity: 0.66,
-      onPress: showSpeakerModal,
-    };
+    const speakers = Array.isArray(visibleTalk.speaker)
+      ? visibleTalk.speaker.map(s => (
+          <Speaker key={s.name} data={s} onPress={() => showSpeakerModal(s)} />
+        ))
+      : <Speaker
+          data={visibleTalk.speaker}
+          onPress={() => showSpeakerModal(visibleTalk.speaker)}
+        />;
 
     return (
       <ScrollView
@@ -62,23 +86,14 @@ export default class TalkPane extends Component {
               isActive={prevTalkPreviewIsEngaged}
               position="top"
               subtitle={
-                `${moment(prevTalk.time.start).format(TIME_FORMAT)} - ${prevTalk.speaker.name}`
+                `${moment(prevTalk.time.start).format(TIME_FORMAT)}
+                ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
               }
               title={prevTalk.title}
             />
           </View>}
         <View style={styles.hero} onLayout={onHeroLayout}>
-          <TouchableOpacity {...touchableProps}>
-            <Animated.View style={styles.heroSpeaker}>
-              <Avatar source={visibleTalk.speaker.avatar} />
-              <Text style={styles.heroSpeakerName}>
-                {visibleTalk.speaker.name}
-              </Text>
-              <Text style={styles.heroSpeakerHint}>
-                (tap for more)
-              </Text>
-            </Animated.View>
-          </TouchableOpacity>
+          {speakers}
           <Text style={styles.heroTitle}>
             {visibleTalk.title}
           </Text>
@@ -117,11 +132,11 @@ const styles = StyleSheet.create({
     marginTop: -(1 / PixelRatio.get()),
     paddingHorizontal: theme.fontSize.large,
     paddingBottom: theme.fontSize.xlarge,
+    paddingTop: theme.fontSize.xlarge,
   },
   heroSpeaker: {
     alignItems: 'center',
     paddingHorizontal: theme.fontSize.xlarge,
-    paddingTop: theme.fontSize.xlarge,
   },
   heroSpeakerHint: {
     color: theme.color.gray40,

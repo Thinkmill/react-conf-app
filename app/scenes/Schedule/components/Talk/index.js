@@ -23,7 +23,7 @@ type Status = 'past' | 'present' | 'future';
 
 export function TalkSeparator({ status }: { status: Status }) {
   let barColor = theme.color.gray20;
-  if (status === 'past') barColor = lighten(theme.color.blue, 40);
+  if (status === 'past') barColor = lighten(theme.color.blue, 60);
   else if (status === 'present') barColor = theme.color.blue;
 
   return (
@@ -35,7 +35,7 @@ export function TalkSeparator({ status }: { status: Status }) {
       }}
       underlayColor="white"
     >
-      <View style={{ backgroundColor: barColor, width: 6 }} />
+      <View style={{ backgroundColor: barColor, width: 5 }} />
       <View
         style={{ backgroundColor: 'white', width: theme.fontSize.default }}
       />
@@ -50,17 +50,60 @@ export function TalkSeparator({ status }: { status: Status }) {
 
 export function TalkStatusBar({ status, ...props }: { status: Status }) {
   let barColor = theme.color.gray20;
-  if (status === 'past') barColor = lighten(theme.color.blue, 40);
+  if (status === 'past') barColor = lighten(theme.color.blue, 60);
   if (status === 'present') barColor = theme.color.blue;
 
   return (
     <View
       style={{
         backgroundColor: barColor,
-        width: 6,
+        width: 5,
       }}
       {...props}
     />
+  );
+}
+
+// ==============================
+// ICON HELPERS
+// ==============================
+
+function Indicator({ color, icon }) {
+  return (
+    <View
+      style={{
+        alignItems: 'center',
+        backgroundColor: color,
+        borderRadius: 14,
+        marginRight: 7,
+        height: 14,
+        justifyContent: 'center',
+        width: 14,
+      }}
+    >
+      <Icon
+        color="white"
+        name={icon}
+        size={14}
+        style={{ backgroundColor: 'transparent', marginBottom: -1 }}
+      />
+    </View>
+  );
+}
+function LightningSubtitle({ text, ...props }) {
+  return (
+    <View style={styles.subtitle} {...props}>
+      <Indicator color={theme.color.yellow} icon="ios-flash" />
+      <Text style={styles.subtitleText}>{text}</Text>
+    </View>
+  );
+}
+function KeynoteSubtitle({ text, ...props }) {
+  return (
+    <View style={styles.subtitle} {...props}>
+      <Indicator color={theme.color.blue} icon="ios-key" />
+      <Text style={styles.subtitleText}>{text}</Text>
+    </View>
   );
 }
 
@@ -69,9 +112,10 @@ export function TalkStatusBar({ status, ...props }: { status: Status }) {
 // ==============================
 
 type Props = {
+  keynote: boolean,
+  lightning: boolean,
   onPress: () => mixed,
-  speakerAvatarUri: string,
-  speakerName: string,
+  speaker: Object,
   startTime: string,
   status: Status,
   title: string,
@@ -107,9 +151,10 @@ export default class Talk extends Component {
   }
   render() {
     const {
+      keynote,
+      lightning,
       onPress,
-      speakerAvatarUri,
-      speakerName,
+      speaker,
       startTime,
       status,
       title,
@@ -135,6 +180,37 @@ export default class Talk extends Component {
       ],
     };
 
+    // subtitle variants
+    let subtitle = (
+      <Text style={[styles.subtitle, styles.subtitleText]}>
+        {startTime} - {speaker.name}
+      </Text>
+    );
+    if (lightning) subtitle = <LightningSubtitle text={speaker.name} />;
+    else if (keynote) subtitle = <KeynoteSubtitle text={startTime} />;
+
+    // avatar variants
+    const avatar = Array.isArray(speaker)
+      ? speaker.map((s, i) => {
+          const borderWidth = 3;
+          const border = { borderColor: 'white', borderWidth };
+          const pull = i + 1 !== speaker.length
+            ? { backgroundColor: 'transparent', marginRight: -20 }
+            : null;
+
+          return (
+            <Avatar
+              key={s.name}
+              source={s.avatar}
+              style={[border, pull]}
+              size={44 + borderWidth * 2}
+            />
+          );
+        })
+      : <Avatar source={speaker.avatar} />;
+
+    // const avatar = <Avatar source={speaker.avatar} />;
+
     return (
       <TouchableHighlight {...touchableProps} {...props}>
         <View style={[styles.base, styles['base__' + status]]}>
@@ -152,18 +228,16 @@ export default class Talk extends Component {
 
           <View style={[styles.content, styles['content__' + status]]}>
             <View style={[styles.text, styles['text__' + status]]}>
-              <Text style={[styles.subtitle, styles['subtitle__' + status]]}>
-                {startTime} — {speakerName}
-              </Text>
+              {subtitle}
               <Text style={[styles.title, styles['title__' + status]]}>
                 {title}
               </Text>
             </View>
 
             <View style={styles.right}>
-              <Avatar source={speakerAvatarUri} />
+              {avatar}
               <Icon
-                color={theme.color.text}
+                color={theme.color.gray40}
                 name="ios-arrow-forward"
                 size={20}
                 style={styles.chevron}
@@ -213,23 +287,22 @@ const styles = StyleSheet.create({
   text: {
     flexGrow: 1,
     flexShrink: 1,
-    paddingRight: theme.fontSize.default,
+    paddingRight: theme.fontSize.xsmall,
   },
   subtitle: {
-    color: theme.color.gray60,
-    fontSize: theme.fontSize.small,
-    fontWeight: '300',
+    alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: theme.fontSize.small,
   },
-  subtitle__present: {
-    color: theme.color.text,
+  subtitleText: {
+    color: theme.color.gray60,
+    flexShrink: 1,
+    fontSize: theme.fontSize.small,
+    fontWeight: '300',
   },
   title: {
     color: theme.color.text,
     fontSize: theme.fontSize.default,
-  },
-  title__present: {
-    fontWeight: '500',
   },
 
   // right (avatar and chevron)

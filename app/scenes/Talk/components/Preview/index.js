@@ -90,9 +90,10 @@ export default class Preview extends Component {
         <Text style={styles.title} numberOfLines={1}>
           {title}
         </Text>
-        <Text style={styles.subtitle}>
-          {subtitle}
-        </Text>
+        {!!subtitle &&
+          <Text style={styles.subtitle}>
+            {subtitle}
+          </Text>}
         {position === 'top' && icon}
       </View>
     );

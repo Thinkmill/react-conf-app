@@ -1,6 +1,10 @@
 package com.reactconf2017;
 
+import android.os.Bundle;
+import android.widget.ImageView;
+
 import com.facebook.react.ReactActivity;
+import com.reactnativecomponent.splashscreen.RCTSplashScreen;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +15,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "ReactConf2017";
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        RCTSplashScreen.openSplashScreen(this, true, ImageView.ScaleType.CENTER_CROP);
+        super.onCreate(savedInstanceState);
     }
 }

@@ -168,13 +168,9 @@ export default class Talk extends Component {
     // avatar variants
     const avatar = Array.isArray(speaker)
       ? speaker.map((s, i) => {
-          const pull = i + 1 !== speaker.length
-            ? { backgroundColor: 'transparent', marginRight: -16 }
-            : null;
+          const pull = i + 1 !== speaker.length ? { marginRight: -16 } : null;
 
-          return (
-            <Avatar key={s.name} source={s.avatar} style={pull} size={50} />
-          );
+          return <Avatar key={s.name} source={s.avatar} style={pull} />;
         })
       : <Avatar source={speaker && speaker.avatar} />;
 

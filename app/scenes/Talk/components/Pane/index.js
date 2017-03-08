@@ -66,7 +66,8 @@ export default class TalkPane extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const isAndroid = Platform.OS === 'android';
-    const isNewTalk = this.props.nextTalk.id !== nextProps.nextTalk.id;
+    const isNewTalk = (this.props.nextTalk && this.props.nextTalk.id) !==
+      (nextProps.nextTalk && nextProps.nextTalk.id);
     if (isAndroid && isNewTalk) {
       this.fadeInAdroidNextButton();
     }

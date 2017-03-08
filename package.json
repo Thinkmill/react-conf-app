@@ -19,7 +19,8 @@
     "react-native-linear-gradient": "^2.0.0",
     "react-native-maps": "airbnb/react-native-maps",
     "react-native-smart-splash-screen": "^2.3.3",
-    "react-native-vector-icons": "^4.0.0"
+    "react-native-vector-icons": "^4.0.0",
+    "react-router-native": "next"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",

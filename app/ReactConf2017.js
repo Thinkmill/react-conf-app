@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
+import { NativeRouter as Router } from 'react-router-native';
 import codePush from 'react-native-code-push';
 
 import theme from './theme';
@@ -65,13 +66,15 @@ class ReactConf2017 extends Component {
     };
 
     return (
-      <Navigator
-        configureScene={configureScene}
-        initialRoute={{ scene: DEFAULT_VIEW, index: 0 }}
-        renderScene={renderScene}
-        sceneStyle={styles.scenes}
-        style={styles.navigator}
-      />
+      <Router>
+        <Navigator
+          configureScene={configureScene}
+          initialRoute={{ scene: DEFAULT_VIEW, index: 0 }}
+          renderScene={renderScene}
+          sceneStyle={styles.scenes}
+          style={styles.navigator}
+        />
+      </Router>
     );
   }
 }

@@ -2,11 +2,13 @@
 
 The companion app for [React Conf 2017](http://conf.reactjs.org) in Santa Clara, California. Powered by [React Native](https://facebook.github.io/react-native/), and built in Sydney by [Thinkmill](https://www.thinkmill.com.au).
 
+[Find it on the iOS App Store here](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1212174348&mt=8)! (Android version WIP)
+
 Get a live schedule, information about the talks and speakers, and easily tweet or share talks as they happen.
 
 ## About the App
 
-We're open sourcing this early as a preview, it's been submitted to the app store and will hopefully be available in a couple of days. We'll add a link to the app here when that happens.
+We're open sourcing this app so everyone can see how we built it, and contribute to making it better.
 
 There will be design tweaks and updates as we lead up to the conference - we'll also be publishing the final Sketch files when they're ready.
 
@@ -19,6 +21,16 @@ And for those of you who will be attending, we hope you enjoy the app, and we'll
 To run the app, clone this repo then use `yarn` to install its dependencies.
 
 Open the project in XCode and click "Play". You should be good to go!
+
+## Support / Contributing
+
+If you have any trouble with the app, please [open an issue](https://github.com/Thinkmill/react-conf-app/issues/new) to let us know!
+
+Even better, help us improve it by forking and submitting a Pull Request.
+
+## Other Conferences?
+
+We'd love to hear from anyone who wants to fork this app and customise it for other conferences. We've got some ideas about how to make it easier that we'd be happy to talk about if there's interest.
 
 ## Credits
 

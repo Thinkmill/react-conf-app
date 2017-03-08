@@ -38,14 +38,14 @@ export default class Break extends Component {
 const styles = StyleSheet.create({
   base: {
     alignItems: 'stretch',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fbfbfb',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     flexDirection: 'row',
   },
   content: {
     alignItems: 'center',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fbfbfb',
     flexGrow: 1,
     height: 44,
     justifyContent: 'center',

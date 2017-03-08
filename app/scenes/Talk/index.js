@@ -166,7 +166,6 @@ export default class Talk extends Component {
     });
   };
   toggleSpeakerModal = (data: Object) => {
-    console.log('data', data);
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
       modalSpeaker: data,

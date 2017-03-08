@@ -1,13 +1,9 @@
 // @flow
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { PixelRatio, Platform, StyleSheet, Text, View } from 'react-native';
 
 import theme from '../../../../theme';
 import { TalkStatusBar } from '../Talk';
-
-const gradientSteps = 14;
-const gradientJump = 1.04;
 
 export default class Break extends Component {
   props: {
@@ -18,88 +14,50 @@ export default class Break extends Component {
     title: string,
   };
 
-  render() {
-    const { lightning, startTime, status, ...props } = this.props;
-    const title = this.props.title || 'Break';
-    const contentProps = lightning || Platform.OS === 'android'
-      ? { style: styles.gradient }
-      : {
-          start: { x: 0.0, y: 0.15 },
-          end: { x: 1.0, y: 0.3 },
-          locations: generateGradientLocations(gradientSteps),
-          colors: generateGradientColors(gradientSteps),
-          style: styles.gradient,
-        };
+  static defaultProps = {
+    title: 'Break',
+  };
 
-    const Content = lightning || Platform.OS === 'android'
-      ? View
-      : LinearGradient;
+  render() {
+    const { lightning, startTime, status, title, ...props } = this.props;
 
     return (
       <View style={[styles.base, styles['base__' + status]]} {...props}>
         <TalkStatusBar status={status} />
-        <Content {...contentProps}>
+        <View style={[styles.content, lightning && styles.content__lightning]}>
           <Text style={[styles.text, styles['text__' + status]]}>
             {startTime} -
             <Text style={styles.title}> {title}</Text>
           </Text>
-        </Content>
+        </View>
       </View>
     );
   }
 }
 
-function generateGradientLocations(steps) {
-  let locations = [];
-
-  const smallWidth = 0.005;
-
-  for (let i = 0; i < steps; i++) {
-    const start = gradientJump / steps * i;
-    const end = gradientJump / steps * (i + 1);
-
-    locations.push(start); // big start
-    locations.push(end - smallWidth); // big end
-    locations.push(end - smallWidth); // small start
-    locations.push(end); // small end
-  }
-
-  return locations;
-}
-function generateGradientColors(steps) {
-  const { gray10 } = theme.color;
-  let colors = [];
-
-  for (let i = 0; i < steps; i++) {
-    colors.push('#fcfcfc');
-    colors.push('#fcfcfc');
-    colors.push(gray10);
-    colors.push(gray10);
-  }
-
-  return colors;
-}
-
 const styles = StyleSheet.create({
   base: {
     alignItems: 'stretch',
-    backgroundColor: '#fcfcfc',
+    backgroundColor: '#fafafa',
+    borderBottomColor: theme.color.gray20,
+    borderBottomWidth: 1 / PixelRatio.get(),
     flexDirection: 'row',
   },
-  gradient: {
+  content: {
     alignItems: 'center',
-    backgroundColor: '#fcfcfc',
+    backgroundColor: '#fafafa',
     flexGrow: 1,
     height: 44,
-    left: theme.fontSize.default,
     justifyContent: 'center',
+  },
+  content__lightning: {
+    height: 32,
   },
   text: {
     backgroundColor: 'transparent',
     color: theme.color.text,
     fontSize: theme.fontSize.small,
     fontWeight: '300',
-    left: -theme.fontSize.default,
   },
   text__past: {
     color: theme.color.gray40,

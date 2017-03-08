@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Share } from 'react-native';
+import { Animated, Dimensions, Platform, Share } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
@@ -184,6 +184,8 @@ export default class Talk extends Component {
       talk,
     } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
@@ -225,9 +227,10 @@ export default class Talk extends Component {
     const navbar = (
       <Navbar
         title={headerTitle}
-        leftButtonIconName="ios-arrow-back"
+        leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
         leftButtonOnPress={navigator.popToTop}
-        rightButtonText="Share"
+        rightButtonIconName={isAndroid ? 'md-share-alt' : null}
+        rightButtonText={!isAndroid ? 'Share' : null}
         rightButtonOnPress={this.share}
       />
     );

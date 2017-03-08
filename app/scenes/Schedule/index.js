@@ -199,6 +199,8 @@ export default class Schedule extends Component {
     const { navigator, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-64, 0],
@@ -237,7 +239,8 @@ export default class Schedule extends Component {
         <Animated.View style={[styles.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonText="About"
+            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
+            rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>

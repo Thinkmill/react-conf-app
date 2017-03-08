@@ -1,6 +1,13 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, StyleSheet, Text, View } from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
@@ -50,17 +57,11 @@ export default class Preview extends Component {
     } = this.props;
     const { animValue } = this.state;
 
-    let baseStyles;
+    const isAndroid = Platform.OS === 'android';
 
-    if (position === 'bottom') {
-      baseStyles = {
-        bottom: -theme.nextup.height,
-      };
-    } else {
-      baseStyles = {
-        top: -theme.nextup.height,
-      };
-    }
+    const baseStyles = position === 'bottom'
+      ? isAndroid ? { bottom: 0 } : { bottom: -theme.nextup.height }
+      : { top: -theme.nextup.height };
 
     const icon = (
       <Animated.View

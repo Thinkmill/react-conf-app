@@ -1,7 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import {
+  Animated,
   PixelRatio,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -44,6 +46,7 @@ export default class TalkPane extends Component {
     nextTalk?: ScheduleTalk | null,
     nextTalkPreviewIsEngaged?: boolean,
     onHeroLayout?: (Object) => mixed,
+    onPressNext?: (Object) => mixed,
     onScroll?: (Object) => mixed,
     onScrollEndDrag?: () => mixed,
     prevTalk?: ScheduleTalk | null,
@@ -52,17 +55,44 @@ export default class TalkPane extends Component {
     visibleTalk: ScheduleTalk,
   };
 
+  state = {
+    animValue: new Animated.Value(0),
+  };
+
+  componentDidMount() {
+    if (Platform.OS === 'android') {
+      this.fadeInAdroidNextButton();
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    const isAndroid = Platform.OS === 'android';
+    const isNewTalk = this.props.nextTalk.id !== nextProps.nextTalk.id;
+    if (isAndroid && isNewTalk) {
+      this.fadeInAdroidNextButton();
+    }
+  }
+  fadeInAdroidNextButton = () => {
+    this.state.animValue.setValue(0);
+    Animated.timing(this.state.animValue, {
+      toValue: 1,
+      duration: 300,
+    }).start();
+  };
+
   render() {
     const {
       nextTalk,
       nextTalkPreviewIsEngaged,
       onHeroLayout,
+      onPressNext,
       prevTalk,
       prevTalkPreviewIsEngaged,
       showSpeakerModal,
       visibleTalk,
       ...props
     } = this.props;
+
+    const isAndroid = Platform.OS === 'android';
 
     const speakers = Array.isArray(visibleTalk.speaker)
       ? visibleTalk.speaker.map(s => (
@@ -73,6 +103,32 @@ export default class TalkPane extends Component {
           onPress={() => showSpeakerModal(visibleTalk.speaker)}
         />;
 
+    const nextPreviewUI = !nextTalk
+      ? null
+      : isAndroid
+          ? <Animated.View style={{ opacity: this.state.animValue }}>
+              <TouchableOpacity onPress={onPressNext} activeOpacity={0.5}>
+                <Preview
+                  isActive={nextTalkPreviewIsEngaged}
+                  position="bottom"
+                  subtitle={
+                    `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
+                  }
+                  title={nextTalk.title}
+                />
+              </TouchableOpacity>
+            </Animated.View>
+          : <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+              <Preview
+                isActive={nextTalkPreviewIsEngaged}
+                position="bottom"
+                subtitle={
+                  `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
+                }
+                title={nextTalk.title}
+              />
+            </View>;
+
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -81,6 +137,7 @@ export default class TalkPane extends Component {
         {...props}
       >
         {!!prevTalk &&
+          !isAndroid &&
           <View ref="prevTalkPreview" style={{ opacity: 0 }}>
             <Preview
               isActive={prevTalkPreviewIsEngaged}
@@ -104,17 +161,7 @@ export default class TalkPane extends Component {
           </Text>
         </View>
 
-        {!!nextTalk &&
-          <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-            <Preview
-              isActive={nextTalkPreviewIsEngaged}
-              position="bottom"
-              subtitle={
-                `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-              }
-              title={nextTalk.title}
-            />
-          </View>}
+        {nextPreviewUI}
       </ScrollView>
     );
   }
@@ -156,7 +203,7 @@ const styles = StyleSheet.create({
 
   // summary
   summary: {
-    paddingBottom: 40,
+    paddingBottom: 60,
   },
   summaryText: {
     fontSize: theme.fontSize.default,

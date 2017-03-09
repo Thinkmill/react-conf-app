@@ -17,8 +17,10 @@ const talk = {
     summary: '',
   },
   time: {
-    start: new Date('Thu, 01 Jan 1970 00:00:00 GMT'),
-    end: new Date('Thu, 01 Jan 1970 00:00:00 GMT'),
+    // These dates, contrary to their appearance, will end up at the same time
+    // each time because we're using mockdate in the setup.js file.
+    start: new Date(),
+    end: new Date(),
   },
 };
 

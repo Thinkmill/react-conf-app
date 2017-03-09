@@ -229,7 +229,7 @@ exports[`Talk renders correctly 1`] = `
               },
             ]
           }>
-          10:00am
+          8:00am
         </Text>
       </View>
       <View

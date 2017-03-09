@@ -85,8 +85,12 @@ export default class Preview extends Component {
       </Animated.View>
     );
 
+    const containerStyles = isAndroid
+      ? [styles.base, baseStyles]
+      : [styles.base, styles.baseIos, baseStyles];
+
     return (
-      <View style={[styles.base, baseStyles]}>
+      <View style={containerStyles}>
         {position === 'bottom' && icon}
         <Text style={styles.title} numberOfLines={1}>
           {title}
@@ -107,9 +111,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: theme.nextup.height,
     paddingHorizontal: 60,
+    width: Dimensions.get('window').width,
+  },
+  baseIos: {
     position: 'absolute',
     left: 0,
-    width: Dimensions.get('window').width,
   },
   title: {
     textAlign: 'center',

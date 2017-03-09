@@ -8,6 +8,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
+  Dimensions,
   View,
 } from 'react-native';
 import moment from 'moment';
@@ -15,6 +17,7 @@ import moment from 'moment';
 import type { ScheduleTalk } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
+import { darken } from '../../../../utils/color';
 import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
 
@@ -108,16 +111,21 @@ export default class TalkPane extends Component {
       ? null
       : isAndroid
           ? <Animated.View style={{ opacity: this.state.animValue }}>
-              <TouchableOpacity onPress={onPressNext} activeOpacity={0.5}>
-                <Preview
-                  isActive={nextTalkPreviewIsEngaged}
-                  position="bottom"
-                  subtitle={
-                    `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-                  }
-                  title={nextTalk.title}
-                />
-              </TouchableOpacity>
+              <TouchableHighlight
+                underlayColor={darken(theme.color.sceneBg, 10)}
+                onPress={onPressNext}
+              >
+                <View>
+                  <Preview
+                    isActive={nextTalkPreviewIsEngaged}
+                    position="bottom"
+                    subtitle={
+                      `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
+                    }
+                    title={nextTalk.title}
+                  />
+                </View>
+              </TouchableHighlight>
             </Animated.View>
           : <View ref="nextTalkPreview" style={{ opacity: 0 }}>
               <Preview
@@ -130,6 +138,11 @@ export default class TalkPane extends Component {
               />
             </View>;
 
+    const summaryStyles = isAndroid ? styles.summaryAndroid : styles.summaryIos;
+    const scrollAreaStyle = isAndroid
+      ? styles.scrollAreaAndroid
+      : styles.scrollAreaIos;
+
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -137,32 +150,35 @@ export default class TalkPane extends Component {
         ref="scrollview"
         {...props}
       >
-        {!!prevTalk &&
-          !isAndroid &&
-          <View ref="prevTalkPreview" style={{ opacity: 0 }}>
-            <Preview
-              isActive={prevTalkPreviewIsEngaged}
-              position="top"
-              subtitle={
-                `${moment(prevTalk.time.start).format(TIME_FORMAT)} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
-              }
-              title={prevTalk.title}
-            />
-          </View>}
-        <View style={styles.hero} onLayout={onHeroLayout}>
-          {speakers}
-          <Text style={styles.heroTitle}>
-            {visibleTalk.title}
-          </Text>
+        <View style={scrollAreaStyle}>
+          {!!prevTalk &&
+            !isAndroid &&
+            <View ref="prevTalkPreview" style={{ opacity: 0 }}>
+              <Preview
+                isActive={prevTalkPreviewIsEngaged}
+                position="top"
+                subtitle={
+                  `${moment(prevTalk.time.start).format(TIME_FORMAT)} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
+                }
+                title={prevTalk.title}
+              />
+            </View>}
+          <View style={styles.hero} onLayout={onHeroLayout}>
+            {speakers}
+            <Text style={styles.heroTitle}>
+              {visibleTalk.title}
+            </Text>
+          </View>
+
+          <View style={summaryStyles} ref="summary">
+            <Text style={styles.summaryText}>
+              {visibleTalk.summary}
+            </Text>
+          </View>
+
+          {nextPreviewUI}
         </View>
 
-        <View style={styles.summary} ref="summary">
-          <Text style={styles.summaryText}>
-            {visibleTalk.summary}
-          </Text>
-        </View>
-
-        {nextPreviewUI}
       </ScrollView>
     );
   }
@@ -201,9 +217,10 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     textAlign: 'center',
   },
-
-  // summary
-  summary: {
+  summaryAndroid: {
+    flex: 2,
+  },
+  summaryIos: {
     paddingBottom: 60,
   },
   summaryText: {
@@ -211,5 +228,10 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     lineHeight: theme.fontSize.large,
     padding: theme.fontSize.large,
+  },
+  scrollAreaIos: {},
+  scrollAreaAndroid: {
+    flex: 2,
+    minHeight: theme.talkPaneAndroidMinScrollAreaHeight,
   },
 });

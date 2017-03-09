@@ -58,8 +58,11 @@ const listheader = {
 
 // next up
 const nextup = {
-  height: 70,
+  height: Platform.OS === 'ios' ? 70 : 110,
 };
+
+const statusBarHeight = Platform.OS === 'ios' ? 20 : 24;
+const statusBarAndNavBarCombinedHeight = navbar.height + statusBarHeight;
 
 export default {
   color,
@@ -67,4 +70,5 @@ export default {
   navbar,
   nextup,
   listheader,
+  statusBarAndNavBarCombinedHeight,
 };

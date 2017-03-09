@@ -7,7 +7,7 @@ import { View } from 'react-native';
 // ------------------------
 // Ensure Date.now and new Date() give us the same date for snapshots.
 import timekeeper from 'timekeeper';
-timekeeper.freeze(Date.UTC(2017, 3, 1, 8, 0, 0));
+timekeeper.freeze(new Date(2017, 3, 1, 8, 0, 0));
 
 // ------------------------
 // React Native Built-Ins

@@ -815,16 +815,10 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 50,
                     },
-                    Array [
-                      Object {
-                        "borderColor": "white",
-                        "borderWidth": 3,
-                      },
-                      Object {
-                        "backgroundColor": "transparent",
-                        "marginRight": -20,
-                      },
-                    ],
+                    Object {
+                      "backgroundColor": "transparent",
+                      "marginRight": -16,
+                    },
                   ]
                 }>
                 <Image
@@ -851,16 +845,10 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 50,
                     },
-                    Array [
-                      Object {
-                        "borderColor": "white",
-                        "borderWidth": 3,
-                      },
-                      Object {
-                        "backgroundColor": "transparent",
-                        "marginRight": -20,
-                      },
-                    ],
+                    Object {
+                      "backgroundColor": "transparent",
+                      "marginRight": -16,
+                    },
                   ]
                 }>
                 <Image
@@ -887,13 +875,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 50,
                     },
-                    Array [
-                      Object {
-                        "borderColor": "white",
-                        "borderWidth": 3,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }>
                 <Image

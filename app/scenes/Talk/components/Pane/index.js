@@ -232,6 +232,6 @@ const styles = StyleSheet.create({
   scrollAreaIos: {},
   scrollAreaAndroid: {
     flex: 2,
-    minHeight: Dimensions.get('window').height - (24 + 34),
+    minHeight: theme.talkPaneAndroidMinScrollAreaHeight,
   },
 });

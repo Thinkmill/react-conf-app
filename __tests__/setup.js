@@ -6,8 +6,8 @@ import { View } from 'react-native';
 // Javascript Built-Ins
 // ------------------------
 // Ensure Date.now and new Date() give us the same date for snapshots.
-import mockdate from 'mockdate';
-mockdate.set(1422778155399, -660);
+import timekeeper from 'timekeeper';
+timekeeper.freeze(Date.UTC(2017, 3, 1, 8, 0, 0));
 
 // ------------------------
 // React Native Built-Ins

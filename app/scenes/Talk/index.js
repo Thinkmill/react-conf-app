@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Share } from 'react-native';
+import { Animated, Dimensions, Share, BackAndroid } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
@@ -55,9 +55,23 @@ export default class Talk extends Component {
     showIntro: this.props.introduceUI,
     talk: this.props.talk,
   };
-
   sceneHeight = Dimensions.get('window').height;
   sceneWidth = Dimensions.get('window').width;
+  onHardwareBackPress = () => {
+    this.props.navigator.pop();
+    return true;
+  };
+
+  componentWillMount() {
+    BackAndroid.addEventListener('hardwareBackPress', this.onHardwareBackPress);
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener(
+      'hardwareBackPress',
+      this.onHardwareBackPress
+    );
+  }
 
   handleLayout({ height }: { height: number }) {
     const availableHeight = this.sceneHeight - height;

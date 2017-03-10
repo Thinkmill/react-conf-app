@@ -5,6 +5,7 @@ import {
   Dimensions,
   LayoutAnimation,
   ListView,
+  Platform,
   StatusBar,
   StyleSheet,
   Text,
@@ -31,7 +32,7 @@ import theme from '../../theme';
 
 import Break from './components/Break';
 import NowButton from './components/NowButton';
-import Talk, { TalkSeparator } from './components/Talk';
+import Talk from './components/Talk';
 import SplashScreen from './components/SplashScreen';
 
 type Props = {
@@ -107,17 +108,20 @@ export default class Schedule extends Component {
       scrollY: new Animated.Value(0),
     };
 
-    this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
-      if (value > 120) {
-        StatusBar.setBarStyle('default', true);
-        StatusBar.setHidden(false, true);
-      } else if (value < 80) {
-        StatusBar.setBarStyle('light-content', true);
-        StatusBar.setHidden(false, true);
-      } else {
-        StatusBar.setHidden(true, true);
-      }
-    });
+    if (Platform.OS === 'ios') {
+      // This isn't relevant on Android.
+      this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
+        if (value > 120) {
+          StatusBar.setBarStyle('default', true);
+          StatusBar.setHidden(false, true);
+        } else if (value < 80) {
+          StatusBar.setBarStyle('light-content', true);
+          StatusBar.setHidden(false, true);
+        } else {
+          StatusBar.setHidden(true, true);
+        }
+      });
+    }
   }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
@@ -135,7 +139,8 @@ export default class Schedule extends Component {
     }
   }
   componentWillUnmount() {
-    this.state.scrollY.removeListener(this.scrollYListener);
+    if (this.scrollYListener)
+      this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
   }
 
@@ -147,6 +152,7 @@ export default class Schedule extends Component {
     }
   };
   gotoEventInfo = () => {
+    StatusBar.setBarStyle('default', true);
     this.props.navigator.push({
       enableSwipeToPop: true,
       scene: 'Info',
@@ -193,6 +199,8 @@ export default class Schedule extends Component {
     const { navigator, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-64, 0],
@@ -231,7 +239,8 @@ export default class Schedule extends Component {
         <Animated.View style={[styles.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonIconName="ios-information-circle-outline"
+            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
+            rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -244,21 +253,13 @@ export default class Schedule extends Component {
           ref="listview"
           initialListSize={initialListSize}
           onScroll={Animated.event([
-            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: true },
+            { nativeEvent: { contentOffset: { y: this.state.scrollY } } },
           ])}
-          scrollEventThrottle={1}
+          scrollEventThrottle={16}
           onChangeVisibleRows={this.onChangeVisibleRows}
           enableEmptySections
           removeClippedSubviews={false}
           renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
-          renderSeparator={(sectionID, rowID) => {
-            const key = sectionID + ':' + rowID;
-            const talk = dataSource._dataBlob[key];
-            const status = getTalkStatus(talk.time.start, talk.time.end);
-
-            return <TalkSeparator key={key} status={status} />;
-          }}
           renderRow={talk => {
             const status = getTalkStatus(talk.time.start, talk.time.end);
             const onLayout = status === 'present'
@@ -276,7 +277,7 @@ export default class Schedule extends Component {
               return (
                 <Break
                   endTime={moment(talk.time.end).format(TIME_FORMAT)}
-                  important={!!talk.important}
+                  lightning={talk.lightning}
                   onLayout={onLayout}
                   startTime={moment(talk.time.start).format(TIME_FORMAT)}
                   status={status}
@@ -303,12 +304,13 @@ export default class Schedule extends Component {
 
             return (
               <Talk
+                keynote={talk.keynote}
+                lightning={talk.lightning}
+                onLayout={onLayout}
                 onPress={onPress}
-                speakerName={talk.speaker.name}
-                speakerAvatarUri={talk.speaker.avatar}
+                speaker={talk.speaker}
                 startTime={moment(talk.time.start).format(TIME_FORMAT)}
                 status={status}
-                onLayout={onLayout}
                 title={talk.title}
               />
             );

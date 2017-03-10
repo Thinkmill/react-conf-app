@@ -38,7 +38,6 @@ export default class DraggableView extends Component {
     },
     onPanResponderRelease: (e, { vx, vy }) => {
       this.state.pan.flattenOffset();
-
       if (Math.abs(this.state.pan.y._value) > SWIPE_THRESHOLD) {
         if (this.props.onRelease) this.props.onRelease(e, { vx, vy });
         Animated.decay(this.state.pan, {

@@ -40,13 +40,16 @@ exports[`Info - Organiser renders correctly 1`] = `
     }>
     <View
       style={
-        Object {
-          "backgroundColor": "#F4F4F4",
-          "borderRadius": 44,
-          "height": 44,
-          "overflow": "hidden",
-          "width": 44,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#F4F4F4",
+            "borderRadius": 44,
+            "height": 44,
+            "overflow": "hidden",
+            "width": 44,
+          },
+          undefined,
+        ]
       }>
       <Image
         source={
@@ -56,6 +59,7 @@ exports[`Info - Organiser renders correctly 1`] = `
         }
         style={
           Object {
+            "borderRadius": 0,
             "height": 44,
             "width": 44,
           }

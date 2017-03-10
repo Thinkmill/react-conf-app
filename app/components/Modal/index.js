@@ -4,8 +4,10 @@ import {
   Animated,
   Dimensions,
   Modal as RNModal,
+  Platform,
   StyleSheet,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
@@ -31,6 +33,7 @@ export default class Modal extends Component {
     onClose: () => mixed,
     style?: {},
     children?: React.Element<{ onClose?: () => mixed }>,
+    forceDownwardAnimation?: boolean,
   };
 
   state = {
@@ -77,34 +80,47 @@ export default class Modal extends Component {
       justifyContent: MODAL_ALIGNMENT[align],
       opacity: this.state.animValue,
     };
-    const dialogDynamicStyles = {
-      transform: [
-        {
-          scale: this.state.animValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0.93, 1],
-          }),
-        },
-        {
+
+    const getDialogDynamicStyles = () => {
+      const scaleTransform = {
+        scale: this.state.animValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0.93, 1],
+        }),
+      };
+      var transformAnimations = [scaleTransform];
+      if (this.props.forceDownwardAnimation) {
+        const translateTransform = {
           translateY: this.state.animValue.interpolate({
             inputRange: [0, 1],
             outputRange: [100, 1],
           }),
-        },
-      ],
+        };
+        transformAnimations.push(translateTransform);
+      }
+      return { transform: transformAnimations };
     };
+
+    // react-native-blur crashes the app on android. Not sure why.
+    // To replicate just swap the comments on these lines.
+    // const blurView = false
+    const blurView = Platform.OS === 'android'
+      ? <View style={[styles.blur, { backgroundColor: 'rgba(0, 0, 0, 0.8)' }]}>
+          <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
+        </View>
+      : <BlurView
+          blurAmount={blurAmount}
+          blurType={blurType}
+          style={styles.blur}
+        >
+          <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
+        </BlurView>;
 
     return (
       <RNModal animationType="none" transparent visible>
         <Animated.View style={[styles.blockout, blockoutDynamicStyles]}>
-          <BlurView
-            blurAmount={blurAmount}
-            blurType={blurType}
-            style={styles.blur}
-          >
-            <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
-          </BlurView>
-          <Animated.View style={[style, dialogDynamicStyles]}>
+          {blurView}
+          <Animated.View style={[style, getDialogDynamicStyles()]}>
             {this.props.children}
           </Animated.View>
         </Animated.View>

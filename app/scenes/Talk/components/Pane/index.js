@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import {
   Animated,
   PixelRatio,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
+  Dimensions,
   View,
 } from 'react-native';
 import moment from 'moment';
@@ -14,16 +17,39 @@ import moment from 'moment';
 import type { ScheduleTalk } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
+import { darken } from '../../../../utils/color';
 import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
 
 import Preview from '../Preview';
+
+function Speaker({ data, onPress }) {
+  const touchableProps = {
+    activeOpacity: 0.66,
+    onPress,
+  };
+
+  return (
+    <TouchableOpacity {...touchableProps}>
+      <View style={styles.heroSpeaker}>
+        <Avatar source={data.avatar} />
+        <Text style={styles.heroSpeakerName}>
+          {data.name}
+        </Text>
+        <Text style={styles.heroSpeakerHint}>
+          (tap for more)
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
 
 export default class TalkPane extends Component {
   props: {
     nextTalk?: ScheduleTalk | null,
     nextTalkPreviewIsEngaged?: boolean,
     onHeroLayout?: (Object) => mixed,
+    onPressNext?: (Object) => mixed,
     onScroll?: (Object) => mixed,
     onScrollEndDrag?: () => mixed,
     prevTalk?: ScheduleTalk | null,
@@ -32,11 +58,37 @@ export default class TalkPane extends Component {
     visibleTalk: ScheduleTalk,
   };
 
+  state = {
+    animValue: new Animated.Value(0),
+  };
+
+  componentDidMount() {
+    if (Platform.OS === 'android') {
+      this.fadeInAdroidNextButton();
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    const isAndroid = Platform.OS === 'android';
+    const isNewTalk = (this.props.nextTalk && this.props.nextTalk.id) !==
+      (nextProps.nextTalk && nextProps.nextTalk.id);
+    if (isAndroid && isNewTalk) {
+      this.fadeInAdroidNextButton();
+    }
+  }
+  fadeInAdroidNextButton = () => {
+    this.state.animValue.setValue(0);
+    Animated.timing(this.state.animValue, {
+      toValue: 1,
+      duration: 300,
+    }).start();
+  };
+
   render() {
     const {
       nextTalk,
       nextTalkPreviewIsEngaged,
       onHeroLayout,
+      onPressNext,
       prevTalk,
       prevTalkPreviewIsEngaged,
       showSpeakerModal,
@@ -44,10 +96,52 @@ export default class TalkPane extends Component {
       ...props
     } = this.props;
 
-    const touchableProps = {
-      activeOpacity: 0.66,
-      onPress: showSpeakerModal,
-    };
+    const isAndroid = Platform.OS === 'android';
+
+    const speakers = Array.isArray(visibleTalk.speaker)
+      ? visibleTalk.speaker.map(s => (
+          <Speaker key={s.name} data={s} onPress={() => showSpeakerModal(s)} />
+        ))
+      : <Speaker
+          data={visibleTalk.speaker}
+          onPress={() => showSpeakerModal(visibleTalk.speaker)}
+        />;
+
+    const nextPreviewUI = !nextTalk
+      ? null
+      : isAndroid
+          ? <Animated.View style={{ opacity: this.state.animValue }}>
+              <TouchableHighlight
+                underlayColor={darken(theme.color.sceneBg, 10)}
+                onPress={onPressNext}
+              >
+                <View>
+                  <Preview
+                    isActive={nextTalkPreviewIsEngaged}
+                    position="bottom"
+                    subtitle={
+                      `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
+                    }
+                    title={nextTalk.title}
+                  />
+                </View>
+              </TouchableHighlight>
+            </Animated.View>
+          : <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+              <Preview
+                isActive={nextTalkPreviewIsEngaged}
+                position="bottom"
+                subtitle={
+                  `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
+                }
+                title={nextTalk.title}
+              />
+            </View>;
+
+    const summaryStyles = isAndroid ? styles.summaryAndroid : styles.summaryIos;
+    const scrollAreaStyle = isAndroid
+      ? styles.scrollAreaAndroid
+      : styles.scrollAreaIos;
 
     return (
       <ScrollView
@@ -56,51 +150,35 @@ export default class TalkPane extends Component {
         ref="scrollview"
         {...props}
       >
-        {!!prevTalk &&
-          <View ref="prevTalkPreview" style={{ opacity: 0 }}>
-            <Preview
-              isActive={prevTalkPreviewIsEngaged}
-              position="top"
-              subtitle={
-                `${moment(prevTalk.time.start).format(TIME_FORMAT)} - ${prevTalk.speaker.name}`
-              }
-              title={prevTalk.title}
-            />
-          </View>}
-        <View style={styles.hero} onLayout={onHeroLayout}>
-          <TouchableOpacity {...touchableProps}>
-            <Animated.View style={styles.heroSpeaker}>
-              <Avatar source={visibleTalk.speaker.avatar} />
-              <Text style={styles.heroSpeakerName}>
-                {visibleTalk.speaker.name}
-              </Text>
-              <Text style={styles.heroSpeakerHint}>
-                (tap for more)
-              </Text>
-            </Animated.View>
-          </TouchableOpacity>
-          <Text style={styles.heroTitle}>
-            {visibleTalk.title}
-          </Text>
+        <View style={scrollAreaStyle}>
+          {!!prevTalk &&
+            !isAndroid &&
+            <View ref="prevTalkPreview" style={{ opacity: 0 }}>
+              <Preview
+                isActive={prevTalkPreviewIsEngaged}
+                position="top"
+                subtitle={
+                  `${moment(prevTalk.time.start).format(TIME_FORMAT)} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
+                }
+                title={prevTalk.title}
+              />
+            </View>}
+          <View style={styles.hero} onLayout={onHeroLayout}>
+            {speakers}
+            <Text style={styles.heroTitle}>
+              {visibleTalk.title}
+            </Text>
+          </View>
+
+          <View style={summaryStyles} ref="summary">
+            <Text style={styles.summaryText}>
+              {visibleTalk.summary}
+            </Text>
+          </View>
+
+          {nextPreviewUI}
         </View>
 
-        <View style={styles.summary} ref="summary">
-          <Text style={styles.summaryText}>
-            {visibleTalk.summary}
-          </Text>
-        </View>
-
-        {!!nextTalk &&
-          <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-            <Preview
-              isActive={nextTalkPreviewIsEngaged}
-              position="bottom"
-              subtitle={
-                `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-              }
-              title={nextTalk.title}
-            />
-          </View>}
       </ScrollView>
     );
   }
@@ -117,11 +195,11 @@ const styles = StyleSheet.create({
     marginTop: -(1 / PixelRatio.get()),
     paddingHorizontal: theme.fontSize.large,
     paddingBottom: theme.fontSize.xlarge,
+    paddingTop: theme.fontSize.xlarge,
   },
   heroSpeaker: {
     alignItems: 'center',
     paddingHorizontal: theme.fontSize.xlarge,
-    paddingTop: theme.fontSize.xlarge,
   },
   heroSpeakerHint: {
     color: theme.color.gray40,
@@ -139,15 +217,21 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     textAlign: 'center',
   },
-
-  // summary
-  summary: {
-    paddingBottom: 40,
+  summaryAndroid: {
+    flex: 2,
+  },
+  summaryIos: {
+    paddingBottom: 60,
   },
   summaryText: {
     fontSize: theme.fontSize.default,
     fontWeight: '300',
     lineHeight: theme.fontSize.large,
     padding: theme.fontSize.large,
+  },
+  scrollAreaIos: {},
+  scrollAreaAndroid: {
+    flex: 2,
+    minHeight: theme.talkPaneAndroidMinScrollAreaHeight,
   },
 });

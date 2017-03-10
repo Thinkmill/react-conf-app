@@ -661,6 +661,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = VXT6F3A96H;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1077,6 +1078,7 @@
 			baseConfigurationReference = C6B79DDC48C7AC707B49E4AA /* Pods-ReactConf2017.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = VXT6F3A96H;
@@ -1102,6 +1104,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.thinkmill.ReactConf2017;
 				PRODUCT_NAME = ReactConf2017;
+				PROVISIONING_PROFILE = "ac4c812c-62de-4389-8578-8668dbd7c7a7";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: *";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1111,6 +1115,7 @@
 			baseConfigurationReference = 2B29080F8A364611A7F8DF44 /* Pods-ReactConf2017.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VXT6F3A96H;
 				HEADER_SEARCH_PATHS = (
@@ -1135,6 +1140,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.thinkmill.ReactConf2017;
 				PRODUCT_NAME = ReactConf2017;
+				PROVISIONING_PROFILE = "ac4c812c-62de-4389-8578-8668dbd7c7a7";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: *";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -2,6 +2,9 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
 <View
   style={
     Object {
+      "height": 1534,
+      "position": "absolute",
+      "width": 750,
       "zIndex": 2,
     }
   }>
@@ -58,19 +61,12 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(36, 31, 32, 0.6)",
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
           "left": -100,
           "position": "absolute",
           "right": -100,
-          "shadowColor": "black",
-          "shadowOffset": Object {
-            "height": 5,
-            "width": 10,
-          },
-          "shadowOpacity": 0.4,
-          "shadowRadius": 6,
           "transform": Array [
             Object {
               "skewY": "5deg",
@@ -81,19 +77,12 @@ exports[`Schedule - Splash Screen renders correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(36, 31, 32, 0.6)",
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
           "left": -100,
           "position": "absolute",
           "right": -100,
-          "shadowColor": "black",
-          "shadowOffset": Object {
-            "height": 5,
-            "width": 10,
-          },
-          "shadowOpacity": 0.4,
-          "shadowRadius": 6,
           "transform": Array [
             Object {
               "skewY": "-3deg",
@@ -112,6 +101,9 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
 <View
   style={
     Object {
+      "height": 1534,
+      "position": "absolute",
+      "width": 750,
       "zIndex": 2,
     }
   }>
@@ -168,19 +160,12 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(36, 31, 32, 0.6)",
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
           "left": -100,
           "position": "absolute",
           "right": -100,
-          "shadowColor": "black",
-          "shadowOffset": Object {
-            "height": 5,
-            "width": 10,
-          },
-          "shadowOpacity": 0.4,
-          "shadowRadius": 6,
           "transform": Array [
             Object {
               "skewY": "5deg",
@@ -191,19 +176,12 @@ exports[`Schedule - Splash Screen renders correctly in animated state 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(36, 31, 32, 0.6)",
+          "backgroundColor": "rgba(36, 31, 32, 0.8)",
           "bottom": 40,
           "height": 1200,
           "left": -100,
           "position": "absolute",
           "right": -100,
-          "shadowColor": "black",
-          "shadowOffset": Object {
-            "height": 5,
-            "width": 10,
-          },
-          "shadowOpacity": 0.4,
-          "shadowRadius": 6,
           "transform": Array [
             Object {
               "skewY": "-3deg",

@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
-import { ActionSheetIOS, Animated, Dimensions } from 'react-native';
+import { Animated, Dimensions, Platform, Share, BackAndroid } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -42,7 +43,7 @@ type SetTalksState = {
   prevTalk: ScheduleTalk | null,
 };
 
-export default class Talk extends Component {
+class Talk extends Component {
   talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
   transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 
@@ -55,7 +56,6 @@ export default class Talk extends Component {
     showIntro: this.props.introduceUI,
     talk: this.props.talk,
   };
-
   sceneHeight = Dimensions.get('window').height;
   sceneWidth = Dimensions.get('window').width;
 
@@ -105,7 +105,7 @@ export default class Talk extends Component {
       this.renderPrevTalk();
     }
   };
-  renderNextTalk() {
+  renderNextTalk = () => {
     const talk = this.state.nextTalk;
     const nextTalk = this.state.nextTalk
       ? getNextTalkFromId(this.state.nextTalk.id)
@@ -115,8 +115,8 @@ export default class Talk extends Component {
     if (talk !== null) {
       this.setTalks({ nextTalk, prevTalk, talk }, 'next');
     }
-  }
-  renderPrevTalk() {
+  };
+  renderPrevTalk = () => {
     const talk = this.state.prevTalk;
     const nextTalk = this.state.talk;
     const prevTalk = this.state.prevTalk
@@ -126,8 +126,11 @@ export default class Talk extends Component {
     if (talk !== null) {
       this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
     }
-  }
-  setTalks(newState: SetTalksState, transitionDirection: TransitionDirection) {
+  };
+  setTalks = (
+    newState: SetTalksState,
+    transitionDirection: TransitionDirection
+  ) => {
     this.setState(
       {
         incomingTalk: newState.talk,
@@ -153,33 +156,30 @@ export default class Talk extends Component {
         });
       }
     );
-  }
+  };
   share = () => {
     const { talk } = this.state;
     const speakerHandle = talk.speaker.twitter
       ? '@' + talk.speaker.twitter
       : talk.speaker.name;
 
-    ActionSheetIOS.showShareActionSheetWithOptions(
-      {
-        message: `Enjoying ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
-      },
-      error => alert(error),
-      (success, method) => {
-        const result = success ? `Shared via ${method}` : 'Share cancelled';
-
-        console.log(result);
-      }
-    );
+    Share.share({
+      title: 'ReactConf 2017',
+      message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
+    });
   };
-  toggleSpeakerModal = (modalIsOpen: boolean) => {
-    this.setState({ modalIsOpen });
+  toggleSpeakerModal = (data: Object) => {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+      modalSpeaker: data,
+    });
   };
   render() {
     const { navigator } = this.props;
     const {
       animValue,
       modalIsOpen,
+      modalSpeaker,
       nextTalk,
       incomingTalk,
       prevTalk,
@@ -187,8 +187,11 @@ export default class Talk extends Component {
       talk,
     } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
+    const isAndroid = Platform.OS === 'android';
 
     const incomingFrom = this.state.transitionDirection === 'next'
       ? this.sceneHeight
@@ -228,9 +231,10 @@ export default class Talk extends Component {
     const navbar = (
       <Navbar
         title={headerTitle}
-        leftButtonIconName="ios-arrow-back"
+        leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
         leftButtonOnPress={navigator.popToTop}
-        rightButtonText="Share"
+        rightButtonIconName={isAndroid ? 'md-share-alt' : null}
+        rightButtonText={!isAndroid ? 'Share' : null}
         rightButtonOnPress={this.share}
       />
     );
@@ -242,10 +246,11 @@ export default class Talk extends Component {
             nextTalk={nextTalk}
             onHeroLayout={({ nativeEvent: { layout } }) =>
               this.handleLayout(layout)}
-            onScroll={this.handleScroll}
+            onScroll={!isAndroid ? this.handleScroll : null}
+            onPressNext={this.renderNextTalk}
             prevTalk={prevTalk}
             ref={r => this.talkpane = r}
-            showSpeakerModal={() => this.toggleSpeakerModal(true)}
+            showSpeakerModal={this.toggleSpeakerModal}
             visibleTalk={talk}
           />
         </Animated.View>
@@ -260,20 +265,23 @@ export default class Talk extends Component {
             />
           </Animated.View>}
 
-        {showIntro &&
+        {!isAndroid &&
+          showIntro &&
           <Hint onClose={() => this.setState({ showIntro: false })} />}
 
         {modalIsOpen &&
           <Speaker
-            avatar={talk.speaker.avatar}
-            github={talk.speaker.github}
-            name={talk.speaker.name}
-            onClose={() => this.toggleSpeakerModal(false)}
-            summary={talk.speaker.summary}
-            twitter={talk.speaker.twitter}
+            avatar={modalSpeaker.avatar}
+            github={modalSpeaker.github}
+            name={modalSpeaker.name}
+            onClose={this.toggleSpeakerModal}
+            summary={modalSpeaker.summary}
+            twitter={modalSpeaker.twitter}
           />}
         {navbar}
       </Scene>
     );
   }
 }
+
+export default BackButtonAndroid()(Talk);

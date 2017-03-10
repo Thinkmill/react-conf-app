@@ -1,9 +1,9 @@
 // @flow
+import { Platform, Dimensions } from 'react-native';
+
 // ==============================
 // APP STYLE CONSTANTS
 // ==============================
-
-/* eslint-disable key-spacing */
 
 // color
 const color = {
@@ -13,6 +13,7 @@ const color = {
   lightText: 'white',
   sceneBg: '#F4F4F4',
   splashBg: '#2B2828',
+  yellow: '#FFC979',
 
   // neutrals
   gray90: '#1A1A1A',
@@ -44,9 +45,9 @@ const fontSize = {
 
 // navbar
 const navbar = {
-  backgroundColor: color.sceneBg,
+  backgroundColor: 'white',
   buttonColor: color.blue,
-  height: 64,
+  height: Platform.OS === 'ios' ? 64 : 44,
   textColor: color.text,
 };
 
@@ -57,8 +58,11 @@ const listheader = {
 
 // next up
 const nextup = {
-  height: 70,
+  height: Platform.OS === 'ios' ? 70 : 110,
 };
+
+const statusBarHeight = Platform.OS === 'ios' ? 20 : 24;
+const talkPaneAndroidMinScrollAreaHeight = Dimensions.get('window').height - 48;
 
 export default {
   color,
@@ -66,4 +70,5 @@ export default {
   navbar,
   nextup,
   listheader,
+  talkPaneAndroidMinScrollAreaHeight,
 };

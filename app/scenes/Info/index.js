@@ -4,6 +4,7 @@ import {
   Image,
   LayoutAnimation,
   PixelRatio,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,6 +13,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -31,7 +33,7 @@ const mapRegion = {
   longitudeDelta: 0.01,
 };
 
-export default class Info extends Component {
+class Info extends Component {
   props: {
     navigator: Object,
     organisers: typeof organiserList,
@@ -48,7 +50,17 @@ export default class Info extends Component {
   _marker: any;
 
   componentDidMount() {
-    setTimeout(this._marker.showCallout, 1000);
+    // Sometimes it takes more than a second for the map to load, so in those cases it's best to
+    // just keep trying with an exponential* back off. (* exponential: e to the power of 0) ;-)
+    const tryToShowCallout = () => {
+      if (this._marker) {
+        this._marker.showCallout();
+      } else {
+        setTimeout(tryToShowCallout, 1000);
+      }
+    };
+
+    tryToShowCallout();
   }
 
   toggleModal = () => {
@@ -59,7 +71,10 @@ export default class Info extends Component {
   openMap() {
     const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
     const query = encodeURI('Santa Clara Marriott');
-    const url = `maps://maps.apple.com/?ll=${latlon}&q=${query}`;
+    const url = Platform.OS === 'ios'
+      ? `maps://maps.apple.com/?ll=${latlon}&q=${query}`
+      : `https://maps.google.com/?ll=${latlon}&q=${query}`;
+
     attemptToOpenUrl(url);
   }
   openThinkmill() {
@@ -76,12 +91,17 @@ export default class Info extends Component {
     const { navigator, organisers } = this.props;
     const { modalIsOpen } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     return (
       <Scene>
         <Navbar
-          title="Event Info"
-          leftButtonIconName="ios-arrow-back"
+          title="About"
+          leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
           leftButtonOnPress={navigator.popToTop}
+          rightButtonIconName={isAndroid ? 'md-navigate' : null}
+          rightButtonText={!isAndroid ? 'Directions' : null}
+          rightButtonOnPress={this.openMap}
         />
         <ScrollView>
           <MapView initialRegion={mapRegion} style={styles.map}>
@@ -111,21 +131,6 @@ export default class Info extends Component {
               </TouchableOpacity>
             </View>
 
-            <ListTitle text="Organizers" />
-            {organisers.map((organiser, idx) => {
-              const onPress = () => {};
-
-              return (
-                <Organiser
-                  avatar={organiser.avatar}
-                  key={idx}
-                  onPress={onPress}
-                  name={organiser.name}
-                  summary={organiser.summary}
-                />
-              );
-            })}
-
             <View style={styles.madeby}>
               <TouchableOpacity
                 onPress={this.openThinkmill}
@@ -134,21 +139,21 @@ export default class Info extends Component {
               >
                 <Image
                   source={require('./images/thinkmill-logo.png')}
-                  style={{ width: 80, height: 80 }}
+                  style={{ width: 44, height: 44 }}
                 />
                 {/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
               </TouchableOpacity>
               <Text style={styles.madebyText}>
-                This app made with love in Sydney, Australia and open sourced by Thinkmill
+                Made with love in Sydney, Australia, and open sourced by Thinkmill
               </Text>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={this.openRepository}
                 activeOpacity={0.75}
               >
                 <Text style={styles.heroLink}>
                   View Source Code
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ScrollView>
@@ -158,6 +163,8 @@ export default class Info extends Component {
     );
   }
 }
+
+export default BackButtonAndroid()(Info);
 
 const styles = StyleSheet.create({
   map: {
@@ -199,9 +206,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   madebyText: {
-    fontSize: theme.fontSize.default,
+    color: theme.color.gray60,
+    fontSize: theme.fontSize.small,
     fontWeight: '300',
-    lineHeight: theme.fontSize.large,
+    lineHeight: 20,
     marginTop: theme.fontSize.default,
     textAlign: 'center',
   },

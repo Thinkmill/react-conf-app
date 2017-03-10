@@ -5,26 +5,22 @@ export type ScheduleTimeRange = {
   end: Date,
 };
 
-export type ScheduleTalk = {
-  id: string,
-  summary: string,
-  title: string,
-  speaker: {
-    avatar: string,
-    github?: string,
-    name: string,
-    twitter?: string,
-    summary: string,
-  },
-  time: ScheduleTimeRange,
-};
-
 export type SpeakerType = {
   avatar: string,
-  github: string,
+  github?: string,
   name: string,
+  twitter?: string,
   summary: string,
-  twitter: string,
+};
+
+export type ScheduleTalk = {
+  id: string,
+  keynote: boolean,
+  lightning: boolean,
+  summary: string,
+  title: string,
+  speaker: SpeakerType | Array<SpeakerType>,
+  time: ScheduleTimeRange,
 };
 
 export type ScheduleBreak = {

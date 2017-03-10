@@ -24,8 +24,8 @@ import TalkPane from './components/Pane';
 
 type Props = {
   navigator: Object,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
   talk: ScheduleTalk,
   introduceUI: boolean,
 };
@@ -35,19 +35,19 @@ type TransitionDirection = 'prev' | 'next';
 type State = {
   animValue: Animated.Value,
   modalIsOpen: boolean,
-  modalSpeaker: SpeakerType | null,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  modalSpeaker?: SpeakerType,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
   showIntro: boolean,
   talk: ScheduleTalk,
-  incomingTalk?: ScheduleTalk | null,
+  incomingTalk?: ScheduleTalk,
   transitionDirection?: TransitionDirection,
 };
 
 type SetTalksState = {
   talk: ScheduleTalk,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
 };
 
 class Talk extends Component {

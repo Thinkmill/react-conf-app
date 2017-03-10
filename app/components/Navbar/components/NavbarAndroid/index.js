@@ -15,6 +15,7 @@ import theme from '../../../../theme';
 
 type Props = {
   backgroundColor?: string,
+  buttonColor?: string,
   leftButtonDisabled?: boolean,
   leftButtonIconName?: string,
   leftButtonOnPress?: () => mixed,
@@ -23,6 +24,7 @@ type Props = {
   rightButtonIconName?: string,
   rightButtonOnPress?: () => mixed,
   rightButtonText?: string,
+  textColor?: string,
   title: string,
   titleRenderer?: () => mixed,
 };

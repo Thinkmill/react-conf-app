@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import type { ScheduleTalk } from '../../../../types';
+import type { ScheduleTalk, SpeakerType } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
 import { darken } from '../../../../utils/color';
@@ -44,20 +44,21 @@ function Speaker({ data, onPress }) {
   );
 }
 
-export default class TalkPane extends Component {
-  props: {
-    nextTalk?: ScheduleTalk | null,
-    nextTalkPreviewIsEngaged?: boolean,
-    onHeroLayout?: (Object) => mixed,
-    onPressNext?: (Object) => mixed,
-    onScroll?: (Object) => mixed,
-    onScrollEndDrag?: () => mixed,
-    prevTalk?: ScheduleTalk | null,
-    prevTalkPreviewIsEngaged?: boolean,
-    showSpeakerModal?: () => mixed,
-    visibleTalk: ScheduleTalk,
-  };
+type Props = {
+  nextTalk?: ScheduleTalk | null,
+  nextTalkPreviewIsEngaged?: boolean,
+  onHeroLayout?: (Object) => mixed,
+  onPressNext?: (Object) => mixed,
+  onScroll?: (Object) => mixed,
+  onScrollEndDrag?: () => mixed,
+  prevTalk?: ScheduleTalk | null,
+  prevTalkPreviewIsEngaged?: boolean,
+  showSpeakerModal: (SpeakerType | Array<SpeakerType>) => mixed,
+  visibleTalk: ScheduleTalk,
+};
 
+export default class TalkPane extends Component {
+  props: Props;
   state = {
     animValue: new Animated.Value(0),
   };
@@ -67,7 +68,7 @@ export default class TalkPane extends Component {
       this.fadeInAdroidNextButton();
     }
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const isAndroid = Platform.OS === 'android';
     const isNewTalk = (this.props.nextTalk && this.props.nextTalk.id) !==
       (nextProps.nextTalk && nextProps.nextTalk.id);

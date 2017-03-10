@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -32,7 +33,7 @@ const mapRegion = {
   longitudeDelta: 0.01,
 };
 
-export default class Info extends Component {
+class Info extends Component {
   props: {
     navigator: Object,
     organisers: typeof organiserList,
@@ -130,21 +131,6 @@ export default class Info extends Component {
               </TouchableOpacity>
             </View>
 
-            <ListTitle text="Organizers" />
-            {organisers.map((organiser, idx) => {
-              const onPress = () => {};
-
-              return (
-                <Organiser
-                  avatar={organiser.avatar}
-                  key={idx}
-                  onPress={onPress}
-                  name={organiser.name}
-                  summary={organiser.summary}
-                />
-              );
-            })}
-
             <View style={styles.madeby}>
               <TouchableOpacity
                 onPress={this.openThinkmill}
@@ -153,21 +139,21 @@ export default class Info extends Component {
               >
                 <Image
                   source={require('./images/thinkmill-logo.png')}
-                  style={{ width: 80, height: 80 }}
+                  style={{ width: 44, height: 44 }}
                 />
                 {/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
               </TouchableOpacity>
               <Text style={styles.madebyText}>
-                This app made with love in Sydney, Australia and open sourced by Thinkmill
+                Made with love in Sydney, Australia, and open sourced by Thinkmill
               </Text>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={this.openRepository}
                 activeOpacity={0.75}
               >
                 <Text style={styles.heroLink}>
                   View Source Code
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ScrollView>
@@ -177,6 +163,8 @@ export default class Info extends Component {
     );
   }
 }
+
+export default BackButtonAndroid()(Info);
 
 const styles = StyleSheet.create({
   map: {
@@ -218,9 +206,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   madebyText: {
-    fontSize: theme.fontSize.default,
+    color: theme.color.gray60,
+    fontSize: theme.fontSize.small,
     fontWeight: '300',
-    lineHeight: theme.fontSize.large,
+    lineHeight: 20,
     marginTop: theme.fontSize.default,
     textAlign: 'center',
   },

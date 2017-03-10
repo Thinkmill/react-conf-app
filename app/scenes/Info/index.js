@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
+import EnhancedScene from '../../components/EnhancedScene';
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -32,7 +33,7 @@ const mapRegion = {
   longitudeDelta: 0.01,
 };
 
-export default class Info extends Component {
+export default class Info extends EnhancedScene {
   props: {
     navigator: Object,
     organisers: typeof organiserList,

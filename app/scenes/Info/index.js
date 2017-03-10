@@ -33,7 +33,7 @@ const mapRegion = {
   longitudeDelta: 0.01,
 };
 
-export default class Info extends EnhancedScene {
+class Info extends Component {
   props: {
     navigator: Object,
     organisers: typeof organiserList,
@@ -175,6 +175,8 @@ export default class Info extends EnhancedScene {
     );
   }
 }
+
+export default EnhancedScene()(Info);
 
 const styles = StyleSheet.create({
   map: {

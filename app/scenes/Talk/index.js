@@ -4,7 +4,7 @@ import { Animated, Dimensions, Share, BackAndroid } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
-import EnhancedScene from '../../components/EnhancedScene';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -43,7 +43,7 @@ type SetTalksState = {
   prevTalk: ScheduleTalk | null,
 };
 
-export default class Talk extends EnhancedScene {
+class Talk extends Component {
   talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
   transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 
@@ -274,3 +274,5 @@ export default class Talk extends EnhancedScene {
     );
   }
 }
+
+export default BackButtonAndroid()(Talk);

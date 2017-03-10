@@ -19,6 +19,14 @@ export type ScheduleTalk = {
   time: ScheduleTimeRange,
 };
 
+export type SpeakerType = {
+  avatar: string,
+  github: string,
+  name: string,
+  summary: string,
+  twitter: string,
+};
+
 export type ScheduleBreak = {
   break: true,
   time: ScheduleTimeRange,

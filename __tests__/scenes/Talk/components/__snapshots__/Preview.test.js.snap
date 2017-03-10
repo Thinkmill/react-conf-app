@@ -6,10 +6,12 @@ exports[`Talk - Preview renders correctly in bottom position 1`] = `
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "left": 0,
         "paddingHorizontal": 60,
-        "position": "absolute",
         "width": 750,
+      },
+      Object {
+        "left": 0,
+        "position": "absolute",
       },
       Object {
         "bottom": -70,
@@ -83,10 +85,12 @@ exports[`Talk - Preview renders correctly in top position 1`] = `
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "left": 0,
         "paddingHorizontal": 60,
-        "position": "absolute",
         "width": 750,
+      },
+      Object {
+        "left": 0,
+        "position": "absolute",
       },
       Object {
         "top": -70,

@@ -117,7 +117,12 @@ export default class Modal extends Component {
         </BlurView>;
 
     return (
-      <RNModal animationType="none" transparent visible>
+      <RNModal
+        animationType="none"
+        transparent
+        visible
+        onRequestClose={() => {}}
+      >
         <Animated.View style={[styles.blockout, blockoutDynamicStyles]}>
           {blurView}
           <Animated.View style={[style, getDialogDynamicStyles()]}>

@@ -8,7 +8,6 @@ export default () => Component =>
       return true;
     };
     componentWillMount() {
-      console.log('HOC, cwm');
       BackAndroid.addEventListener('hardwareBackPress', this.backPress);
     }
     componentWillUnmount() {

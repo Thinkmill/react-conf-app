@@ -187,6 +187,8 @@ class Talk extends Component {
       talk,
     } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
     const isAndroid = Platform.OS === 'android';
@@ -229,9 +231,10 @@ class Talk extends Component {
     const navbar = (
       <Navbar
         title={headerTitle}
-        leftButtonIconName="ios-arrow-back"
+        leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
         leftButtonOnPress={navigator.popToTop}
-        rightButtonText="Share"
+        rightButtonIconName={isAndroid ? 'md-share-alt' : null}
+        rightButtonText={!isAndroid ? 'Share' : null}
         rightButtonOnPress={this.share}
       />
     );

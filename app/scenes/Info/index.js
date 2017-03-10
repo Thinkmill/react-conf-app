@@ -91,13 +91,16 @@ class Info extends Component {
     const { navigator, organisers } = this.props;
     const { modalIsOpen } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     return (
       <Scene>
         <Navbar
           title="About"
-          leftButtonIconName="ios-arrow-back"
+          leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
           leftButtonOnPress={navigator.popToTop}
-          rightButtonText="Directions"
+          rightButtonIconName={isAndroid ? 'md-navigate' : null}
+          rightButtonText={!isAndroid ? 'Directions' : null}
           rightButtonOnPress={this.openMap}
         />
         <ScrollView>

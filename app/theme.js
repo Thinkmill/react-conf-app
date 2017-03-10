@@ -1,5 +1,5 @@
 // @flow
-import { Platform } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 
 // ==============================
 // APP STYLE CONSTANTS
@@ -58,8 +58,11 @@ const listheader = {
 
 // next up
 const nextup = {
-  height: 70,
+  height: Platform.OS === 'ios' ? 70 : 110,
 };
+
+const statusBarHeight = Platform.OS === 'ios' ? 20 : 24;
+const talkPaneAndroidMinScrollAreaHeight = Dimensions.get('window').height - 48;
 
 export default {
   color,
@@ -67,4 +70,5 @@ export default {
   navbar,
   nextup,
   listheader,
+  talkPaneAndroidMinScrollAreaHeight,
 };

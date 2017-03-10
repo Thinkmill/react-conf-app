@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Share, BackAndroid } from 'react-native';
+import { Animated, Dimensions, Platform, Share, BackAndroid } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
@@ -105,7 +105,7 @@ class Talk extends Component {
       this.renderPrevTalk();
     }
   };
-  renderNextTalk() {
+  renderNextTalk = () => {
     const talk = this.state.nextTalk;
     const nextTalk = this.state.nextTalk
       ? getNextTalkFromId(this.state.nextTalk.id)
@@ -115,8 +115,8 @@ class Talk extends Component {
     if (talk !== null) {
       this.setTalks({ nextTalk, prevTalk, talk }, 'next');
     }
-  }
-  renderPrevTalk() {
+  };
+  renderPrevTalk = () => {
     const talk = this.state.prevTalk;
     const nextTalk = this.state.talk;
     const prevTalk = this.state.prevTalk
@@ -126,8 +126,11 @@ class Talk extends Component {
     if (talk !== null) {
       this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
     }
-  }
-  setTalks(newState: SetTalksState, transitionDirection: TransitionDirection) {
+  };
+  setTalks = (
+    newState: SetTalksState,
+    transitionDirection: TransitionDirection
+  ) => {
     this.setState(
       {
         incomingTalk: newState.talk,
@@ -153,7 +156,7 @@ class Talk extends Component {
         });
       }
     );
-  }
+  };
   share = () => {
     const { talk } = this.state;
     const speakerHandle = talk.speaker.twitter
@@ -186,6 +189,7 @@ class Talk extends Component {
 
     const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
+    const isAndroid = Platform.OS === 'android';
 
     const incomingFrom = this.state.transitionDirection === 'next'
       ? this.sceneHeight
@@ -239,7 +243,8 @@ class Talk extends Component {
             nextTalk={nextTalk}
             onHeroLayout={({ nativeEvent: { layout } }) =>
               this.handleLayout(layout)}
-            onScroll={this.handleScroll}
+            onScroll={!isAndroid ? this.handleScroll : null}
+            onPressNext={this.renderNextTalk}
             prevTalk={prevTalk}
             ref={r => this.talkpane = r}
             showSpeakerModal={this.toggleSpeakerModal}
@@ -257,7 +262,8 @@ class Talk extends Component {
             />
           </Animated.View>}
 
-        {showIntro &&
+        {!isAndroid &&
+          showIntro &&
           <Hint onClose={() => this.setState({ showIntro: false })} />}
 
         {modalIsOpen &&

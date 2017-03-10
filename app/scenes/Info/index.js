@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
-import EnhancedScene from '../../components/EnhancedScene';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -176,7 +176,7 @@ class Info extends Component {
   }
 }
 
-export default EnhancedScene()(Info);
+export default BackButtonAndroid()(Info);
 
 const styles = StyleSheet.create({
   map: {

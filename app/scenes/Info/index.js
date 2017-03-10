@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -32,7 +33,7 @@ const mapRegion = {
   longitudeDelta: 0.01,
 };
 
-export default class Info extends Component {
+class Info extends Component {
   props: {
     navigator: Object,
     organisers: typeof organiserList,
@@ -159,6 +160,8 @@ export default class Info extends Component {
     );
   }
 }
+
+export default BackButtonAndroid()(Info);
 
 const styles = StyleSheet.create({
   map: {

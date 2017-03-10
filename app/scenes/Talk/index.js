@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Share } from 'react-native';
+import { Animated, Dimensions, Share, BackAndroid } from 'react-native';
 import moment from 'moment';
 
 import type { ScheduleTalk } from '../../types';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -42,7 +43,7 @@ type SetTalksState = {
   prevTalk: ScheduleTalk | null,
 };
 
-export default class Talk extends Component {
+class Talk extends Component {
   talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
   transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 
@@ -55,7 +56,6 @@ export default class Talk extends Component {
     showIntro: this.props.introduceUI,
     talk: this.props.talk,
   };
-
   sceneHeight = Dimensions.get('window').height;
   sceneWidth = Dimensions.get('window').width;
 
@@ -274,3 +274,5 @@ export default class Talk extends Component {
     );
   }
 }
+
+export default BackButtonAndroid()(Talk);

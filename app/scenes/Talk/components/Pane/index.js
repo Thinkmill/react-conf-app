@@ -45,13 +45,13 @@ function Speaker({ data, onPress }) {
 }
 
 type Props = {
-  nextTalk?: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
   nextTalkPreviewIsEngaged?: boolean,
   onHeroLayout?: (Object) => mixed,
   onPressNext?: (Object) => mixed,
   onScroll?: (Object) => mixed,
   onScrollEndDrag?: () => mixed,
-  prevTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk,
   prevTalkPreviewIsEngaged?: boolean,
   showSpeakerModal: (SpeakerType | Array<SpeakerType>) => mixed,
   visibleTalk: ScheduleTalk,
@@ -108,36 +108,51 @@ export default class TalkPane extends Component {
           onPress={() => showSpeakerModal(visibleTalk.speaker)}
         />;
 
-    const nextPreviewUI = !nextTalk
-      ? null
-      : isAndroid
-          ? <Animated.View style={{ opacity: this.state.animValue }}>
-              <TouchableHighlight
-                underlayColor={darken(theme.color.sceneBg, 10)}
-                onPress={onPressNext}
-              >
-                <View>
-                  <Preview
-                    isActive={nextTalkPreviewIsEngaged}
-                    position="bottom"
-                    subtitle={
-                      `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-                    }
-                    title={nextTalk.title}
-                  />
-                </View>
-              </TouchableHighlight>
-            </Animated.View>
-          : <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-              <Preview
-                isActive={nextTalkPreviewIsEngaged}
-                position="bottom"
-                subtitle={
-                  `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-                }
-                title={nextTalk.title}
-              />
-            </View>;
+    let nextPreviewUI = null;
+
+    if (nextTalk && nextTalk.speaker) {
+      let subtitle;
+      if (!Array.isArray(nextTalk.speaker)) {
+        const speaker = nextTalk.speaker; // Tell flow that we definitely aren't changing speaker when we call moment().
+        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speaker.name}`;
+      } else {
+        const speakers = nextTalk.speaker
+          .map(speaker => speaker.name)
+          .join(', ');
+        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speakers}`;
+      }
+
+      if (isAndroid) {
+        nextPreviewUI = (
+          <Animated.View style={{ opacity: this.state.animValue }}>
+            <TouchableHighlight
+              underlayColor={darken(theme.color.sceneBg, 10)}
+              onPress={onPressNext}
+            >
+              <View>
+                <Preview
+                  isActive={nextTalkPreviewIsEngaged}
+                  position="bottom"
+                  subtitle={subtitle}
+                  title={nextTalk.title}
+                />
+              </View>
+            </TouchableHighlight>
+          </Animated.View>
+        );
+      } else {
+        nextPreviewUI = (
+          <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+            <Preview
+              isActive={nextTalkPreviewIsEngaged}
+              position="bottom"
+              subtitle={subtitle}
+              title={nextTalk.title}
+            />
+          </View>
+        );
+      }
+    }
 
     const summaryStyles = isAndroid ? styles.summaryAndroid : styles.summaryIos;
     const scrollAreaStyle = isAndroid

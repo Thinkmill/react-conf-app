@@ -243,14 +243,14 @@ const data = {
     lightning: true,
   },
   'adam-perry': {
-    summary: 'A presentation of the create-react-native-app (CRNA) tool. CRNA follows in the well-trodden path of create-react-app, providing a cross-platform, boilerplate-free developer experience for new React Native projects. CRNA is the product of a collaboration between Exponent, Facebook, and open-source contributors.',
+    summary: 'A presentation of the create-react-native-app (CRNA) tool. CRNA follows in the well-trodden path of create-react-app, providing a cross-platform, boilerplate-free developer experience for new React Native projects. CRNA is the product of a collaboration between Expo, Facebook, and open-source contributors.',
     title: 'Create React Native App: 5 Minutes to "Hello, World!"',
     speaker: {
       avatar: 'https://www.gravatar.com/avatar/8e9af27762850ca9fc9984eb8ff21259?s=128',
       github: 'dikaiosune',
       name: 'Adam Perry',
       twitter: 'dika10sune',
-      summary: '',
+      summary: 'Open source, dogs, and some other things. Writing React Native devtools and services at Expo. Ask him about Rust.',
     },
     time: getTime(DAY_ONE, 5),
     lightning: true,

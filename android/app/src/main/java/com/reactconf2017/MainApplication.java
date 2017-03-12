@@ -40,7 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RCTSplashScreenPackage(),
             new LinearGradientPackage(),
             new MapsPackage(),
-            new CodePush("_E6QzaZjF08AWXt-43EdcgDhSg9M4JJQBoKGz", getApplicationContext(), BuildConfig.DEBUG),
+            new CodePush("AaK2XiBZgnTi9jUJ9Y-5ZHGcUY8L4JJQBoKGz", getApplicationContext(), BuildConfig.DEBUG),
             new BlurViewPackage(),
             new VectorIconsPackage()
       );

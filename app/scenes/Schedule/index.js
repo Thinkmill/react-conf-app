@@ -66,6 +66,7 @@ type ChangedRows = {
 export default class Schedule extends Component {
   props: Props;
   state: State;
+  interval: number;
   scrollYListener: string;
   _navigatorWillFocusSubscription: Object;
 
@@ -126,11 +127,11 @@ export default class Schedule extends Component {
     }
 
     // Update the schedule once a second.
-    setInterval(
+    this.interval = setInterval(
       () => {
         this.setState({ now: new Date() });
       },
-      1000
+      60000 // Once a minute
     );
   }
   componentDidMount() {
@@ -152,6 +153,11 @@ export default class Schedule extends Component {
     if (this.scrollYListener)
       this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
+
+    if (this.interval) {
+      clearInterval(this.interval);
+      delete this.interval;
+    }
   }
 
   handleNavigatorWillFocus = (event: any) => {

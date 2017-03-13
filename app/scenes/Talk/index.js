@@ -7,6 +7,7 @@ import {
   Share,
   BackAndroid,
 } from 'react-native';
+import { Route, withRouter } from 'react-router-native';
 import moment from 'moment';
 
 import type { ScheduleTalk, SpeakerType } from '../../types';
@@ -175,11 +176,15 @@ class Talk extends Component {
       message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
     });
   };
-  toggleSpeakerModal = (data: Object) => {
-    this.setState({
-      modalIsOpen: !this.state.modalIsOpen,
-      modalSpeaker: data,
-    });
+  toggleSpeakerModal = (speaker: Object) => {
+    if (speaker) {
+      this.props.history.push({
+        pathname: `/talk/${speaker.github}`,
+        state: { speaker },
+      });
+    } else {
+      this.props.history.goBack();
+    }
   };
   render() {
     const { navigator } = this.props;
@@ -274,20 +279,23 @@ class Talk extends Component {
           showIntro &&
           <Hint onClose={() => this.setState({ showIntro: false })} />}
 
-        {modalIsOpen &&
-          modalSpeaker &&
-          <Speaker
-            avatar={modalSpeaker.avatar}
-            github={modalSpeaker.github}
-            name={modalSpeaker.name}
-            onClose={this.toggleSpeakerModal}
-            summary={modalSpeaker.summary}
-            twitter={modalSpeaker.twitter}
-          />}
+        <Route
+          path="/:speaker"
+          render={({ location: { state: { speaker } } }) => (
+            <Speaker
+              avatar={speaker.avatar}
+              github={speaker.github}
+              name={speaker.name}
+              onClose={() => this.toggleSpeakerModal()}
+              summary={speaker.summary}
+              twitter={speaker.twitter}
+            />
+          )}
+        />
         {navbar}
       </Scene>
     );
   }
 }
 
-export default BackButtonAndroid()(Talk);
+export default BackButtonAndroid()(withRouter(Talk));

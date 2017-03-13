@@ -32,7 +32,7 @@ import theme from '../../theme';
 
 import Break from './components/Break';
 import NowButton from './components/NowButton';
-import Talk, { TalkSeparator } from './components/Talk';
+import Talk from './components/Talk';
 import SplashScreen from './components/SplashScreen';
 
 type Props = {
@@ -199,6 +199,8 @@ export default class Schedule extends Component {
     const { navigator, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
+    const isAndroid = Platform.OS === 'android';
+
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-64, 0],
@@ -237,7 +239,8 @@ export default class Schedule extends Component {
         <Animated.View style={[styles.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonText="About"
+            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
+            rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -257,13 +260,6 @@ export default class Schedule extends Component {
           enableEmptySections
           removeClippedSubviews={false}
           renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
-          renderSeparator={(sectionID, rowID) => {
-            const key = sectionID + ':' + rowID;
-            const talk = dataSource._dataBlob[key];
-            const status = getTalkStatus(talk.time.start, talk.time.end);
-
-            return <TalkSeparator key={key} status={status} />;
-          }}
           renderRow={talk => {
             const status = getTalkStatus(talk.time.start, talk.time.end);
             const onLayout = status === 'present'

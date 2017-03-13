@@ -1,4 +1,4 @@
-exports[`Schedule - Talk renders correctly 1`] = `
+exports[`Schedule - Talk renders talk types correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -32,6 +32,183 @@ exports[`Schedule - Talk renders correctly 1`] = `
         Object {
           "alignItems": "stretch",
           "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#99dcef",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          Object {
+            "opacity": 0.5,
+          },
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 14,
+              },
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              },
+            ]
+          }>
+          9 AM - Max Stoiber
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 2`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
           "flexDirection": "row",
         },
         undefined,
@@ -127,7 +304,7 @@ exports[`Schedule - Talk renders correctly 1`] = `
               },
             ]
           }>
-          
+          9 AM - Max Stoiber
         </Text>
         <Text
           accessible={true}
@@ -142,7 +319,2202 @@ exports[`Schedule - Talk renders correctly 1`] = `
               undefined,
             ]
           }>
-          
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 3`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#CCC",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginBottom": 14,
+              },
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              },
+            ]
+          }>
+          9 AM - Max Stoiber
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 4`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#99dcef",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          Object {
+            "opacity": 0.5,
+          },
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 5`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#00A8D8",
+          "width": 5,
+        }
+      }>
+      <View
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#00A8D8",
+                "fontSize": 34,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "height": 34,
+                "left": 0,
+                "position": "absolute",
+                "top": 10,
+                "width": 34,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 6`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#CCC",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 7`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#99dcef",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          Object {
+            "opacity": 0.5,
+          },
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00A8D8",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            9 AM
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 8`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#00A8D8",
+          "width": 5,
+        }
+      }>
+      <View
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#00A8D8",
+                "fontSize": 34,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "height": 34,
+                "left": 0,
+                "position": "absolute",
+                "top": 10,
+                "width": 34,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00A8D8",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            9 AM
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 9`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#CCC",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00A8D8",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            9 AM
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 10`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#99dcef",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          Object {
+            "opacity": 0.5,
+          },
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 11`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#00A8D8",
+          "width": 5,
+        }
+      }>
+      <View
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#00A8D8",
+                "fontSize": 34,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "height": 34,
+                "left": 0,
+                "position": "absolute",
+                "top": 10,
+                "width": 34,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "flexShrink": 0,
+          }
+        }>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#F4F4F4",
+                "borderRadius": 44,
+                "height": 44,
+                "overflow": "hidden",
+                "width": 44,
+              },
+              undefined,
+            ]
+          }>
+          <Image
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 0,
+                "height": 44,
+                "width": 44,
+              }
+            } />
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#999",
+                "fontSize": 20,
+              },
+              Object {
+                "marginLeft": 17,
+              },
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Schedule - Talk renders talk types correctly 12`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#CCC",
+          "borderBottomWidth": 0.5,
+          "flexDirection": "row",
+        },
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#CCC",
+          "width": 5,
+        }
+      } />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "padding": 17,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 12,
+            },
+            undefined,
+          ]
+        }>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 14,
+            }
+          }>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFC979",
+                "borderRadius": 14,
+                "height": 14,
+                "justifyContent": "center",
+                "marginRight": 7,
+                "width": 14,
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginBottom": -1,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "flexShrink": 1,
+                "fontSize": 14,
+                "fontWeight": "300",
+              }
+            }>
+            Max Stoiber
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#383838",
+                "fontSize": 17,
+              },
+              undefined,
+            ]
+          }>
+          This is a test
         </Text>
       </View>
       <View

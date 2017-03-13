@@ -2,6 +2,7 @@ exports[`Talk - Speaker renders correctly with all props 1`] = `
 <Modal
   animationType="none"
   hardwareAccelerated={false}
+  onRequestClose={[Function]}
   transparent={true}
   visible={true}>
   <View
@@ -382,6 +383,7 @@ exports[`Talk - Speaker renders correctly with missing github and twitter 1`] = 
 <Modal
   animationType="none"
   hardwareAccelerated={false}
+  onRequestClose={[Function]}
   transparent={true}
   visible={true}>
   <View

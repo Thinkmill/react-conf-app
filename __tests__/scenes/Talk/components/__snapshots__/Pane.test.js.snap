@@ -10,170 +10,461 @@ exports[`Talk - Pane renders correctly 1`] = `
   }>
   <View>
     <View
-      style={
-        Object {
-          "opacity": 0,
-        }
-      }>
+      style={Object {}}>
       <View
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "height": 70,
-              "justifyContent": "center",
-              "left": 0,
-              "paddingHorizontal": 60,
-              "position": "absolute",
-              "width": 750,
-            },
-            Object {
-              "top": -70,
-            },
-          ]
+          Object {
+            "opacity": 0,
+          }
         }>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 70,
+                "justifyContent": "center",
+                "paddingHorizontal": 60,
+                "width": 750,
+              },
+              Object {
+                "left": 0,
+                "position": "absolute",
+              },
+              Object {
+                "top": -70,
+              },
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }>
+            Conference Keynote
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "textAlign": "center",
+              }
+            }>
+            10:00am 
+          </Text>
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "transform": Array [
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+              }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#383838",
+                    "fontSize": 20,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderBottomColor": "#CCC",
+            "borderBottomWidth": 0.5,
+            "borderTopColor": "#CCC",
+            "borderTopWidth": 0.5,
+            "marginTop": -0.5,
+            "paddingBottom": 32,
+            "paddingHorizontal": 24,
+            "paddingTop": 32,
+          }
+        }>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "paddingHorizontal": 32,
+              }
+            }>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#F4F4F4",
+                    "borderRadius": 44,
+                    "height": 44,
+                    "overflow": "hidden",
+                    "width": 44,
+                  },
+                  undefined,
+                ]
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 0,
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#00A8D8",
+                  "fontSize": 17,
+                  "fontWeight": "500",
+                  "marginTop": 14,
+                }
+              }>
+              Tom Occhino
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999",
+                  "fontSize": 12,
+                  "paddingBottom": 24,
+                }
+              }>
+              (tap for more)
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "paddingHorizontal": 32,
+              }
+            }>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#F4F4F4",
+                    "borderRadius": 44,
+                    "height": 44,
+                    "overflow": "hidden",
+                    "width": 44,
+                  },
+                  undefined,
+                ]
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 0,
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#00A8D8",
+                  "fontSize": 17,
+                  "fontWeight": "500",
+                  "marginTop": 14,
+                }
+              }>
+              Sebastian Markbage
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999",
+                  "fontSize": 12,
+                  "paddingBottom": 24,
+                }
+              }>
+              (tap for more)
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "paddingHorizontal": 32,
+              }
+            }>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#F4F4F4",
+                    "borderRadius": 44,
+                    "height": 44,
+                    "overflow": "hidden",
+                    "width": 44,
+                  },
+                  undefined,
+                ]
+              }>
+              <Image
+                source={
+                  Object {
+                    "uri": "https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 0,
+                    "height": 44,
+                    "width": 44,
+                  }
+                } />
+            </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#00A8D8",
+                  "fontSize": 17,
+                  "fontWeight": "500",
+                  "marginTop": 14,
+                }
+              }>
+              Jing Chen
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999",
+                  "fontSize": 12,
+                  "paddingBottom": 24,
+                }
+              }>
+              (tap for more)
+            </Text>
+          </View>
+        </View>
         <Text
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
-          numberOfLines={1}
           style={
             Object {
+              "fontSize": 24,
+              "fontWeight": "300",
               "textAlign": "center",
             }
           }>
           Conference Keynote
         </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "paddingBottom": 60,
+          }
+        }>
         <Text
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#666",
-              "textAlign": "center",
+              "fontSize": 17,
+              "fontWeight": "300",
+              "lineHeight": 24,
+              "padding": 24,
             }
           }>
-          10:00am 
+          
         </Text>
-        <View
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "transform": Array [
-                Object {
-                  "scale": 1,
-                },
-              ],
-            }
-          }>
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#383838",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "Ionicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }>
-            
-          </Text>
-        </View>
       </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "white",
-          "borderBottomColor": "#CCC",
-          "borderBottomWidth": 0.5,
-          "borderTopColor": "#CCC",
-          "borderTopWidth": 0.5,
-          "marginTop": -0.5,
-          "paddingBottom": 32,
-          "paddingHorizontal": 24,
-          "paddingTop": 32,
-        }
-      }>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "opacity": 0,
           }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
+        }>
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "paddingHorizontal": 32,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 70,
+                "justifyContent": "center",
+                "paddingHorizontal": 60,
+                "width": 750,
+              },
+              Object {
+                "left": 0,
+                "position": "absolute",
+              },
+              Object {
+                "bottom": -70,
+              },
+            ]
           }>
           <View
             style={
-              Array [
-                Object {
-                  "backgroundColor": "#F4F4F4",
-                  "borderRadius": 44,
-                  "height": 44,
-                  "overflow": "hidden",
-                  "width": 44,
-                },
-                undefined,
-              ]
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128",
-                }
+              Object {
+                "backgroundColor": "transparent",
+                "transform": Array [
+                  Object {
+                    "scale": 1,
+                  },
+                ],
               }
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
               style={
-                Object {
-                  "borderRadius": 0,
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
+                Array [
+                  Object {
+                    "color": "#383838",
+                    "fontSize": 20,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }>
+              
+            </Text>
           </View>
           <Text
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
+            numberOfLines={1}
             style={
               Object {
-                "color": "#00A8D8",
-                "fontSize": 17,
-                "fontWeight": "500",
-                "marginTop": 14,
+                "textAlign": "center",
               }
             }>
-            Tom Occhino
+            Conference Keynote
           </Text>
           <Text
             accessible={true}
@@ -181,297 +472,13 @@ exports[`Talk - Pane renders correctly 1`] = `
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#999",
-                "fontSize": 12,
-                "paddingBottom": 24,
+                "color": "#666",
+                "textAlign": "center",
               }
             }>
-            (tap for more)
+            10:00am - undefined
           </Text>
         </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "paddingHorizontal": 32,
-            }
-          }>
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#F4F4F4",
-                  "borderRadius": 44,
-                  "height": 44,
-                  "overflow": "hidden",
-                  "width": 44,
-                },
-                undefined,
-              ]
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/ceb6764d18462b099b98cc6447363ef6?s=128",
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 0,
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
-          </View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#00A8D8",
-                "fontSize": 17,
-                "fontWeight": "500",
-                "marginTop": 14,
-              }
-            }>
-            Sebastian Markbage
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#999",
-                "fontSize": 12,
-                "paddingBottom": 24,
-              }
-            }>
-            (tap for more)
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "paddingHorizontal": 32,
-            }
-          }>
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#F4F4F4",
-                  "borderRadius": 44,
-                  "height": 44,
-                  "overflow": "hidden",
-                  "width": 44,
-                },
-                undefined,
-              ]
-            }>
-            <Image
-              source={
-                Object {
-                  "uri": "https://www.gravatar.com/avatar/f3928721841baa5ee26fbbe906348039?s=128",
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 0,
-                  "height": 44,
-                  "width": 44,
-                }
-              } />
-          </View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#00A8D8",
-                "fontSize": 17,
-                "fontWeight": "500",
-                "marginTop": 14,
-              }
-            }>
-            Jing Chen
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#999",
-                "fontSize": 12,
-                "paddingBottom": 24,
-              }
-            }>
-            (tap for more)
-          </Text>
-        </View>
-      </View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 24,
-            "fontWeight": "300",
-            "textAlign": "center",
-          }
-        }>
-        Conference Keynote
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "paddingBottom": 40,
-        }
-      }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 17,
-            "fontWeight": "300",
-            "lineHeight": 24,
-            "padding": 24,
-          }
-        }>
-        
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "opacity": 0,
-        }
-      }>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "height": 70,
-              "justifyContent": "center",
-              "left": 0,
-              "paddingHorizontal": 60,
-              "position": "absolute",
-              "width": 750,
-            },
-            Object {
-              "bottom": -70,
-            },
-          ]
-        }>
-        <View
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "transform": Array [
-                Object {
-                  "scale": 1,
-                },
-              ],
-            }
-          }>
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#383838",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "Ionicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }>
-            
-          </Text>
-        </View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "textAlign": "center",
-            }
-          }>
-          Conference Keynote
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#666",
-              "textAlign": "center",
-            }
-          }>
-          10:00am - undefined
-        </Text>
       </View>
     </View>
   </View>

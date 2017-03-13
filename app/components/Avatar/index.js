@@ -7,7 +7,7 @@ import theme from '../../theme';
 type Props = {
   size?: number,
   source: string,
-  style: Object | null | Array<Object | null>,
+  style?: mixed,
 };
 
 export default function Avatar({ size = 44, source, style, ...props }: Props) {

@@ -91,8 +91,8 @@ android {
         applicationId "com.reactconf2017"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.10"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -148,6 +148,19 @@ dependencies {
     compile "com.fivehundredpx:blurringview:1.0.0"
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
+}
+
+repositories {
+    maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+    }
+    dependencies {
+        classpath 'com.fivehundredpx:blurringview:1.0.0'
+    }
 }
 
 // Run this once to be able to run the application with BUCK

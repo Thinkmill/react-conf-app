@@ -18,33 +18,6 @@ import { lighten } from '../../../../utils/color';
 type Status = 'past' | 'present' | 'future';
 
 // ==============================
-// TALK SEPARATOR
-// ==============================
-
-export function TalkSeparator({ status }: { status: Status }) {
-  let barColor = theme.color.gray20;
-  if (status === 'past') barColor = lighten(theme.color.blue, 60);
-  else if (status === 'present') barColor = theme.color.blue;
-
-  return (
-    <View
-      style={{
-        height: 1 / PixelRatio.get(),
-        flexDirection: 'row',
-        alignItems: 'stretch',
-      }}
-      underlayColor="white"
-    >
-      <View style={{ backgroundColor: barColor, width: 5 }} />
-      <View
-        style={{ backgroundColor: 'white', width: theme.fontSize.default }}
-      />
-      <View style={{ backgroundColor: theme.color.gray20, flexGrow: 1 }} />
-    </View>
-  );
-}
-
-// ==============================
 // TALK STATUSBAR
 // ==============================
 
@@ -112,8 +85,8 @@ function KeynoteSubtitle({ text, ...props }) {
 // ==============================
 
 type Props = {
-  keynote: boolean,
-  lightning: boolean,
+  keynote?: boolean,
+  lightning?: boolean,
   onPress: () => mixed,
   speaker: Object,
   startTime: string,
@@ -195,13 +168,9 @@ export default class Talk extends Component {
     // avatar variants
     const avatar = Array.isArray(speaker)
       ? speaker.map((s, i) => {
-          const pull = i + 1 !== speaker.length
-            ? { backgroundColor: 'transparent', marginRight: -16 }
-            : null;
+          const pull = i + 1 !== speaker.length ? { marginRight: -16 } : null;
 
-          return (
-            <Avatar key={s.name} source={s.avatar} style={pull} size={50} />
-          );
+          return <Avatar key={s.name} source={s.avatar} style={pull} />;
         })
       : <Avatar source={speaker && speaker.avatar} />;
 
@@ -253,6 +222,8 @@ const styles = StyleSheet.create({
   base: {
     alignItems: 'stretch',
     backgroundColor: 'transparent',
+    borderBottomColor: theme.color.gray20,
+    borderBottomWidth: 1 / PixelRatio.get(),
     flexDirection: 'row',
   },
   // base__present: {

@@ -1,9 +1,15 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Platform, Share, BackAndroid } from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  Platform,
+  Share,
+  BackAndroid,
+} from 'react-native';
 import moment from 'moment';
 
-import type { ScheduleTalk } from '../../types';
+import type { ScheduleTalk, SpeakerType } from '../../types';
 import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
@@ -18,8 +24,8 @@ import TalkPane from './components/Pane';
 
 type Props = {
   navigator: Object,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
   talk: ScheduleTalk,
   introduceUI: boolean,
 };
@@ -29,18 +35,19 @@ type TransitionDirection = 'prev' | 'next';
 type State = {
   animValue: Animated.Value,
   modalIsOpen: boolean,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  modalSpeaker?: SpeakerType,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
   showIntro: boolean,
   talk: ScheduleTalk,
-  incomingTalk?: ScheduleTalk | null,
+  incomingTalk?: ScheduleTalk,
   transitionDirection?: TransitionDirection,
 };
 
 type SetTalksState = {
   talk: ScheduleTalk,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
 };
 
 class Talk extends Component {
@@ -188,10 +195,8 @@ class Talk extends Component {
     } = this.state;
 
     const isAndroid = Platform.OS === 'android';
-
     const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
-    const isAndroid = Platform.OS === 'android';
 
     const incomingFrom = this.state.transitionDirection === 'next'
       ? this.sceneHeight
@@ -270,6 +275,7 @@ class Talk extends Component {
           <Hint onClose={() => this.setState({ showIntro: false })} />}
 
         {modalIsOpen &&
+          modalSpeaker &&
           <Speaker
             avatar={modalSpeaker.avatar}
             github={modalSpeaker.github}

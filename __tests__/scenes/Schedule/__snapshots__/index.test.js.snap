@@ -249,7 +249,6 @@ exports[`Schedule renders correctly 1`] = `
     renderRow={[Function]}
     renderScrollComponent={[Function]}
     renderSectionHeader={[Function]}
-    renderSeparator={[Function]}
     scrollEventThrottle={16}>
     <View>
       <View
@@ -265,13 +264,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Registration / Breakfast">
+        }>
         <View
           style={
             Object {
@@ -279,148 +279,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -433,7 +303,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -455,7 +324,7 @@ exports[`Schedule renders correctly 1`] = `
               Registration / Breakfast
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         endTime="10:00am"
@@ -464,13 +333,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Hall Doors Open">
+        }>
         <View
           style={
             Object {
@@ -478,148 +348,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -632,7 +372,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -654,7 +393,7 @@ exports[`Schedule renders correctly 1`] = `
               Hall Doors Open
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -689,6 +428,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -816,13 +557,12 @@ exports[`Schedule renders correctly 1`] = `
                   Array [
                     Object {
                       "backgroundColor": "#F4F4F4",
-                      "borderRadius": 50,
-                      "height": 50,
+                      "borderRadius": 44,
+                      "height": 44,
                       "overflow": "hidden",
-                      "width": 50,
+                      "width": 44,
                     },
                     Object {
-                      "backgroundColor": "transparent",
                       "marginRight": -16,
                     },
                   ]
@@ -836,8 +576,8 @@ exports[`Schedule renders correctly 1`] = `
                   style={
                     Object {
                       "borderRadius": 0,
-                      "height": 50,
-                      "width": 50,
+                      "height": 44,
+                      "width": 44,
                     }
                   } />
               </View>
@@ -846,13 +586,12 @@ exports[`Schedule renders correctly 1`] = `
                   Array [
                     Object {
                       "backgroundColor": "#F4F4F4",
-                      "borderRadius": 50,
-                      "height": 50,
+                      "borderRadius": 44,
+                      "height": 44,
                       "overflow": "hidden",
-                      "width": 50,
+                      "width": 44,
                     },
                     Object {
-                      "backgroundColor": "transparent",
                       "marginRight": -16,
                     },
                   ]
@@ -866,8 +605,8 @@ exports[`Schedule renders correctly 1`] = `
                   style={
                     Object {
                       "borderRadius": 0,
-                      "height": 50,
-                      "width": 50,
+                      "height": 44,
+                      "width": 44,
                     }
                   } />
               </View>
@@ -876,10 +615,10 @@ exports[`Schedule renders correctly 1`] = `
                   Array [
                     Object {
                       "backgroundColor": "#F4F4F4",
-                      "borderRadius": 50,
-                      "height": 50,
+                      "borderRadius": 44,
+                      "height": 44,
                       "overflow": "hidden",
-                      "width": 50,
+                      "width": 44,
                     },
                     null,
                   ]
@@ -893,8 +632,8 @@ exports[`Schedule renders correctly 1`] = `
                   style={
                     Object {
                       "borderRadius": 0,
-                      "height": 50,
-                      "width": 50,
+                      "height": 44,
+                      "width": 44,
                     }
                   } />
               </View>
@@ -931,13 +670,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title={undefined}>
+        }>
         <View
           style={
             Object {
@@ -945,148 +685,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -1099,7 +709,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -1121,7 +730,7 @@ exports[`Schedule renders correctly 1`] = `
               Break
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -1156,6 +765,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -1326,6 +937,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -1496,6 +1109,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -1640,13 +1255,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Lunch">
+        }>
         <View
           style={
             Object {
@@ -1654,148 +1270,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -1808,7 +1294,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -1830,7 +1315,7 @@ exports[`Schedule renders correctly 1`] = `
               Lunch
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -1865,6 +1350,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -2035,6 +1522,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -2179,13 +1668,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Lightning Talks">
+        }>
         <View
           style={
             Object {
@@ -2195,14 +1685,18 @@ exports[`Schedule renders correctly 1`] = `
           } />
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+              },
+            ]
           }>
           <Text
             accessible={true}
@@ -2215,7 +1709,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -2272,6 +1765,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -2480,6 +1975,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -2688,6 +2185,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -2896,6 +2395,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -3104,6 +2605,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -3286,13 +2789,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title={undefined}>
+        }>
         <View
           style={
             Object {
@@ -3300,148 +2804,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -3454,7 +2828,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -3476,7 +2849,7 @@ exports[`Schedule renders correctly 1`] = `
               Break
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -3511,6 +2884,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -3681,6 +3056,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -3825,13 +3202,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Lightning Talks">
+        }>
         <View
           style={
             Object {
@@ -3841,14 +3219,18 @@ exports[`Schedule renders correctly 1`] = `
           } />
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+              },
+            ]
           }>
           <Text
             accessible={true}
@@ -3861,7 +3243,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -3918,6 +3299,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -4126,6 +3509,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -4334,6 +3719,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -4542,6 +3929,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -4750,6 +4139,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -4932,13 +4323,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Happy Hour">
+        }>
         <View
           style={
             Object {
@@ -4946,148 +4338,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -5100,7 +4362,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -5122,7 +4383,7 @@ exports[`Schedule renders correctly 1`] = `
               Happy Hour
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         endTime="9:30am"
@@ -5131,13 +4392,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Registration / Breakfast">
+        }>
         <View
           style={
             Object {
@@ -5145,148 +4407,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -5299,7 +4431,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -5321,7 +4452,7 @@ exports[`Schedule renders correctly 1`] = `
               Registration / Breakfast
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         endTime="10:00am"
@@ -5330,13 +4461,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Hall Doors Open">
+        }>
         <View
           style={
             Object {
@@ -5344,148 +4476,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -5498,7 +4500,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -5520,7 +4521,7 @@ exports[`Schedule renders correctly 1`] = `
               Hall Doors Open
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -5555,6 +4556,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -5725,6 +4728,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -5869,13 +4874,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title={undefined}>
+        }>
         <View
           style={
             Object {
@@ -5883,148 +4889,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -6037,7 +4913,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -6059,7 +4934,7 @@ exports[`Schedule renders correctly 1`] = `
               Break
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -6094,6 +4969,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -6264,6 +5141,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -6434,6 +5313,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -6578,13 +5459,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Lunch">
+        }>
         <View
           style={
             Object {
@@ -6592,148 +5474,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -6746,7 +5498,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -6768,7 +5519,7 @@ exports[`Schedule renders correctly 1`] = `
               Lunch
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -6803,6 +5554,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -6973,6 +5726,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -7117,13 +5872,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Lightning Talks">
+        }>
         <View
           style={
             Object {
@@ -7133,14 +5889,18 @@ exports[`Schedule renders correctly 1`] = `
           } />
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+              },
+            ]
           }>
           <Text
             accessible={true}
@@ -7153,7 +5913,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -7210,6 +5969,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -7418,6 +6179,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -7626,6 +6389,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -7834,6 +6599,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -8042,6 +6809,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -8224,13 +6993,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title={undefined}>
+        }>
         <View
           style={
             Object {
@@ -8238,148 +7008,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -8392,7 +7032,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -8414,7 +7053,7 @@ exports[`Schedule renders correctly 1`] = `
               Break
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}
@@ -8449,6 +7088,8 @@ exports[`Schedule renders correctly 1`] = `
               Object {
                 "alignItems": "stretch",
                 "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
               },
               undefined,
@@ -8593,13 +7234,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Panel / Q&A">
+        }>
         <View
           style={
             Object {
@@ -8607,148 +7249,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -8761,7 +7273,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -8783,7 +7294,7 @@ exports[`Schedule renders correctly 1`] = `
               Panel / Q&A
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         endTime="10:00pm"
@@ -8792,13 +7303,14 @@ exports[`Schedule renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "stretch",
-              "backgroundColor": "#fcfcfc",
+              "backgroundColor": "#fbfbfb",
+              "borderBottomColor": "#CCC",
+              "borderBottomWidth": 0.5,
               "flexDirection": "row",
             },
             undefined,
           ]
-        }
-        title="Closing Party at 104">
+        }>
         <View
           style={
             Object {
@@ -8806,148 +7318,18 @@ exports[`Schedule renders correctly 1`] = `
               "width": 5,
             }
           } />
-        <BVLinearGradient
-          colors={
-            Array [
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-              4294769916,
-              4294769916,
-              4293256677,
-              4293256677,
-            ]
-          }
-          end={
-            Object {
-              "x": 1,
-              "y": 0.3,
-            }
-          }
-          locations={
-            Array [
-              0,
-              0.06928571428571428,
-              0.06928571428571428,
-              0.07428571428571429,
-              0.07428571428571429,
-              0.14357142857142857,
-              0.14357142857142857,
-              0.14857142857142858,
-              0.14857142857142858,
-              0.21785714285714286,
-              0.21785714285714286,
-              0.22285714285714286,
-              0.22285714285714286,
-              0.29214285714285715,
-              0.29214285714285715,
-              0.29714285714285715,
-              0.29714285714285715,
-              0.36642857142857144,
-              0.36642857142857144,
-              0.37142857142857144,
-              0.37142857142857144,
-              0.4407142857142857,
-              0.4407142857142857,
-              0.44571428571428573,
-              0.44571428571428573,
-              0.515,
-              0.515,
-              0.52,
-              0.52,
-              0.5892857142857143,
-              0.5892857142857143,
-              0.5942857142857143,
-              0.5942857142857143,
-              0.6635714285714286,
-              0.6635714285714286,
-              0.6685714285714286,
-              0.6685714285714286,
-              0.7378571428571429,
-              0.7378571428571429,
-              0.7428571428571429,
-              0.7428571428571429,
-              0.8121428571428572,
-              0.8121428571428572,
-              0.8171428571428572,
-              0.8171428571428572,
-              0.8864285714285715,
-              0.8864285714285715,
-              0.8914285714285715,
-              0.8914285714285715,
-              0.9607142857142857,
-              0.9607142857142857,
-              0.9657142857142857,
-              0.9657142857142857,
-              1.0350000000000001,
-              1.0350000000000001,
-              1.04,
-            ]
-          }
-          start={
-            Object {
-              "x": 0,
-              "y": 0.15,
-            }
-          }
+        <View
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#fcfcfc",
-              "flexGrow": 1,
-              "height": 44,
-              "justifyContent": "center",
-              "left": 17,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fbfbfb",
+                "flexGrow": 1,
+                "height": 44,
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
           }>
           <Text
             accessible={true}
@@ -8960,7 +7342,6 @@ exports[`Schedule renders correctly 1`] = `
                   "color": "#383838",
                   "fontSize": 14,
                   "fontWeight": "300",
-                  "left": -17,
                 },
                 Object {
                   "color": "#999",
@@ -8982,7 +7363,7 @@ exports[`Schedule renders correctly 1`] = `
               Closing Party at 104
             </Text>
           </Text>
-        </BVLinearGradient>
+        </View>
       </View>
       <View
         accessibilityComponentType={undefined}

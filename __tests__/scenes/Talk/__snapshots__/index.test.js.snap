@@ -32,139 +32,142 @@ exports[`Talk renders correctly 1`] = `
       }>
       <View>
         <View
-          onLayout={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "white",
-              "borderBottomColor": "#CCC",
-              "borderBottomWidth": 0.5,
-              "borderTopColor": "#CCC",
-              "borderTopWidth": 0.5,
-              "marginTop": -0.5,
-              "paddingBottom": 32,
-              "paddingHorizontal": 24,
-              "paddingTop": 32,
-            }
-          }>
+          style={Object {}}>
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+            onLayout={[Function]}
             style={
               Object {
-                "opacity": 1,
+                "alignItems": "center",
+                "backgroundColor": "white",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "borderTopColor": "#CCC",
+                "borderTopWidth": 0.5,
+                "marginTop": -0.5,
+                "paddingBottom": 32,
+                "paddingHorizontal": 24,
+                "paddingTop": 32,
               }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}>
+            }>
             <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "alignItems": "center",
-                  "paddingHorizontal": 32,
+                  "opacity": 1,
                 }
-              }>
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}>
               <View
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#F4F4F4",
-                      "borderRadius": 44,
-                      "height": 44,
-                      "overflow": "hidden",
-                      "width": 44,
-                    },
-                    undefined,
-                  ]
-                }>
-                <Image
-                  source={
-                    Object {
-                      "uri": "",
-                    }
+                  Object {
+                    "alignItems": "center",
+                    "paddingHorizontal": 32,
                   }
+                }>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#F4F4F4",
+                        "borderRadius": 44,
+                        "height": 44,
+                        "overflow": "hidden",
+                        "width": 44,
+                      },
+                      undefined,
+                    ]
+                  }>
+                  <Image
+                    source={
+                      Object {
+                        "uri": "",
+                      }
+                    }
+                    style={
+                      Object {
+                        "borderRadius": 0,
+                        "height": 44,
+                        "width": 44,
+                      }
+                    } />
+                </View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
                   style={
                     Object {
-                      "borderRadius": 0,
-                      "height": 44,
-                      "width": 44,
+                      "color": "#00A8D8",
+                      "fontSize": 17,
+                      "fontWeight": "500",
+                      "marginTop": 14,
                     }
-                  } />
+                  }>
+                  
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": 12,
+                      "paddingBottom": 24,
+                    }
+                  }>
+                  (tap for more)
+                </Text>
               </View>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#00A8D8",
-                    "fontSize": 17,
-                    "fontWeight": "500",
-                    "marginTop": 14,
-                  }
-                }>
-                
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#999",
-                    "fontSize": 12,
-                    "paddingBottom": 24,
-                  }
-                }>
-                (tap for more)
-              </Text>
             </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "textAlign": "center",
+                }
+              }>
+              
+            </Text>
           </View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+          <View
             style={
               Object {
-                "fontSize": 24,
-                "fontWeight": "300",
-                "textAlign": "center",
+                "paddingBottom": 60,
               }
             }>
-            
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "paddingBottom": 40,
-            }
-          }>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 17,
-                "fontWeight": "300",
-                "lineHeight": 24,
-                "padding": 24,
-              }
-            }>
-            
-          </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 17,
+                  "fontWeight": "300",
+                  "lineHeight": 24,
+                  "padding": 24,
+                }
+              }>
+              
+            </Text>
+          </View>
         </View>
       </View>
     </RCTScrollView>

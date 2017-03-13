@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
-import type { ScheduleTalk } from '../../../../types';
+import type { ScheduleTalk, SpeakerType } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
 import { darken } from '../../../../utils/color';
@@ -44,20 +44,21 @@ function Speaker({ data, onPress }) {
   );
 }
 
-export default class TalkPane extends Component {
-  props: {
-    nextTalk?: ScheduleTalk | null,
-    nextTalkPreviewIsEngaged?: boolean,
-    onHeroLayout?: (Object) => mixed,
-    onPressNext?: (Object) => mixed,
-    onScroll?: (Object) => mixed,
-    onScrollEndDrag?: () => mixed,
-    prevTalk?: ScheduleTalk | null,
-    prevTalkPreviewIsEngaged?: boolean,
-    showSpeakerModal?: () => mixed,
-    visibleTalk: ScheduleTalk,
-  };
+type Props = {
+  nextTalk?: ScheduleTalk,
+  nextTalkPreviewIsEngaged?: boolean,
+  onHeroLayout?: (Object) => mixed,
+  onPressNext?: (Object) => mixed,
+  onScroll?: (Object) => mixed,
+  onScrollEndDrag?: () => mixed,
+  prevTalk?: ScheduleTalk,
+  prevTalkPreviewIsEngaged?: boolean,
+  showSpeakerModal: (SpeakerType | Array<SpeakerType>) => mixed,
+  visibleTalk: ScheduleTalk,
+};
 
+export default class TalkPane extends Component {
+  props: Props;
   state = {
     animValue: new Animated.Value(0),
   };
@@ -67,7 +68,7 @@ export default class TalkPane extends Component {
       this.fadeInAdroidNextButton();
     }
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const isAndroid = Platform.OS === 'android';
     const isNewTalk = (this.props.nextTalk && this.props.nextTalk.id) !==
       (nextProps.nextTalk && nextProps.nextTalk.id);
@@ -107,36 +108,51 @@ export default class TalkPane extends Component {
           onPress={() => showSpeakerModal(visibleTalk.speaker)}
         />;
 
-    const nextPreviewUI = !nextTalk
-      ? null
-      : isAndroid
-          ? <Animated.View style={{ opacity: this.state.animValue }}>
-              <TouchableHighlight
-                underlayColor={darken(theme.color.sceneBg, 10)}
-                onPress={onPressNext}
-              >
-                <View>
-                  <Preview
-                    isActive={nextTalkPreviewIsEngaged}
-                    position="bottom"
-                    subtitle={
-                      `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-                    }
-                    title={nextTalk.title}
-                  />
-                </View>
-              </TouchableHighlight>
-            </Animated.View>
-          : <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-              <Preview
-                isActive={nextTalkPreviewIsEngaged}
-                position="bottom"
-                subtitle={
-                  `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${nextTalk.speaker.name}`
-                }
-                title={nextTalk.title}
-              />
-            </View>;
+    let nextPreviewUI = null;
+
+    if (nextTalk && nextTalk.speaker) {
+      let subtitle;
+      if (!Array.isArray(nextTalk.speaker)) {
+        const speaker = nextTalk.speaker; // Tell flow that we definitely aren't changing speaker when we call moment().
+        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speaker.name}`;
+      } else {
+        const speakers = nextTalk.speaker
+          .map(speaker => speaker.name)
+          .join(', ');
+        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speakers}`;
+      }
+
+      if (isAndroid) {
+        nextPreviewUI = (
+          <Animated.View style={{ opacity: this.state.animValue }}>
+            <TouchableHighlight
+              underlayColor={darken(theme.color.sceneBg, 10)}
+              onPress={onPressNext}
+            >
+              <View>
+                <Preview
+                  isActive={nextTalkPreviewIsEngaged}
+                  position="bottom"
+                  subtitle={subtitle}
+                  title={nextTalk.title}
+                />
+              </View>
+            </TouchableHighlight>
+          </Animated.View>
+        );
+      } else {
+        nextPreviewUI = (
+          <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+            <Preview
+              isActive={nextTalkPreviewIsEngaged}
+              position="bottom"
+              subtitle={subtitle}
+              title={nextTalk.title}
+            />
+          </View>
+        );
+      }
+    }
 
     const summaryStyles = isAndroid ? styles.summaryAndroid : styles.summaryIos;
     const scrollAreaStyle = isAndroid

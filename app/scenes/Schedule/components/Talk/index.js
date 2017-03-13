@@ -85,8 +85,8 @@ function KeynoteSubtitle({ text, ...props }) {
 // ==============================
 
 type Props = {
-  keynote: boolean,
-  lightning: boolean,
+  keynote?: boolean,
+  lightning?: boolean,
   onPress: () => mixed,
   speaker: Object,
   startTime: string,

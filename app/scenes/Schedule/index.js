@@ -42,6 +42,7 @@ type Props = {
 
 type State = {
   dataSource: Object,
+  now: Date,
   scrollY: Animated.Value,
   showNowButton?: boolean,
   activeTalkLayout?: {
@@ -106,6 +107,7 @@ export default class Schedule extends Component {
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       scrollY: new Animated.Value(0),
+      now: new Date(),
     };
 
     if (Platform.OS === 'ios') {
@@ -122,6 +124,14 @@ export default class Schedule extends Component {
         }
       });
     }
+
+    // Update the schedule once a second.
+    setInterval(
+      () => {
+        this.setState({ now: new Date() });
+      },
+      1000
+    );
   }
   componentDidMount() {
     this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(

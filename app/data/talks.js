@@ -464,7 +464,7 @@ const data = {
       twitter: 'redconservatory',
       summary: 'As a Software Engineer at Toronto-based product studio TWG, Nicole  Chung works with Node.js, React, and Redux to build fast and efficient user interfaces. When she’s not at work, she’s a full-stack JS mentor at HackerYou.',
     },
-    time: getTime(DAY_ONE, 6),
+    time: getTime(DAY_TWO, 6),
     lightning: true,
   },
   'aditya-punjani': {

@@ -476,7 +476,7 @@ exports[`Talk - Pane renders correctly 1`] = `
                 "textAlign": "center",
               }
             }>
-            10:00am - undefined
+            10:00am - Tom Occhino, Sebastian Markbage, Jing Chen
           </Text>
         </View>
       </View>

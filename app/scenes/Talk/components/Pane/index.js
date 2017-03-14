@@ -12,7 +12,7 @@ import {
   Dimensions,
   View,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ScheduleTalk, SpeakerType } from '../../../../types';
 
@@ -114,12 +114,16 @@ export default class TalkPane extends Component {
       let subtitle;
       if (!Array.isArray(nextTalk.speaker)) {
         const speaker = nextTalk.speaker; // Tell flow that we definitely aren't changing speaker when we call moment().
-        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speaker.name}`;
+        subtitle = `${moment
+          .tz(nextTalk.time.start, 'America/Los_Angeles')
+          .format(TIME_FORMAT)} - ${speaker.name}`;
       } else {
         const speakers = nextTalk.speaker
           .map(speaker => speaker.name)
           .join(', ');
-        subtitle = `${moment(nextTalk.time.start).format(TIME_FORMAT)} - ${speakers}`;
+        subtitle = `${moment
+          .tz(nextTalk.time.start, 'America/Los_Angeles')
+          .format(TIME_FORMAT)} - ${speakers}`;
       }
 
       if (isAndroid) {
@@ -174,7 +178,11 @@ export default class TalkPane extends Component {
                 isActive={prevTalkPreviewIsEngaged}
                 position="top"
                 subtitle={
-                  `${moment(prevTalk.time.start).format(TIME_FORMAT)} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
+                  `${moment
+                    .tz(prevTalk.time.start, 'America/Los_Angeles')
+                    .format(
+                      TIME_FORMAT
+                    )} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
                 }
                 title={prevTalk.title}
               />

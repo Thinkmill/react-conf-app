@@ -7,7 +7,7 @@ import {
   Share,
   BackAndroid,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ScheduleTalk, SpeakerType } from '../../types';
 import BackButtonAndroid from '../../components/BackButtonAndroid';
@@ -195,7 +195,9 @@ class Talk extends Component {
     } = this.state;
 
     const isAndroid = Platform.OS === 'android';
-    const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
+    const headerTitle = moment
+      .tz(talk.time.start, 'America/Los_Angeles')
+      .format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
     const incomingFrom = this.state.transitionDirection === 'next'

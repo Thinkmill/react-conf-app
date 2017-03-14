@@ -1,5 +1,5 @@
 // @flow
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ScheduleTalk } from '../types';
 
@@ -10,8 +10,8 @@ import type { ScheduleTalk } from '../types';
 // const DAY_ONE = moment().startOf('day').add(8, 'hours').add(30, 'minutes');
 // const DAY_TWO = moment().startOf('day').add(1, 'days').add(9, 'hours');
 
-const DAY_ONE = moment('2017-03-13 08:30:00');
-const DAY_TWO = moment('2017-03-14 09:00:00');
+const DAY_ONE = moment.tz('2017-03-13 08:30:00', 'America/Los_Angeles');
+const DAY_TWO = moment.tz('2017-03-14 09:00:00', 'America/Los_Angeles');
 
 function getTime(day, duration) {
   return {
@@ -526,8 +526,8 @@ const data = {
 // Internal
 
 function sortByStartTime(a, b) {
-  const talkStartTime1 = moment(data[a].time.start);
-  const talkStartTime2 = moment(data[b].time.start);
+  const talkStartTime1 = moment.tz(data[a].time.start, 'America/Los_Angeles');
+  const talkStartTime2 = moment.tz(data[b].time.start, 'America/Los_Angeles');
 
   return talkStartTime1.diff(talkStartTime2);
 }

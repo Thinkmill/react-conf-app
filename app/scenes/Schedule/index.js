@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ScheduleTalk } from '../../types';
 
@@ -83,7 +83,9 @@ export default class Schedule extends Component {
     let sectionIndex = 0;
 
     props.talks.forEach(talk => {
-      const sID = moment(talk.time.start).format('dddd');
+      const sID = moment
+        .tz(talk.time.start, 'America/Los_Angeles')
+        .format('dddd');
 
       // create new section and initialize empty array for section index
       if (!dataBlob[sID]) {
@@ -179,17 +181,19 @@ export default class Schedule extends Component {
     changedRows: ChangedRows
   ) => {
     // Now button
-    const now = moment();
+    const now = moment.tz('America/Los_Angeles');
     const currentTalk = this.props.talks.find(talk => {
-      const start = moment(talk.time.start);
-      const end = moment(talk.time.end);
+      const start = moment.tz(talk.time.start, 'America/Los_Angeles');
+      const end = moment.tz(talk.time.end, 'America/Los_Angeles');
       return now.isBetween(start, end);
     });
 
     // TODO all talks are over. Discuss how to handle
     if (!currentTalk) return;
 
-    const day = moment(currentTalk.time.start).format('dddd');
+    const day = moment
+      .tz(currentTalk.time.start, 'America/Los_Angeles')
+      .format('dddd');
     const talksForToday = visibleRows[day];
 
     // Set the now button to visible based on whether the talk is visible or not.
@@ -292,10 +296,14 @@ export default class Schedule extends Component {
             if (talk.break) {
               return (
                 <Break
-                  endTime={moment(talk.time.end).format(TIME_FORMAT)}
+                  endTime={moment
+                    .tz(talk.time.end, 'America/Los_Angeles')
+                    .format(TIME_FORMAT)}
                   lightning={talk.lightning}
                   onLayout={onLayout}
-                  startTime={moment(talk.time.start).format(TIME_FORMAT)}
+                  startTime={moment
+                    .tz(talk.time.start, 'America/Los_Angeles')
+                    .format(TIME_FORMAT)}
                   status={status}
                   title={talk.title}
                 />
@@ -325,7 +333,9 @@ export default class Schedule extends Component {
                 onLayout={onLayout}
                 onPress={onPress}
                 speaker={talk.speaker}
-                startTime={moment(talk.time.start).format(TIME_FORMAT)}
+                startTime={moment
+                  .tz(talk.time.start, 'America/Los_Angeles')
+                  .format(TIME_FORMAT)}
                 status={status}
                 title={talk.title}
               />
@@ -370,7 +380,7 @@ const styles = StyleSheet.create({
 });
 
 function getTalkStatus(startTime, endTime) {
-  const now = moment();
+  const now = moment.tz('America/Los_Angeles');
 
   if (now.isBetween(startTime, endTime)) {
     return 'present';

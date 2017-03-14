@@ -232,7 +232,7 @@ exports[`Talk renders correctly 1`] = `
               },
             ]
           }>
-          5:00am
+          8:00am
         </Text>
       </View>
       <View

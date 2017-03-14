@@ -2072,7 +2072,7 @@ exports[`Schedule renders correctly 1`] = `
                       "fontWeight": "300",
                     }
                   }>
-                  Nicole Chung
+                  Sophia Shoemaker
                 </Text>
               </View>
               <Text
@@ -2088,7 +2088,7 @@ exports[`Schedule renders correctly 1`] = `
                     undefined,
                   ]
                 }>
-                How to React in the Slow Lane
+                AWS Lambda + AWS Gateway + React = AWEsome
               </Text>
             </View>
             <View
@@ -2115,7 +2115,7 @@ exports[`Schedule renders correctly 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": "https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128",
+                      "uri": "https://www.gravatar.com/avatar/862e513be39c4338bf939dede21ce271?s=128",
                     }
                   }
                   style={
@@ -4386,6 +4386,216 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={null}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "backgroundColor": "white",
+            },
+          ]
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+              },
+              undefined,
+            ]
+          }>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#99dcef",
+                "width": 5,
+              }
+            } />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "padding": 17,
+                },
+                Object {
+                  "opacity": 0.5,
+                },
+              ]
+            }>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingRight": 12,
+                  },
+                  undefined,
+                ]
+              }>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "marginBottom": 14,
+                  }
+                }>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFC979",
+                      "borderRadius": 14,
+                      "height": 14,
+                      "justifyContent": "center",
+                      "marginRight": 7,
+                      "width": 14,
+                    }
+                  }>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={false}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "white",
+                          "fontSize": 14,
+                        },
+                        Object {
+                          "backgroundColor": "transparent",
+                          "marginBottom": -1,
+                        },
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                      ]
+                    }>
+                    
+                  </Text>
+                </View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": "#666",
+                      "flexShrink": 1,
+                      "fontSize": 14,
+                      "fontWeight": "300",
+                    }
+                  }>
+                  Nicole Chung
+                </Text>
+              </View>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#383838",
+                      "fontSize": 17,
+                    },
+                    undefined,
+                  ]
+                }>
+                How to React in the Slow Lane
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "flexShrink": 0,
+                }
+              }>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#F4F4F4",
+                      "borderRadius": 44,
+                      "height": 44,
+                      "overflow": "hidden",
+                      "width": 44,
+                    },
+                    undefined,
+                  ]
+                }>
+                <Image
+                  source={
+                    Object {
+                      "uri": "https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 0,
+                      "height": 44,
+                      "width": 44,
+                    }
+                  } />
+              </View>
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#999",
+                      "fontSize": 20,
+                    },
+                    Object {
+                      "marginLeft": 17,
+                    },
+                    Object {
+                      "fontFamily": "Ionicons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }>
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
         endTime="9:30am"
         onLayout={null}
         style={
@@ -5801,7 +6011,7 @@ exports[`Schedule renders correctly 1`] = `
                     undefined,
                   ]
                 }>
-                Design Specific Language
+                Extensible React
               </Text>
             </View>
             <View
@@ -6486,216 +6696,6 @@ exports[`Schedule renders correctly 1`] = `
                       "fontWeight": "300",
                     }
                   }>
-                  Sophia Shoemaker
-                </Text>
-              </View>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#383838",
-                      "fontSize": 17,
-                    },
-                    undefined,
-                  ]
-                }>
-                AWS Lambda + AWS Gateway + React = AWEsome
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexShrink": 0,
-                }
-              }>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#F4F4F4",
-                      "borderRadius": 44,
-                      "height": 44,
-                      "overflow": "hidden",
-                      "width": 44,
-                    },
-                    undefined,
-                  ]
-                }>
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://www.gravatar.com/avatar/862e513be39c4338bf939dede21ce271?s=128",
-                    }
-                  }
-                  style={
-                    Object {
-                      "borderRadius": 0,
-                      "height": 44,
-                      "width": 44,
-                    }
-                  } />
-              </View>
-              <Text
-                accessible={true}
-                allowFontScaling={false}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#999",
-                      "fontSize": 20,
-                    },
-                    Object {
-                      "marginLeft": 17,
-                    },
-                    Object {
-                      "fontFamily": "Ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                  ]
-                }>
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={null}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "backgroundColor": "white",
-            },
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "stretch",
-                "backgroundColor": "transparent",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-              },
-              undefined,
-            ]
-          }>
-          <View
-            style={
-              Object {
-                "backgroundColor": "#99dcef",
-                "width": 5,
-              }
-            } />
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "padding": 17,
-                },
-                Object {
-                  "opacity": 0.5,
-                },
-              ]
-            }>
-            <View
-              style={
-                Array [
-                  Object {
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "paddingRight": 12,
-                  },
-                  undefined,
-                ]
-              }>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "marginBottom": 14,
-                  }
-                }>
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#FFC979",
-                      "borderRadius": 14,
-                      "height": 14,
-                      "justifyContent": "center",
-                      "marginRight": 7,
-                      "width": 14,
-                    }
-                  }>
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "white",
-                          "fontSize": 14,
-                        },
-                        Object {
-                          "backgroundColor": "transparent",
-                          "marginBottom": -1,
-                        },
-                        Object {
-                          "fontFamily": "Ionicons",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }>
-                    
-                  </Text>
-                </View>
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#666",
-                      "flexShrink": 1,
-                      "fontSize": 14,
-                      "fontWeight": "300",
-                    }
-                  }>
                   Aditya Punjani
                 </Text>
               </View>
@@ -6987,7 +6987,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="4:30pm"
+        endTime="4:24pm"
         onLayout={null}
         style={
           Array [
@@ -7038,7 +7038,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            4:00pm
+            3:54pm
              -
             <Text
               accessible={true}
@@ -7148,7 +7148,7 @@ exports[`Schedule renders correctly 1`] = `
                     },
                   ]
                 }>
-                4:30pm - Cheng Lou
+                4:24pm - Cheng Lou
               </Text>
               <Text
                 accessible={true}
@@ -7163,7 +7163,7 @@ exports[`Schedule renders correctly 1`] = `
                     undefined,
                   ]
                 }>
-                Building React Components with Reason
+                Taming the Meta-Language
               </Text>
             </View>
             <View
@@ -7228,7 +7228,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="6:00pm"
+        endTime="5:54pm"
         onLayout={null}
         style={
           Array [
@@ -7279,7 +7279,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            5:00pm
+            4:54pm
              -
             <Text
               accessible={true}
@@ -7297,7 +7297,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="10:00pm"
+        endTime="9:54pm"
         onLayout={null}
         style={
           Array [
@@ -7348,7 +7348,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            6:00pm
+            5:54pm
              -
             <Text
               accessible={true}

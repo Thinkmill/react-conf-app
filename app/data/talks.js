@@ -157,15 +157,15 @@ const data = {
     time: getTime(DAY_ONE, 5),
     lightning: true,
   },
-  'nicole-chung': {
-    summary: "Delivering your React app offline, with a look and feel of a native app, is becoming increasingly feasible. Technical benefits include fast installs (since it's just a web page), push notifications, caching page content, delivering a faster feeling experience, and keeping the user logged even when the network drops a connection. By using JS plugins and libraries such such as offline.js and offline-plugin, and browser technologies such as Service Workers, IndexedDB, and AppCache, you can be sure your users will be able to use your web app even as their internet connection drops off.",
-    title: 'How to React in the Slow Lane',
+  'sophia-shoemaker': {
+    summary: 'AWS Lambda is an event-driven, "serverless" service that makes it easier and cheaper than ever to get an application up and running. In this talk I\'ll dive into some of the details of what AWS Lambda is, how it works, how to integrate it with another AWS service, API Gateway and how you can "go serverless" with React applications.',
+    title: 'AWS Lambda + AWS Gateway + React = AWEsome',
     speaker: {
-      avatar: 'https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128',
-      github: 'nicolechung',
-      name: 'Nicole Chung',
-      twitter: 'redconservatory',
-      summary: 'As a Software Engineer at Toronto-based product studio TWG, Nicole  Chung works with Node.js, React, and Redux to build fast and efficient user interfaces. When she’s not at work, she’s a full-stack JS mentor at HackerYou.',
+      avatar: 'https://www.gravatar.com/avatar/862e513be39c4338bf939dede21ce271?s=128',
+      github: 'mrscobbler',
+      name: 'Sophia Shoemaker',
+      twitter: 'wisecobbler',
+      summary: 'Sophia Shoemaker is a web developer and a member of the Fullstack React team',
     },
     time: getTime(DAY_ONE, 6),
     lightning: true,
@@ -411,7 +411,7 @@ const data = {
   },
   'cameron-westland': {
     summary: 'For fabricating digital products, the designer/developer workflow is broken. In this talk I’ll go into some of the problems with the current workflow and why I think the existing solutions are bad. I’ll also demonstrate a component based visualization tool, a new markup language, and compiler which can generate React components, as possible solutions. My ultimate goal is to allow designers to build and deploy complex UI components from concept to production like they do with many other assets like video, images and icons.',
-    title: 'Design Specific Language',
+    title: 'Extensible React',
     speaker: {
       avatar: 'https://www.gravatar.com/avatar/0c42130e61dd791ae86aa8b0931e5853?s=128',
       github: 'camwest',
@@ -454,17 +454,17 @@ const data = {
     time: getTime(DAY_TWO, 6),
     lightning: true,
   },
-  'sophia-shoemaker': {
-    summary: 'AWS Lambda is an event-driven, "serverless" service that makes it easier and cheaper than ever to get an application up and running. In this talk I\'ll dive into some of the details of what AWS Lambda is, how it works, how to integrate it with another AWS service, API Gateway and how you can "go serverless" with React applications.',
-    title: 'AWS Lambda + AWS Gateway + React = AWEsome',
+  'nicole-chung': {
+    summary: "Delivering your React app offline, with a look and feel of a native app, is becoming increasingly feasible. Technical benefits include fast installs (since it's just a web page), push notifications, caching page content, delivering a faster feeling experience, and keeping the user logged even when the network drops a connection. By using JS plugins and libraries such such as offline.js and offline-plugin, and browser technologies such as Service Workers, IndexedDB, and AppCache, you can be sure your users will be able to use your web app even as their internet connection drops off.",
+    title: 'How to React in the Slow Lane',
     speaker: {
-      avatar: 'https://www.gravatar.com/avatar/862e513be39c4338bf939dede21ce271?s=128',
-      github: 'mrscobbler',
-      name: 'Sophia Shoemaker',
-      twitter: 'wisecobbler',
-      summary: 'Sophia Shoemaker is a web developer and a member of the Fullstack React team',
+      avatar: 'https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128',
+      github: 'nicolechung',
+      name: 'Nicole Chung',
+      twitter: 'redconservatory',
+      summary: 'As a Software Engineer at Toronto-based product studio TWG, Nicole  Chung works with Node.js, React, and Redux to build fast and efficient user interfaces. When she’s not at work, she’s a full-stack JS mentor at HackerYou.',
     },
-    time: getTime(DAY_TWO, 6),
+    time: getTime(DAY_ONE, 6),
     lightning: true,
   },
   'aditya-punjani': {
@@ -499,7 +499,7 @@ const data = {
   },
   'cheng-lou': {
     summary: 'What is a piece of code? What is a library, a tool, a platform and a language? Based on my last talk on the spectrum of abstraction, this talk explores the daily concerns and the meta-concerns of writing code, and how our new effort, Reason, relates to them.',
-    title: 'Building React Components with Reason',
+    title: 'Taming the Meta-Language',
     speaker: {
       avatar: 'https://www.gravatar.com/avatar/13bede8f6aa8c5eb590995b32ca04bf2?s=128',
       github: 'chenglou',

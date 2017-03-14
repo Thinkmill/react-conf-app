@@ -4,7 +4,8 @@ The companion app for [React Conf 2017](http://conf.reactjs.org) in Santa Clara,
 
 <a href="http://thinkmill.com.au/?utm_source=github&amp;utm_medium=badge&amp;utm_campaign=react-conf-app"><img src="https://camo.githubusercontent.com/1752e09ecedba599946d84f1b465bc1176434d5a/68747470733a2f2f7468696e6b6d696c6c2e6769746875622e696f2f62616467652f68656172742e737667" alt="Supported by Thinkmill" data-canonical-src="https://thinkmill.github.io/badge/heart.svg" style="max-width:100%;"></a>
 
-[Find it on the iOS App Store here](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1212174348&mt=8)! (Android version WIP)
+[Find it on the iOS App Store here](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1212174348&mt=8)!
+[Find it on Google Play here](https://play.google.com/store/apps/details?id=com.reactconf2017)!
 
 Get a live schedule, information about the talks and speakers, and easily tweet or share talks as they happen.
 

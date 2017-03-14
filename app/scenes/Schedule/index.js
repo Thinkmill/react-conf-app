@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {
   Animated,
+  AppState,
   Dimensions,
   LayoutAnimation,
   ListView,
@@ -127,6 +128,13 @@ export default class Schedule extends Component {
         }
       });
     }
+  }
+  componentDidMount() {
+    this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
+      'willfocus',
+      this.handleNavigatorWillFocus
+    );
+    AppState.addEventListener('change', this.handleAppStateChange);
 
     // Update the schedule once a second.
     this.interval = setInterval(
@@ -134,12 +142,6 @@ export default class Schedule extends Component {
         this.setState({ now: new Date() });
       },
       60000 // Once a minute
-    );
-  }
-  componentDidMount() {
-    this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
-      'willfocus',
-      this.handleNavigatorWillFocus
     );
 
     // This is the actual image splash screen, not the animated one.
@@ -155,6 +157,7 @@ export default class Schedule extends Component {
     if (this.scrollYListener)
       this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
+    AppState.removeEventListener('change', this.handleAppStateChange);
 
     if (this.interval) {
       clearInterval(this.interval);
@@ -162,12 +165,23 @@ export default class Schedule extends Component {
     }
   }
 
+  handleAppStateChange = nextAppState => {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
+      // update the current time when the app comes into the foreground
+      this.setState({ now: new Date() });
+    }
+  };
   handleNavigatorWillFocus = (event: any) => {
     const { scene } = event.data.route;
 
     if (scene === 'Schedule' && this.state.scrollY._value < 120) {
       StatusBar.setBarStyle('light-content', true);
     }
+
+    this.setState({ now: new Date() });
   };
   gotoEventInfo = () => {
     StatusBar.setBarStyle('default', true);

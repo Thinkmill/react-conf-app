@@ -172,7 +172,7 @@ class Talk extends Component {
 
     Share.share({
       title: 'ReactConf 2017',
-      message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
+      message: `${speakerHandle} - "${talk.title}" #reactconf`,
     });
   };
   toggleSpeakerModal = (data: Object) => {

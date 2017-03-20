@@ -128,13 +128,13 @@ exports[`Schedule - Talk renders talk types correctly 1`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -340,13 +340,13 @@ exports[`Schedule - Talk renders talk types correctly 2`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -513,13 +513,13 @@ exports[`Schedule - Talk renders talk types correctly 3`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -726,13 +726,13 @@ exports[`Schedule - Talk renders talk types correctly 4`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -976,13 +976,13 @@ exports[`Schedule - Talk renders talk types correctly 5`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -1187,13 +1187,13 @@ exports[`Schedule - Talk renders talk types correctly 6`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -1400,13 +1400,13 @@ exports[`Schedule - Talk renders talk types correctly 7`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -1650,13 +1650,13 @@ exports[`Schedule - Talk renders talk types correctly 8`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -1861,13 +1861,13 @@ exports[`Schedule - Talk renders talk types correctly 9`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -2074,13 +2074,13 @@ exports[`Schedule - Talk renders talk types correctly 10`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -2324,13 +2324,13 @@ exports[`Schedule - Talk renders talk types correctly 11`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={
@@ -2535,13 +2535,13 @@ exports[`Schedule - Talk renders talk types correctly 12`] = `
                 "overflow": "hidden",
                 "width": 44,
               },
-              undefined,
+              null,
             ]
           }>
           <Image
             source={
               Object {
-                "uri": undefined,
+                "uri": "",
               }
             }
             style={

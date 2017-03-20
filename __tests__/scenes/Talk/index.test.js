@@ -9,18 +9,20 @@ const talk = {
   id: '',
   summary: '',
   title: '',
-  speaker: {
-    avatar: '',
-    github: '',
-    name: '',
-    twitter: '',
-    summary: '',
-  },
+  speakers: [
+    {
+      avatar: '',
+      github: '',
+      name: '',
+      twitter: '',
+      summary: '',
+    },
+  ],
   time: {
     // These dates, contrary to their appearance, will end up at the same time
     // each time because we're using mockdate in the setup.js file.
-    start: new Date(),
-    end: new Date(),
+    start: new Date(Date.UTC(2017, 3, 1, 1, 0, 0)),
+    end: new Date(Date.UTC(2017, 3, 1, 2, 0, 0)),
   },
 };
 

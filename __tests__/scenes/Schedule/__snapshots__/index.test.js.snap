@@ -861,7 +861,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -1033,7 +1033,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -1205,7 +1205,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -1446,7 +1446,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -1618,7 +1618,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -1899,7 +1899,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -2109,7 +2109,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -2319,7 +2319,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -2529,7 +2529,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -2739,7 +2739,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -2980,7 +2980,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -3152,7 +3152,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -3433,7 +3433,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -3643,7 +3643,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -3853,7 +3853,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -4063,7 +4063,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -4273,7 +4273,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -4383,216 +4383,6 @@ exports[`Schedule renders correctly 1`] = `
               Happy Hour
             </Text>
           </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={null}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "backgroundColor": "white",
-            },
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "stretch",
-                "backgroundColor": "transparent",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-              },
-              undefined,
-            ]
-          }>
-          <View
-            style={
-              Object {
-                "backgroundColor": "#99dcef",
-                "width": 5,
-              }
-            } />
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "padding": 17,
-                },
-                Object {
-                  "opacity": 0.5,
-                },
-              ]
-            }>
-            <View
-              style={
-                Array [
-                  Object {
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "paddingRight": 12,
-                  },
-                  undefined,
-                ]
-              }>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "marginBottom": 14,
-                  }
-                }>
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#FFC979",
-                      "borderRadius": 14,
-                      "height": 14,
-                      "justifyContent": "center",
-                      "marginRight": 7,
-                      "width": 14,
-                    }
-                  }>
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "white",
-                          "fontSize": 14,
-                        },
-                        Object {
-                          "backgroundColor": "transparent",
-                          "marginBottom": -1,
-                        },
-                        Object {
-                          "fontFamily": "Ionicons",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }>
-                    
-                  </Text>
-                </View>
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#666",
-                      "flexShrink": 1,
-                      "fontSize": 14,
-                      "fontWeight": "300",
-                    }
-                  }>
-                  Nicole Chung
-                </Text>
-              </View>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#383838",
-                      "fontSize": 17,
-                    },
-                    undefined,
-                  ]
-                }>
-                How to React in the Slow Lane
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexShrink": 0,
-                }
-              }>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#F4F4F4",
-                      "borderRadius": 44,
-                      "height": 44,
-                      "overflow": "hidden",
-                      "width": 44,
-                    },
-                    undefined,
-                  ]
-                }>
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128",
-                    }
-                  }
-                  style={
-                    Object {
-                      "borderRadius": 0,
-                      "height": 44,
-                      "width": 44,
-                    }
-                  } />
-              </View>
-              <Text
-                accessible={true}
-                allowFontScaling={false}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#999",
-                      "fontSize": 20,
-                    },
-                    Object {
-                      "marginLeft": 17,
-                    },
-                    Object {
-                      "fontFamily": "Ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                  ]
-                }>
-                
-              </Text>
-            </View>
-          </View>
         </View>
       </View>
       <View
@@ -4862,7 +4652,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -5034,7 +4824,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -5275,7 +5065,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -5447,7 +5237,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -5619,7 +5409,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -5860,7 +5650,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -6032,7 +5822,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -6313,7 +6103,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -6523,13 +6313,223 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
                   source={
                     Object {
                       "uri": "https://www.gravatar.com/avatar/7ed988fcb335ac36e3c9f7fc8fdb7c10?s=128",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 0,
+                      "height": 44,
+                      "width": 44,
+                    }
+                  } />
+              </View>
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#999",
+                      "fontSize": 20,
+                    },
+                    Object {
+                      "marginLeft": 17,
+                    },
+                    Object {
+                      "fontFamily": "Ionicons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }>
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={null}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "backgroundColor": "white",
+            },
+          ]
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#CCC",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+              },
+              undefined,
+            ]
+          }>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#99dcef",
+                "width": 5,
+              }
+            } />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "padding": 17,
+                },
+                Object {
+                  "opacity": 0.5,
+                },
+              ]
+            }>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingRight": 12,
+                  },
+                  undefined,
+                ]
+              }>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "marginBottom": 14,
+                  }
+                }>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFC979",
+                      "borderRadius": 14,
+                      "height": 14,
+                      "justifyContent": "center",
+                      "marginRight": 7,
+                      "width": 14,
+                    }
+                  }>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={false}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "white",
+                          "fontSize": 14,
+                        },
+                        Object {
+                          "backgroundColor": "transparent",
+                          "marginBottom": -1,
+                        },
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                      ]
+                    }>
+                    
+                  </Text>
+                </View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": "#666",
+                      "flexShrink": 1,
+                      "fontSize": 14,
+                      "fontWeight": "300",
+                    }
+                  }>
+                  Nicole Chung
+                </Text>
+              </View>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#383838",
+                      "fontSize": 17,
+                    },
+                    undefined,
+                  ]
+                }>
+                How to React in the Slow Lane
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "flexShrink": 0,
+                }
+              }>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#F4F4F4",
+                      "borderRadius": 44,
+                      "height": 44,
+                      "overflow": "hidden",
+                      "width": 44,
+                    },
+                    null,
+                  ]
+                }>
+                <Image
+                  source={
+                    Object {
+                      "uri": "https://www.gravatar.com/avatar/c70631175fb94a653c5b8e08180e1126?s=128",
                     }
                   }
                   style={
@@ -6733,7 +6733,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -6943,7 +6943,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -6987,7 +6987,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="4:24pm"
+        endTime="4:30pm"
         onLayout={null}
         style={
           Array [
@@ -7038,7 +7038,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            3:54pm
+            4:00pm
              -
             <Text
               accessible={true}
@@ -7148,7 +7148,7 @@ exports[`Schedule renders correctly 1`] = `
                     },
                   ]
                 }>
-                4:24pm - Cheng Lou
+                4:30pm - Cheng Lou
               </Text>
               <Text
                 accessible={true}
@@ -7184,7 +7184,7 @@ exports[`Schedule renders correctly 1`] = `
                       "overflow": "hidden",
                       "width": 44,
                     },
-                    undefined,
+                    null,
                   ]
                 }>
                 <Image
@@ -7228,7 +7228,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="5:54pm"
+        endTime="6:00pm"
         onLayout={null}
         style={
           Array [
@@ -7279,7 +7279,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            4:54pm
+            5:00pm
              -
             <Text
               accessible={true}
@@ -7297,7 +7297,7 @@ exports[`Schedule renders correctly 1`] = `
         </View>
       </View>
       <View
-        endTime="9:54pm"
+        endTime="10:00pm"
         onLayout={null}
         style={
           Array [
@@ -7348,7 +7348,7 @@ exports[`Schedule renders correctly 1`] = `
                 },
               ]
             }>
-            5:54pm
+            6:00pm
              -
             <Text
               accessible={true}

@@ -16,10 +16,14 @@ describe('Schedule - Talk', () => {
                 keynote={keynote}
                 lightning={lightning}
                 onPress={() => {}}
-                speaker={{
-                  name: 'Max Stoiber',
-                  twitter: 'mxstbr',
-                }}
+                speakers={[
+                  {
+                    name: 'Max Stoiber',
+                    twitter: 'mxstbr',
+                    summary: '',
+                    avatar: '',
+                  },
+                ]}
                 startTime="9 AM"
                 status={status}
                 title="This is a test"

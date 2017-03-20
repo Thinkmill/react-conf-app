@@ -76,44 +76,61 @@ const TalkPreview = ({ talk, isEngaged }) => {
   );
 };
 
-const TalkPreviewPrev = ({ talk, isEngaged }) => {
-  const preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+class TalkPreviewPrev extends React.Component {
+  props: {
+    talk: ScheduleTalk,
+    isEngaged: boolean,
+  };
 
-  if (isAndroid) {
-    return null;
-  } else {
-    return (
-      <View ref="prevTalkPreview" style={{ opacity: 0 }}>
-        {preview}
-      </View>
-    );
+  render() {
+    let { talk, isEngaged } = this.props;
+    let preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+
+    if (isAndroid) {
+      return null;
+    } else {
+      return (
+        <View ref="prevTalkPreview" style={{ opacity: 0 }}>
+          {preview}
+        </View>
+      );
+    }
   }
-};
+}
 
-const TalkPreviewNext = ({ talk, isEngaged, onPress }) => {
-  const preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+class TalkPreviewNext extends React.Component {
+  props: {
+    talk: ScheduleTalk,
+    isEngaged: boolean,
+    onPress: Function,
+  };
 
-  if (isAndroid) {
-    return (
-      <Animated.View style={{ opacity: this.state.animValue }}>
-        <TouchableHighlight
-          underlayColor={darken(theme.color.sceneBg, 10)}
-          onPress={onPress}
-        >
-          <View>
-            {preview}
-          </View>
-        </TouchableHighlight>
-      </Animated.View>
-    );
-  } else {
-    return (
-      <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-        {preview}
-      </View>
-    );
+  render() {
+    let { talk, isEngaged, onPress } = this.props;
+    let preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+
+    if (isAndroid) {
+      return (
+        <Animated.View style={{ opacity: this.state.animValue }}>
+          <TouchableHighlight
+            underlayColor={darken(theme.color.sceneBg, 10)}
+            onPress={onPress}
+          >
+            <View>
+              {preview}
+            </View>
+          </TouchableHighlight>
+        </Animated.View>
+      );
+    } else {
+      return (
+        <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+          {preview}
+        </View>
+      );
+    }
   }
-};
+}
 
 export default class TalkPane extends Component {
   props: Props;

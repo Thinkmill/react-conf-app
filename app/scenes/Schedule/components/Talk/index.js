@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 import { lighten } from '../../../../utils/color';
+import type { Speaker as SpeakerType } from '../../../../types';
 
 type Status = 'past' | 'present' | 'future';
 
@@ -88,7 +89,7 @@ type Props = {
   keynote?: boolean,
   lightning?: boolean,
   onPress: () => mixed,
-  speaker: Object,
+  speakers: Array<SpeakerType>,
   startTime: string,
   status: Status,
   title: string,
@@ -127,7 +128,7 @@ export default class Talk extends Component {
       keynote,
       lightning,
       onPress,
-      speaker,
+      speakers,
       startTime,
       status,
       title,
@@ -155,24 +156,38 @@ export default class Talk extends Component {
 
     // subtitle variants
     let subtitleText = startTime;
-    if (speaker) subtitleText += ` - ${speaker.name}`;
+    let speakersText;
 
-    let subtitle = (
-      <Text style={[styles.subtitle, styles.subtitleText]}>
-        {subtitleText}
-      </Text>
-    );
-    if (lightning) subtitle = <LightningSubtitle text={speaker.name} />;
-    else if (keynote) subtitle = <KeynoteSubtitle text={startTime} />;
+    if (speakers) {
+      speakersText = speakers.map(speaker => speaker.name).join(', ');
+      subtitleText += ' - ' + speakersText;
+    }
+
+    let subtitle;
+
+    if (lightning) {
+      subtitle = <LightningSubtitle text={speakersText} />;
+    } else if (keynote) {
+      subtitle = <KeynoteSubtitle text={startTime} />;
+    } else {
+      subtitle = (
+        <Text style={[styles.subtitle, styles.subtitleText]}>
+          {subtitleText}
+        </Text>
+      );
+    }
 
     // avatar variants
-    const avatar = Array.isArray(speaker)
-      ? speaker.map((s, i) => {
-          const pull = i + 1 !== speaker.length ? { marginRight: -16 } : null;
-
-          return <Avatar key={s.name} source={s.avatar} style={pull} />;
+    const avatar = speakers
+      ? speakers.map((speaker, index) => {
+          const pull = index + 1 !== speakers.length
+            ? { marginRight: -16 }
+            : null;
+          return (
+            <Avatar key={speaker.name} source={speaker.avatar} style={pull} />
+          );
         })
-      : <Avatar source={speaker && speaker.avatar} />;
+      : null;
 
     // const avatar = <Avatar source={speaker.avatar} />;
 

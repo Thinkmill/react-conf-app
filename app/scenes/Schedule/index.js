@@ -350,7 +350,7 @@ export default class Schedule extends Component {
                 lightning={talk.lightning}
                 onLayout={onLayout}
                 onPress={onPress}
-                speaker={talk.speaker}
+                speakers={talk.speakers}
                 startTime={moment
                   .tz(talk.time.start, 'America/Los_Angeles')
                   .format(TIME_FORMAT)}

@@ -32,34 +32,10 @@ exports[`Talk - Pane renders correctly 1`] = `
                 "position": "absolute",
               },
               Object {
-                "top": -70,
+                "bottom": -70,
               },
             ]
           }>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            numberOfLines={1}
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }>
-            Conference Keynote
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#666",
-                "textAlign": "center",
-              }
-            }>
-            10:00am 
-          </Text>
           <View
             style={
               Object {
@@ -89,9 +65,33 @@ exports[`Talk - Pane renders correctly 1`] = `
                   },
                 ]
               }>
-              
+              
             </Text>
           </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }>
+            Conference Keynote
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#666",
+                "textAlign": "center",
+              }
+            }>
+            10:00am - Tom Occhino, Sebastian Markbage, Jing Chen
+          </Text>
         </View>
       </View>
       <View

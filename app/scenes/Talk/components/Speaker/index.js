@@ -15,6 +15,7 @@ import DraggableView from '../../../../components/DraggableView';
 import Modal from '../../../../components/Modal';
 import theme from '../../../../theme';
 import { attemptToOpenUrl } from '../../../../utils';
+import type { Speaker as SpeakerType } from '../../../../types';
 
 type ButtonProps = {
   bordered?: boolean,

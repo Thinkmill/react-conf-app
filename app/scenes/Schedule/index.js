@@ -36,6 +36,8 @@ import NowButton from './components/NowButton';
 import Talk from './components/Talk';
 import SplashScreen from './components/SplashScreen';
 
+type CurrentAppState = 'active' | 'background' | 'inactive';
+
 type Props = {
   navigator: Object,
   talks: Array<ScheduleTalk>,
@@ -50,6 +52,7 @@ type State = {
     height: number,
     position: number,
   },
+  appState: CurrentAppState,
 };
 
 type VisibleRows = {
@@ -112,6 +115,7 @@ export default class Schedule extends Component {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       scrollY: new Animated.Value(0),
       now: new Date(),
+      appState: AppState.currentState,
     };
 
     if (Platform.OS === 'ios') {
@@ -165,7 +169,7 @@ export default class Schedule extends Component {
     }
   }
 
-  handleAppStateChange = nextAppState => {
+  handleAppStateChange = (nextAppState: CurrentAppState) => {
     if (
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'

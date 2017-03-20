@@ -5,7 +5,7 @@ export type ScheduleTimeRange = {
   end: Date,
 };
 
-export type SpeakerType = {
+export type Speaker = {
   avatar: string,
   github?: string,
   name: string,
@@ -19,7 +19,7 @@ export type ScheduleTalk = {
   lightning: boolean,
   summary: string,
   title: string,
-  speaker: SpeakerType | Array<SpeakerType>,
+  speakers: Array<Speaker>,
   time: ScheduleTimeRange,
 };
 

@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import moment from 'moment-timezone';
 
-import type { ScheduleTalk, SpeakerType } from '../../../../types';
+import type { ScheduleTalk, Speaker as SpeakerType } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
 import { darken } from '../../../../utils/color';
@@ -23,7 +23,9 @@ import Avatar from '../../../../components/Avatar';
 
 import Preview from '../Preview';
 
-function Speaker({ data, onPress }) {
+const isAndroid = Platform.OS === 'android';
+
+const Speaker = ({ speaker, onPress }) => {
   const touchableProps = {
     activeOpacity: 0.66,
     onPress,
@@ -32,9 +34,9 @@ function Speaker({ data, onPress }) {
   return (
     <TouchableOpacity {...touchableProps}>
       <View style={styles.heroSpeaker}>
-        <Avatar source={data.avatar} />
+        <Avatar source={speaker.avatar} />
         <Text style={styles.heroSpeakerName}>
-          {data.name}
+          {speaker.name}
         </Text>
         <Text style={styles.heroSpeakerHint}>
           (tap for more)
@@ -42,41 +44,104 @@ function Speaker({ data, onPress }) {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 type Props = {
-  nextTalk?: ScheduleTalk,
-  nextTalkPreviewIsEngaged?: boolean,
+  nextTalk?: ScheduleTalk | null,
+  nextTalkPreviewIsEngaged: boolean,
   onHeroLayout?: (Object) => mixed,
   onPressNext?: (Object) => mixed,
-  onScroll?: (Object) => mixed,
+  onScroll?: ((Object) => mixed) | null,
   onScrollEndDrag?: () => mixed,
-  prevTalk?: ScheduleTalk,
-  prevTalkPreviewIsEngaged?: boolean,
-  showSpeakerModal: (SpeakerType | Array<SpeakerType>) => mixed,
+  prevTalk?: ScheduleTalk | null,
+  prevTalkPreviewIsEngaged: boolean,
+  showSpeakerModal: (SpeakerType) => mixed,
   visibleTalk: ScheduleTalk,
+};
+
+const TalkPreview = ({ talk, isEngaged }) => {
+  const speakers = talk.speakers.map(speaker => speaker.name).join(', ');
+
+  const subtitle = `${moment
+    .tz(talk.time.start, 'America/Los_Angeles')
+    .format(TIME_FORMAT)} - ${speakers}`;
+
+  return (
+    <Preview
+      isActive={isEngaged}
+      position="bottom"
+      subtitle={subtitle}
+      title={talk.title}
+    />
+  );
+};
+
+const TalkPreviewPrev = ({ talk, isEngaged }) => {
+  const preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+
+  if (isAndroid) {
+    return null;
+  } else {
+    return (
+      <View ref="prevTalkPreview" style={{ opacity: 0 }}>
+        {preview}
+      </View>
+    );
+  }
+};
+
+const TalkPreviewNext = ({ talk, isEngaged, onPress }) => {
+  const preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
+
+  if (isAndroid) {
+    return (
+      <Animated.View style={{ opacity: this.state.animValue }}>
+        <TouchableHighlight
+          underlayColor={darken(theme.color.sceneBg, 10)}
+          onPress={onPress}
+        >
+          <View>
+            {preview}
+          </View>
+        </TouchableHighlight>
+      </Animated.View>
+    );
+  } else {
+    return (
+      <View ref="nextTalkPreview" style={{ opacity: 0 }}>
+        {preview}
+      </View>
+    );
+  }
 };
 
 export default class TalkPane extends Component {
   props: Props;
+
   state = {
     animValue: new Animated.Value(0),
   };
 
+  static defaultProps = {
+    nextTalkPreviewIsEngaged: false,
+    prevTalkPreviewIsEngaged: false,
+  };
+
   componentDidMount() {
-    if (Platform.OS === 'android') {
-      this.fadeInAdroidNextButton();
+    if (isAndroid) {
+      this.fadeInAndroidNextButton();
     }
   }
+
   componentWillReceiveProps(nextProps: Props) {
-    const isAndroid = Platform.OS === 'android';
-    const isNewTalk = (this.props.nextTalk && this.props.nextTalk.id) !==
-      (nextProps.nextTalk && nextProps.nextTalk.id);
+    const nextTalk = this.props.nextTalk;
+    const isNewTalk = (nextTalk && nextTalk.id) !== (nextTalk && nextTalk.id);
     if (isAndroid && isNewTalk) {
-      this.fadeInAdroidNextButton();
+      this.fadeInAndroidNextButton();
     }
   }
-  fadeInAdroidNextButton = () => {
+
+  fadeInAndroidNextButton = () => {
     this.state.animValue.setValue(0);
     Animated.timing(this.state.animValue, {
       toValue: 1,
@@ -97,66 +162,13 @@ export default class TalkPane extends Component {
       ...props
     } = this.props;
 
-    const isAndroid = Platform.OS === 'android';
-
-    const speakers = Array.isArray(visibleTalk.speaker)
-      ? visibleTalk.speaker.map(s => (
-          <Speaker key={s.name} data={s} onPress={() => showSpeakerModal(s)} />
-        ))
-      : <Speaker
-          data={visibleTalk.speaker}
-          onPress={() => showSpeakerModal(visibleTalk.speaker)}
-        />;
-
-    let nextPreviewUI = null;
-
-    if (nextTalk && nextTalk.speaker) {
-      let subtitle;
-      if (!Array.isArray(nextTalk.speaker)) {
-        const speaker = nextTalk.speaker; // Tell flow that we definitely aren't changing speaker when we call moment().
-        subtitle = `${moment
-          .tz(nextTalk.time.start, 'America/Los_Angeles')
-          .format(TIME_FORMAT)} - ${speaker.name}`;
-      } else {
-        const speakers = nextTalk.speaker
-          .map(speaker => speaker.name)
-          .join(', ');
-        subtitle = `${moment
-          .tz(nextTalk.time.start, 'America/Los_Angeles')
-          .format(TIME_FORMAT)} - ${speakers}`;
-      }
-
-      if (isAndroid) {
-        nextPreviewUI = (
-          <Animated.View style={{ opacity: this.state.animValue }}>
-            <TouchableHighlight
-              underlayColor={darken(theme.color.sceneBg, 10)}
-              onPress={onPressNext}
-            >
-              <View>
-                <Preview
-                  isActive={nextTalkPreviewIsEngaged}
-                  position="bottom"
-                  subtitle={subtitle}
-                  title={nextTalk.title}
-                />
-              </View>
-            </TouchableHighlight>
-          </Animated.View>
-        );
-      } else {
-        nextPreviewUI = (
-          <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-            <Preview
-              isActive={nextTalkPreviewIsEngaged}
-              position="bottom"
-              subtitle={subtitle}
-              title={nextTalk.title}
-            />
-          </View>
-        );
-      }
-    }
+    const speakers = visibleTalk.speakers.map(speaker => (
+      <Speaker
+        key={speaker.name}
+        speaker={speaker}
+        onPress={() => showSpeakerModal(speaker)}
+      />
+    ));
 
     const summaryStyles = isAndroid ? styles.summaryAndroid : styles.summaryIos;
     const scrollAreaStyle = isAndroid
@@ -171,24 +183,15 @@ export default class TalkPane extends Component {
         {...props}
       >
         <View style={scrollAreaStyle}>
-          {!!prevTalk &&
-            !isAndroid &&
-            <View ref="prevTalkPreview" style={{ opacity: 0 }}>
-              <Preview
-                isActive={prevTalkPreviewIsEngaged}
-                position="top"
-                subtitle={
-                  `${moment
-                    .tz(prevTalk.time.start, 'America/Los_Angeles')
-                    .format(
-                      TIME_FORMAT
-                    )} ${prevTalk.speaker.name ? ' - ' + prevTalk.speaker.name : ''}`
-                }
-                title={prevTalk.title}
-              />
-            </View>}
+          {prevTalk &&
+            <TalkPreviewPrev
+              talk={prevTalk}
+              isEngaged={prevTalkPreviewIsEngaged}
+            />}
+
           <View style={styles.hero} onLayout={onHeroLayout}>
             {speakers}
+
             <Text style={styles.heroTitle}>
               {visibleTalk.title}
             </Text>
@@ -200,7 +203,12 @@ export default class TalkPane extends Component {
             </Text>
           </View>
 
-          {nextPreviewUI}
+          {nextTalk &&
+            <TalkPreviewNext
+              talk={nextTalk}
+              isEngaged={nextTalkPreviewIsEngaged}
+              onPress={onPressNext}
+            />}
         </View>
 
       </ScrollView>

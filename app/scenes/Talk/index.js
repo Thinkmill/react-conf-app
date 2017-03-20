@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import moment from 'moment-timezone';
 
-import type { ScheduleTalk, SpeakerType } from '../../types';
+import type { ScheduleTalk, Speaker as SpeakerType } from '../../types';
 import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
@@ -36,8 +36,8 @@ type State = {
   animValue: Animated.Value,
   modalIsOpen: boolean,
   modalSpeaker?: SpeakerType,
-  nextTalk?: ScheduleTalk,
-  prevTalk?: ScheduleTalk,
+  nextTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk | null,
   showIntro: boolean,
   talk: ScheduleTalk,
   incomingTalk?: ScheduleTalk,
@@ -46,8 +46,8 @@ type State = {
 
 type SetTalksState = {
   talk: ScheduleTalk,
-  nextTalk?: ScheduleTalk,
-  prevTalk?: ScheduleTalk,
+  nextTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk | null,
 };
 
 class Talk extends Component {
@@ -63,6 +63,7 @@ class Talk extends Component {
     showIntro: this.props.introduceUI,
     talk: this.props.talk,
   };
+
   sceneHeight = Dimensions.get('window').height;
   sceneWidth = Dimensions.get('window').width;
 
@@ -77,6 +78,7 @@ class Talk extends Component {
       }
     });
   }
+
   handleScroll = ({ nativeEvent }: Object) => {
     const contentHeight = nativeEvent.contentSize.height;
     const viewHeight = nativeEvent.layoutMeasurement.height;
@@ -112,28 +114,29 @@ class Talk extends Component {
       this.renderPrevTalk();
     }
   };
+
   renderNextTalk = () => {
     const talk = this.state.nextTalk;
-    const nextTalk = this.state.nextTalk
-      ? getNextTalkFromId(this.state.nextTalk.id)
-      : null;
-    const prevTalk = this.state.talk;
 
-    if (talk !== null) {
+    if (talk) {
+      const prevTalk = this.state.talk;
+      const nextTalk = talk ? getNextTalkFromId(talk.id) : null;
+
       this.setTalks({ nextTalk, prevTalk, talk }, 'next');
     }
   };
+
   renderPrevTalk = () => {
     const talk = this.state.prevTalk;
-    const nextTalk = this.state.talk;
-    const prevTalk = this.state.prevTalk
-      ? getPrevTalkFromId(this.state.prevTalk.id)
-      : null;
 
-    if (talk !== null) {
+    if (talk) {
+      const nextTalk = this.state.talk;
+      const prevTalk = talk ? getPrevTalkFromId(talk.id) : null;
+
       this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
     }
   };
+
   setTalks = (
     newState: SetTalksState,
     transitionDirection: TransitionDirection
@@ -149,38 +152,40 @@ class Talk extends Component {
           friction: 7,
           tension: 30,
         }).start(() => {
-          this.setState(
-            Object.assign({}, newState, { incomingTalk: null }),
-            () => {
-              this.state.animValue.setValue(0);
-              this.talkpane.refs.scrollview.setNativeProps({
-                bounces: true,
-                scrollEnabled: true,
-              });
-              this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
-            }
-          );
+          this.setState(Object.assign({}, newState), () => {
+            this.state.animValue.setValue(0);
+            this.talkpane.refs.scrollview.setNativeProps({
+              bounces: true,
+              scrollEnabled: true,
+            });
+            this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
+          });
         });
       }
     );
   };
+
   share = () => {
     const { talk } = this.state;
-    const speakerHandle = talk.speaker.twitter
-      ? '@' + talk.speaker.twitter
-      : talk.speaker.name;
+    const speakers = talk.speakers;
+
+    let speakerHandles = talk.speakers
+      .map(speaker => speaker.twitter || speaker.name)
+      .join(', ');
 
     Share.share({
       title: 'ReactConf 2017',
-      message: `${speakerHandle} - "${talk.title}" #reactconf`,
+      message: `${speakerHandles} - "${talk.title}" #reactconf`,
     });
   };
-  toggleSpeakerModal = (data: Object) => {
+
+  toggleSpeakerModal = (data?: SpeakerType) => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
       modalSpeaker: data,
     });
   };
+
   render() {
     const { navigator } = this.props;
     const {
@@ -267,6 +272,7 @@ class Talk extends Component {
             pointerEvents="none"
           >
             <TalkPane
+              showSpeakerModal={this.toggleSpeakerModal}
               visibleTalk={incomingTalk}
               ref={r => this.transitionpane = r}
             />

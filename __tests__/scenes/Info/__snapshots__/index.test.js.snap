@@ -235,138 +235,6 @@ exports[`Info renders correctly 1`] = `
         </View>
         <View
           style={
-            Array [
-              Object {
-                "backgroundColor": "#F4F4F4",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "height": 34,
-                "justifyContent": "flex-end",
-                "paddingHorizontal": 22,
-              },
-              undefined,
-            ]
-          }>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#383838",
-                "fontSize": 12,
-                "fontWeight": "500",
-                "lineHeight": 24,
-              }
-            }>
-            ORGANIZERS
-          </Text>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "backgroundColor": "white",
-              },
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#CCC",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "padding": 17,
-              }
-            }>
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "#F4F4F4",
-                    "borderRadius": 44,
-                    "height": 44,
-                    "overflow": "hidden",
-                    "width": 44,
-                  },
-                  undefined,
-                ]
-              }>
-              <Image
-                source={
-                  Object {
-                    "uri": "https://www.gravatar.com/avatar/30840890815ed0044146eb2da203276e?s=128",
-                  }
-                }
-                style={
-                  Object {
-                    "borderRadius": 0,
-                    "height": 44,
-                    "width": 44,
-                  }
-                } />
-            </View>
-            <View
-              style={
-                Object {
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "paddingLeft": 17,
-                }
-              }>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#383838",
-                    "fontSize": 17,
-                  }
-                }>
-                Tom Occhino
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#666",
-                    "fontSize": 14,
-                    "fontWeight": "300",
-                    "marginBottom": 14,
-                  }
-                }>
-                Lead Conference Wrangler
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
             Object {
               "alignItems": "center",
               "paddingHorizontal": 17,
@@ -399,8 +267,8 @@ exports[`Info renders correctly 1`] = `
               source={1}
               style={
                 Object {
-                  "height": 80,
-                  "width": 80,
+                  "height": 44,
+                  "width": 44,
                 }
               } />
           </View>
@@ -410,51 +278,16 @@ exports[`Info renders correctly 1`] = `
             ellipsizeMode="tail"
             style={
               Object {
-                "fontSize": 17,
+                "color": "#666",
+                "fontSize": 14,
                 "fontWeight": "300",
-                "lineHeight": 24,
+                "lineHeight": 20,
                 "marginTop": 17,
                 "textAlign": "center",
               }
             }>
-            This app made with love in Sydney, Australia and open sourced by Thinkmill
+            Made with love in Sydney, Australia, and open sourced by Thinkmill
           </Text>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#00A8D8",
-                  "fontSize": 17,
-                  "fontWeight": "500",
-                  "padding": 24,
-                }
-              }>
-              View Source Code
-            </Text>
-          </View>
         </View>
       </View>
     </View>

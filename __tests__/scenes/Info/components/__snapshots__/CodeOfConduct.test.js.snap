@@ -2,6 +2,7 @@ exports[`Info - Code of Conduct renders correctly 1`] = `
 <Modal
   animationType="none"
   hardwareAccelerated={false}
+  onRequestClose={[Function]}
   transparent={true}
   visible={true}>
   <View

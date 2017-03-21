@@ -1,9 +1,16 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Dimensions, Share } from 'react-native';
-import moment from 'moment';
+import {
+  Animated,
+  Dimensions,
+  Platform,
+  Share,
+  BackAndroid,
+} from 'react-native';
+import moment from 'moment-timezone';
 
-import type { ScheduleTalk } from '../../types';
+import type { ScheduleTalk, Speaker as SpeakerType } from '../../types';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
 import { TIME_FORMAT } from '../../constants';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
@@ -17,8 +24,8 @@ import TalkPane from './components/Pane';
 
 type Props = {
   navigator: Object,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk,
+  prevTalk?: ScheduleTalk,
   talk: ScheduleTalk,
   introduceUI: boolean,
 };
@@ -28,21 +35,22 @@ type TransitionDirection = 'prev' | 'next';
 type State = {
   animValue: Animated.Value,
   modalIsOpen: boolean,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  modalSpeaker?: SpeakerType,
+  nextTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk | null,
   showIntro: boolean,
   talk: ScheduleTalk,
-  incomingTalk?: ScheduleTalk | null,
+  incomingTalk?: ScheduleTalk,
   transitionDirection?: TransitionDirection,
 };
 
 type SetTalksState = {
   talk: ScheduleTalk,
-  nextTalk: ScheduleTalk | null,
-  prevTalk: ScheduleTalk | null,
+  nextTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk | null,
 };
 
-export default class Talk extends Component {
+class Talk extends Component {
   talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
   transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
 
@@ -70,6 +78,7 @@ export default class Talk extends Component {
       }
     });
   }
+
   handleScroll = ({ nativeEvent }: Object) => {
     const contentHeight = nativeEvent.contentSize.height;
     const viewHeight = nativeEvent.layoutMeasurement.height;
@@ -105,29 +114,33 @@ export default class Talk extends Component {
       this.renderPrevTalk();
     }
   };
-  renderNextTalk() {
-    const talk = this.state.nextTalk;
-    const nextTalk = this.state.nextTalk
-      ? getNextTalkFromId(this.state.nextTalk.id)
-      : null;
-    const prevTalk = this.state.talk;
 
-    if (talk !== null) {
+  renderNextTalk = () => {
+    const talk = this.state.nextTalk;
+
+    if (talk) {
+      const prevTalk = this.state.talk;
+      const nextTalk = talk ? getNextTalkFromId(talk.id) : null;
+
       this.setTalks({ nextTalk, prevTalk, talk }, 'next');
     }
-  }
-  renderPrevTalk() {
-    const talk = this.state.prevTalk;
-    const nextTalk = this.state.talk;
-    const prevTalk = this.state.prevTalk
-      ? getPrevTalkFromId(this.state.prevTalk.id)
-      : null;
+  };
 
-    if (talk !== null) {
+  renderPrevTalk = () => {
+    const talk = this.state.prevTalk;
+
+    if (talk) {
+      const nextTalk = this.state.talk;
+      const prevTalk = talk ? getPrevTalkFromId(talk.id) : null;
+
       this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
     }
-  }
-  setTalks(newState: SetTalksState, transitionDirection: TransitionDirection) {
+  };
+
+  setTalks = (
+    newState: SetTalksState,
+    transitionDirection: TransitionDirection
+  ) => {
     this.setState(
       {
         incomingTalk: newState.talk,
@@ -139,38 +152,40 @@ export default class Talk extends Component {
           friction: 7,
           tension: 30,
         }).start(() => {
-          this.setState(
-            Object.assign({}, newState, { incomingTalk: null }),
-            () => {
-              this.state.animValue.setValue(0);
-              this.talkpane.refs.scrollview.setNativeProps({
-                bounces: true,
-                scrollEnabled: true,
-              });
-              this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
-            }
-          );
+          this.setState(Object.assign({}, newState), () => {
+            this.state.animValue.setValue(0);
+            this.talkpane.refs.scrollview.setNativeProps({
+              bounces: true,
+              scrollEnabled: true,
+            });
+            this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
+          });
         });
       }
     );
-  }
+  };
+
   share = () => {
     const { talk } = this.state;
-    const speakerHandle = talk.speaker.twitter
-      ? '@' + talk.speaker.twitter
-      : talk.speaker.name;
+    const speakers = talk.speakers;
+
+    let speakerHandles = talk.speakers
+      .map(speaker => speaker.twitter || speaker.name)
+      .join(', ');
 
     Share.share({
       title: 'ReactConf 2017',
-      message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
+      message: `${speakerHandles} - "${talk.title}" #reactconf`,
     });
   };
-  toggleSpeakerModal = (data: Object) => {
+
+  toggleSpeakerModal = (data?: SpeakerType) => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
       modalSpeaker: data,
     });
   };
+
   render() {
     const { navigator } = this.props;
     const {
@@ -184,7 +199,10 @@ export default class Talk extends Component {
       talk,
     } = this.state;
 
-    const headerTitle = moment(talk.time.start).format(TIME_FORMAT);
+    const isAndroid = Platform.OS === 'android';
+    const headerTitle = moment
+      .tz(talk.time.start, 'America/Los_Angeles')
+      .format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
     const incomingFrom = this.state.transitionDirection === 'next'
@@ -225,9 +243,10 @@ export default class Talk extends Component {
     const navbar = (
       <Navbar
         title={headerTitle}
-        leftButtonIconName="ios-arrow-back"
+        leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
         leftButtonOnPress={navigator.popToTop}
-        rightButtonText="Share"
+        rightButtonIconName={isAndroid ? 'md-share-alt' : null}
+        rightButtonText={!isAndroid ? 'Share' : null}
         rightButtonOnPress={this.share}
       />
     );
@@ -239,7 +258,8 @@ export default class Talk extends Component {
             nextTalk={nextTalk}
             onHeroLayout={({ nativeEvent: { layout } }) =>
               this.handleLayout(layout)}
-            onScroll={this.handleScroll}
+            onScroll={!isAndroid ? this.handleScroll : null}
+            onPressNext={this.renderNextTalk}
             prevTalk={prevTalk}
             ref={r => this.talkpane = r}
             showSpeakerModal={this.toggleSpeakerModal}
@@ -252,15 +272,18 @@ export default class Talk extends Component {
             pointerEvents="none"
           >
             <TalkPane
+              showSpeakerModal={this.toggleSpeakerModal}
               visibleTalk={incomingTalk}
               ref={r => this.transitionpane = r}
             />
           </Animated.View>}
 
-        {showIntro &&
+        {!isAndroid &&
+          showIntro &&
           <Hint onClose={() => this.setState({ showIntro: false })} />}
 
         {modalIsOpen &&
+          modalSpeaker &&
           <Speaker
             avatar={modalSpeaker.avatar}
             github={modalSpeaker.github}
@@ -274,3 +297,5 @@ export default class Talk extends Component {
     );
   }
 }
+
+export default BackButtonAndroid()(Talk);

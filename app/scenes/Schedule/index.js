@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {
   Animated,
+  AppState,
   Dimensions,
   LayoutAnimation,
   ListView,
@@ -12,7 +13,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ScheduleTalk } from '../../types';
 
@@ -32,8 +33,10 @@ import theme from '../../theme';
 
 import Break from './components/Break';
 import NowButton from './components/NowButton';
-import Talk, { TalkSeparator } from './components/Talk';
+import Talk from './components/Talk';
 import SplashScreen from './components/SplashScreen';
+
+type CurrentAppState = 'active' | 'background' | 'inactive';
 
 type Props = {
   navigator: Object,
@@ -43,12 +46,14 @@ type Props = {
 type State = {
   dataSource: Object,
   hasScrolled: boolean,
+  now: Date,
   scrollY: Animated.Value,
   showNowButton?: boolean,
   activeTalkLayout?: {
     height: number,
     position: number,
   },
+  appState: CurrentAppState,
 };
 
 type VisibleRows = {
@@ -68,6 +73,7 @@ const AnimatedListView = Animated.createAnimatedComponent(ListView);
 export default class Schedule extends Component {
   props: Props;
   state: State;
+  interval: number;
   scrollYListener: string;
   _listview: any;
   _navigatorWillFocusSubscription: Object;
@@ -85,7 +91,9 @@ export default class Schedule extends Component {
     let sectionIndex = 0;
 
     props.talks.forEach(talk => {
-      const sID = moment(talk.time.start).format('dddd');
+      const sID = moment
+        .tz(talk.time.start, 'America/Los_Angeles')
+        .format('dddd');
 
       // create new section and initialize empty array for section index
       if (!dataBlob[sID]) {
@@ -111,6 +119,8 @@ export default class Schedule extends Component {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       hasScrolled: false,
       scrollY: new Animated.Value(0),
+      now: new Date(),
+      appState: AppState.currentState,
     };
 
     if (Platform.OS === 'ios') {
@@ -137,6 +147,15 @@ export default class Schedule extends Component {
       'willfocus',
       this.handleNavigatorWillFocus
     );
+    AppState.addEventListener('change', this.handleAppStateChange);
+
+    // Update the schedule once a second.
+    this.interval = setInterval(
+      () => {
+        this.setState({ now: new Date() });
+      },
+      60000 // Once a minute
+    );
 
     // This is the actual image splash screen, not the animated one.
     if (Splash) {
@@ -151,14 +170,31 @@ export default class Schedule extends Component {
     if (this.scrollYListener)
       this.state.scrollY.removeListener(this.scrollYListener);
     this._navigatorWillFocusSubscription.remove();
+    AppState.removeEventListener('change', this.handleAppStateChange);
+
+    if (this.interval) {
+      clearInterval(this.interval);
+      delete this.interval;
+    }
   }
 
+  handleAppStateChange = (nextAppState: CurrentAppState) => {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
+      // update the current time when the app comes into the foreground
+      this.setState({ now: new Date() });
+    }
+  };
   handleNavigatorWillFocus = (event: any) => {
     const { scene } = event.data.route;
 
     if (scene === 'Schedule' && this.state.scrollY._value < 120) {
       StatusBar.setBarStyle('light-content', true);
     }
+
+    this.setState({ now: new Date() });
   };
   gotoEventInfo = () => {
     StatusBar.setBarStyle('default', true);
@@ -172,17 +208,19 @@ export default class Schedule extends Component {
     changedRows: ChangedRows
   ) => {
     // Now button
-    const now = moment();
+    const now = moment.tz('America/Los_Angeles');
     const currentTalk = this.props.talks.find(talk => {
-      const start = moment(talk.time.start);
-      const end = moment(talk.time.end);
+      const start = moment.tz(talk.time.start, 'America/Los_Angeles');
+      const end = moment.tz(talk.time.end, 'America/Los_Angeles');
       return now.isBetween(start, end);
     });
 
     // TODO all talks are over. Discuss how to handle
     if (!currentTalk) return;
 
-    const day = moment(currentTalk.time.start).format('dddd');
+    const day = moment
+      .tz(currentTalk.time.start, 'America/Los_Angeles')
+      .format('dddd');
     const talksForToday = visibleRows[day];
 
     // Set the now button to visible based on whether the talk is visible or not.
@@ -207,6 +245,8 @@ export default class Schedule extends Component {
   render() {
     const { navigator, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
+
+    const isAndroid = Platform.OS === 'android';
 
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
@@ -256,7 +296,8 @@ export default class Schedule extends Component {
         >
           <Navbar
             title="Schedule"
-            rightButtonText="About"
+            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
+            rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -279,13 +320,6 @@ export default class Schedule extends Component {
           enableEmptySections
           removeClippedSubviews={false}
           renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
-          renderSeparator={(sectionID, rowID) => {
-            const key = sectionID + ':' + rowID;
-            const talk = dataSource._dataBlob[key];
-            const status = getTalkStatus(talk.time.start, talk.time.end);
-
-            return <TalkSeparator key={key} status={status} />;
-          }}
           renderRow={talk => {
             const status = getTalkStatus(talk.time.start, talk.time.end);
             const onLayout = status === 'present'
@@ -302,10 +336,14 @@ export default class Schedule extends Component {
             if (talk.break) {
               return (
                 <Break
-                  endTime={moment(talk.time.end).format(TIME_FORMAT)}
+                  endTime={moment
+                    .tz(talk.time.end, 'America/Los_Angeles')
+                    .format(TIME_FORMAT)}
                   lightning={talk.lightning}
                   onLayout={onLayout}
-                  startTime={moment(talk.time.start).format(TIME_FORMAT)}
+                  startTime={moment
+                    .tz(talk.time.start, 'America/Los_Angeles')
+                    .format(TIME_FORMAT)}
                   status={status}
                   title={talk.title}
                 />
@@ -334,8 +372,10 @@ export default class Schedule extends Component {
                 lightning={talk.lightning}
                 onLayout={onLayout}
                 onPress={onPress}
-                speaker={talk.speaker}
-                startTime={moment(talk.time.start).format(TIME_FORMAT)}
+                speakers={talk.speakers}
+                startTime={moment
+                  .tz(talk.time.start, 'America/Los_Angeles')
+                  .format(TIME_FORMAT)}
                 status={status}
                 title={talk.title}
               />
@@ -380,7 +420,7 @@ const styles = StyleSheet.create({
 });
 
 function getTalkStatus(startTime, endTime) {
-  const now = moment();
+  const now = moment.tz('America/Los_Angeles');
 
   if (now.isBetween(startTime, endTime)) {
     return 'present';

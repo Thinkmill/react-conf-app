@@ -1,6 +1,6 @@
 {
   "name": "ReactConf2017",
-  "version": "1.0.8",
+  "version": "1.0.14",
   "private": true,
   "scripts": {
     "precommit": "lint-staged --verbose",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11",
     "react": "15.4.2",
     "react-native": "^0.42.0",
     "react-native-blur": "^2.0.0",
@@ -29,10 +30,9 @@
     "husky": "^0.13.2",
     "jest": "18.1.0",
     "lint-staged": "^3.3.1",
-    "mockdate": "^2.0.1",
     "prettier": "^0.21.0",
-    "prettier-check": "^1.0.0",
-    "react-test-renderer": "15.4.2"
+    "react-test-renderer": "15.4.2",
+    "timekeeper": "^1.0.0"
   },
   "jest": {
     "preset": "react-native",

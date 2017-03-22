@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","sourceRoot":"","sources":["/Users/tuan/Sites/thinkmill/react-conf-app/assets/js/main.coffee"],"names":[],"mappings":"AAAA;EAAA,OAAO,CAAC,GAAR,CAAY,cAAZ;AAAA","sourcesContent":["console.log 'hello there!'\n"]}

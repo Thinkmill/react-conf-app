@@ -1,0 +1,43 @@
+body
+	font-family: $system-font
+	line-height: 1.4
+	font-weight: 300
+	color: $font-color
+
+*
+	box-sizing: border-box
+
+	&:before, &:after
+		box-sizing: border-box
+
+.app
+	overflow: hidden
+	position: relative
+	width: 100vw
+
+.body
+	padding: 3.75rem 0
+
+.container
+	margin-left: auto
+	margin-right: auto
+	max-width: 100%
+	padding-left: 1rem
+	padding-right: 1rem
+
+	@media (min-width: $screen-sm-min) {
+		max-width: 47rem
+	}
+
+	@media (min-width: $screen-md-min) {
+		max-width: 60rem
+	}
+
+	@media (min-width: $screen-lg-min) {
+		max-width: 73rem
+	}
+
+	@media (max-width: $screen-xs-max) {
+		padding-left: 1.25rem
+		padding-right: 1.25rem
+	}

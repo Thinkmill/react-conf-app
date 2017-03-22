@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  .app
+    //- Header
+    header.header
+      .hero
+        .hero__bg.hero__bg--bottom
+        .hero__bg.hero__bg--top
+        
+        .hero__content
+          .container
+            .hero__inner
+              img(src='/img/rf17.png', title='', alt='').hero__logo
+              
+              h1.hero__title ReactConf Showbag
+              
+              p.hero__byline
+                | Running a conference? Learning React?
+                br
+                | Here's a bag of freebies to get you on your way
+              
+              .hero__buttons
+                a(href='', title='').hero__button.hero__button--github
+                  img.hero__button__icon(src='/img/github.svg')
+                  span.hero__button__label Clone app
+                a(href='', title='').hero__button.hero__button--sketch
+                  img.hero__button__icon(src='/img/sketch.svg')
+                  span.hero__button__label Get Sketch files
+              
+              .hero__apps
+                p.hero__apps__text You can also download the app and try it for yourself
+                .hero__apps__buttons
+                  a(href='https://itunes.apple.com/au/app/reactconf2017/id1212174348?mt=8', title='Download on the App Store', target='_blank').hero__apps__button.hero__apps__button--appstore
+                    img(src='/img/appstore.png', title='Download on the App Store', alt='Apple App Store button').hero__apps__badge
+                  a(href='https://play.google.com/store/apps/details?id=com.reactconf2017', title='Download on the Play Store', target='_blank').hero__apps__button.hero__apps__button--playstore
+                    img(src='/img/playstore.png', title='Download on the Play Store', alt='Google Play Store button').hero__apps__badge
+              
+              .hero__image
+                img(src='/img/devices.png', title='', alt='').hero__image__img
+
+    //- Body
+    main.body
+      .container
+        article.stacks
+          h3.stacks__title Made with these great tools...
+          
+          .stacks__list
+            a(href='https://facebook.github.io/react-native/', title='React Native', target='_blank').stacks__list__item
+              .stacks__list__logo
+                img(src='/img/reactjs.png', title='ReactJS', alt='ReactJS logo').stacks__list__logo__img
+              h4.stacks__list__title React Native
+              p.stacks__list__byline A framework for building native apps using React
+            
+            a(href='https://microsoft.github.io/code-push/', title='Code Push', target='_blank').stacks__list__item
+              .stacks__list__logo
+                img(src='/img/codepush.png', title='Code Push', alt='Code Push logo').stacks__list__logo__img
+              h4.stacks__list__title Code Push
+              p.stacks__list__byline A tool to deploy app updates directly to devices
+            
+            a(href='https://flowtype.org', title='Flow', target='_blank').stacks__list__item
+              .stacks__list__logo
+                img(src='/img/flow.png', title='Flow', alt='Flow logo').stacks__list__logo__img
+              h4.stacks__list__title Flow
+              p.stacks__list__byline A static type checker for Javascript
+            
+            a(href='https://github.com/prettier/prettier', title='Prettier').stacks__list__item
+              .stacks__list__logo
+                img(src='/img/pretiier.png', title='Prettier', alt='Prettier logo').stacks__list__logo__img
+              h4.stacks__list__title Prettier
+              p.stacks__list__byline An opinionated JavaScript formatter
+    
+    //- Footer
+    footer.footer
+      .container
+        a(href='http://www.thinkmill.com.au', target='_blank', title='Go to thinkmill website').footer__logo
+          img(src='/img/thinkmill.svg', title='Thinkmill', alt='Thinkmill logo').footer__logo__img
+        p.footer__byline Brought to you by the folks at <a href='http://www.thinkmill.com.au target='_blank' title='Go to thinkmill website' class='footer__link'>Thinkmill</a>
+        p.footer__copyright Copyright Thinkmill 2017. Assets, Source Code and App are MIT Licensed.

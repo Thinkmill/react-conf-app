@@ -49,6 +49,9 @@ body {
 .body {
   padding: 3.75rem 0;
 }
+.footer {
+  background-color: #f9fafb;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -90,14 +93,17 @@ body {
 .footer__copyright {
   color: rgba(0,0,0,0.5);
   font-size: 0.875rem;
+  margin-top: 0.6125rem;
 }
 .footer__link {
   color: currentColor;
-}
-.footer__link:hover {
   text-decoration: none;
 }
+.footer__link:hover {
+  text-decoration: underline;
+}
 .hero {
+  background-color: #fff;
   color: #fff;
   padding: 2.5rem 0;
   position: relative;
@@ -263,6 +269,7 @@ body {
 }
 .stacks {
   padding: 2.5rem 0;
+  background-color: #fff;
 }
 .stacks__title {
   font-size: 1.75rem;
@@ -347,7 +354,9 @@ body {
   margin-top: 0.6125rem;
 }
 .people {
-  padding: 2.5rem 0;
+  padding: 3rem 0;
+  margin-top: 2.5rem;
+  border-top: 10px solid #f9fafb;
 }
 .people__title {
   font-size: 1.75rem;

@@ -49,6 +49,9 @@ body {
 .body {
   padding: 3.75rem 0;
 }
+.footer {
+  background-color: #f9fafb;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -90,14 +93,17 @@ body {
 .footer__copyright {
   color: rgba(0,0,0,0.5);
   font-size: 0.875rem;
+  margin-top: 0.6125rem;
 }
 .footer__link {
   color: currentColor;
-}
-.footer__link:hover {
   text-decoration: none;
 }
+.footer__link:hover {
+  text-decoration: underline;
+}
 .hero {
+  background-color: #fff;
   color: #fff;
   padding: 2.5rem 0;
   position: relative;
@@ -262,12 +268,18 @@ body {
   }
 }
 .stacks {
-  padding: 2.5rem 0;
+  padding: 2.5rem 0 5rem;
+  background-color: #fff;
 }
 .stacks__title {
   font-size: 1.75rem;
   font-weight: 400;
   text-align: center;
+}
+.stacks__text {
+  margin-top: 1.75rem;
+  text-align: center;
+  padding: 0 15%;
 }
 .stacks__list {
   -webkit-box-align: start;
@@ -340,6 +352,75 @@ body {
 .stacks__list__byline {
   color: rgba(0,0,0,0.8);
   margin-top: 0.6125rem;
+}
+.people {
+  padding: 5rem 0 2.25rem;
+  border-top: 10px solid #f9fafb;
+}
+.people__title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  text-align: center;
+}
+.people__text {
+  margin-top: 1.75rem;
+  text-align: center;
+  padding: 0 10%;
+}
+.people__link {
+  color: currentColor;
+}
+.people__link:hover {
+  color: currentColor;
+  text-decoration: none;
+}
+.people__list {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+}
+.people__list__item {
+  border-radius: 6px;
+  color: #333;
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+}
+.people__list__item:hover {
+  background-color: #f9f9f9;
+}
+@media (max-width: 991px) {
+  .people__list__item {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+.people__list__image {
+  width: 6rem;
+  border-radius: 50%;
+}
+.people__list__name {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-top: 1.25rem;
+}
+.people__list__byline {
+  color: rgba(0,0,0,0.8);
 }
 
  /*# sourceMappingURL=master.css.map */

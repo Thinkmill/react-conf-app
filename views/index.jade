@@ -21,10 +21,10 @@ block content
                 | Here's a bag of freebies to get you on your way
               
               .hero__buttons
-                a(href='', title='').hero__button.hero__button--github
+                a(href='https://github.com/Thinkmill/react-conf-app', title='Clone app', target='_blank').hero__button.hero__button--github
                   img.hero__button__icon(src='img/github.svg')
                   span.hero__button__label Clone app
-                a(href='', title='').hero__button.hero__button--sketch
+                a(href='https://github.com/Thinkmill/react-conf-app', title='Download Sketch files', target='_blank').hero__button.hero__button--sketch
                   img.hero__button__icon(src='img/sketch.svg')
                   span.hero__button__label Get Sketch files
               
@@ -41,9 +41,11 @@ block content
 
     //- Body
     main.body
-      .container
-        article.stacks
-          h3.stacks__title Made with these great tools...
+      article.stacks
+        
+        .container
+          
+          h3.stacks__title Made with these cool tech...
           
           .stacks__list
             a(href='https://facebook.github.io/react-native/', title='React Native', target='_blank').stacks__list__item
@@ -69,11 +71,41 @@ block content
                 img(src='img/pretiier.png', title='Prettier', alt='Prettier logo').stacks__list__logo__img
               h4.stacks__list__title Prettier
               p.stacks__list__byline An opinionated JavaScript formatter
+          .stacks__text See package.json in the repository for the full set of react native packages we used.
+        
+      article.people
+        
+        .container
+          
+          h3.people__title ...by these folks at Thinkmill
+          
+          .people__list
+            a(href='https://twitter.com/borisbozic', title='Boris', target='_blank').people__list__item
+              img(src='img/boris.png', title='Boris', alt='Boris').people__list__image
+              h4.people__list__name Boris Bozic
+              p.people__list__byline Design
+            
+            a(href='http://twitter.com/jedwatson', title='Jed', target='_blank').people__list__item
+              img(src='img/jed.png', title='Jed', alt='Jed').people__list__image
+              h4.people__list__name Jed Watson
+              p.people__list__byline Architecture
+            
+            a(href='https://twitter.com/jossmackison', title='Joss', target='_blank').people__list__item
+              img(src='img/joss.png', title='Joss', alt='Joss').people__list__image
+              h4.people__list__name Joss Mackison
+              p.people__list__byline UI
+            
+            a(href='https://github.com/blargity', title='Kevin', target='_blank').people__list__item
+              img(src='img/kevin.png', title='Kevin', alt='Kevin').people__list__image
+              h4.people__list__name Kevin Brown
+              p.people__list__byline Programming
+          
+          p.people__text Also thanks to <a href='https://twitter.com/thejameskyle' title='James Kyle' target='_blank' class='people__link'>James Kyle</a> for his review &amp; contributions.
     
     //- Footer
     footer.footer
       .container
         a(href='http://www.thinkmill.com.au', target='_blank', title='Go to thinkmill website').footer__logo
           img(src='img/thinkmill.svg', title='Thinkmill', alt='Thinkmill logo').footer__logo__img
-        p.footer__byline Brought to you by the folks at <a href='http://www.thinkmill.com.au target='_blank' title='Go to thinkmill website' class='footer__link'>Thinkmill</a>
+        p.footer__byline Built in Sydney, Australia by <a href='http://www.thinkmill.com.au' target='_blank' title='Go to thinkmill website' class='footer__link'>Thinkmill</a>
         p.footer__copyright Copyright Thinkmill 2017. Assets, Source Code and App are MIT Licensed.

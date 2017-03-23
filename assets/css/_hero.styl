@@ -5,21 +5,21 @@
 	text-align: center
 
 	&__bg
-		background-color: #241F20
-		height: 100%
+		background-color: #121212
+		height: 110%
 		left: 50%
 		margin-left: -100%
 		position: absolute
-		top: -5%
+		top: -15%
 		width: 200vw
 
 		&--top
-			opacity: 0.95
+			opacity: 0.9
 			transform: rotate(-2deg)
 
 		&--bottom
-			opacity: 0.9
-			transform: rotate(-6deg)
+			opacity: 0.95
+			transform: rotate(-5deg)
 
 	&__content
 		position: relative
@@ -51,12 +51,12 @@
 		color: $font-color
 		display: inline-flex
 		flex: 0
-		flex-basis: 25%
+		flex-basis: 24%
 		font-size: 1.125rem
 		font-weight: 500
 		justify-content: center
-		max-width: 25%
-		padding: 0.875rem 1.25rem
+		max-width: 24%
+		padding: 0.875rem
 		text-decoration: none
 		transition: all linear 0.2s
 
@@ -73,8 +73,8 @@
 			margin-left: 0.6125rem
 
 		@media (max-width: $screen-sm-max)
-			flex-basis: 40%
-			max-width: 40%
+			flex-basis: 35%
+			max-width: 35%
 
 		@media (max-width: $screen-xs-max)
 			flex-basis: 100%
@@ -111,14 +111,18 @@
 
 	&__image
 		display: block
-		margin-bottom: -12rem
+		margin-bottom: -8rem
 		margin-top: 3.75rem
+		min-height: 25rem
 
 		@media (max-width: $screen-xs-max)
-			margin-bottom: -10rem
+			margin-bottom: -6rem
 
 	&__image__img
-		width: 42rem
+		width: 50%
+
+		@media (max-width: $screen-sm-max)
+			width: 75%
 
 		@media (max-width: $screen-xs-max)
 			width: 100%

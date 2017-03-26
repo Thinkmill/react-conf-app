@@ -453,9 +453,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -790,9 +788,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -962,9 +958,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1134,9 +1128,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1375,9 +1367,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1547,9 +1537,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -1790,9 +1778,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2000,9 +1986,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2210,9 +2194,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2420,9 +2402,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2630,9 +2610,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -2909,9 +2887,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3081,9 +3057,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3324,9 +3298,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3534,9 +3506,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3744,9 +3714,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -3954,9 +3922,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4164,9 +4130,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4581,9 +4545,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4753,9 +4715,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -4994,9 +4954,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -5166,9 +5124,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -5338,9 +5294,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -5579,9 +5533,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -5751,9 +5703,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -5994,9 +5944,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -6204,9 +6152,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -6414,9 +6360,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -6624,9 +6568,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -6834,9 +6776,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View
@@ -7113,9 +7053,7 @@ exports[`Schedule renders correctly 1`] = `
                   "flexShrink": 1,
                   "padding": 17,
                 },
-                Object {
-                  "opacity": 0.5,
-                },
+                undefined,
               ]
             }>
             <View

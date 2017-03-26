@@ -57,9 +57,7 @@ exports[`Schedule - Talk renders talk types correctly 1`] = `
             "flexShrink": 1,
             "padding": 17,
           },
-          Object {
-            "opacity": 0.5,
-          },
+          undefined,
         ]
       }>
       <View
@@ -617,9 +615,7 @@ exports[`Schedule - Talk renders talk types correctly 4`] = `
             "flexShrink": 1,
             "padding": 17,
           },
-          Object {
-            "opacity": 0.5,
-          },
+          undefined,
         ]
       }>
       <View
@@ -1291,9 +1287,7 @@ exports[`Schedule - Talk renders talk types correctly 7`] = `
             "flexShrink": 1,
             "padding": 17,
           },
-          Object {
-            "opacity": 0.5,
-          },
+          undefined,
         ]
       }>
       <View
@@ -1965,9 +1959,7 @@ exports[`Schedule - Talk renders talk types correctly 10`] = `
             "flexShrink": 1,
             "padding": 17,
           },
-          Object {
-            "opacity": 0.5,
-          },
+          undefined,
         ]
       }>
       <View

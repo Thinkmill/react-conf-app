@@ -263,9 +263,9 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     padding: theme.fontSize.default,
   },
-  content__past: {
-    opacity: 0.5,
-  },
+  // content__past: {
+  //   opacity: 0.5,
+  // },
   text: {
     flexGrow: 1,
     flexShrink: 1,

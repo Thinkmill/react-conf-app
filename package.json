@@ -1,6 +1,6 @@
 {
   "name": "ReactConf2017",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": true,
   "scripts": {
     "precommit": "lint-staged --verbose",

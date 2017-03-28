@@ -18,6 +18,8 @@ import type { ScheduleTalk, Speaker as SpeakerType } from '../../../../types';
 
 import { TIME_FORMAT } from '../../../../constants';
 import { darken } from '../../../../utils/color';
+import { attemptToOpenUrl } from '../../../../utils';
+
 import theme from '../../../../theme';
 import Avatar from '../../../../components/Avatar';
 
@@ -166,6 +168,10 @@ export default class TalkPane extends Component {
     }).start();
   };
 
+  openVideo(url) {
+    attemptToOpenUrl(url);
+  }
+
   render() {
     const {
       nextTalk,
@@ -192,6 +198,10 @@ export default class TalkPane extends Component {
       ? styles.scrollAreaAndroid
       : styles.scrollAreaIos;
 
+    const videoUrl = 'https://youtu.be/' +
+      visibleTalk.videoId +
+      '?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0';
+
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -212,6 +222,13 @@ export default class TalkPane extends Component {
             <Text style={styles.heroTitle}>
               {visibleTalk.title}
             </Text>
+            {visibleTalk.videoId &&
+              <TouchableOpacity
+                onPress={() => this.openVideo(videoUrl)}
+                style={styles.heroLink}
+              >
+                <Text style={styles.heroLinkText}>Watch video</Text>
+              </TouchableOpacity>}
           </View>
 
           <View style={summaryStyles} ref="summary">
@@ -265,6 +282,14 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.large,
     fontWeight: '300',
     textAlign: 'center',
+  },
+  heroLink: {
+    marginTop: 10,
+    borderBottomWidth: 1 / PixelRatio.get(),
+    borderBottomColor: theme.color.blue,
+  },
+  heroLinkText: {
+    color: theme.color.blue,
   },
   summaryAndroid: {
     flex: 2,

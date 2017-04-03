@@ -113,7 +113,7 @@ class TalkPreviewNext extends React.Component {
 
     if (isAndroid) {
       return (
-        <Animated.View style={{ opacity: this.state.animValue }}>
+        <Animated.View style={{ opacity: 0 }}>
           <TouchableHighlight
             underlayColor={darken(theme.color.sceneBg, 10)}
             onPress={onPress}

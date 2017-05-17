@@ -107,6 +107,10 @@ class TalkPreviewNext extends React.Component {
     onPress: Function,
   };
 
+  state = {
+    animValue: 0,
+  };
+
   render() {
     let { talk, isEngaged, onPress } = this.props;
     let preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;

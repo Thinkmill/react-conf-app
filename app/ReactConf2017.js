@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { AppState, Navigator, StatusBar, StyleSheet } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components';
+import { AppState, StatusBar, StyleSheet } from 'react-native';
 import codePush from 'react-native-code-push';
 
 import theme from './theme';
@@ -69,18 +70,14 @@ class ReactConf2017 extends Component {
         configureScene={configureScene}
         initialRoute={{ scene: DEFAULT_VIEW, index: 0 }}
         renderScene={renderScene}
-        sceneStyle={styles.scenes}
+        sceneStyle={rawStyles.scenes}
         style={styles.navigator}
       />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  navigator: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
+const rawStyles = {
   scenes: {
     backgroundColor: theme.color.sceneBg,
     overflow: 'visible',
@@ -88,6 +85,13 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 },
     shadowOpacity: 0.33,
     shadowRadius: 5,
+  },
+};
+
+const styles = StyleSheet.create({
+  navigator: {
+    backgroundColor: 'black',
+    flex: 1,
   },
 });
 

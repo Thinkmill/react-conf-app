@@ -45,6 +45,7 @@ type Props = {
 
 type State = {
   dataSource: Object,
+  hasScrolled: boolean,
   now: Date,
   scrollY: Animated.Value,
   showNowButton?: boolean,
@@ -67,11 +68,14 @@ type ChangedRows = {
   },
 };
 
+const AnimatedListView = Animated.createAnimatedComponent(ListView);
+
 export default class Schedule extends Component {
   props: Props;
   state: State;
   interval: number;
   scrollYListener: string;
+  _listview: any;
   _navigatorWillFocusSubscription: Object;
 
   static defaultProps = {
@@ -113,6 +117,7 @@ export default class Schedule extends Component {
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
+      hasScrolled: false,
       scrollY: new Animated.Value(0),
       now: new Date(),
       appState: AppState.currentState,
@@ -121,6 +126,10 @@ export default class Schedule extends Component {
     if (Platform.OS === 'ios') {
       // This isn't relevant on Android.
       this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
+        if (!this.state.hasScrolled) {
+          this.setState({ hasScrolled: true });
+        }
+
         if (value > 120) {
           StatusBar.setBarStyle('default', true);
           StatusBar.setHidden(false, true);
@@ -220,14 +229,14 @@ export default class Schedule extends Component {
   scrolltoActiveTalk = () => {
     const { activeTalkLayout } = this.state;
     if (!activeTalkLayout) return;
-    const { contentLength } = this.refs.listview.scrollProperties;
+    const { contentLength } = this._listview.scrollProperties;
     const sceneHeight = Dimensions.get('window').height;
     const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
     const scrollToY = maxScroll < activeTalkLayout.position
       ? maxScroll
       : activeTalkLayout.position;
 
-    this.refs.listview.scrollTo({ y: scrollToY, animated: true });
+    this._listview.scrollTo({ y: scrollToY, animated: true });
   };
   toggleNowButton(showNowButton: boolean) {
     LayoutAnimation.easeInEaseOut();
@@ -271,10 +280,20 @@ export default class Schedule extends Component {
       <Scene>
         <SplashScreen
           onLogoPress={this.gotoEventInfo}
-          style={{ top: splashTop }}
+          style={{ transform: [{ translateY: splashTop }] }}
         />
 
-        <Animated.View style={[styles.navbar, { top: navbarTop }]}>
+        <Animated.View
+          style={[
+            styles.navbar,
+            {
+              // Small bug with native animations in iOS doesn't set the
+              // transform properly on initial render, should be fixed in 0.42
+              opacity: this.state.hasScrolled ? 1 : 0,
+              transform: [{ translateY: navbarTop }],
+            },
+          ]}
+        >
           <Navbar
             title="Schedule"
             rightButtonIconName={isAndroid ? 'md-information-circle' : null}
@@ -286,14 +305,17 @@ export default class Schedule extends Component {
         {/* Spacer for the headings to stick correctly */}
         <View style={styles.spacer} />
 
-        <ListView
+        <AnimatedListView
           dataSource={dataSource}
-          ref="listview"
+          ref={view => {
+            this._listview = view;
+          }}
           initialListSize={initialListSize}
           onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { y: this.state.scrollY } } },
+            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
+            { useNativeDriver: true },
           ])}
-          scrollEventThrottle={16}
+          scrollEventThrottle={1}
           onChangeVisibleRows={this.onChangeVisibleRows}
           enableEmptySections
           removeClippedSubviews={false}

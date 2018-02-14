@@ -17,7 +17,6 @@ import moment from 'moment-timezone';
 
 import type { ScheduleTalk } from '../../types';
 
-import Splash from 'react-native-smart-splash-screen';
 
 import { TIME_FORMAT } from '../../constants';
 import talks, {
@@ -134,10 +133,7 @@ export default class Schedule extends Component {
     }
   }
   componentDidMount() {
-    this._navigatorWillFocusSubscription = this.props.navigator.navigationContext.addListener(
-      'willfocus',
-      this.handleNavigatorWillFocus
-    );
+
     AppState.addEventListener('change', this.handleAppStateChange);
 
     // Update the schedule once a second.
@@ -148,14 +144,6 @@ export default class Schedule extends Component {
       60000 // Once a minute
     );
 
-    // This is the actual image splash screen, not the animated one.
-    if (Splash) {
-      Splash.close({
-        animationType: Splash.animationType.fade,
-        duration: 300,
-        delay: 200,
-      });
-    }
   }
   componentWillUnmount() {
     if (this.scrollYListener)
@@ -189,10 +177,7 @@ export default class Schedule extends Component {
   };
   gotoEventInfo = () => {
     StatusBar.setBarStyle('default', true);
-    this.props.navigator.push({
-      enableSwipeToPop: true,
-      scene: 'Info',
-    });
+    this.props.navigation.navigate('Info');
   };
   onChangeVisibleRows = (
     visibleRows: VisibleRows,
@@ -234,7 +219,7 @@ export default class Schedule extends Component {
     this.setState({ showNowButton });
   }
   render() {
-    const { navigator, talks } = this.props;
+    const { navigation, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
     const isAndroid = Platform.OS === 'android';
@@ -302,13 +287,13 @@ export default class Schedule extends Component {
             const status = getTalkStatus(talk.time.start, talk.time.end);
             const onLayout = status === 'present'
               ? ({ nativeEvent: { layout } }) => {
-                  this.setState({
-                    activeTalkLayout: {
-                      height: layout.height,
-                      position: layout.y - theme.navbar.height / 2,
-                    },
-                  });
-                }
+                this.setState({
+                  activeTalkLayout: {
+                    height: layout.height,
+                    position: layout.y - theme.navbar.height / 2,
+                  },
+                });
+              }
               : null;
 
             if (talk.break) {
@@ -332,15 +317,12 @@ export default class Schedule extends Component {
             const onPress = () => {
               let talkIdx = getIndexFromId(talk.id);
               StatusBar.setBarStyle('default', true);
-              navigator.push({
-                enableSwipeToPop: true,
-                scene: 'Talk',
-                props: {
+
+              navigation.navigate('Talk', {
                   introduceUI: talkIdx && talkIdx < talks.length - 1,
                   nextTalk: getNextTalkFromId(talk.id),
                   prevTalk: getPrevTalkFromId(talk.id),
                   talk,
-                },
               });
             };
 

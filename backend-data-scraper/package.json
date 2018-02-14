@@ -1,0 +1,7 @@
+{
+    "main": "index.js",
+    "private": true,
+    "dependencies": {
+      "scrape-it": "^5.0.2"
+    }
+  }

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Animated, Dimensions, Easing } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo';
 
 const Gradient = Animated.createAnimatedComponent(LinearGradient);
 

@@ -7,7 +7,8 @@ import { Platform, Dimensions } from 'react-native';
 
 // color
 const color = {
-  blue: '#00A8D8',
+  blue: '#00ADEE',
+  darkBlue: '#26224C',
   green: '#9BE13A',
   text: '#383838',
   lightText: 'white',
@@ -45,10 +46,10 @@ const fontSize = {
 
 // navbar
 const navbar = {
-  backgroundColor: 'white',
+  backgroundColor: color.darkBlue,
   buttonColor: color.blue,
   height: Platform.OS === 'ios' ? 64 : 44,
-  textColor: color.text,
+  textColor: color.lightText,
 };
 
 // list header

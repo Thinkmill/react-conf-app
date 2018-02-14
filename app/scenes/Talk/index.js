@@ -58,10 +58,10 @@ class Talk extends Component {
   state: State = {
     animValue: new Animated.Value(0),
     modalIsOpen: false,
-    nextTalk: this.props.nextTalk,
-    prevTalk: this.props.prevTalk,
-    showIntro: this.props.introduceUI,
-    talk: this.props.talk,
+    nextTalk: this.props.navigation.state.params.nextTalk,
+    prevTalk: this.props.navigation.state.params.prevTalk,
+    showIntro: this.props.navigation.state.params.introduceUI,
+    talk: this.props.navigation.state.params.talk,
   };
 
   sceneHeight = Dimensions.get('window').height;
@@ -244,7 +244,7 @@ class Talk extends Component {
       <Navbar
         title={headerTitle}
         leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
-        leftButtonOnPress={navigator.popToTop}
+        leftButtonOnPress={() => this.props.navigation.goBack()}
         rightButtonIconName={isAndroid ? 'md-share-alt' : null}
         rightButtonText={!isAndroid ? 'Share' : null}
         rightButtonOnPress={this.share}

@@ -6,7 +6,8 @@ import {
   Text,
   TouchableWithoutFeedback,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo';
+
 
 import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';

@@ -7,10 +7,22 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking
 } from 'react-native';
 
 import theme from '../../../../theme';
 import Modal from '../../../../components/Modal';
+
+class BulletPoint extends Component {
+  render() {
+    return (
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={this.props.style}>{'\u2022'}</Text>
+        <Text style={[this.props.style, { flex: 1, paddingLeft: 5 }]}>{this.props.children}</Text>
+      </View>
+    );
+  }
+}
 
 export default class CodeOfConduct extends Component {
   props: {
@@ -37,41 +49,45 @@ export default class CodeOfConduct extends Component {
             </View>
             <View>
               <Text style={styles.text}>
-                All delegates, speakers and volunteers at React Conf are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+                As contributors and maintainers of this project, and in the interest of fostering an open and welcoming community, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
               </Text>
             </View>
             <View>
-              <Text style={[styles.heading, styles.heading2]}>
-                The Quick Version
+              <Text style={styles.text}>
+                We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
               </Text>
               <Text style={styles.text}>
-                Facebook is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks.
+                Examples of unacceptable behavior by participants include:
+              </Text>
+              <BulletPoint style={styles.bulletPoint}>
+                The use of sexualized language or imagery
+              </BulletPoint>
+              <BulletPoint style={styles.bulletPoint}>
+                Personal attacks
+              </BulletPoint>
+              <BulletPoint style={styles.bulletPoint}>
+                Trolling or insulting/derogatory comments
+              </BulletPoint>
+              <BulletPoint style={styles.bulletPoint}>
+                Public or private harassment
+              </BulletPoint>
+              <BulletPoint style={styles.bulletPoint}>
+                Publishing other's private information, such as physical or electronic addresses, without explicit permission
+              </BulletPoint>
+              <BulletPoint style={styles.bulletPoint}>
+                Other unethical or unprofessional conduct.
+              </BulletPoint>
+              <Text style={styles.text}>
+                Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. By adopting this Code of Conduct, project maintainers commit themselves to fairly and consistently applying these principles to every aspect of managing this project. Project maintainers who do not follow or enforce the Code of Conduct may be permanently removed from the project team.
               </Text>
               <Text style={styles.text}>
-                Conference participants violating these rules may be sanctioned or expelled from the conference without a refund at the discretion of the conference organizers.
-              </Text>
-            </View>
-            <View>
-              <Text style={[styles.heading, styles.heading2]}>
-                The Less Quick Version
+                This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
               </Text>
               <Text style={styles.text}>
-                Harassment includes offensive verbal comments related to gender, sexual orientation, disability, physical appearance, body size, race, religion, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.
+                Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.
               </Text>
               <Text style={styles.text}>
-                Participants asked to stop any harassing behavior are expected to comply immediately.
-              </Text>
-              <Text style={styles.text}>
-                If a participant engages in harassing behavior, the conference organizers may take any action they deem appropriate, including warning the offender or expulsion from the conference with no refund.
-              </Text>
-              <Text style={styles.text}>
-                If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of conference staff immediately.
-              </Text>
-              <Text style={styles.text}>
-                Conference staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
-              </Text>
-              <Text style={styles.text}>
-                We expect participants to follow these rules at all conference venues and conference-related social events.
+                This Code of Conduct is adapted from the Contributor Covenant, version 1.2.0, available from <Text style={styles.link} onPress={() => {Linking.openURL('http://contributor-covenant.org/version/1/2/0/')}}>http://contributor-covenant.org/version/1/2/0/</Text>
               </Text>
             </View>
           </ScrollView>
@@ -115,6 +131,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: theme.fontSize.default,
     marginTop: theme.fontSize.small,
+  },
+  bulletPoint: {
+    color: theme.color.gray60,
+    fontSize: 13,
+    lineHeight: theme.fontSize.default,
+  },
+  link: {
+    color: theme.color.blue,
+    textDecorationLine: 'underline'
   },
   heading: {
     color: theme.color.gray70,

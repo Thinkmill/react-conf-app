@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import SvgUri from 'react-native-svg-uri';
 import {
   Animated,
   Dimensions,
@@ -136,7 +137,7 @@ export default class SplashScreen extends Component {
               zIndex: 2,
             }}
           >
-            <Image source={require('../../images/splash-logo.png')} />
+            <SvgUri width="200" height="200" source={require('../../images/neos_conference_negative_dark.svg')} />
           </Animated.TouchableHighlight>
           <Animated.View
             style={[

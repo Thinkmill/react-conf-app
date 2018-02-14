@@ -1,4 +1,21 @@
 {
-  "name": "ReactConf2017",
-  "displayName": "ReactConf2017"
+  "expo": {
+    "name": "NeosCon2018",
+    "description": "This project is really great.",
+    "slug": "neoscon2018",
+    "privacy": "unlisted",
+    "sdkVersion": "25.0.0",
+    "platforms": ["ios", "android"],
+    "version": "0.0.5",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
 }

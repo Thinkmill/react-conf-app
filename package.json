@@ -1,51 +1,13 @@
 {
-  "name": "ReactConf2017",
-  "version": "1.0.16",
+  "main": "node_modules/expo/AppEntry.js",
   "private": true,
-  "scripts": {
-    "precommit": "lint-staged --verbose",
-    "start": "node_modules/react-native/packager/packager.sh",
-    "format": "prettier --single-quote --trailing-comma es5 '{app,__{tests,mocks}__}/**/*.js' --write",
-    "flow": "flow",
-    "test": "jest",
-    "update-snapshots": "jest -u"
-  },
   "dependencies": {
-    "moment": "^2.17.1",
-    "moment-timezone": "^0.5.11",
-    "react": "16.0.0-alpha.6",
-    "react-native": "^0.44.0",
-    "react-native-blur": "^2.0.0",
-    "react-native-code-push": "^2.0.3-beta",
-    "react-native-deprecated-custom-components": "^0.1.0",
-    "react-native-linear-gradient": "^2.0.0",
-    "react-native-maps": "airbnb/react-native-maps",
-    "react-native-smart-splash-screen": "^2.3.3",
-    "react-native-vector-icons": "^4.0.0"
-  },
-  "devDependencies": {
-    "babel-jest": "^19.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "flow-bin": "^0.39.0",
-    "flow-typed": "^2.0.0",
-    "husky": "^0.13.2",
-    "jest": "18.1.0",
-    "lint-staged": "^3.3.1",
-    "prettier": "^0.21.0",
-    "react-test-renderer": "15.4.2",
-    "timekeeper": "^1.0.0"
-  },
-  "jest": {
-    "preset": "react-native",
-    "testRegex": "(/__tests__/.+\\.test\\.js$)",
-    "setupFiles": [
-      "<rootDir>/__tests__/setup.js"
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --trailing-comma es5 --write",
-      "git add"
-    ]
+    "expo": "^25.0.0",
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
+    "react": "16.2.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-svg-uri": "^1.2.3",
+    "react-navigation": "^1.0.3"
   }
 }

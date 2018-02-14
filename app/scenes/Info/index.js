@@ -25,10 +25,10 @@ import { attemptToOpenUrl } from '../../utils';
 import CodeOfConduct from './components/CodeOfConduct';
 import Organiser from './components/Organiser';
 
-// Santa Clara, California
+// Hamburg
 const mapRegion = {
-  latitude: 37.391084,
-  longitude: -121.9746,
+  latitude: 53.5562832,
+  longitude: 9.9812613,
   latitudeDelta: 0.01,
   longitudeDelta: 0.01,
 };
@@ -70,7 +70,7 @@ class Info extends Component {
 
   openMap() {
     const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
-    const query = encodeURI('Santa Clara Marriott');
+    const query = encodeURI('Hamburg, Dammtorwall 15');
     const url = Platform.OS === 'ios'
       ? `maps://maps.apple.com/?ll=${latlon}&q=${query}`
       : `https://maps.google.com/?ll=${latlon}&q=${query}`;
@@ -88,7 +88,7 @@ class Info extends Component {
   }
 
   render() {
-    const { navigator, organisers } = this.props;
+    const { navigation, organisers } = this.props;
     const { modalIsOpen } = this.state;
 
     const isAndroid = Platform.OS === 'android';
@@ -98,7 +98,7 @@ class Info extends Component {
         <Navbar
           title="About"
           leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
-          leftButtonOnPress={navigator.popToTop}
+          leftButtonOnPress={() => { navigation.goBack() }}
           rightButtonIconName={isAndroid ? 'md-navigate' : null}
           rightButtonText={!isAndroid ? 'Directions' : null}
           rightButtonOnPress={this.openMap}
@@ -107,22 +107,23 @@ class Info extends Component {
           <MapView initialRegion={mapRegion} style={styles.map}>
             <MapView.Marker
               coordinate={mapRegion}
-              description="2700 Mission College Blvd, Santa Clara, CA 95054"
+              description="Dammtorwall 15, Hamburg"
               onCalloutPress={this.openMap}
               ref={r => {
                 this._marker = r;
               }}
-              title="Santa Clara Marriott"
+              title="Nord Event Panoramadeck"
             />
           </MapView>
 
           <View style={{ flex: 1 }}>
             <View style={styles.hero}>
               <Text style={styles.heroText}>
-                The conference will be taking place on March 13th and 14th, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+                The conference will be taking place on April 13th and April 14th.
               </Text>
               <Text style={styles.heroText}>
-                Proceeds from all ticket sales are being donated to Code2040.
+                On the evening of April 12th, there will be a warmup party.
+                On April 14th, there will be a social event.
               </Text>
               <TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
                 <Text style={styles.heroLink}>

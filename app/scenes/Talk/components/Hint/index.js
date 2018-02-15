@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import { Animated, Dimensions, Easing } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,9 +16,6 @@ const animationDefault = val => ({
 });
 
 export default class Hint extends Component {
-  props: {
-    onClose: () => mixed,
-  };
 
   state = {
     arrowVal: new Animated.Value(0),

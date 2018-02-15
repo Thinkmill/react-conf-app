@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { cloneElement, Component } from 'react';
 import {
   Animated,
@@ -26,15 +26,6 @@ const MODAL_ALIGNMENT = {
 };
 
 export default class Modal extends Component {
-  props: {
-    align: 'bottom' | 'center' | 'top',
-    blurAmount: number,
-    blurType: 'dark' | 'light' | 'xlight',
-    onClose: () => mixed,
-    style?: {},
-    children?: React.Element<{ onClose?: () => mixed }>,
-    forceDownwardAnimation?: boolean,
-  };
 
   state = {
     animValue: new Animated.Value(0),
@@ -46,7 +37,6 @@ export default class Modal extends Component {
     blurType: 'dark',
   };
 
-  __isClosed: boolean | void;
 
   componentDidMount() {
     Animated.spring(this.state.animValue, animateToValueWithOptions(1)).start();

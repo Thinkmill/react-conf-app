@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import {
   Animated,
@@ -14,15 +14,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 import { lighten } from '../../../../utils/color';
-import type { Speaker as SpeakerType } from '../../../../types';
 
-type Status = 'past' | 'present' | 'future';
 
 // ==============================
 // TALK STATUSBAR
 // ==============================
 
-export function TalkStatusBar({ status, ...props }: { status: Status }) {
+export function TalkStatusBar({ status, ...props }) {
   let barColor = theme.color.gray20;
   if (status === 'past') barColor = lighten(theme.color.blue, 60);
   if (status === 'present') barColor = theme.color.blue;
@@ -85,15 +83,6 @@ function KeynoteSubtitle({ text, ...props }) {
 // TALK ROW
 // ==============================
 
-type Props = {
-  keynote?: boolean,
-  lightning?: boolean,
-  onPress: () => mixed,
-  speakers: Array<SpeakerType>,
-  startTime: string,
-  status: Status,
-  title: string,
-};
 
 const animationDefault = val => ({
   toValue: val,
@@ -102,14 +91,12 @@ const animationDefault = val => ({
 });
 
 export default class Talk extends Component {
-  props: Props;
-  animValue: Animated.Value;
 
   static defaultProps = {
     status: 'future',
   };
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
 
     this.animValue = new Animated.Value(0);

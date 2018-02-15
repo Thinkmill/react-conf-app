@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import {
   Animated,
@@ -12,12 +12,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
 
-type Props = {
-  isActive?: boolean,
-  position: 'top' | 'bottom',
-  subtitle: string,
-  title: string,
-};
 
 const ICON_VARIANT = {
   bottom: 'ios-arrow-up',
@@ -30,13 +24,12 @@ const animateToValue = val => ({
 });
 
 export default class Preview extends Component {
-  props: Props;
 
   state = {
     animValue: new Animated.Value(0),
   };
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps) {
     if (!this.props.isActive && nextProps.isActive) {
       this.tada();
     }

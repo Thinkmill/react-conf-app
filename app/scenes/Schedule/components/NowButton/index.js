@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import {
   Animated,
@@ -13,15 +13,12 @@ import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';
 
 export default class NowButton extends Component {
-  props: {
-    onPress: () => mixed,
-  };
 
   state = {
     animValue: new Animated.Value(0),
   };
 
-  springToValue(val: number) {
+  springToValue(val) {
     Animated.spring(this.state.animValue, {
       toValue: val,
       friction: 3,

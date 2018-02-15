@@ -1,4 +1,4 @@
-// @flow
+// 
 import moment from "moment-timezone";
 
 import { ScheduleTalk } from "../types";

@@ -1,4 +1,4 @@
-// @flow
+// 
 import React from 'react';
 import {
   Dimensions,
@@ -13,21 +13,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
 
-type Props = {
-  backgroundColor?: string,
-  buttonColor?: string,
-  leftButtonDisabled?: boolean,
-  leftButtonIconName?: string,
-  leftButtonOnPress?: () => mixed,
-  leftButtonText?: string,
-  rightButtonDisabled?: boolean,
-  rightButtonIconName?: string,
-  rightButtonOnPress?: () => mixed,
-  rightButtonText?: string,
-  textColor?: string,
-  title: string,
-  titleRenderer?: () => mixed,
-};
 
 export default function NavbarAndroid(
   {
@@ -45,7 +30,7 @@ export default function NavbarAndroid(
     title,
     titleRenderer,
     ...props
-  }: Props
+  }
 ) {
   console.log('android navbar');
   return (

@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import SvgUri from 'react-native-svg-uri';
 import {
@@ -26,10 +26,6 @@ Animated.TouchableHighlight = Animated.createAnimatedComponent(
 );
 
 export default class SplashScreen extends Component {
-  props: {
-    onAnimationComplete?: () => mixed,
-    onLogoPress?: () => mixed,
-  };
 
   state = {
     animationComplete: false,

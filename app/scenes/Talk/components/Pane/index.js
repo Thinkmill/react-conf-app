@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from "react";
 import {
   Animated,
@@ -14,7 +14,6 @@ import {
 } from "react-native";
 import moment from "moment-timezone";
 
-import type { ScheduleTalk, Speaker as SpeakerType } from "../../../../types";
 
 import { TIME_FORMAT } from "../../../../constants";
 import { darken } from "../../../../utils/color";
@@ -44,18 +43,6 @@ const Speaker = ({ speaker, onPress }) => {
   );
 };
 
-type Props = {
-  nextTalk?: ScheduleTalk | null,
-  nextTalkPreviewIsEngaged: boolean,
-  onHeroLayout?: Object => mixed,
-  onPressNext?: Object => mixed,
-  onScroll?: (Object => mixed) | null,
-  onScrollEndDrag?: () => mixed,
-  prevTalk?: ScheduleTalk | null,
-  prevTalkPreviewIsEngaged: boolean,
-  showSpeakerModal: SpeakerType => mixed,
-  visibleTalk: ScheduleTalk
-};
 
 const TalkPreview = ({ talk, isEngaged }) => {
   const speakers = talk.speakers.map(speaker => speaker.name).join(", ");
@@ -75,10 +62,6 @@ const TalkPreview = ({ talk, isEngaged }) => {
 };
 
 class TalkPreviewPrev extends React.Component {
-  props: {
-    talk: ScheduleTalk,
-    isEngaged: boolean
-  };
 
   render() {
     let { talk, isEngaged } = this.props;
@@ -97,11 +80,6 @@ class TalkPreviewPrev extends React.Component {
 }
 
 class TalkPreviewNext extends React.Component {
-  props: {
-    talk: ScheduleTalk,
-    isEngaged: boolean,
-    onPress: Function
-  };
 
   state = {
     animValue: 0
@@ -133,7 +111,6 @@ class TalkPreviewNext extends React.Component {
 }
 
 export default class TalkPane extends Component {
-  props: Props;
 
   state = {
     animValue: new Animated.Value(0)
@@ -150,7 +127,7 @@ export default class TalkPane extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps) {
     const nextTalk = this.props.nextTalk;
     const isNewTalk = (nextTalk && nextTalk.id) !== (nextTalk && nextTalk.id);
     if (isAndroid && isNewTalk) {

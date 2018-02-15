@@ -1,15 +1,11 @@
-// @flow
+// 
 import React from 'react';
 import { PixelRatio, Text, View } from 'react-native';
 
 import theme from '../../theme';
 
-type Props = {
-  bordered?: boolean,
-  text: string,
-};
 
-export default function ListTitle({ bordered, text }: Props) {
+export default function ListTitle({ bordered, text }) {
   const styles = {
     text: {
       color: theme.color.text,

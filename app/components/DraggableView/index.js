@@ -1,17 +1,10 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import { Animated, PanResponder } from 'react-native';
 
 const SWIPE_THRESHOLD = 80;
 
 export default class DraggableView extends Component {
-  props: {
-    allowX: boolean,
-    allowY: boolean,
-    onMove?: () => mixed,
-    onRelease: () => mixed,
-    children?: Array<React.Element<mixed>>,
-  };
 
   state = {
     pan: new Animated.ValueXY(), // inits to zero

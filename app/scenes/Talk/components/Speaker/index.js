@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import {
   PixelRatio,
@@ -15,16 +15,9 @@ import DraggableView from '../../../../components/DraggableView';
 import Modal from '../../../../components/Modal';
 import theme from '../../../../theme';
 import { attemptToOpenUrl } from '../../../../utils';
-import type { Speaker as SpeakerType } from '../../../../types';
 
-type ButtonProps = {
-  bordered?: boolean,
-  icon: string,
-  onPress: () => mixed,
-  text: string,
-};
 
-function Button({ bordered, icon, onPress, text }: ButtonProps) {
+function Button({ bordered, icon, onPress, text }) {
   const touchableProps = {
     activeOpacity: 1,
     onPress: onPress,
@@ -48,14 +41,6 @@ function Button({ bordered, icon, onPress, text }: ButtonProps) {
 }
 
 export default class Speaker extends Component {
-  props: {
-    avatar: string,
-    github?: string,
-    name: string,
-    onClose: () => mixed,
-    summary: string,
-    twitter?: string,
-  };
 
   static defaultProps = {
     onPress() {},

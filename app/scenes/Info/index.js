@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import {
   Image,
@@ -34,10 +34,6 @@ const mapRegion = {
 };
 
 class Info extends Component {
-  props: {
-    navigator: Object,
-    organisers: typeof organiserList,
-  };
 
   state = {
     modalIsOpen: false,
@@ -47,7 +43,6 @@ class Info extends Component {
     organisers: organiserList,
   };
 
-  _marker: any;
 
   componentDidMount() {
     // Sometimes it takes more than a second for the map to load, so in those cases it's best to

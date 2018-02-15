@@ -1,4 +1,4 @@
-// @flow
+//
 import React, { Component } from "react";
 import {
   Animated,
@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import moment from "moment-timezone";
 
-import type { ScheduleTalk, Speaker as SpeakerType } from "../../types";
 import BackButtonAndroid from "../../components/BackButtonAndroid";
 import { TIME_FORMAT } from "../../constants";
 import Navbar from "../../components/Navbar";
@@ -25,40 +24,11 @@ import Hint from "./components/Hint";
 import Speaker from "./components/Speaker";
 import TalkPane from "./components/Pane";
 
-type Props = {
-  navigator: Object,
-  nextTalk?: ScheduleTalk,
-  prevTalk?: ScheduleTalk,
-  talk: ScheduleTalk,
-  introduceUI: boolean
-};
-
-type TransitionDirection = "prev" | "next";
-
-type State = {
-  animValue: Animated.Value,
-  modalIsOpen: boolean,
-  modalSpeaker?: SpeakerType,
-  nextTalk?: ScheduleTalk | null,
-  prevTalk?: ScheduleTalk | null,
-  showIntro: boolean,
-  talk: ScheduleTalk,
-  incomingTalk?: ScheduleTalk,
-  transitionDirection?: TransitionDirection
-};
-
-type SetTalksState = {
-  talk: ScheduleTalk,
-  nextTalk?: ScheduleTalk | null,
-  prevTalk?: ScheduleTalk | null
-};
-
 class Talk extends Component {
-  talkpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
-  transitionpane: $FlowFixMe; // https://github.com/facebook/flow/issues/2202
+  // https://github.com/facebook/flow/issues/2202
+  // https://github.com/facebook/flow/issues/2202
 
-  props: Props;
-  state: State = {
+  state = {
     animValue: new Animated.Value(0),
     modalIsOpen: false,
     nextTalk: this.props.navigation.state.params.nextTalk,
@@ -70,7 +40,7 @@ class Talk extends Component {
   sceneHeight = Dimensions.get("window").height;
   sceneWidth = Dimensions.get("window").width;
 
-  handleLayout({ height }: { height: number }) {
+  handleLayout({ height }) {
     const availableHeight = this.sceneHeight - height;
 
     this.talkpane.refs.summary.measure((left, top, width, height) => {
@@ -82,7 +52,7 @@ class Talk extends Component {
     });
   }
 
-  handleScroll = ({ nativeEvent }: Object) => {
+  handleScroll = ({ nativeEvent }) => {
     const contentHeight = nativeEvent.contentSize.height;
     const viewHeight = nativeEvent.layoutMeasurement.height;
     const scrollY = nativeEvent.contentOffset.y;
@@ -139,10 +109,7 @@ class Talk extends Component {
     }
   };
 
-  setTalks = (
-    newState: SetTalksState,
-    transitionDirection: TransitionDirection
-  ) => {
+  setTalks = (newState, transitionDirection) => {
     this.setState(
       {
         incomingTalk: newState.talk,
@@ -181,7 +148,7 @@ class Talk extends Component {
     });
   };
 
-  toggleSpeakerModal = (data?: SpeakerType) => {
+  toggleSpeakerModal = data => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
       modalSpeaker: data

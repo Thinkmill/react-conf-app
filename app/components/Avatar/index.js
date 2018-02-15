@@ -1,16 +1,11 @@
-// @flow
+// 
 import React from 'react';
 import { Image, Platform, View } from 'react-native';
 
 import theme from '../../theme';
 
-type Props = {
-  size?: number,
-  source: string,
-  style?: mixed,
-};
 
-export default function Avatar({ size = 44, source, style, ...props }: Props) {
+export default function Avatar({ size = 44, source, style, ...props }) {
   const styles = {
     wrapper: {
       backgroundColor: theme.color.sceneBg,

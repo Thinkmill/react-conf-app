@@ -1,4 +1,4 @@
-// @flow
+// 
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
@@ -25,9 +25,6 @@ class BulletPoint extends Component {
 }
 
 export default class CodeOfConduct extends Component {
-  props: {
-    onClose: () => mixed,
-  };
 
   render() {
     const { onClose } = this.props;

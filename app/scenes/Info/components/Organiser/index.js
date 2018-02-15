@@ -1,4 +1,4 @@
-// @flow
+// 
 import React from 'react';
 import {
   PixelRatio,
@@ -11,12 +11,6 @@ import {
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 
-type Props = {
-  avatar: string,
-  name: string,
-  onPress: () => mixed,
-  summary: string,
-};
 
 export default function Organiser(
   {
@@ -24,7 +18,7 @@ export default function Organiser(
     name,
     onPress,
     summary,
-  }: Props
+  }
 ) {
   const touchableProps = {
     activeOpacity: 1,

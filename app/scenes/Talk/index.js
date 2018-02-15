@@ -1,36 +1,39 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Animated,
   Dimensions,
   Platform,
   Share,
-  BackAndroid,
-} from 'react-native';
-import moment from 'moment-timezone';
+  BackAndroid
+} from "react-native";
+import moment from "moment-timezone";
 
-import type { ScheduleTalk, Speaker as SpeakerType } from '../../types';
-import BackButtonAndroid from '../../components/BackButtonAndroid';
-import { TIME_FORMAT } from '../../constants';
-import Navbar from '../../components/Navbar';
-import Scene from '../../components/Scene';
+import type { ScheduleTalk, Speaker as SpeakerType } from "../../types";
+import BackButtonAndroid from "../../components/BackButtonAndroid";
+import { TIME_FORMAT } from "../../constants";
+import Navbar from "../../components/Navbar";
+import Scene from "../../components/Scene";
 
-import theme from '../../theme';
-import { getNextTalkFromId, getPrevTalkFromId } from '../../data/talks';
+import theme from "../../theme";
+import {
+  getNextTalkFromIndex,
+  getPreviousTalkFromIndex
+} from "../../data/talks";
 
-import Hint from './components/Hint';
-import Speaker from './components/Speaker';
-import TalkPane from './components/Pane';
+import Hint from "./components/Hint";
+import Speaker from "./components/Speaker";
+import TalkPane from "./components/Pane";
 
 type Props = {
   navigator: Object,
   nextTalk?: ScheduleTalk,
   prevTalk?: ScheduleTalk,
   talk: ScheduleTalk,
-  introduceUI: boolean,
+  introduceUI: boolean
 };
 
-type TransitionDirection = 'prev' | 'next';
+type TransitionDirection = "prev" | "next";
 
 type State = {
   animValue: Animated.Value,
@@ -41,13 +44,13 @@ type State = {
   showIntro: boolean,
   talk: ScheduleTalk,
   incomingTalk?: ScheduleTalk,
-  transitionDirection?: TransitionDirection,
+  transitionDirection?: TransitionDirection
 };
 
 type SetTalksState = {
   talk: ScheduleTalk,
   nextTalk?: ScheduleTalk | null,
-  prevTalk?: ScheduleTalk | null,
+  prevTalk?: ScheduleTalk | null
 };
 
 class Talk extends Component {
@@ -61,11 +64,11 @@ class Talk extends Component {
     nextTalk: this.props.navigation.state.params.nextTalk,
     prevTalk: this.props.navigation.state.params.prevTalk,
     showIntro: this.props.navigation.state.params.introduceUI,
-    talk: this.props.navigation.state.params.talk,
+    talk: this.props.navigation.state.params.talk
   };
 
-  sceneHeight = Dimensions.get('window').height;
-  sceneWidth = Dimensions.get('window').width;
+  sceneHeight = Dimensions.get("window").height;
+  sceneWidth = Dimensions.get("window").width;
 
   handleLayout({ height }: { height: number }) {
     const availableHeight = this.sceneHeight - height;
@@ -73,7 +76,7 @@ class Talk extends Component {
     this.talkpane.refs.summary.measure((left, top, width, height) => {
       if (availableHeight > height) {
         this.talkpane.refs.summary.setNativeProps({
-          style: { minHeight: availableHeight - theme.nextup.height },
+          style: { minHeight: availableHeight - theme.nextup.height }
         });
       }
     });
@@ -83,9 +86,8 @@ class Talk extends Component {
     const contentHeight = nativeEvent.contentSize.height;
     const viewHeight = nativeEvent.layoutMeasurement.height;
     const scrollY = nativeEvent.contentOffset.y;
-    const heightOffset = contentHeight > viewHeight
-      ? contentHeight - viewHeight
-      : 0;
+    const heightOffset =
+      contentHeight > viewHeight ? contentHeight - viewHeight : 0;
     const { nextTalkPreview, prevTalkPreview, scrollview } = this.talkpane.refs;
     const { nextTalk, prevTalk } = this.state;
 
@@ -103,13 +105,13 @@ class Talk extends Component {
     if (jumpToNext) {
       scrollview.setNativeProps({
         scrollEnabled: false,
-        bounces: false,
+        bounces: false
       });
       this.renderNextTalk();
     } else if (jumpToPrev) {
       scrollview.setNativeProps({
         bounces: false,
-        scrollEnabled: false,
+        scrollEnabled: false
       });
       this.renderPrevTalk();
     }
@@ -120,9 +122,9 @@ class Talk extends Component {
 
     if (talk) {
       const prevTalk = this.state.talk;
-      const nextTalk = talk ? getNextTalkFromId(talk.id) : null;
+      const nextTalk = talk ? getNextTalkFromIndex(talk.id) : null;
 
-      this.setTalks({ nextTalk, prevTalk, talk }, 'next');
+      this.setTalks({ nextTalk, prevTalk, talk }, "next");
     }
   };
 
@@ -133,7 +135,7 @@ class Talk extends Component {
       const nextTalk = this.state.talk;
       const prevTalk = talk ? getPrevTalkFromId(talk.id) : null;
 
-      this.setTalks({ nextTalk, prevTalk, talk }, 'prev');
+      this.setTalks({ nextTalk, prevTalk, talk }, "prev");
     }
   };
 
@@ -144,19 +146,19 @@ class Talk extends Component {
     this.setState(
       {
         incomingTalk: newState.talk,
-        transitionDirection,
+        transitionDirection
       },
       () => {
         Animated.spring(this.state.animValue, {
           toValue: 1,
           friction: 7,
-          tension: 30,
+          tension: 30
         }).start(() => {
           this.setState(Object.assign({}, newState), () => {
             this.state.animValue.setValue(0);
             this.talkpane.refs.scrollview.setNativeProps({
               bounces: true,
-              scrollEnabled: true,
+              scrollEnabled: true
             });
             this.talkpane.refs.scrollview.scrollTo({ y: 0, animated: false });
           });
@@ -171,18 +173,18 @@ class Talk extends Component {
 
     let speakerHandles = talk.speakers
       .map(speaker => speaker.twitter || speaker.name)
-      .join(', ');
+      .join(", ");
 
     Share.share({
-      title: 'ReactConf 2017',
-      message: `${speakerHandles} - "${talk.title}" #reactconf`,
+      title: "ReactConf 2017",
+      message: `${speakerHandles} - "${talk.title}" #reactconf`
     });
   };
 
   toggleSpeakerModal = (data?: SpeakerType) => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
-      modalSpeaker: data,
+      modalSpeaker: data
     });
   };
 
@@ -196,57 +198,59 @@ class Talk extends Component {
       incomingTalk,
       prevTalk,
       showIntro,
-      talk,
+      talk
     } = this.state;
 
-    const isAndroid = Platform.OS === 'android';
+    const isAndroid = Platform.OS === "android";
     const headerTitle = moment
-      .tz(talk.time.start, 'America/Los_Angeles')
+      .tz(talk.time.start, "Europe/Berlin")
       .format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
-    const incomingFrom = this.state.transitionDirection === 'next'
-      ? this.sceneHeight
-      : -this.sceneHeight;
-    const outgoingTo = this.state.transitionDirection === 'next'
-      ? -this.sceneHeight
-      : this.sceneHeight;
+    const incomingFrom =
+      this.state.transitionDirection === "next"
+        ? this.sceneHeight
+        : -this.sceneHeight;
+    const outgoingTo =
+      this.state.transitionDirection === "next"
+        ? -this.sceneHeight
+        : this.sceneHeight;
 
     const transitionStyles = {
       height: availableHeight,
-      position: 'absolute',
+      position: "absolute",
       top: theme.navbar.height,
-      width: this.sceneWidth,
+      width: this.sceneWidth
     };
     const incomingTransitionStyles = {
       transform: [
         {
           translateY: animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [incomingFrom, 0],
-          }),
-        },
-      ],
+            outputRange: [incomingFrom, 0]
+          })
+        }
+      ]
     };
     const outgoingTransitionStyles = {
       transform: [
         {
           translateY: animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, outgoingTo],
-          }),
-        },
-      ],
+            outputRange: [0, outgoingTo]
+          })
+        }
+      ]
     };
 
     // navbar must be rendered after the talk panes for visibility
     const navbar = (
       <Navbar
         title={headerTitle}
-        leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
+        leftButtonIconName={isAndroid ? "md-arrow-back" : "ios-arrow-back"}
         leftButtonOnPress={() => this.props.navigation.goBack()}
-        rightButtonIconName={isAndroid ? 'md-share-alt' : null}
-        rightButtonText={!isAndroid ? 'Share' : null}
+        rightButtonIconName={isAndroid ? "md-share-alt" : null}
+        rightButtonText={!isAndroid ? "Share" : null}
         rightButtonOnPress={this.share}
       />
     );
@@ -257,16 +261,17 @@ class Talk extends Component {
           <TalkPane
             nextTalk={nextTalk}
             onHeroLayout={({ nativeEvent: { layout } }) =>
-              this.handleLayout(layout)}
+              this.handleLayout(layout)
+            }
             onScroll={!isAndroid ? this.handleScroll : null}
             onPressNext={this.renderNextTalk}
             prevTalk={prevTalk}
-            ref={r => this.talkpane = r}
+            ref={r => (this.talkpane = r)}
             showSpeakerModal={this.toggleSpeakerModal}
             visibleTalk={talk}
           />
         </Animated.View>
-        {!!incomingTalk &&
+        {!!incomingTalk && (
           <Animated.View
             style={[transitionStyles, incomingTransitionStyles]}
             pointerEvents="none"
@@ -274,24 +279,27 @@ class Talk extends Component {
             <TalkPane
               showSpeakerModal={this.toggleSpeakerModal}
               visibleTalk={incomingTalk}
-              ref={r => this.transitionpane = r}
+              ref={r => (this.transitionpane = r)}
             />
-          </Animated.View>}
+          </Animated.View>
+        )}
 
         {!isAndroid &&
-          showIntro &&
-          <Hint onClose={() => this.setState({ showIntro: false })} />}
+          showIntro && (
+            <Hint onClose={() => this.setState({ showIntro: false })} />
+          )}
 
         {modalIsOpen &&
-          modalSpeaker &&
-          <Speaker
-            avatar={modalSpeaker.avatar}
-            github={modalSpeaker.github}
-            name={modalSpeaker.name}
-            onClose={this.toggleSpeakerModal}
-            summary={modalSpeaker.summary}
-            twitter={modalSpeaker.twitter}
-          />}
+          modalSpeaker && (
+            <Speaker
+              avatar={modalSpeaker.avatar}
+              github={modalSpeaker.github}
+              name={modalSpeaker.name}
+              onClose={this.toggleSpeakerModal}
+              summary={modalSpeaker.summary}
+              twitter={modalSpeaker.twitter}
+            />
+          )}
         {navbar}
       </Scene>
     );

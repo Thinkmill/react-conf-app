@@ -1,34 +1,29 @@
-// @flow
+import PropTypes from "prop-types";
 
-export type ScheduleTimeRange = {
-  start: Date,
-  end: Date,
-};
+export const ScheduleTimeRange = PropTypes.shape({
+  start: PropTypes.instanceOf(Date).isRequired,
+  end: PropTypes.instanceOf(Date).isRequired
+});
 
-export type Speaker = {
-  avatar: string,
-  github?: string,
-  name: string,
-  twitter?: string,
-  summary: string,
-};
+export const Speaker = PropTypes.shape({
+  avatar: PropTypes.string.isRequired,
+  github: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  twitter: PropTypes.string,
+  summary: PropTypes.string.isRequired
+});
 
-export type ScheduleTalk = {
-  id: string,
-  keynote: boolean,
-  lightning: boolean,
-  summary: string,
-  title: string,
-  speakers: Array<Speaker>,
-  time: ScheduleTimeRange,
-};
-
-export type ScheduleBreak = {
-  break: true,
-  time: ScheduleTimeRange,
-  title: string,
-};
-
-export type Schedule = {
-  [string]: ScheduleTalk | ScheduleBreak,
-};
+export const ScheduleTalk = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  keynote: PropTypes.bool.isRequired,
+  lightning: PropTypes.bool.isRequired,
+  summary: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  speakers: PropTypes.arrayOf(Speaker),
+  time: ScheduleTimeRange.isRequired
+});
+export const ScheduleBreak = PropTypes.shape({
+  break: PropTypes.bool.isRequired,
+  time: ScheduleTimeRange.isRequired,
+  title: PropTypes.string.isRequired
+});

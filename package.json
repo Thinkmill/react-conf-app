@@ -5,9 +5,14 @@
     "expo": "^25.0.0",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
+    "prop-types": "^15.6.0",
     "react": "16.2.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native":
+      "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^1.0.3"
+  },
+  "devDependencies": {
+    "prettier": "1.10.2"
   }
 }

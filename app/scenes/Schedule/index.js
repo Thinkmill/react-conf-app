@@ -1,83 +1,46 @@
-// @flow
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
   Animated,
   AppState,
   Dimensions,
   LayoutAnimation,
-  ListView,
+  FlatList,
   Platform,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-} from 'react-native';
-import moment from 'moment-timezone';
+  View
+} from "react-native";
+import moment from "moment-timezone";
+import style from "./style";
+import { renderItem, keyExtractor } from "./listRendering";
+import Break from "./components/Break";
+import Talk from "./components/Talk";
+import { TIME_FORMAT } from "../../constants";
 
-import type { ScheduleTalk } from '../../types';
+import { ScheduleTalk } from "../../types";
 
-
-import { TIME_FORMAT } from '../../constants';
 import talks, {
-  getIndexFromId,
-  getNextTalkFromId,
-  getPrevTalkFromId,
-} from '../../data/talks';
-import Navbar from '../../components/Navbar';
-import ListTitle from '../../components/ListTitle';
-import Scene from '../../components/Scene';
+  getNextTalkFromIndex,
+  getPreviousTalkFromIndex
+} from "../../data/talks";
+import Navbar from "../../components/Navbar";
+import ListTitle from "../../components/ListTitle";
+import Scene from "../../components/Scene";
 
-import theme from '../../theme';
-
-import Break from './components/Break';
-import NowButton from './components/NowButton';
-import Talk from './components/Talk';
-import SplashScreen from './components/SplashScreen';
-
-type CurrentAppState = 'active' | 'background' | 'inactive';
-
-type Props = {
-  navigator: Object,
-  talks: Array<ScheduleTalk>,
-};
-
-type State = {
-  dataSource: Object,
-  now: Date,
-  scrollY: Animated.Value,
-  showNowButton?: boolean,
-  activeTalkLayout?: {
-    height: number,
-    position: number,
-  },
-  appState: CurrentAppState,
-};
-
-type VisibleRows = {
-  [sectionID: string]: {
-    [rowID: string]: true,
-  },
-};
-
-type ChangedRows = {
-  [sectionID: string]: {
-    [rowID: string]: true | false,
-  },
-};
+import NowButton from "./components/NowButton";
+import SplashScreen from "./components/SplashScreen";
 
 export default class Schedule extends Component {
-  props: Props;
-  state: State;
-  interval: number;
-  scrollYListener: string;
-  _navigatorWillFocusSubscription: Object;
-
-  static defaultProps = {
-    talks: talks,
+  static propTypes = {
+    talks: PropTypes.arrayOf(ScheduleTalk),
+    navigation: PropTypes.object.isRequired
   };
+  static defaultProps = { talks: talks };
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
 
     const dataBlob = {};
@@ -86,9 +49,7 @@ export default class Schedule extends Component {
     let sectionIndex = 0;
 
     props.talks.forEach(talk => {
-      const sID = moment
-        .tz(talk.time.start, 'America/Los_Angeles')
-        .format('dddd');
+      const sID = moment.tz(talk.time.start, "Europe/Berlin").format("dddd");
 
       // create new section and initialize empty array for section index
       if (!dataBlob[sID]) {
@@ -99,32 +60,22 @@ export default class Schedule extends Component {
       }
 
       rowIDs[rowIDs.length - 1].push(talk.id);
-      dataBlob[sID + ':' + talk.id] = talk;
-    });
-
-    const ds = new ListView.DataSource({
-      getSectionData: (dataBlob, sectionID) => dataBlob[sectionID],
-      getRowData: (dataBlob, sectionID, rowID) =>
-        dataBlob[sectionID + ':' + rowID],
-      rowHasChanged: (r1, r2) => r1 !== r2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+      dataBlob[sID + ":" + talk.id] = talk;
     });
 
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       scrollY: new Animated.Value(0),
-      now: new Date(),
-      appState: AppState.currentState,
+      now: new Date()
     };
 
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === "ios") {
       // This isn't relevant on Android.
       this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
         if (value > 120) {
-          StatusBar.setBarStyle('default', true);
+          StatusBar.setBarStyle("default", true);
           StatusBar.setHidden(false, true);
         } else if (value < 80) {
-          StatusBar.setBarStyle('light-content', true);
+          StatusBar.setBarStyle("light-content", true);
           StatusBar.setHidden(false, true);
         } else {
           StatusBar.setHidden(true, true);
@@ -133,23 +84,20 @@ export default class Schedule extends Component {
     }
   }
   componentDidMount() {
+    AppState.addEventListener("change", this.handleAppStateChange);
 
-    AppState.addEventListener('change', this.handleAppStateChange);
-
-    // Update the schedule once a second.
+    // Update the schedule once a minute.
     this.interval = setInterval(
       () => {
         this.setState({ now: new Date() });
       },
       60000 // Once a minute
     );
-
   }
   componentWillUnmount() {
+    AppState.removeEventListener("change", this.handleAppStateChange);
     if (this.scrollYListener)
       this.state.scrollY.removeListener(this.scrollYListener);
-    this._navigatorWillFocusSubscription.remove();
-    AppState.removeEventListener('change', this.handleAppStateChange);
 
     if (this.interval) {
       clearInterval(this.interval);
@@ -157,83 +105,99 @@ export default class Schedule extends Component {
     }
   }
 
-  handleAppStateChange = (nextAppState: CurrentAppState) => {
-    if (
-      this.state.appState.match(/inactive|background/) &&
-      nextAppState === 'active'
-    ) {
-      // update the current time when the app comes into the foreground
+  handleAppStateChange = nextAppState => {
+    // update the current time when the app comes into the foreground
+    if (nextAppState === "active") {
       this.setState({ now: new Date() });
     }
   };
   handleNavigatorWillFocus = (event: any) => {
     const { scene } = event.data.route;
 
-    if (scene === 'Schedule' && this.state.scrollY._value < 120) {
-      StatusBar.setBarStyle('light-content', true);
+    if (scene === "Schedule" && this.state.scrollY._value < 120) {
+      StatusBar.setBarStyle("light-content", true);
     }
 
     this.setState({ now: new Date() });
   };
   gotoEventInfo = () => {
-    StatusBar.setBarStyle('default', true);
-    this.props.navigation.navigate('Info');
+    StatusBar.setBarStyle("default", true);
+    this.props.navigation.navigate("Info");
   };
-  onChangeVisibleRows = (
-    visibleRows: VisibleRows,
-    changedRows: ChangedRows
-  ) => {
-    // Now button
-    const now = moment.tz('America/Los_Angeles');
-    const currentTalk = this.props.talks.find(talk => {
-      const start = moment.tz(talk.time.start, 'America/Los_Angeles');
-      const end = moment.tz(talk.time.end, 'America/Los_Angeles');
-      return now.isBetween(start, end);
-    });
 
-    // TODO all talks are over. Discuss how to handle
-    if (!currentTalk) return;
-
-    const day = moment
-      .tz(currentTalk.time.start, 'America/Los_Angeles')
-      .format('dddd');
-    const talksForToday = visibleRows[day];
-
-    // Set the now button to visible based on whether the talk is visible or not.
-    this.toggleNowButton(!(talksForToday && talksForToday[currentTalk.id]));
-  };
   scrolltoActiveTalk = () => {
     const { activeTalkLayout } = this.state;
     if (!activeTalkLayout) return;
-    const { contentLength } = this.refs.listview.scrollProperties;
-    const sceneHeight = Dimensions.get('window').height;
+    const sceneHeight = Dimensions.get("window").height;
     const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
-    const scrollToY = maxScroll < activeTalkLayout.position
-      ? maxScroll
-      : activeTalkLayout.position;
+    const scrollToY =
+      maxScroll < activeTalkLayout.position
+        ? maxScroll
+        : activeTalkLayout.position;
 
-    this.refs.listview.scrollTo({ y: scrollToY, animated: true });
+    this.refs.listview.scrollTo({
+      y: scrollToY,
+      animated: true
+    });
   };
   toggleNowButton(showNowButton: boolean) {
     LayoutAnimation.easeInEaseOut();
     this.setState({ showNowButton });
   }
+
+  _keyExtractor = (talk, index) => index;
+  _renderItem = ({ item, index, now }) => {
+    if (item.isBreak) {
+      return (
+        <Break
+          startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
+          status={"present"}
+          title={item.title}
+        />
+      );
+    }
+
+    const onPress = () => {
+      StatusBar.setBarStyle("default", true);
+
+      this.props.navigation.navigate("Talk", {
+        introduceUI: index && index < talks.length - 1,
+        nextTalk: getNextTalkFromIndex(index),
+        prevTalk: getPreviousTalkFromIndex(index),
+        talk: item,
+        talkIndex: index
+      });
+    };
+
+    return (
+      <Talk
+        keynote={item.keynote}
+        lightning={item.lightning}
+        speakers={item.speakers}
+        startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
+        status={"present"}
+        title={item.title}
+        onPress={onPress}
+      />
+    );
+  };
+
   render() {
     const { navigation, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
-    const isAndroid = Platform.OS === 'android';
+    const isAndroid = Platform.OS === "android";
 
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-64, 0],
-      extrapolate: 'clamp',
+      extrapolate: "clamp"
     });
 
     const splashTop = scrollY.interpolate({
       inputRange: [-200, 400],
       outputRange: [200, -400],
-      extrapolate: 'clamp',
+      extrapolate: "clamp"
     });
 
     const renderFooter = () => (
@@ -242,15 +206,9 @@ export default class Schedule extends Component {
         onPress={this.gotoEventInfo}
         activeOpacity={0.75}
       >
-        <Text style={styles.link}>
-          Event Info
-        </Text>
+        <Text style={style.link}>Event Info</Text>
       </TouchableOpacity>
     );
-
-    // we need the "active talk" to be rendered to get its scroll position
-    // also, there's so few items it's not a perf concern
-    const initialListSize = talks.length;
 
     return (
       <Scene>
@@ -259,95 +217,35 @@ export default class Schedule extends Component {
           style={{ top: splashTop }}
         />
 
-        <Animated.View style={[styles.navbar, { top: navbarTop }]}>
+        <Animated.View style={[style.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
-            rightButtonText={!isAndroid ? 'About' : null}
+            rightButtonIconName={isAndroid ? "md-information-circle" : null}
+            rightButtonText={!isAndroid ? "About" : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
 
         {/* Spacer for the headings to stick correctly */}
-        <View style={styles.spacer} />
+        <View style={style.spacer} />
 
-        <ListView
-          dataSource={dataSource}
+        <FlatList
+          data={talks}
+          keyExtractor={this._keyExtractor}
+          extraData={{ now: this.state.now }}
           ref="listview"
-          initialListSize={initialListSize}
+          /* we render all items at once */ initialNumToRender={100}
+          renderItem={this._renderItem}
+          ListHeaderComponent={<View key="spacer" style={{ height: 190 }} />}
           onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { y: this.state.scrollY } } },
-          ])}
-          scrollEventThrottle={16}
-          onChangeVisibleRows={this.onChangeVisibleRows}
-          enableEmptySections
-          removeClippedSubviews={false}
-          renderHeader={() => <View key="spacer" style={{ height: 190 }} />}
-          renderRow={talk => {
-            const status = getTalkStatus(talk.time.start, talk.time.end);
-            const onLayout = status === 'present'
-              ? ({ nativeEvent: { layout } }) => {
-                this.setState({
-                  activeTalkLayout: {
-                    height: layout.height,
-                    position: layout.y - theme.navbar.height / 2,
-                  },
-                });
+            {
+              nativeEvent: {
+                contentOffset: {
+                  y: scrollY
+                }
               }
-              : null;
-
-            if (talk.break) {
-              return (
-                <Break
-                  endTime={moment
-                    .tz(talk.time.end, 'America/Los_Angeles')
-                    .format(TIME_FORMAT)}
-                  lightning={talk.lightning}
-                  onLayout={onLayout}
-                  startTime={moment
-                    .tz(talk.time.start, 'America/Los_Angeles')
-                    .format(TIME_FORMAT)}
-                  status={status}
-                  title={talk.title}
-                />
-              );
             }
-
-            // methods on Talk
-            const onPress = () => {
-              let talkIdx = getIndexFromId(talk.id);
-              StatusBar.setBarStyle('default', true);
-
-              navigation.navigate('Talk', {
-                  introduceUI: talkIdx && talkIdx < talks.length - 1,
-                  nextTalk: getNextTalkFromId(talk.id),
-                  prevTalk: getPrevTalkFromId(talk.id),
-                  talk,
-              });
-            };
-
-            return (
-              <Talk
-                keynote={talk.keynote}
-                lightning={talk.lightning}
-                onLayout={onLayout}
-                onPress={onPress}
-                speakers={talk.speakers}
-                startTime={moment
-                  .tz(talk.time.start, 'America/Los_Angeles')
-                  .format(TIME_FORMAT)}
-                status={status}
-                title={talk.title}
-              />
-            );
-          }}
-          renderSectionHeader={(sectionData, sectionID) => (
-            <ListTitle
-              bordered={!!dataSource.sectionIdentities.indexOf(sectionID)}
-              text={sectionData}
-            />
-          )}
-          renderFooter={renderFooter}
+          ])}
         />
 
         {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
@@ -356,37 +254,48 @@ export default class Schedule extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  navbar: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    left: 0,
-    zIndex: 2,
-  },
-  spacer: {
-    backgroundColor: 'transparent',
-    height: theme.navbar.height,
-    zIndex: 1,
-  },
-  link: {
-    color: theme.color.blue,
-    fontSize: theme.fontSize.default,
-    fontWeight: '500',
-    paddingVertical: theme.fontSize.large,
-    marginBottom: 34 * 2,
-    textAlign: 'center',
-  },
-});
-
 function getTalkStatus(startTime, endTime) {
-  const now = moment.tz('America/Los_Angeles');
+  const now = moment.tz("Europe/Berlin");
 
   if (now.isBetween(startTime, endTime)) {
-    return 'present';
+    return "  ";
   } else if (now.isBefore(startTime)) {
-    return 'future';
+    return "future";
   }
 
-  return 'past';
+  return "past";
 }
+
+/*
+renderRow={talk => {
+            const status = getTalkStatus(talk.time.start, talk.time.end);
+            const onLayout =
+              status === "present"
+                ? ({ nativeEvent: { layout } }) => {
+                    this.setState({
+                      activeTalkLayout: {
+                        height: layout.height,
+                        position: layout.y - theme.navbar.height / 2
+                      }
+                    });
+                  }
+                : null;
+
+            // methods on Talk
+            const onPress = () => {
+              let talkIdx = getIndexFromId(talk.id);
+              StatusBar.setBarStyle("default", true);
+
+              navigation.navigate("Talk", {
+                introduceUI: talkIdx && talkIdx < talks.length - 1,
+                nextTalk: getNextTalkFromId(talk.id),
+                prevTalk: getPrevTalkFromId(talk.id),
+                talk
+              });
+            };
+
+            return (
+
+            );
+          }}
+          */

@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Animated,
   PixelRatio,
@@ -10,39 +10,35 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Dimensions,
-  View,
-} from 'react-native';
-import moment from 'moment-timezone';
+  View
+} from "react-native";
+import moment from "moment-timezone";
 
-import type { ScheduleTalk, Speaker as SpeakerType } from '../../../../types';
+import type { ScheduleTalk, Speaker as SpeakerType } from "../../../../types";
 
-import { TIME_FORMAT } from '../../../../constants';
-import { darken } from '../../../../utils/color';
-import { attemptToOpenUrl } from '../../../../utils';
+import { TIME_FORMAT } from "../../../../constants";
+import { darken } from "../../../../utils/color";
+import { attemptToOpenUrl } from "../../../../utils";
 
-import theme from '../../../../theme';
-import Avatar from '../../../../components/Avatar';
+import theme from "../../../../theme";
+import Avatar from "../../../../components/Avatar";
 
-import Preview from '../Preview';
+import Preview from "../Preview";
 
-const isAndroid = Platform.OS === 'android';
+const isAndroid = Platform.OS === "android";
 
 const Speaker = ({ speaker, onPress }) => {
   const touchableProps = {
     activeOpacity: 0.66,
-    onPress,
+    onPress
   };
 
   return (
     <TouchableOpacity {...touchableProps}>
       <View style={styles.heroSpeaker}>
         <Avatar source={speaker.avatar} />
-        <Text style={styles.heroSpeakerName}>
-          {speaker.name}
-        </Text>
-        <Text style={styles.heroSpeakerHint}>
-          (tap for more)
-        </Text>
+        <Text style={styles.heroSpeakerName}>{speaker.name}</Text>
+        <Text style={styles.heroSpeakerHint}>(tap for more)</Text>
       </View>
     </TouchableOpacity>
   );
@@ -51,21 +47,21 @@ const Speaker = ({ speaker, onPress }) => {
 type Props = {
   nextTalk?: ScheduleTalk | null,
   nextTalkPreviewIsEngaged: boolean,
-  onHeroLayout?: (Object) => mixed,
-  onPressNext?: (Object) => mixed,
-  onScroll?: ((Object) => mixed) | null,
+  onHeroLayout?: Object => mixed,
+  onPressNext?: Object => mixed,
+  onScroll?: (Object => mixed) | null,
   onScrollEndDrag?: () => mixed,
   prevTalk?: ScheduleTalk | null,
   prevTalkPreviewIsEngaged: boolean,
-  showSpeakerModal: (SpeakerType) => mixed,
-  visibleTalk: ScheduleTalk,
+  showSpeakerModal: SpeakerType => mixed,
+  visibleTalk: ScheduleTalk
 };
 
 const TalkPreview = ({ talk, isEngaged }) => {
-  const speakers = talk.speakers.map(speaker => speaker.name).join(', ');
+  const speakers = talk.speakers.map(speaker => speaker.name).join(", ");
 
   const subtitle = `${moment
-    .tz(talk.time.start, 'America/Los_Angeles')
+    .tz(talk.time.start, "Europe/Berlin")
     .format(TIME_FORMAT)} - ${speakers}`;
 
   return (
@@ -81,7 +77,7 @@ const TalkPreview = ({ talk, isEngaged }) => {
 class TalkPreviewPrev extends React.Component {
   props: {
     talk: ScheduleTalk,
-    isEngaged: boolean,
+    isEngaged: boolean
   };
 
   render() {
@@ -104,11 +100,11 @@ class TalkPreviewNext extends React.Component {
   props: {
     talk: ScheduleTalk,
     isEngaged: boolean,
-    onPress: Function,
+    onPress: Function
   };
 
   state = {
-    animValue: 0,
+    animValue: 0
   };
 
   render() {
@@ -122,9 +118,7 @@ class TalkPreviewNext extends React.Component {
             underlayColor={darken(theme.color.sceneBg, 10)}
             onPress={onPress}
           >
-            <View>
-              {preview}
-            </View>
+            <View>{preview}</View>
           </TouchableHighlight>
         </Animated.View>
       );
@@ -142,12 +136,12 @@ export default class TalkPane extends Component {
   props: Props;
 
   state = {
-    animValue: new Animated.Value(0),
+    animValue: new Animated.Value(0)
   };
 
   static defaultProps = {
     nextTalkPreviewIsEngaged: false,
-    prevTalkPreviewIsEngaged: false,
+    prevTalkPreviewIsEngaged: false
   };
 
   componentDidMount() {
@@ -168,7 +162,7 @@ export default class TalkPane extends Component {
     this.state.animValue.setValue(0);
     Animated.timing(this.state.animValue, {
       toValue: 1,
-      duration: 300,
+      duration: 300
     }).start();
   };
 
@@ -202,9 +196,10 @@ export default class TalkPane extends Component {
       ? styles.scrollAreaAndroid
       : styles.scrollAreaIos;
 
-    const videoUrl = 'https://youtu.be/' +
+    const videoUrl =
+      "https://youtu.be/" +
       visibleTalk.videoId +
-      '?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0';
+      "?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0";
 
     return (
       <ScrollView
@@ -214,41 +209,39 @@ export default class TalkPane extends Component {
         {...props}
       >
         <View style={scrollAreaStyle}>
-          {prevTalk &&
+          {prevTalk && (
             <TalkPreviewPrev
               talk={prevTalk}
               isEngaged={prevTalkPreviewIsEngaged}
-            />}
+            />
+          )}
 
           <View style={styles.hero} onLayout={onHeroLayout}>
             {speakers}
 
-            <Text style={styles.heroTitle}>
-              {visibleTalk.title}
-            </Text>
-            {visibleTalk.videoId &&
+            <Text style={styles.heroTitle}>{visibleTalk.title}</Text>
+            {visibleTalk.videoId && (
               <TouchableOpacity
                 onPress={() => this.openVideo(videoUrl)}
                 style={styles.heroLink}
               >
                 <Text style={styles.heroLinkText}>Watch video</Text>
-              </TouchableOpacity>}
+              </TouchableOpacity>
+            )}
           </View>
 
           <View style={summaryStyles} ref="summary">
-            <Text style={styles.summaryText}>
-              {visibleTalk.summary}
-            </Text>
+            <Text style={styles.summaryText}>{visibleTalk.summary}</Text>
           </View>
 
-          {nextTalk &&
+          {nextTalk && (
             <TalkPreviewNext
               talk={nextTalk}
               isEngaged={nextTalkPreviewIsEngaged}
               onPress={onPressNext}
-            />}
+            />
+          )}
         </View>
-
       </ScrollView>
     );
   }
@@ -256,8 +249,8 @@ export default class TalkPane extends Component {
 
 const styles = StyleSheet.create({
   hero: {
-    alignItems: 'center',
-    backgroundColor: 'white',
+    alignItems: "center",
+    backgroundColor: "white",
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray20,
@@ -265,51 +258,51 @@ const styles = StyleSheet.create({
     marginTop: -(1 / PixelRatio.get()),
     paddingHorizontal: theme.fontSize.large,
     paddingBottom: theme.fontSize.xlarge,
-    paddingTop: theme.fontSize.xlarge,
+    paddingTop: theme.fontSize.xlarge
   },
   heroSpeaker: {
-    alignItems: 'center',
-    paddingHorizontal: theme.fontSize.xlarge,
+    alignItems: "center",
+    paddingHorizontal: theme.fontSize.xlarge
   },
   heroSpeakerHint: {
     color: theme.color.gray40,
     fontSize: theme.fontSize.xsmall,
-    paddingBottom: theme.fontSize.large,
+    paddingBottom: theme.fontSize.large
   },
   heroSpeakerName: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: '500',
-    marginTop: theme.fontSize.small,
+    fontWeight: "500",
+    marginTop: theme.fontSize.small
   },
   heroTitle: {
     fontSize: theme.fontSize.large,
-    fontWeight: '300',
-    textAlign: 'center',
+    fontWeight: "300",
+    textAlign: "center"
   },
   heroLink: {
     marginTop: 10,
     borderBottomWidth: 1 / PixelRatio.get(),
-    borderBottomColor: theme.color.blue,
+    borderBottomColor: theme.color.blue
   },
   heroLinkText: {
-    color: theme.color.blue,
+    color: theme.color.blue
   },
   summaryAndroid: {
-    flex: 2,
+    flex: 2
   },
   summaryIos: {
-    paddingBottom: 60,
+    paddingBottom: 60
   },
   summaryText: {
     fontSize: theme.fontSize.default,
-    fontWeight: '300',
+    fontWeight: "300",
     lineHeight: theme.fontSize.large,
-    padding: theme.fontSize.large,
+    padding: theme.fontSize.large
   },
   scrollAreaIos: {},
   scrollAreaAndroid: {
     flex: 2,
-    minHeight: theme.talkPaneAndroidMinScrollAreaHeight,
-  },
+    minHeight: theme.talkPaneAndroidMinScrollAreaHeight
+  }
 });

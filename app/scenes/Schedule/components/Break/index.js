@@ -1,33 +1,33 @@
-// @flow
-import React, { Component } from 'react';
-import { PixelRatio, Platform, StyleSheet, Text, View } from 'react-native';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { PixelRatio, Platform, StyleSheet, Text, View } from "react-native";
 
-import theme from '../../../../theme';
-import { TalkStatusBar } from '../Talk';
+import theme from "../../../../theme";
+import { TalkStatusBar } from "../Talk";
 
-export default class Break extends Component {
-  props: {
-    endTime?: string,
-    lightning?: boolean,
-    startTime?: string,
-    status: 'future' | 'past' | 'present',
-    title: string,
+export default class Break extends PureComponent {
+  static propTypes = {
+    startTime: PropTypes.string.isRequired,
+    status: PropTypes.oneOf(["future", "past", "present"]),
+    title: PropTypes.string.isRequired
   };
 
   static defaultProps = {
-    title: 'Break',
+    title: "Break"
   };
 
   render() {
-    const { lightning, startTime, status, title, ...props } = this.props;
+    const { startTime, status, title } = this.props;
 
     return (
-      <View style={[styles.base, styles['base__' + status]]} {...props}>
+      <View style={styles["break"]}>
         <TalkStatusBar status={status} />
-        <View style={[styles.content, lightning && styles.content__lightning]}>
-          <Text style={[styles.text, styles['text__' + status]]}>
+        <View style={styles["break__content"]}>
+          <Text
+            style={[styles["break__text"], styles["break__text--" + status]]}
+          >
             {startTime} -
-            <Text style={styles.title}> {title}</Text>
+            <Text style={styles["break__title"]}> {title}</Text>
           </Text>
         </View>
       </View>
@@ -36,33 +36,30 @@ export default class Break extends Component {
 }
 
 const styles = StyleSheet.create({
-  base: {
-    alignItems: 'stretch',
-    backgroundColor: '#fbfbfb',
+  break: {
+    alignItems: "stretch",
+    backgroundColor: "#fbfbfb",
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
-    flexDirection: 'row',
+    flexDirection: "row"
   },
-  content: {
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
+  break__content: {
+    alignItems: "center",
+    backgroundColor: "#fbfbfb",
     flexGrow: 1,
     height: 44,
-    justifyContent: 'center',
+    justifyContent: "center"
   },
-  content__lightning: {
-    height: 32,
-  },
-  text: {
-    backgroundColor: 'transparent',
+  break__text: {
+    backgroundColor: "transparent",
     color: theme.color.text,
     fontSize: theme.fontSize.small,
-    fontWeight: '300',
+    fontWeight: "300"
   },
-  text__past: {
-    color: theme.color.gray40,
+  "break__text--past": {
+    color: theme.color.gray40
   },
-  title: {
-    fontWeight: '500',
-  },
+  break__title: {
+    fontWeight: "600"
+  }
 });

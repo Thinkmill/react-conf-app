@@ -1,4 +1,3 @@
-// @flow
-const TIME_FORMAT = 'h:mma';
+const TIME_FORMAT = "HH:mm";
 
 export { TIME_FORMAT };

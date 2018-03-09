@@ -4,3 +4,7 @@ exp login
 yarn
 exp doctor
 exp start
+
+# or
+
+exp ios

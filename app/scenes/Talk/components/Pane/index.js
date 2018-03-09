@@ -1,4 +1,4 @@
-// 
+//
 import React, { Component } from "react";
 import {
   Animated,
@@ -13,7 +13,6 @@ import {
   View
 } from "react-native";
 import moment from "moment-timezone";
-
 
 import { TIME_FORMAT } from "../../../../constants";
 import { darken } from "../../../../utils/color";
@@ -43,7 +42,6 @@ const Speaker = ({ speaker, onPress }) => {
   );
 };
 
-
 const TalkPreview = ({ talk, isEngaged }) => {
   const speakers = talk.speakers.map(speaker => speaker.name).join(", ");
 
@@ -61,64 +59,9 @@ const TalkPreview = ({ talk, isEngaged }) => {
   );
 };
 
-class TalkPreviewPrev extends React.Component {
-
-  render() {
-    let { talk, isEngaged } = this.props;
-    let preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
-
-    if (isAndroid) {
-      return null;
-    } else {
-      return (
-        <View ref="prevTalkPreview" style={{ opacity: 0 }}>
-          {preview}
-        </View>
-      );
-    }
-  }
-}
-
-class TalkPreviewNext extends React.Component {
-
-  state = {
-    animValue: 0
-  };
-
-  render() {
-    let { talk, isEngaged, onPress } = this.props;
-    let preview = <TalkPreview talk={talk} isEngaged={isEngaged} />;
-
-    if (isAndroid) {
-      return (
-        <Animated.View style={{ opacity: this.state.animValue }}>
-          <TouchableHighlight
-            underlayColor={darken(theme.color.sceneBg, 10)}
-            onPress={onPress}
-          >
-            <View>{preview}</View>
-          </TouchableHighlight>
-        </Animated.View>
-      );
-    } else {
-      return (
-        <View ref="nextTalkPreview" style={{ opacity: 0 }}>
-          {preview}
-        </View>
-      );
-    }
-  }
-}
-
 export default class TalkPane extends Component {
-
   state = {
     animValue: new Animated.Value(0)
-  };
-
-  static defaultProps = {
-    nextTalkPreviewIsEngaged: false,
-    prevTalkPreviewIsEngaged: false
   };
 
   componentDidMount() {
@@ -129,8 +72,7 @@ export default class TalkPane extends Component {
 
   componentWillReceiveProps(nextProps) {
     const nextTalk = this.props.nextTalk;
-    const isNewTalk = (nextTalk && nextTalk.id) !== (nextTalk && nextTalk.id);
-    if (isAndroid && isNewTalk) {
+    if (isAndroid) {
       this.fadeInAndroidNextButton();
     }
   }
@@ -149,12 +91,8 @@ export default class TalkPane extends Component {
 
   render() {
     const {
-      nextTalk,
-      nextTalkPreviewIsEngaged,
       onHeroLayout,
       onPressNext,
-      prevTalk,
-      prevTalkPreviewIsEngaged,
       showSpeakerModal,
       visibleTalk,
       ...props
@@ -186,13 +124,6 @@ export default class TalkPane extends Component {
         {...props}
       >
         <View style={scrollAreaStyle}>
-          {prevTalk && (
-            <TalkPreviewPrev
-              talk={prevTalk}
-              isEngaged={prevTalkPreviewIsEngaged}
-            />
-          )}
-
           <View style={styles.hero} onLayout={onHeroLayout}>
             {speakers}
 
@@ -210,14 +141,6 @@ export default class TalkPane extends Component {
           <View style={summaryStyles} ref="summary">
             <Text style={styles.summaryText}>{visibleTalk.summary}</Text>
           </View>
-
-          {nextTalk && (
-            <TalkPreviewNext
-              talk={nextTalk}
-              isEngaged={nextTalkPreviewIsEngaged}
-              onPress={onPressNext}
-            />
-          )}
         </View>
       </ScrollView>
     );

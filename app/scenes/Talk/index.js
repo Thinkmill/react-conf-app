@@ -1,5 +1,5 @@
 //
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   Animated,
   Dimensions,
@@ -7,6 +7,7 @@ import {
   Share,
   BackAndroid
 } from "react-native";
+import PropTypes from "prop-types";
 import moment from "moment-timezone";
 
 import BackButtonAndroid from "../../components/BackButtonAndroid";
@@ -15,7 +16,7 @@ import Navbar from "../../components/Navbar";
 import Scene from "../../components/Scene";
 
 import theme from "../../theme";
-import {
+import talks, {
   getNextTalkFromIndex,
   getPreviousTalkFromIndex
 } from "../../data/talks";
@@ -24,17 +25,11 @@ import Hint from "./components/Hint";
 import Speaker from "./components/Speaker";
 import TalkPane from "./components/Pane";
 
-class Talk extends Component {
-  // https://github.com/facebook/flow/issues/2202
-  // https://github.com/facebook/flow/issues/2202
-
+class Talk extends PureComponent {
   state = {
     animValue: new Animated.Value(0),
     modalIsOpen: false,
-    nextTalk: this.props.navigation.state.params.nextTalk,
-    prevTalk: this.props.navigation.state.params.prevTalk,
-    showIntro: this.props.navigation.state.params.introduceUI,
-    talk: this.props.navigation.state.params.talk
+    talkIndex: this.props.navigation.state.params.talkIndex
   };
 
   sceneHeight = Dimensions.get("window").height;
@@ -155,18 +150,23 @@ class Talk extends Component {
     });
   };
 
+  getTalk() {
+    return talks[this.state.talkIndex];
+  }
+
   render() {
     const { navigator } = this.props;
     const {
       animValue,
       modalIsOpen,
       modalSpeaker,
-      nextTalk,
       incomingTalk,
-      prevTalk,
       showIntro,
-      talk
+      talkIndex
     } = this.state;
+    const talk = this.getTalk();
+    const prevTalk = getPreviousTalkFromIndex(talkIndex);
+    const nextTalk = getNextTalkFromIndex(talkIndex);
 
     const isAndroid = Platform.OS === "android";
     const headerTitle = moment
@@ -210,18 +210,6 @@ class Talk extends Component {
       ]
     };
 
-    // navbar must be rendered after the talk panes for visibility
-    const navbar = (
-      <Navbar
-        title={headerTitle}
-        leftButtonIconName={isAndroid ? "md-arrow-back" : "ios-arrow-back"}
-        leftButtonOnPress={() => this.props.navigation.goBack()}
-        rightButtonIconName={isAndroid ? "md-share-alt" : null}
-        rightButtonText={!isAndroid ? "Share" : null}
-        rightButtonOnPress={this.share}
-      />
-    );
-
     return (
       <Scene>
         <Animated.View style={[transitionStyles, outgoingTransitionStyles]}>
@@ -250,12 +238,16 @@ class Talk extends Component {
             />
           </Animated.View>
         )}
-
         {!isAndroid &&
           showIntro && (
-            <Hint onClose={() => this.setState({ showIntro: false })} />
+            <Hint
+              onClose={() =>
+                this.setState({
+                  showIntro: false
+                })
+              }
+            />
           )}
-
         {modalIsOpen &&
           modalSpeaker && (
             <Speaker
@@ -267,7 +259,15 @@ class Talk extends Component {
               twitter={modalSpeaker.twitter}
             />
           )}
-        {navbar}
+        {/* navbar must be rendered after the talk panes for visibility */}
+        <Navbar
+          title={headerTitle}
+          leftButtonIconName={isAndroid ? "md-arrow-back" : "ios-arrow-back"}
+          leftButtonOnPress={() => this.props.navigation.goBack()}
+          rightButtonIconName={isAndroid ? "md-share-alt" : null}
+          rightButtonText={!isAndroid ? "Share" : null}
+          rightButtonOnPress={this.share}
+        />
       </Scene>
     );
   }

@@ -161,10 +161,6 @@ export default class Schedule extends Component {
       StatusBar.setBarStyle("default", true);
 
       this.props.navigation.navigate("Talk", {
-        introduceUI: index && index < talks.length - 1,
-        nextTalk: getNextTalkFromIndex(index),
-        prevTalk: getPreviousTalkFromIndex(index),
-        talk: item,
         talkIndex: index
       });
     };

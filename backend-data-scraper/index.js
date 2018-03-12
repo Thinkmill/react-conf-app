@@ -49,6 +49,9 @@ const speakersWithTalkDetails = scrapeIt(
           fact: ""
         }
       },
+      summary: {
+        selector: ".speaker > .g p:not(.facts)"
+      },
       talks: {
         listItem: ".speaker .neos-contentcollection h2",
         data: {
@@ -90,6 +93,27 @@ const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
   return "";
 };
 
+const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
+  const speakers = [];
+  for (let i in speakersWithTalkDetails) {
+    for (let t in speakersWithTalkDetails[i].talks) {
+      if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
+        speakers.push(speakersWithTalkDetails[i]);
+      }
+    }
+  }
+
+  if (speakers.length) {
+    return speakers;
+  }
+
+  if (isBreakOrLunch(title)) {
+    return [];
+  }
+  console.warn("Did not find speakers for " + title);
+  return [];
+};
+
 const transformTopic = (
   topicFromCrawler,
   topicTitle,
@@ -99,7 +123,19 @@ const transformTopic = (
   summary: findTalkDetailsForTitle(topicTitle, speakersWithTalkDetails),
   title: topicTitle,
   //videoId: 'tWitQoPgs8w',
-  speakers: [],
+  speakers: findSpeakersForTitle(topicTitle, speakersWithTalkDetails).map(
+    speaker => {
+      const twitter = speaker.facts.find(it => it.fact[0] === "@");
+      const company = speaker.facts.find(it => it.fact[0] !== "@");
+      return {
+        name: speaker.name,
+        avatar: speaker.avatar,
+        twitter: twitter && twitter.fact && twitter.fact.substr(1),
+        company: company && company.fact,
+        summary: speaker.summary
+      };
+    }
+  ),
   time: topicFromCrawler.time,
   room: roomName,
   isBreak: isBreakOrLunch(topicTitle)

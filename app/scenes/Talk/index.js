@@ -28,6 +28,7 @@ import TalkPane from "./components/Pane";
 class Talk extends PureComponent {
   state = {
     animValue: new Animated.Value(0),
+    showIntro: true,
     modalIsOpen: false,
     talkIndex: this.props.navigation.state.params.talkIndex
   };
@@ -54,7 +55,7 @@ class Talk extends PureComponent {
     const heightOffset =
       contentHeight > viewHeight ? contentHeight - viewHeight : 0;
     const { nextTalkPreview, prevTalkPreview, scrollview } = this.talkpane.refs;
-    const { nextTalk, prevTalk } = this.state;
+    const { talkIndex } = this.state;
 
     if (scrollY > 0 && nextTalkPreview) {
       const opacity = Math.min((scrollY - (heightOffset + 20)) / 100, 1);
@@ -64,8 +65,11 @@ class Talk extends PureComponent {
       prevTalkPreview.setNativeProps({ style: { opacity } });
     }
 
-    const jumpToNext = nextTalk && scrollY > heightOffset + 110;
-    const jumpToPrev = prevTalk && scrollY < -110;
+    const jumpToNext =
+      getNextTalkFromIndex(this.state.talkIndex) &&
+      scrollY > heightOffset + 110;
+    const jumpToPrev =
+      getPreviousTalkFromIndex(this.state.talkIndex) && scrollY < -110;
 
     if (jumpToNext) {
       scrollview.setNativeProps({
@@ -83,25 +87,17 @@ class Talk extends PureComponent {
   };
 
   renderNextTalk = () => {
-    const talk = this.state.nextTalk;
+    const { talkIndex } = this.state;
+    const nextTalk = getNextTalkFromIndex(talkIndex);
 
-    if (talk) {
-      const prevTalk = this.state.talk;
-      const nextTalk = talk ? getNextTalkFromIndex(talk.id) : null;
-
-      this.setTalks({ nextTalk, prevTalk, talk }, "next");
-    }
+    this.setTalks({ talk: nextTalk, talkIndex: talkIndex + 1 }, "next");
   };
 
   renderPrevTalk = () => {
-    const talk = this.state.prevTalk;
+    const { talkIndex } = this.state;
+    const prevTalk = getPreviousTalkFromIndex(talkIndex);
 
-    if (talk) {
-      const nextTalk = this.state.talk;
-      const prevTalk = talk ? getPrevTalkFromId(talk.id) : null;
-
-      this.setTalks({ nextTalk, prevTalk, talk }, "prev");
-    }
+    this.setTalks({ talk: prevTalk, talkIndex: talkIndex - 1 }, "prev");
   };
 
   setTalks = (newState, transitionDirection) => {
@@ -138,8 +134,8 @@ class Talk extends PureComponent {
       .join(", ");
 
     Share.share({
-      title: "ReactConf 2017",
-      message: `${speakerHandles} - "${talk.title}" #reactconf`
+      title: "NeosCon 2017",
+      message: `${speakerHandles} - "${talk.title}" #neoscon`
     });
   };
 

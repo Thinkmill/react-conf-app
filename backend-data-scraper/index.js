@@ -143,7 +143,6 @@ const transformTopic = (
 
 Promise.all([program, speakersWithTalkDetails])
   .then(([program, speakersWithTalkDetails]) => {
-    //console.log(speakersWithTalkDetails);
     return program.days.map(day => {
       let transformedTopics = [];
       day.topics

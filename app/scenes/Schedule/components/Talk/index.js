@@ -119,8 +119,6 @@ export default class Talk extends Component {
       ...props
     } = this.props;
 
-    console.log("speakers", speakers);
-
     const isPresent = status === "present";
 
     const touchableProps = {

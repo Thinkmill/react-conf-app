@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "NeosCon2018",
-    "description": "This project is really great.",
-    "slug": "neoscon2018",
+    "name": "NeosCon",
+    "description": "Neos Conference 2018 App",
+    "slug": "neoscon",
     "privacy": "unlisted",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
-    "version": "0.0.5",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -15,7 +15,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "de.sandstorm.neoscon"
+    },
+    "android": {
+      "package": "de.sandstorm.neoscon"
     }
   }
 }

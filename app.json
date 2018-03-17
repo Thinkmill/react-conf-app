@@ -14,9 +14,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "notification": {
+      "icon": "./assets/icon-push.png",
+      "color": "#FFFFFF",
+      "androidMode": "default"
+    },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "de.sandstorm.neoscon"
+      "bundleIdentifier": "de.sandstorm.neoscon",
+      "loadJSInBackgroundExperimental": true
     },
     "android": {
       "package": "de.sandstorm.neoscon"

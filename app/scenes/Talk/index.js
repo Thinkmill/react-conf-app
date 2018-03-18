@@ -126,16 +126,21 @@ class Talk extends PureComponent {
   };
 
   share = () => {
-    const { talk } = this.state;
-    const speakers = talk.speakers;
+    const talk = this.getTalk();
+    let speakerHandles = "";
 
-    let speakerHandles = talk.speakers
-      .map(speaker => speaker.twitter || speaker.name)
-      .join(", ");
+    if (talk && talk.speakers) {
+      const speakers = talk.speakers;
+
+      let speakerHandles = speakers
+        .map(speaker => speaker.twitter || speaker.name)
+        .join(", ");
+      speakerHandles += " - ";
+    }
 
     Share.share({
       title: "NeosCon 2017",
-      message: `${speakerHandles} - "${talk.title}" #neoscon`
+      message: `${speakerHandles || ""}"${talk.title}" #neoscon`
     });
   };
 

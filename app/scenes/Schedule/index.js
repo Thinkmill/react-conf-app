@@ -15,7 +15,6 @@ import {
 } from "react-native";
 import moment from "moment-timezone";
 import style from "./style";
-import { renderItem, keyExtractor } from "./listRendering";
 import Break from "./components/Break";
 import Talk from "./components/Talk";
 import { TIME_FORMAT } from "../../constants";

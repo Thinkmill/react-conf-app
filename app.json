@@ -11,8 +11,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover"
     },
     "notification": {
       "icon": "./assets/icon-push.png",
@@ -20,12 +19,29 @@
       "androidMode": "default"
     },
     "ios": {
+      "buildNumber": "3",
       "supportsTablet": false,
       "bundleIdentifier": "de.sandstorm.neoscon",
       "loadJSInBackgroundExperimental": true
     },
     "android": {
-      "package": "de.sandstorm.neoscon"
+      "package": "de.sandstorm.neoscon",
+      "permissions": [],
+      "versionCode": 2
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "url": "https://sentry.cloud.sandstorm.de",
+            "organization": "sandstorm",
+            "project": "neoscon-app",
+            "authToken": "TODO"
+          }
+        }
+      ]
     }
-  }
+  },
+  "assetBundlePatterns": ["app/scenes/Schedule/images/*"]
 }

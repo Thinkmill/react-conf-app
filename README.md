@@ -8,3 +8,7 @@ exp start
 # or
 
 exp ios
+
+# Prod Build iOS
+
+exp build:ios

@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { StackNavigator } from "react-navigation";
-import { AppState, StatusBar, StyleSheet } from "react-native";
+import { Platform, StatusBar } from "react-native";
 
-import theme from "./theme";
 import { Info, Schedule, Talk } from "./scenes";
 
 export default StackNavigator(
@@ -18,6 +17,9 @@ export default StackNavigator(
     }
   },
   {
-    headerMode: "none"
+    headerMode: 'none',
+    cardStyle: {
+      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+    }
   }
 );

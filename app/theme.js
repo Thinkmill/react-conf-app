@@ -47,7 +47,7 @@ const fontSize = {
 const navbar = {
   backgroundColor: color.darkBlue,
   buttonColor: color.blue,
-  height: Platform.OS === "ios" ? 64 : 44,
+  height: 64,
   textColor: color.lightText
 };
 
@@ -70,5 +70,6 @@ export default {
   navbar,
   nextup,
   listheader,
-  talkPaneAndroidMinScrollAreaHeight
+  talkPaneAndroidMinScrollAreaHeight,
+  statusBarHeight
 };

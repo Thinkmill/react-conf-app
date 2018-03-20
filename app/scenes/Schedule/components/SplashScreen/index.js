@@ -1,4 +1,4 @@
-// 
+//
 import React, { Component } from 'react';
 import SvgUri from 'react-native-svg-uri';
 import {
@@ -133,7 +133,7 @@ export default class SplashScreen extends Component {
               zIndex: 2,
             }}
           >
-            <SvgUri width="200" height="200" source={require('../../images/neos_conference_negative_dark.svg')} />
+            <SvgUri width="300" height="180" source={require('../../images/neos-conference-2018-dark.svg')} />
           </Animated.TouchableHighlight>
           <Animated.View
             style={[
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
 
   bottomTriangle: {
     position: 'absolute',
-    backgroundColor: 'rgba(36, 31, 32, 0.8)',
+    backgroundColor: 'rgba(36, 37, 76, 0.8)',
     bottom: 40,
     height: 1200,
     left: -100,

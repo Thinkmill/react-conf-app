@@ -137,6 +137,7 @@ const transformTopic = (
     }
   ),
   time: topicFromCrawler.time,
+  durationInMinutes: 45,
   room: roomName,
   isBreak: isBreakOrLunch(topicTitle)
 });

@@ -150,7 +150,7 @@ export default class Schedule extends Component {
       return (
         <Break
           startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
-          status={"present"}
+          status={getTalkStatus(item.time, item.endTime)}
           title={item.title}
         />
       );
@@ -170,7 +170,7 @@ export default class Schedule extends Component {
         lightning={item.lightning}
         speakers={item.speakers}
         startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
-        status={"present"}
+        status={getTalkStatus(item.time, item.endTime)}
         title={item.title}
         onPress={onPress}
       />
@@ -253,7 +253,7 @@ function getTalkStatus(startTime, endTime) {
   const now = moment.tz("Europe/Berlin");
 
   if (now.isBetween(startTime, endTime)) {
-    return "  ";
+    return "present";
   } else if (now.isBefore(startTime)) {
     return "future";
   }

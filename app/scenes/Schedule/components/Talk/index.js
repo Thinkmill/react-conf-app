@@ -143,7 +143,7 @@ export default class Talk extends Component {
     let subtitleText = startTime;
     let speakersText;
 
-    if (speakers) {
+    if (speakers && speakers.length) {
       speakersText = speakers.map(speaker => speaker.name).join(", ");
       subtitleText += " - " + speakersText;
     }

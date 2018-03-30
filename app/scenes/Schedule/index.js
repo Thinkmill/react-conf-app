@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Notifications } from "expo";
 import PropTypes from "prop-types";
 import {
   Animated,
@@ -43,6 +44,12 @@ export default class Schedule extends Component {
     const sectionIDs = [];
     const rowIDs = [];
     let sectionIndex = 0;
+
+    Notifications.addListener(notification => {
+      props.navigation.navigate("Talk", {
+        talkIndex: notification.data.talkIndex
+      });
+    });
 
     props.talks.forEach(talk => {
       const sID = moment.tz(talk.time.start, "Europe/Berlin").format("dddd");

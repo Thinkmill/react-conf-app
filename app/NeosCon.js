@@ -4,6 +4,10 @@ import { Platform, StatusBar } from "react-native";
 
 import { Info, Schedule, Talk } from "./scenes";
 
+import registerRatingNotifications from "./ratingNotifications";
+
+registerRatingNotifications();
+
 export default StackNavigator(
   {
     Home: {
@@ -17,9 +21,9 @@ export default StackNavigator(
     }
   },
   {
-    headerMode: 'none',
+    headerMode: "none",
     cardStyle: {
-      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+      paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight
     }
   }
 );

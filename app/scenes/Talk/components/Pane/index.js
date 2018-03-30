@@ -12,6 +12,7 @@ import {
   Dimensions,
   View
 } from "react-native";
+import Button from "react-native-button";
 import moment from "moment-timezone";
 
 import { TIME_FORMAT } from "../../../../constants";
@@ -94,6 +95,7 @@ export default class TalkPane extends Component {
       onHeroLayout,
       onPressNext,
       showSpeakerModal,
+      showTalkRatingModal,
       visibleTalk,
       ...props
     } = this.props;
@@ -128,6 +130,7 @@ export default class TalkPane extends Component {
             {speakers}
 
             <Text style={styles.heroTitle}>{visibleTalk.title}</Text>
+            {this.renderRateTalk()}
             {visibleTalk.videoId && (
               <TouchableOpacity
                 onPress={() => this.openVideo(videoUrl)}
@@ -144,6 +147,34 @@ export default class TalkPane extends Component {
         </View>
       </ScrollView>
     );
+  }
+
+  renderRateTalk() {
+    const { endTime } = this.props.visibleTalk;
+    if (!endTime) {
+      return null;
+    }
+    if (endTime.isBefore(moment())) {
+      return (
+        <Button
+          containerStyle={{
+            marginTop: 20,
+            padding: 10,
+            width: "100%",
+            height: 45,
+            overflow: "hidden",
+            borderRadius: 4,
+            backgroundColor: theme.color.blue
+          }}
+          style={{ fontSize: 20, color: "white" }}
+          onPress={this.props.showTalkRatingModal}
+        >
+          Rate this talk!
+        </Button>
+      );
+    }
+
+    return null;
   }
 }
 

@@ -24,12 +24,14 @@ import talks, {
 import Hint from "./components/Hint";
 import Speaker from "./components/Speaker";
 import TalkPane from "./components/Pane";
+import Rating from "./components/Rating";
 
 class Talk extends PureComponent {
   state = {
     animValue: new Animated.Value(0),
     showIntro: true,
     modalIsOpen: false,
+    talkRatingModalIsOpen: false,
     talkIndex: this.props.navigation.state.params.talkIndex
   };
 
@@ -151,6 +153,13 @@ class Talk extends PureComponent {
     });
   };
 
+  toggleTalkRatingModal = data => {
+    console.log("TOGGLE");
+    this.setState({
+      talkRatingModalIsOpen: !this.state.talkRatingModalIsOpen
+    });
+  };
+
   getTalk() {
     return talks[this.state.talkIndex];
   }
@@ -160,6 +169,7 @@ class Talk extends PureComponent {
     const {
       animValue,
       modalIsOpen,
+      talkRatingModalIsOpen,
       modalSpeaker,
       incomingTalk,
       showIntro,
@@ -225,6 +235,7 @@ class Talk extends PureComponent {
             prevTalk={prevTalk}
             ref={r => (this.talkpane = r)}
             showSpeakerModal={this.toggleSpeakerModal}
+            showTalkRatingModal={this.toggleTalkRatingModal}
             visibleTalk={talk}
           />
         </Animated.View>
@@ -235,6 +246,7 @@ class Talk extends PureComponent {
           >
             <TalkPane
               showSpeakerModal={this.toggleSpeakerModal}
+              showTalkRatingModal={this.toggleTalkRatingModal}
               visibleTalk={incomingTalk}
               ref={r => (this.transitionpane = r)}
             />
@@ -261,6 +273,9 @@ class Talk extends PureComponent {
               twitter={modalSpeaker.twitter}
             />
           )}
+        {talkRatingModalIsOpen && (
+          <Rating talk={talk} onClose={this.toggleTalkRatingModal} />
+        )}
         {/* navbar must be rendered after the talk panes for visibility */}
         <Navbar
           title={headerTitle}

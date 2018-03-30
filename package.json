@@ -9,6 +9,7 @@
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-htmlview": "^0.12.1",
+    "react-native-star-rating": "^1.0.9",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^1.0.3",
     "sentry-expo": "^1.7.0"

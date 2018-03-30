@@ -5,7 +5,8 @@ import { ScheduleTalk } from "../types";
 import talksJsonPerDay from "./talks.json";
 
 const BEGIN_DAY_OF_CONFERENCE = moment.tz(
-  "2018-04-13 09:00:00",
+  //"2018-04-13 09:00:00",
+  "2018-03-30 09:00:00",
   "Europe/Berlin"
 );
 
@@ -51,7 +52,9 @@ talksJsonPerDay.forEach(talksForSingleDay => {
       shouldShowDetails:
         talkJson.speakers && talkJson.speakers.length && !talkJson.isBreak,
       time: beginTime,
-      endTime: beginTime.clone().add(talkJson.durationInMinutes, "minutes")
+      endTime: beginTime.clone().add(talkJson.durationInMinutes, "minutes"),
+      ratingEnabled:
+        talkJson.speakers && talkJson.speakers.length && !talkJson.isBreak
     });
   });
 

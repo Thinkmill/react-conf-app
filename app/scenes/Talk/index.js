@@ -170,9 +170,10 @@ class Talk extends PureComponent {
     const nextTalk = getNextTalkFromIndex(talkIndex);
 
     const isAndroid = Platform.OS === "android";
-    const headerTitle = moment
-      .tz(talk.time.start, "Europe/Berlin")
-      .format(TIME_FORMAT);
+    const headerTitle =
+      moment.tz(talk.time, "Europe/Berlin").format(TIME_FORMAT) +
+      " - " +
+      moment.tz(talk.endTime, "Europe/Berlin").format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
     const incomingFrom =

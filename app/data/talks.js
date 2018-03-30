@@ -48,6 +48,8 @@ talksJsonPerDay.forEach(talksForSingleDay => {
       speakers: talkJson.speakers,
       summary: talkJson.summary,
       title: talkJson.title,
+      shouldShowDetails:
+        talkJson.speakers && talkJson.speakers.length && !talkJson.isBreak,
       time: beginTime,
       endTime: beginTime.clone().add(talkJson.durationInMinutes, "minutes")
     });

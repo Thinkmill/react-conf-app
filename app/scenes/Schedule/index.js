@@ -21,10 +21,7 @@ import { TIME_FORMAT } from "../../constants";
 
 import { ScheduleTalk } from "../../types";
 
-import talks, {
-  getNextTalkFromIndex,
-  getPreviousTalkFromIndex
-} from "../../data/talks";
+import talks from "../../data/talks";
 import Navbar from "../../components/Navbar";
 import ListTitle from "../../components/ListTitle";
 import Scene from "../../components/Scene";
@@ -158,7 +155,9 @@ export default class Schedule extends Component {
 
     const onPress = () => {
       StatusBar.setBarStyle("default", true);
-
+      if (!item.shouldShowDetails) {
+        return;
+      }
       this.props.navigation.navigate("Talk", {
         talkIndex: index
       });
@@ -172,6 +171,7 @@ export default class Schedule extends Component {
         startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
         status={getTalkStatus(item.time, item.endTime)}
         title={item.title}
+        shouldShowDetails={item.shouldShowDetails}
         onPress={onPress}
       />
     );
@@ -260,37 +260,3 @@ function getTalkStatus(startTime, endTime) {
 
   return "past";
 }
-
-/*
-renderRow={talk => {
-            const status = getTalkStatus(talk.time.start, talk.time.end);
-            const onLayout =
-              status === "present"
-                ? ({ nativeEvent: { layout } }) => {
-                    this.setState({
-                      activeTalkLayout: {
-                        height: layout.height,
-                        position: layout.y - theme.navbar.height / 2
-                      }
-                    });
-                  }
-                : null;
-
-            // methods on Talk
-            const onPress = () => {
-              let talkIdx = getIndexFromId(talk.id);
-              StatusBar.setBarStyle("default", true);
-
-              navigation.navigate("Talk", {
-                introduceUI: talkIdx && talkIdx < talks.length - 1,
-                nextTalk: getNextTalkFromId(talk.id),
-                prevTalk: getPrevTalkFromId(talk.id),
-                talk
-              });
-            };
-
-            return (
-
-            );
-          }}
-          */

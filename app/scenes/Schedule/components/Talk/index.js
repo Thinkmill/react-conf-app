@@ -116,6 +116,7 @@ export default class Talk extends Component {
       startTime,
       status,
       title,
+      shouldShowDetails,
       ...props
     } = this.props;
 
@@ -200,12 +201,15 @@ export default class Talk extends Component {
 
             <View style={styles.right}>
               {avatar}
-              <Icon
-                color={theme.color.gray40}
-                name="ios-arrow-forward"
-                size={20}
-                style={styles.chevron}
-              />
+
+              {shouldShowDetails ? (
+                <Icon
+                  color={theme.color.gray40}
+                  name="ios-arrow-forward"
+                  size={20}
+                  style={styles.chevron}
+                />
+              ) : null}
             </View>
           </View>
         </View>

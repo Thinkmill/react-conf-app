@@ -1,6 +1,6 @@
-// 
-import React, { Component } from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
+//
+import React, { Component } from "react";
+import Icon from "react-native-vector-icons/Ionicons";
 import {
   ScrollView,
   StyleSheet,
@@ -8,26 +8,27 @@ import {
   TouchableOpacity,
   View,
   Linking
-} from 'react-native';
+} from "react-native";
 
-import theme from '../../../../theme';
-import Modal from '../../../../components/Modal';
+import theme from "../../../../theme";
+import Modal from "../../../../components/Modal";
 
 class BulletPoint extends Component {
   render() {
     return (
-      <View style={{ flexDirection: 'row' }}>
-        <Text style={this.props.style}>{'\u2022'}</Text>
-        <Text style={[this.props.style, { flex: 1, paddingLeft: 5 }]}>{this.props.children}</Text>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={this.props.style}>{"\u2022"}</Text>
+        <Text style={[this.props.style, { flex: 1, paddingLeft: 5 }]}>
+          {this.props.children}
+        </Text>
       </View>
     );
   }
 }
 
 export default class CodeOfConduct extends Component {
-
   render() {
-    const { onClose } = this.props;
+    const { onClos } = this.props;
 
     return (
       <Modal
@@ -46,12 +47,20 @@ export default class CodeOfConduct extends Component {
             </View>
             <View>
               <Text style={styles.text}>
-                As contributors and maintainers of this project, and in the interest of fostering an open and welcoming community, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
+                As contributors and maintainers of this project, and in the
+                interest of fostering an open and welcoming community, we pledge
+                to respect all people who contribute through reporting issues,
+                posting feature requests, updating documentation, submitting
+                pull requests or patches, and other activities.
               </Text>
             </View>
             <View>
               <Text style={styles.text}>
-                We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
+                We are committed to making participation in this project a
+                harassment-free experience for everyone, regardless of level of
+                experience, gender, gender identity and expression, sexual
+                orientation, disability, personal appearance, body size, race,
+                ethnicity, age, religion, or nationality.
               </Text>
               <Text style={styles.text}>
                 Examples of unacceptable behavior by participants include:
@@ -69,22 +78,45 @@ export default class CodeOfConduct extends Component {
                 Public or private harassment
               </BulletPoint>
               <BulletPoint style={styles.bulletPoint}>
-                Publishing other's private information, such as physical or electronic addresses, without explicit permission
+                Publishing other's private information, such as physical or
+                electronic addresses, without explicit permission
               </BulletPoint>
               <BulletPoint style={styles.bulletPoint}>
                 Other unethical or unprofessional conduct.
               </BulletPoint>
               <Text style={styles.text}>
-                Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. By adopting this Code of Conduct, project maintainers commit themselves to fairly and consistently applying these principles to every aspect of managing this project. Project maintainers who do not follow or enforce the Code of Conduct may be permanently removed from the project team.
+                Project maintainers have the right and responsibility to remove,
+                edit, or reject comments, commits, code, wiki edits, issues, and
+                other contributions that are not aligned to this Code of
+                Conduct. By adopting this Code of Conduct, project maintainers
+                commit themselves to fairly and consistently applying these
+                principles to every aspect of managing this project. Project
+                maintainers who do not follow or enforce the Code of Conduct may
+                be permanently removed from the project team.
               </Text>
               <Text style={styles.text}>
-                This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
+                This code of conduct applies both within project spaces and in
+                public spaces when an individual is representing the project or
+                its community.
               </Text>
               <Text style={styles.text}>
-                Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.
+                Instances of abusive, harassing, or otherwise unacceptable
+                behavior may be reported by opening an issue or contacting one
+                or more of the project maintainers.
               </Text>
               <Text style={styles.text}>
-                This Code of Conduct is adapted from the Contributor Covenant, version 1.2.0, available from <Text style={styles.link} onPress={() => {Linking.openURL('http://contributor-covenant.org/version/1/2/0/')}}>http://contributor-covenant.org/version/1/2/0/</Text>
+                This Code of Conduct is adapted from the Contributor Covenant,
+                version 1.2.0, available from{" "}
+                <Text
+                  style={styles.link}
+                  onPress={() => {
+                    Linking.openURL(
+                      "http://contributor-covenant.org/version/1/2/0/"
+                    );
+                  }}
+                >
+                  http://contributor-covenant.org/version/1/2/0/
+                </Text>
               </Text>
             </View>
           </ScrollView>
@@ -110,16 +142,16 @@ const BORDER_RADIUS = 6;
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: BORDER_RADIUS,
     maxHeight: 400,
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.25,
-    shadowRadius: 5,
+    shadowRadius: 5
   },
   content: {
-    padding: theme.fontSize.default,
+    padding: theme.fontSize.default
   },
 
   // text
@@ -127,45 +159,45 @@ const styles = StyleSheet.create({
     color: theme.color.gray60,
     fontSize: 13,
     lineHeight: theme.fontSize.default,
-    marginTop: theme.fontSize.small,
+    marginTop: theme.fontSize.small
   },
   bulletPoint: {
     color: theme.color.gray60,
     fontSize: 13,
-    lineHeight: theme.fontSize.default,
+    lineHeight: theme.fontSize.default
   },
   link: {
     color: theme.color.blue,
-    textDecorationLine: 'underline'
+    textDecorationLine: "underline"
   },
   heading: {
     color: theme.color.gray70,
     fontSize: theme.fontSize.small,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   heading1: {
-    fontSize: theme.fontSize.default,
+    fontSize: theme.fontSize.default
   },
   heading2: {
     fontSize: theme.fontSize.small,
-    marginTop: theme.fontSize.large,
+    marginTop: theme.fontSize.large
   },
 
   // close
   close: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: theme.color.gray05,
     borderBottomLeftRadius: BORDER_RADIUS,
     borderBottomRightRadius: BORDER_RADIUS,
     height: 40,
-    justifyContent: 'center',
-    shadowColor: 'black',
+    justifyContent: "center",
+    shadowColor: "black",
     shadowOffset: { height: -1, width: 0 },
     shadowOpacity: 0.1,
-    shadowRadius: 0,
+    shadowRadius: 0
   },
   closeText: {
     color: theme.color.gray40,
-    fontWeight: '500',
-  },
+    fontWeight: "500"
+  }
 });

@@ -1,5 +1,5 @@
 //
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import {
   Animated,
   PixelRatio,
@@ -12,12 +12,16 @@ import {
   Dimensions,
   View
 } from "react-native";
+import StarRating from "react-native-star-rating";
+
 import Button from "react-native-button";
 import moment from "moment-timezone";
+import { connect } from "react-redux";
 
 import { TIME_FORMAT } from "../../../../constants";
 import { darken } from "../../../../utils/color";
 import { attemptToOpenUrl } from "../../../../utils";
+import { selectors, actions } from "../../../../redux/index";
 
 import theme from "../../../../theme";
 import Avatar from "../../../../components/Avatar";
@@ -59,6 +63,56 @@ const TalkPreview = ({ talk, isEngaged }) => {
     />
   );
 };
+
+const mapStateToProps = (state, props) => ({
+  rating: selectors.ratingForTalk(props.talkTitle)(state)
+});
+class RateTalkButtonUnconnected extends PureComponent {
+  render() {
+    const { rating } = this.props;
+    return (
+      <View
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          marginTop: 20
+        }}
+      >
+        {rating ? (
+          <StarRating
+            containerStyle={{
+              marginTop: 15,
+              marginRight: 10
+            }}
+            style={{
+              width: 200
+            }}
+            disabled={true}
+            maxStars={5}
+            rating={rating}
+            starSize={20}
+          />
+        ) : null}
+        <Button
+          containerStyle={{
+            flexGrow: 1,
+            padding: 10,
+            height: 45,
+            overflow: "hidden",
+            borderRadius: 4,
+            backgroundColor: theme.color.blue
+          }}
+          style={{ fontSize: 20, color: "white" }}
+          onPress={this.props.onPress}
+        >
+          {rating ? "Change your rating!" : "Rate this talk!"}
+        </Button>
+      </View>
+    );
+  }
+}
+const RateTalkButton = connect(mapStateToProps)(RateTalkButtonUnconnected);
 
 export default class TalkPane extends Component {
   state = {
@@ -150,27 +204,16 @@ export default class TalkPane extends Component {
   }
 
   renderRateTalk() {
-    const { endTime } = this.props.visibleTalk;
+    const { endTime, title } = this.props.visibleTalk;
     if (!endTime) {
       return null;
     }
     if (endTime.isBefore(moment())) {
       return (
-        <Button
-          containerStyle={{
-            marginTop: 20,
-            padding: 10,
-            width: "100%",
-            height: 45,
-            overflow: "hidden",
-            borderRadius: 4,
-            backgroundColor: theme.color.blue
-          }}
-          style={{ fontSize: 20, color: "white" }}
+        <RateTalkButton
+          talkTitle={title}
           onPress={this.props.showTalkRatingModal}
-        >
-          Rate this talk!
-        </Button>
+        />
       );
     }
 

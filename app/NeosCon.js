@@ -1,14 +1,32 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import { Platform, StatusBar } from "react-native";
-
+import { Platform, StatusBar, AsyncStorage } from "react-native";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
 import { Info, Schedule, Talk } from "./scenes";
-
+import { actions, reducer, storageMiddleware } from "./redux/index";
 import registerRatingNotifications from "./ratingNotifications";
 
 registerRatingNotifications();
 
-export default StackNavigator(
+const store = createStore(
+  reducer,
+  { ratings: {} },
+  applyMiddleware(storageMiddleware)
+);
+
+AsyncStorage.getItem("@NeosCon.state").then(
+  state => {
+    if (state) {
+      store.dispatch(actions.restoreStateFromStorage(JSON.parse(state)));
+    }
+  },
+  error => {
+    // do nothing if ratings could not be loaded.
+  }
+);
+
+const App = StackNavigator(
   {
     Home: {
       screen: Schedule
@@ -26,4 +44,10 @@ export default StackNavigator(
       paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight
     }
   }
+);
+
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

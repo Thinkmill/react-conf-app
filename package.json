@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "expo": "^25.0.0",
+    "immutability-helper": "^2.6.6",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "prop-types": "^15.6.0",
@@ -12,6 +13,9 @@
     "react-native-star-rating": "^1.0.9",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^1.0.3",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.3.0",
     "sentry-expo": "^1.7.0"
   },
   "devDependencies": {

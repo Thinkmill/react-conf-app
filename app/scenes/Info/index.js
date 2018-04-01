@@ -163,7 +163,11 @@ class Info extends Component {
               </TouchableOpacity>
             </View>
 
-            <HTMLView value={htmlContent} />
+            <HTMLView
+              value={htmlContent}
+              stylesheet={htmlStyles}
+              addLineBreaks={false}
+            />
 
             <View style={styles.madeby}>
               <TouchableOpacity
@@ -198,6 +202,10 @@ class Info extends Component {
     );
   }
 }
+
+const htmlStyles = StyleSheet.create({
+  p: {}
+});
 
 export default BackButtonAndroid()(Info);
 

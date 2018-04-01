@@ -28,7 +28,7 @@ class BulletPoint extends Component {
 
 export default class CodeOfConduct extends Component {
   render() {
-    const { onClos } = this.props;
+    const { onClose } = this.props;
 
     return (
       <Modal

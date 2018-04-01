@@ -26,40 +26,42 @@ import CodeOfConduct from "./components/CodeOfConduct";
 import Organiser from "./components/Organiser";
 
 const htmlContent = `
-<p>It was heavily modified and adjusted to Neos Con by <a href="https://sandstorm.de">Sandstorm Media</p>
-<h2>Thanks to Thinkmill</h2>
+<h4>Thanks!</h4>
 <p>This app was originally created and <a href="https://github.com/Thinkmill/react-conf-app">open sourced</a> by <a href="https://www.thinkmill.com.au/">Thinkmill</a> (Sydney, Australia)</p>
-<h2>Angaben gemäß §5 TMG</h2>
+<p>It was heavily modified and adjusted to Neos Con by <a href="https://sandstorm.de">Sandstorm Media</p>.
 
-<p>Sandstorm Media GmbH<br />
-Blasewitzer Str. 41<br />
-01307 Dresden</p>
+<h4>Angaben gemäß §5 TMG</h4>
 
-<h3>Vertreten durch:</h3>
+<p>Sandstorm Media GmbH</p>
+<p>Blasewitzer Str. 41</p>
+<p>01307 Dresden</p>
 
-<p>Geschäftsführer: Florian Heinze<br /> Geschäftsführer: Tobias Gruber</p>
+<h4>Vertreten durch:</h4>
 
-<h3>Kontakt</h3>
+<p>Geschäftsführer: Florian Heinze</p>
+<p>Geschäftsführer: Tobias Gruber</p>
 
-<p>Telefon:&nbsp;+49 351 418 96 49<br />
-Email: kontakt(at)sandstorm-media.de</p>
+<h4>Kontakt</h4>
 
-<h3>Registereintrag</h3>
+<p>Telefon:&nbsp;+49 351 418 96 49</p>
+<p>Email: kontakt(at)sandstorm-media.de</p>
 
-<p>Registergericht: Amtsgericht Dresden<br />
-Registernummer: HRB 27395</p>
+<h4>Registereintrag</h4>
 
-<h3>Umsatzsteuer-ID und Steuernummer</h3>
+<p>Registergericht: Amtsgericht Dresden</p>
+<p>Registernummer: HRB 27395</p>
 
-<p>Ust.-ID-Nr. gemäß §27 a Umsatzsteuergesetz: DE 264 953 453<br />
-Steuernummer: 203/118/06174</p>
+<h4>Umsatzsteuer-ID und Steuernummer</h4>
 
-<p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</p>
+<p>Ust.-ID-Nr. gemäß §27 a Umsatzsteuergesetz: DE 264 953 453</p>
+<p>Steuernummer: 203/118/06174</p>
 
-<p>Sebastian Kurfürst<br />
-Blasewitzer Str. 41<br />
-01307 Dresden</p>
-`;
+<h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h4>
+
+<p>Sebastian Kurfürst</p>
+<p>Blasewitzer Str. 41</p>
+<p>01307 Dresden</p>
+`.replace(/\n/g, "");
 
 // Hamburg
 const mapRegion = {
@@ -167,33 +169,10 @@ class Info extends Component {
               value={htmlContent}
               stylesheet={htmlStyles}
               addLineBreaks={false}
+              style={{
+                padding: 20
+              }}
             />
-
-            <View style={styles.madeby}>
-              <TouchableOpacity
-                onPress={this.openThinkmill}
-                activeOpacity={0.75}
-                style={styles.madebyLink}
-              >
-                <Image
-                  source={require("./images/thinkmill-logo.png")}
-                  style={{ width: 44, height: 44 }}
-                />
-                {/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
-              </TouchableOpacity>
-              <Text style={styles.madebyText}>
-                Made with love in Sydney, Australia, and open sourced by
-                Thinkmill
-              </Text>
-              {/* <TouchableOpacity
-                onPress={this.openRepository}
-                activeOpacity={0.75}
-              >
-                <Text style={styles.heroLink}>
-                  View Source Code
-                </Text>
-              </TouchableOpacity> */}
-            </View>
           </View>
         </ScrollView>
 
@@ -204,7 +183,7 @@ class Info extends Component {
 }
 
 const htmlStyles = StyleSheet.create({
-  p: {}
+  h4: { fontWeight: "500", fontSize: 18, paddingTop: 20, paddingBottom: 10 }
 });
 
 export default BackButtonAndroid()(Info);
@@ -237,26 +216,5 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.default,
     fontWeight: "500",
     padding: theme.fontSize.large
-  },
-
-  // made by thinkmill
-  madeby: {
-    alignItems: "center",
-    paddingHorizontal: theme.fontSize.default,
-    paddingVertical: theme.fontSize.xlarge
-  },
-  madebyLink: {
-    alignItems: "center"
-  },
-  madebyText: {
-    color: theme.color.gray60,
-    fontSize: theme.fontSize.small,
-    fontWeight: "300",
-    lineHeight: 20,
-    marginTop: theme.fontSize.default,
-    textAlign: "center"
-  },
-  madebyTitle: {
-    fontWeight: "500"
   }
 });

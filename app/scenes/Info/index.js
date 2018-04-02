@@ -27,8 +27,8 @@ import Organiser from "./components/Organiser";
 
 const htmlContent = `
 <h4>Thanks!</h4>
-<p>This app was originally created and <a href="https://github.com/Thinkmill/react-conf-app">open sourced</a> by <a href="https://www.thinkmill.com.au/">Thinkmill</a> (Sydney, Australia)</p>
-<p>It was heavily modified and adjusted to Neos Con by <a href="https://sandstorm.de">Sandstorm Media</p>.
+<p>This app was originally created and <a href="https://github.com/Thinkmill/react-conf-app">open sourced</a> by <a href="https://www.thinkmill.com.au/">Thinkmill</a> (Sydney, Australia).</p>
+<p>It was heavily modified and adjusted to Neos Con by <a href="https://sandstorm.de">Sandstorm Media</a>. The adjusted source code can also be <a href="https://github.com/sandstorm/neos-conf-app">found on GitHub</a>.
 
 <h4>Angaben gemäß §5 TMG</h4>
 

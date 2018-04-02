@@ -148,7 +148,7 @@ export default class Schedule extends Component {
     this.setState({ showNowButton });
   }
 
-  _keyExtractor = (talk, index) => index;
+  _keyExtractor = (talk, index) => index + "";
   _renderItem = ({ item, index, now }) => {
     if (item.isBreak) {
       return (

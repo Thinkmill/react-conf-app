@@ -151,9 +151,11 @@ class Rating extends PureComponent {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        talkTitle: this.props.talk.title,
-        rating: this.state.starCount,
-        deviceId: Constants.deviceId
+        rating: {
+          talkTitle: this.props.talk.title,
+          rating: this.state.starCount,
+          deviceId: Constants.deviceId
+        }
       })
     }).then(
       () => {

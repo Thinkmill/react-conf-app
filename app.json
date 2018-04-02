@@ -22,15 +22,14 @@
       "androidMode": "default"
     },
     "ios": {
-      "buildNumber": "3",
+      "buildNumber": "4",
       "supportsTablet": false,
-      "bundleIdentifier": "de.sandstorm.neoscon",
-      "loadJSInBackgroundExperimental": true
+      "bundleIdentifier": "de.sandstorm.neoscon"
     },
     "android": {
       "package": "de.sandstorm.neoscon",
       "permissions": [],
-      "versionCode": 2
+      "versionCode": 4
     },
     "hooks": {
       "postPublish": [

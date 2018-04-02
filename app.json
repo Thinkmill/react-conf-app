@@ -13,6 +13,9 @@
       "image": "./assets/splash.png",
       "resizeMode": "cover"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "notification": {
       "icon": "./assets/icon-push.png",
       "color": "#FFFFFF",

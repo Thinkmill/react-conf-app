@@ -6,9 +6,10 @@ import { createStore, applyMiddleware } from "redux";
 import { Info, Schedule, Talk } from "./scenes";
 import { actions, reducer, storageMiddleware } from "./redux/index";
 import registerRatingNotifications from "./ratingNotifications";
+import checkForUpdatesRegularily from "./checkForUpdatesRegularily";
 
 registerRatingNotifications();
-
+checkForUpdatesRegularily();
 const store = createStore(
   reducer,
   { ratings: {} },

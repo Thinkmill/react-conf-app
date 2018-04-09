@@ -8,7 +8,7 @@ const setUpNotifications = () => {
   // TODO: Two notifications at the same time!!
   Notifications.cancelAllScheduledNotificationsAsync().then(() => {
     talks.forEach((talk, index) => {
-      if (talk.isBreak) {
+      if (!talk.ratingEnabled) {
         return;
       }
       if (talk.endTime && talk.endTime.isAfter(moment())) {

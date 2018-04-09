@@ -10,6 +10,7 @@ import DraggableView from "../../../../components/DraggableView";
 import Modal from "../../../../components/Modal";
 import theme from "../../../../theme";
 import { attemptToOpenUrl } from "../../../../utils";
+import Raven from "raven-js";
 
 import {
   PixelRatio,
@@ -158,11 +159,21 @@ class Rating extends PureComponent {
         }
       })
     }).then(
-      () => {
-        this.props.storeRating(this.props.talk.title, this.state.starCount);
-        this.handleClose();
+      result => {
+        if (result.ok) {
+          this.props.storeRating(this.props.talk.title, this.state.starCount);
+          this.handleClose();
+        } else {
+          Raven.captureMessage(
+            "Rating submission failed with HTTP status " + result.status
+          );
+          setTimeout(() => {
+            this.setState({ isSaving: false, isError: true });
+          }, 500);
+        }
       },
       () => {
+        Raven.captureMessage("Rating submission failed completely");
         setTimeout(() => {
           this.setState({ isSaving: false, isError: true });
         }, 500);

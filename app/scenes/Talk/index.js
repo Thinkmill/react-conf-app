@@ -92,14 +92,14 @@ class Talk extends PureComponent {
     const { talkIndex } = this.state;
     const nextTalk = getNextTalkFromIndex(talkIndex);
 
-    this.setTalks({ talk: nextTalk, talkIndex: talkIndex + 1 }, "next");
+    this.setTalks({ talk: nextTalk, talkIndex: nextTalk.index }, "next");
   };
 
   renderPrevTalk = () => {
     const { talkIndex } = this.state;
     const prevTalk = getPreviousTalkFromIndex(talkIndex);
 
-    this.setTalks({ talk: prevTalk, talkIndex: talkIndex - 1 }, "prev");
+    this.setTalks({ talk: prevTalk, talkIndex: prevTalk.index }, "prev");
   };
 
   setTalks = (newState, transitionDirection) => {

@@ -184,6 +184,7 @@ export default class TalkPane extends Component {
             {speakers}
 
             <Text style={styles.heroTitle}>{visibleTalk.title}</Text>
+            <Text style={styles.heroRoom}>{visibleTalk.room}</Text>
             {this.renderRateTalk()}
             {visibleTalk.videoId && (
               <TouchableOpacity
@@ -252,6 +253,12 @@ const styles = StyleSheet.create({
   heroTitle: {
     fontSize: theme.fontSize.large,
     fontWeight: "300",
+    textAlign: "center"
+  },
+  heroRoom: {
+    marginTop: 10,
+    //fontSize: theme.fontSize.large,
+    //fontWeight: "300",
     textAlign: "center"
   },
   heroLink: {

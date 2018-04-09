@@ -175,6 +175,7 @@ export default class Schedule extends Component {
         keynote={item.keynote}
         lightning={item.lightning}
         speakers={item.speakers}
+        room={item.room}
         startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
         status={getTalkStatus(item.time, item.endTime)}
         title={item.title}

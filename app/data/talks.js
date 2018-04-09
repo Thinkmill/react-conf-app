@@ -42,7 +42,9 @@ talksJsonPerDay.forEach(talksForSingleDay => {
       minute: minute,
       second: 0
     });
+    const index = talks.length;
     talks.push({
+      index,
       isBreak: talkJson.isBreak,
       room: talkJson.room,
       speakers: talkJson.speakers,
@@ -66,7 +68,7 @@ export function getNextTalkFromIndex(idx) {
   // skip over breaks
   let search = idx + 1;
   let talk = talks[search];
-  while (talk && talk.break) talk = talks[++search];
+  while (talk && !talk.shouldShowDetails) talk = talks[++search];
 
   if (!talk) {
     console.info("This is the last talk.");
@@ -82,7 +84,7 @@ export function getPreviousTalkFromIndex(idx) {
   // skip over breaks
   let search = idx - 1;
   let talk = talks[search];
-  while (talk && talk.break) talk = talks[--search];
+  while (talk && !talk.shouldShowDetails) talk = talks[--search];
 
   if (!talk) {
     console.info("This is the first talk.");

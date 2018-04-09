@@ -117,6 +117,7 @@ export default class Talk extends Component {
       status,
       title,
       shouldShowDetails,
+      room,
       ...props
     } = this.props;
 
@@ -155,11 +156,7 @@ export default class Talk extends Component {
     } else if (keynote) {
       subtitle = <KeynoteSubtitle text={startTime} />;
     } else {
-      subtitle = (
-        <Text style={[styles.subtitle, styles.subtitleText]}>
-          {subtitleText}
-        </Text>
-      );
+      subtitle = <Text style={[styles.subtitleText]}>{subtitleText}</Text>;
     }
 
     // avatar variants
@@ -194,6 +191,7 @@ export default class Talk extends Component {
           <View style={[styles.content, styles["content__" + status]]}>
             <View style={[styles.text, styles["text__" + status]]}>
               {subtitle}
+              <Text style={[styles.subtitle, styles.subtitleText]}>{room}</Text>
               <Text style={[styles.title, styles["title__" + status]]}>
                 {title}
               </Text>

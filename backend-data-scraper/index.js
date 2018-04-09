@@ -81,7 +81,10 @@ const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
   for (let i in speakersWithTalkDetails) {
     for (let t in speakersWithTalkDetails[i].talks) {
       if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
-        return speakersWithTalkDetails[i].talks[t].description;
+        const description = speakersWithTalkDetails[i].talks[t].description;
+        return description
+          .replace(/\(together with (?!the Neos)[^)]+\)/, "")
+          .trim();
       }
     }
   }
@@ -95,10 +98,14 @@ const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
 
 const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
   const speakers = [];
+  const foundSpeakerNames = [];
   for (let i in speakersWithTalkDetails) {
     for (let t in speakersWithTalkDetails[i].talks) {
       if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
-        speakers.push(speakersWithTalkDetails[i]);
+        if (foundSpeakerNames.indexOf(speakersWithTalkDetails[i].name) === -1) {
+          foundSpeakerNames.push(speakersWithTalkDetails[i].name);
+          speakers.push(speakersWithTalkDetails[i]);
+        }
       }
     }
   }

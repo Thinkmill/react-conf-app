@@ -19,7 +19,6 @@ import style from "./style";
 import Break from "./components/Break";
 import Talk from "./components/Talk";
 import { TIME_FORMAT } from "../../constants";
-
 import { ScheduleTalk } from "../../types";
 
 import talks from "../../data/talks";
@@ -29,6 +28,7 @@ import Scene from "../../components/Scene";
 
 import NowButton from "./components/NowButton";
 import SplashScreen from "./components/SplashScreen";
+import checkForUpdatesRegularily from "../../checkForUpdatesRegularily";
 
 export default class Schedule extends Component {
   static propTypes = {
@@ -240,6 +240,8 @@ export default class Schedule extends Component {
           /* we render all items at once */ initialNumToRender={100}
           renderItem={this._renderItem}
           ListHeaderComponent={<View key="spacer" style={{ height: 190 }} />}
+          onRefresh={this.handleRefresh}
+          refreshing={false}
           onScroll={Animated.event([
             {
               nativeEvent: {
@@ -255,6 +257,10 @@ export default class Schedule extends Component {
       </Scene>
     );
   }
+
+  handleRefresh = () => {
+    checkForUpdatesRegularily();
+  };
 }
 
 function getTalkStatus(startTime, endTime) {

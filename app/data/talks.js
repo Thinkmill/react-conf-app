@@ -55,7 +55,10 @@ talksJsonPerDay.forEach(talksForSingleDay => {
       time: beginTime,
       endTime: beginTime.clone().add(talkJson.durationInMinutes, "minutes"),
       ratingEnabled:
-        talkJson.speakers && talkJson.speakers.length && !talkJson.isBreak
+        talkJson.speakers &&
+        talkJson.speakers.length &&
+        !talkJson.isBreak &&
+        !talkJson.isCaseStudy
     });
   });
 

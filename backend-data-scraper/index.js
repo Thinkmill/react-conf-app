@@ -77,6 +77,8 @@ const speakersWithTalkDetails = scrapeIt(
 const isBreakOrLunch = title =>
   title.indexOf("Break") !== -1 || title === "Lunch";
 
+const isCaseStudy = title => title.includes("Case Studies");
+
 const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
   for (let i in speakersWithTalkDetails) {
     for (let t in speakersWithTalkDetails[i].talks) {
@@ -89,7 +91,7 @@ const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
     }
   }
 
-  if (isBreakOrLunch(title)) {
+  if (isBreakOrLunch(title) || isCaseStudy(title)) {
     return "";
   }
   console.warn("Did not find talk details for " + title);
@@ -97,10 +99,12 @@ const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
 };
 
 const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
+  isCaseStudySession = isCaseStudy(title);
   const speakers = [];
   const foundSpeakerNames = [];
   for (let i in speakersWithTalkDetails) {
     for (let t in speakersWithTalkDetails[i].talks) {
+      title = isCaseStudySession ? "Case Study" : title;
       if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
         if (foundSpeakerNames.indexOf(speakersWithTalkDetails[i].name) === -1) {
           foundSpeakerNames.push(speakersWithTalkDetails[i].name);
@@ -121,33 +125,58 @@ const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
   return [];
 };
 
+const removeTabs = content => {
+  const tab = RegExp("\\t", "g");
+  content = content.replace(tab, "");
+
+  // case studies has three leading breaks
+  return content.replace("\n\n\n", "");
+};
+
+const getSummaryForCaseStudies = content => {
+  content = removeTabs(content);
+  return content.replace("Case Studies", "");
+};
+
 const transformTopic = (
   topicFromCrawler,
   topicTitle,
   roomName,
   speakersWithTalkDetails
-) => ({
-  summary: findTalkDetailsForTitle(topicTitle, speakersWithTalkDetails),
-  title: topicTitle,
-  //videoId: 'tWitQoPgs8w',
-  speakers: findSpeakersForTitle(topicTitle, speakersWithTalkDetails).map(
-    speaker => {
-      const twitter = speaker.facts.find(it => it.fact[0] === "@");
-      const company = speaker.facts.find(it => it.fact[0] !== "@");
-      return {
-        name: speaker.name,
-        avatar: speaker.avatar,
-        twitter: twitter && twitter.fact && twitter.fact.substr(1),
-        company: company && company.fact,
-        summary: speaker.summary
-      };
-    }
-  ),
-  time: topicFromCrawler.time,
-  durationInMinutes: 45,
-  room: roomName,
-  isBreak: isBreakOrLunch(topicTitle)
-});
+) => {
+  const isCaseStudySession = isCaseStudy(topicTitle);
+  let summary = findTalkDetailsForTitle(topicTitle, speakersWithTalkDetails);
+  if (isCaseStudySession) {
+    summary = getSummaryForCaseStudies(topicTitle);
+    topicTitle = "Case Studies";
+  }
+
+  const transformedSession = {
+    summary: summary,
+    title: topicTitle,
+    //videoId: 'tWitQoPgs8w',
+    speakers: findSpeakersForTitle(topicTitle, speakersWithTalkDetails).map(
+      speaker => {
+        const twitter = speaker.facts.find(it => it.fact[0] === "@");
+        const company = speaker.facts.find(it => it.fact[0] !== "@");
+        return {
+          name: speaker.name,
+          avatar: speaker.avatar,
+          twitter: twitter && twitter.fact && twitter.fact.substr(1),
+          company: company && company.fact,
+          summary: speaker.summary
+        };
+      }
+    ),
+    time: topicFromCrawler.time,
+    durationInMinutes: 45,
+    room: roomName,
+    isBreak: isBreakOrLunch(topicTitle),
+    isCaseStudy: isCaseStudySession
+  };
+
+  return transformedSession;
+};
 
 Promise.all([program, speakersWithTalkDetails])
   .then(([program, speakersWithTalkDetails]) => {

@@ -43,11 +43,17 @@ const fontSize = {
 // Component Specific
 // ------------------------------
 
+const isIphoneX = () => {
+  let d = Dimensions.get("window");
+  const { height, width } = d;
+  return Platform.OS === "ios" && (height === 812 || width === 812);
+};
+
 // navbar
 const navbar = {
   backgroundColor: color.darkBlue,
   buttonColor: color.blue,
-  height: 64,
+  height: isIphoneX() ? 84 : 64,
   textColor: color.lightText
 };
 
@@ -71,5 +77,6 @@ export default {
   nextup,
   listheader,
   talkPaneAndroidMinScrollAreaHeight,
-  statusBarHeight
+  statusBarHeight,
+  isIphoneX
 };

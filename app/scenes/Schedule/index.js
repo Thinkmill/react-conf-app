@@ -20,6 +20,7 @@ import Break from "./components/Break";
 import Talk from "./components/Talk";
 import { TIME_FORMAT } from "../../constants";
 import { ScheduleTalk } from "../../types";
+import theme from "../../theme";
 
 import talks from "../../data/talks";
 import Navbar from "../../components/Navbar";
@@ -75,10 +76,8 @@ export default class Schedule extends Component {
       // This isn't relevant on Android.
       this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
         if (value > 120) {
-          StatusBar.setBarStyle("default", true);
           StatusBar.setHidden(false, true);
         } else if (value < 80) {
-          StatusBar.setBarStyle("light-content", true);
           StatusBar.setHidden(false, true);
         } else {
           StatusBar.setHidden(true, true);
@@ -116,15 +115,9 @@ export default class Schedule extends Component {
   };
   handleNavigatorWillFocus = (event: any) => {
     const { scene } = event.data.route;
-
-    if (scene === "Schedule" && this.state.scrollY._value < 120) {
-      StatusBar.setBarStyle("light-content", true);
-    }
-
     this.setState({ now: new Date() });
   };
   gotoEventInfo = () => {
-    StatusBar.setBarStyle("default", true);
     this.props.navigation.navigate("Info");
   };
 
@@ -161,7 +154,6 @@ export default class Schedule extends Component {
     }
 
     const onPress = () => {
-      StatusBar.setBarStyle("default", true);
       if (!item.shouldShowDetails) {
         return;
       }
@@ -190,10 +182,9 @@ export default class Schedule extends Component {
     const { dataSource, scrollY, showNowButton } = this.state;
 
     const isAndroid = Platform.OS === "android";
-
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
-      outputRange: [-64, 0],
+      outputRange: [-theme.navbar.height, 0],
       extrapolate: "clamp"
     });
 

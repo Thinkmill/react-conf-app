@@ -27,6 +27,9 @@ AsyncStorage.getItem("@NeosCon.state").then(
   }
 );
 
+// define light status bar for whole app
+StatusBar.setBarStyle("light-content", true);
+
 const App = StackNavigator(
   {
     Home: {

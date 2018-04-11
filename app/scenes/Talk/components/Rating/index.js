@@ -37,8 +37,8 @@ class Rating extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      starCount: props.rating,
-      comment: "",
+      starCount: props.rating.starCount,
+      comment: props.rating.comment,
       isSaving: false,
       isError: false
     };
@@ -155,13 +155,18 @@ class Rating extends PureComponent {
         rating: {
           talkTitle: this.props.talk.title,
           rating: this.state.starCount,
+          comment: this.state.comment,
           deviceId: Constants.deviceId
         }
       })
     }).then(
       result => {
         if (result.ok) {
-          this.props.storeRating(this.props.talk.title, this.state.starCount);
+          this.props.storeRating(
+            this.props.talk.title,
+            this.state.starCount,
+            this.state.comment
+          );
           this.handleClose();
         } else {
           Raven.captureMessage(

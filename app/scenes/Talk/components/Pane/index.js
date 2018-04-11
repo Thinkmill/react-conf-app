@@ -70,6 +70,8 @@ const mapStateToProps = (state, props) => ({
 class RateTalkButtonUnconnected extends PureComponent {
   render() {
     const { rating } = this.props;
+    const starCount = rating ? rating.starCount : 0;
+
     return (
       <View
         style={{
@@ -79,7 +81,7 @@ class RateTalkButtonUnconnected extends PureComponent {
           marginTop: 20
         }}
       >
-        {rating ? (
+        {starCount ? (
           <StarRating
             containerStyle={{
               marginTop: 15,
@@ -90,7 +92,7 @@ class RateTalkButtonUnconnected extends PureComponent {
             }}
             disabled={true}
             maxStars={5}
-            rating={rating}
+            rating={starCount}
             starSize={20}
           />
         ) : null}

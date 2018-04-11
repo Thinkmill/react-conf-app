@@ -207,8 +207,8 @@ export default class TalkPane extends Component {
   }
 
   renderRateTalk() {
-    const { endTime, title } = this.props.visibleTalk;
-    if (!endTime) {
+    const { endTime, title, ratingEnabled } = this.props.visibleTalk;
+    if (!endTime || !ratingEnabled) {
       return null;
     }
     if (endTime.isBefore(moment())) {

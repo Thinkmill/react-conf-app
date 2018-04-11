@@ -7,7 +7,8 @@
       "time": "09:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -16,7 +17,8 @@
       "time": "10:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -25,7 +27,8 @@
       "time": "10:30",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -34,7 +37,8 @@
       "time": "11:15",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -54,7 +58,8 @@
       "time": "11:45",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -74,7 +79,8 @@
       "time": "11:45",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -103,7 +109,8 @@
       "time": "12:35",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -124,7 +131,8 @@
       "time": "12:35",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -133,7 +141,8 @@
       "time": "13:20",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -153,7 +162,8 @@
       "time": "14:30",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -172,17 +182,47 @@
       "time": "14:30",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
-      "summary": "",
-      "title":
-        "Case Studies\n\n\t\t\t\n\t\t\t\tManage Neos and Flow in a Kubernetes cluster\n\t\t\t\t \n\t\t\t\tAll-in Digital Transformation of a Publishing House with Neos",
-      "speakers": [],
+      "summary":
+        "Manage Neos and Flow in a Kubernetes cluster\n \nAll-in Digital Transformation of a Publishing House with Neos\nMulti Client Solutions in Neos",
+      "title": "Case Studies",
+      "speakers": [
+        {
+          "name": "Johannes Steu",
+          "avatar":
+            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/e502bfa848900c9e208585f876551e898d083997/johannes-steu_300px.jpg",
+          "twitter": "stolle_",
+          "company": "yeebase media GmbH",
+          "summary":
+            "After a few years of working with TYPO3 Johannes joined the Neos team in April 2016. Later the year he joined yeebase media GmbH as well. He is currently working on several neos and flow based projects for t3n.de. Together with Robert Lemke he was as release manager responsible for Neos 3.0 release. In his spare time you can find him training for his next Triathlon."
+        },
+        {
+          "name": "Daniel Lienert",
+          "avatar":
+            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/6e6d86f7a88e1760c9e8507636176714725c0b45/Daniel-Lienert_300px.jpg",
+          "twitter": "dlienert",
+          "company": "Punkt.de",
+          "summary":
+            "Daniel is working as Scrum Master and Software Architect at punkt.de in Karlsruhe. Aside from his passion for agile corporate culture and development principals, he enjoys performant systems and well-designed software architecture. He also appreciates these values as a long-time developer and member of the Neos CMS Core Team."
+        },
+        {
+          "name": "Bernhard Schmitt",
+          "avatar":
+            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/9d2006b89de8028aef0884018113336050b80b2e/Bernhard-Schmitt-533x800.jpg",
+          "twitter": "nezaniel",
+          "company": "CORE4",
+          "summary":
+            "Working at CORE4, Bernhard has developed a soft spot for complex web applications. In Neos he sees both a tool for handling challenges as well as a challenge in itself. Bernhard joined the Neos team in September 2016."
+        }
+      ],
       "time": "15:20",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": true
     },
     {
       "summary": "",
@@ -191,7 +231,8 @@
       "time": "16:05",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -220,7 +261,8 @@
       "time": "16:30",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -240,7 +282,8 @@
       "time": "16:30",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -249,7 +292,8 @@
       "time": "17:20",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -258,7 +302,8 @@
       "time": "20:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     }
   ],
   [
@@ -269,7 +314,8 @@
       "time": "09:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -298,7 +344,8 @@
       "time": "10:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -316,7 +363,8 @@
         },
         {
           "name": "Arne Blankerts",
-          "avatar": "",
+          "avatar":
+            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/9c16a7ba649da9fa682358e9b1ae84d31848e6a5/berater-arne.jpg",
           "twitter": "arneblankerts",
           "company": "The PHP Consulting Company",
           "summary":
@@ -326,7 +374,8 @@
       "time": "10:50",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -346,7 +395,8 @@
       "time": "10:50",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -355,7 +405,8 @@
       "time": "11:35",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -364,7 +415,8 @@
       "time": "12:00",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -384,7 +436,8 @@
       "time": "12:50",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -404,7 +457,8 @@
       "time": "12:50",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -413,7 +467,8 @@
       "time": "13:35",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -433,7 +488,8 @@
       "time": "14:45",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -453,7 +509,8 @@
       "time": "14:45",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -468,21 +525,13 @@
           "company": "sitegeist",
           "summary":
             "Martin is a backend developer at sitegeist neos solutions GmbH in Hamburg. \nSince three years he focused his work almost exclusively on Neos and Flow and is still happy with this decision. In 2016 he joined the Neos CMS Core Team where he is working to extend the possibilities of the Neos-Fusion rendering layer. Martin lives in Hamburg with two kids and his girlfriend. Besides work he likes nature and climbing."
-        },
-        {
-          "name": "Wilhelm Behncke",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/2814a1c63260c04d0453822429512cacad81b388/Wilhelm_Behncke_300px.jpg",
-          "twitter": "WilhelmBehncke",
-          "company": "Sitegeist",
-          "summary":
-            "Wilhelm is a cross-stack developer with focus on Neos and Flow at sitegeist neos solutions GmbH in Hamburg. After gaining lots of positive project experiences with Neos in 2015, he joined the core team this year. With his great interest in innovative open source technologies like React JS and Redux, he now supports the project with new solutions in that area. Besides work, he creates music and also enjoys visiting concerts and other events alike."
         }
       ],
       "time": "15:35",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -503,7 +552,8 @@
       "time": "15:35",
       "durationInMinutes": 45,
       "room": "Room 2",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -512,7 +562,8 @@
       "time": "16:20",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": true
+      "isBreak": true,
+      "isCaseStudy": false
     },
     {
       "summary":
@@ -532,7 +583,8 @@
       "time": "16:45",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
@@ -541,7 +593,8 @@
       "time": "17:30",
       "durationInMinutes": 45,
       "room": "Room 1",
-      "isBreak": false
+      "isBreak": false,
+      "isCaseStudy": false
     }
   ]
 ]

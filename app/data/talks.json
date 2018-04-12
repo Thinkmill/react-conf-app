@@ -115,8 +115,7 @@
     {
       "summary":
         "In this talk, you will see why it is fantastic to publish packages. We'll explain, which are the challenges, and why it is important to publish your code for Neos. Also, some tips and tricks will be delivered: How it create an easy-to-install but yet powerful to customize and expandable package. In the end, you will be encouraged to create and maintain your own packages.",
-      "title":
-        "Why creating Open Source packages help you to become a better developer",
+      "title": "Why creating Open Source help you to become a better developer",
       "speakers": [
         {
           "name": "Jon Uhlmann",
@@ -187,7 +186,7 @@
     },
     {
       "summary":
-        "Manage Neos and Flow in a Kubernetes cluster\n \nAll-in Digital Transformation of a Publishing House with Neos\nMulti Client Solutions in Neos",
+        "Manage Neos and Flow in a Kubernetes cluster\n \nAll-in Digital Transformation of a Publishing House with Neos\n \nMulti Client Solutions in Neos",
       "title": "Case Studies",
       "speakers": [
         {

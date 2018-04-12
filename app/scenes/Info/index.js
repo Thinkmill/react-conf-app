@@ -156,10 +156,31 @@ class Info extends Component {
                 The conference will be taking place on April 13th and April
                 14th.
               </Text>
+
+              <Text style={styles.heroHeader}>Location</Text>
               <Text style={styles.heroText}>
-                On the evening of April 12th, there will be a warmup party. On
-                April 14th, there will be a social event.
+                Aiming high in 2018! The Neos Conference 2018 will be at the
+                Nord Event Panoramadeck - the 23rd floor of the Emporio Tower in
+                Hamburg. With a 360° view of Hamburg we have the whole floor to
+                ourselves for two tracks, networking and exchange.
               </Text>
+
+              <Text style={styles.heroHeader}>
+                Conference Warm-Up - 12th April
+              </Text>
+              <Text style={styles.heroText}>
+                Join us for a few drinks at our Warm-Up Event - we organized a
+                few tables during Live-Music-Night at “Bricks Tea Lounge and
+                Bar” (Große Bleichen 36, 20354 Hamburg) at 7 p.m.
+              </Text>
+
+              <Text style={styles.heroHeader}>Social Event</Text>
+              <Text style={styles.heroText}>
+                Join us for the Neos Conference 2018 Social Event at Nochtwache
+                Hamburg on April 13th. Admission is inlcuded in the Conference
+                Ticket. Start at 8 p.m.
+              </Text>
+
               <TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
                 <Text style={styles.heroLink}>Code of Conduct</Text>
               </TouchableOpacity>
@@ -205,8 +226,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.fontSize.default
   },
   heroText: {
-    paddingTop: theme.fontSize.xlarge,
+    paddingTop: theme.fontSize.small,
     fontSize: theme.fontSize.default,
+    fontWeight: "300",
+    lineHeight: theme.fontSize.large,
+    textAlign: "center"
+  },
+  heroHeader: {
+    paddingTop: theme.fontSize.large,
+    fontSize: theme.fontSize.large,
     fontWeight: "300",
     lineHeight: theme.fontSize.large,
     textAlign: "center"

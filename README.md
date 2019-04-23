@@ -1,14 +1,20 @@
+```
 nvm install
-npm install -g yarn exp
-exp login
+npm install -g yarn expo-cli
+expo login
 yarn
-exp doctor
-exp start
+expo doctor
+expo start
+```
 
 # or
 
-exp ios
+```
+expo ios
+```
 
 # Prod Build iOS
 
-exp build:ios
+```
+expo build:ios
+```

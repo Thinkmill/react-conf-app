@@ -1,5 +1,5 @@
 //
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Image,
   LayoutAnimation,
@@ -10,20 +10,20 @@ import {
   Text,
   TouchableOpacity,
   View
-} from "react-native";
-import MapView from "react-native-maps";
-import HTMLView from "react-native-htmlview";
-import BackButtonAndroid from "../../components/BackButtonAndroid";
-import ListTitle from "../../components/ListTitle";
-import Navbar from "../../components/Navbar";
-import Scene from "../../components/Scene";
+} from 'react-native';
+import MapView from 'react-native-maps';
+import HTMLView from 'react-native-htmlview';
+import BackButtonAndroid from '../../components/BackButtonAndroid';
+import ListTitle from '../../components/ListTitle';
+import Navbar from '../../components/Navbar';
+import Scene from '../../components/Scene';
 
-import { list as organiserList } from "../../data/organisers";
-import theme from "../../theme";
-import { attemptToOpenUrl } from "../../utils";
+import { list as organiserList } from '../../data/organisers';
+import theme from '../../theme';
+import { attemptToOpenUrl } from '../../utils';
 
-import CodeOfConduct from "./components/CodeOfConduct";
-import Organiser from "./components/Organiser";
+import CodeOfConduct from './components/CodeOfConduct';
+import Organiser from './components/Organiser';
 
 const htmlContent = `
 <h4>Thanks!</h4>
@@ -61,12 +61,12 @@ const htmlContent = `
 <p>Sebastian Kurfürst</p>
 <p>Blasewitzer Str. 41</p>
 <p>01307 Dresden</p>
-`.replace(/\n/g, "");
+`.replace(/\n/g, '');
 
-// Hamburg
+// Dresden
 const mapRegion = {
-  latitude: 53.5562832,
-  longitude: 9.9812613,
+  latitude: 51.0690075,
+  longitude: 13.7312886,
   latitudeDelta: 0.01,
   longitudeDelta: 0.01
 };
@@ -101,21 +101,21 @@ class Info extends Component {
 
   openMap() {
     const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
-    const query = encodeURI("Hamburg, Dammtorwall 15");
+    const query = encodeURI('Dresden, Gothaerstr. 11');
     const url =
-      Platform.OS === "ios"
+      Platform.OS === 'ios'
         ? `maps://maps.apple.com/?ll=${latlon}&q=${query}`
         : `https://maps.google.com/?ll=${latlon}&q=${query}`;
 
     attemptToOpenUrl(url);
   }
   openThinkmill() {
-    const url = "https://www.thinkmill.com.au";
+    const url = 'https://www.thinkmill.com.au';
     attemptToOpenUrl(url);
   }
 
   openRepository() {
-    const url = "https://github.com/Thinkmill/react-conf-2017";
+    const url = 'https://github.com/Thinkmill/react-conf-2017';
     attemptToOpenUrl(url);
   }
 
@@ -123,62 +123,54 @@ class Info extends Component {
     const { navigation, organisers } = this.props;
     const { modalIsOpen } = this.state;
 
-    const isAndroid = Platform.OS === "android";
+    const isAndroid = Platform.OS === 'android';
 
     return (
       <Scene>
         <Navbar
           title="About"
-          leftButtonIconName={isAndroid ? "md-arrow-back" : "ios-arrow-back"}
+          leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
           leftButtonOnPress={() => {
             navigation.goBack();
           }}
-          rightButtonIconName={isAndroid ? "md-navigate" : null}
-          rightButtonText={!isAndroid ? "Directions" : null}
+          rightButtonIconName={isAndroid ? 'md-navigate' : null}
+          rightButtonText={!isAndroid ? 'Directions' : null}
           rightButtonOnPress={this.openMap}
         />
         <ScrollView>
           <MapView initialRegion={mapRegion} style={styles.map}>
             <MapView.Marker
               coordinate={mapRegion}
-              description="Dammtorwall 15, Hamburg"
+              description="Gothaerstr. 11, 01097 Dresden"
               onCalloutPress={this.openMap}
               ref={r => {
                 this._marker = r;
               }}
-              title="Nord Event Panoramadeck"
+              title="Alter Schlachthof"
             />
           </MapView>
 
           <View style={{ flex: 1 }}>
             <View style={styles.hero}>
               <Text style={styles.heroText}>
-                The conference will be taking place on April 13th and April
-                14th.
+                The conference will be taking place on May 10th and May 11th.
               </Text>
 
               <Text style={styles.heroHeader}>Location</Text>
               <Text style={styles.heroText}>
-                Aiming high in 2018! The Neos Conference 2018 will be at the
-                Nord Event Panoramadeck - the 23rd floor of the Emporio Tower in
-                Hamburg. With a 360° view of Hamburg we have the whole floor to
-                ourselves for two tracks, networking and exchange.
+                The Old Slaughterhouse Dresden is an industrial monument on the
+                Leipziger Straße in the Dresden district of Leipzig suburb.
+                Built in 1871 as the city's first central slaughterhouse, its
+                main building has been used as a concert venue since 1998.
               </Text>
 
               <Text style={styles.heroHeader}>
-                Conference Warm-Up - 12th April
+                Get-Together Social Event - 9th May
               </Text>
               <Text style={styles.heroText}>
                 Join us for a few drinks at our Warm-Up Event - we organized a
-                few tables during Live-Music-Night at “Bricks Tea Lounge and
-                Bar” (Große Bleichen 36, 20354 Hamburg) at 7 p.m.
-              </Text>
-
-              <Text style={styles.heroHeader}>Social Event</Text>
-              <Text style={styles.heroText}>
-                Join us for the Neos Conference 2018 Social Event at Nochtwache
-                Hamburg on April 13th. Admission is inlcuded in the Conference
-                Ticket. Start at 8 p.m.
+                few tables at “Hellmuts” (Eschenstraße 11, 01097 Dresden) at 7
+                p.m.
               </Text>
 
               <TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
@@ -204,7 +196,7 @@ class Info extends Component {
 }
 
 const htmlStyles = StyleSheet.create({
-  h4: { fontWeight: "500", fontSize: 18, paddingTop: 20, paddingBottom: 10 }
+  h4: { fontWeight: '500', fontSize: 18, paddingTop: 20, paddingBottom: 10 }
 });
 
 export default BackButtonAndroid()(Info);
@@ -217,8 +209,8 @@ const styles = StyleSheet.create({
   },
   // hero
   hero: {
-    alignItems: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    backgroundColor: 'white',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray30,
@@ -228,21 +220,21 @@ const styles = StyleSheet.create({
   heroText: {
     paddingTop: theme.fontSize.small,
     fontSize: theme.fontSize.default,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
-    textAlign: "center"
+    textAlign: 'center'
   },
   heroHeader: {
     paddingTop: theme.fontSize.large,
     fontSize: theme.fontSize.large,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
-    textAlign: "center"
+    textAlign: 'center'
   },
   heroLink: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: "500",
+    fontWeight: '500',
     padding: theme.fontSize.large
   }
 });

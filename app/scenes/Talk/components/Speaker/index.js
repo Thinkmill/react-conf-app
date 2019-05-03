@@ -1,5 +1,5 @@
 //
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   PixelRatio,
   StyleSheet,
@@ -7,14 +7,14 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import Avatar from "../../../../components/Avatar";
-import DraggableView from "../../../../components/DraggableView";
-import Modal from "../../../../components/Modal";
-import theme from "../../../../theme";
-import { attemptToOpenUrl } from "../../../../utils";
+import Avatar from '../../../../components/Avatar';
+import DraggableView from '../../../../components/DraggableView';
+import Modal from '../../../../components/Modal';
+import theme from '../../../../theme';
+import { attemptToOpenUrl } from '../../../../utils';
 
 function Button({ bordered, icon, onPress, text }) {
   const touchableProps = {
@@ -69,13 +69,13 @@ export default class Speaker extends Component {
               onPress={this.handleClose}
               activeOpacity={0.5}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 top: 0,
                 right: 0,
                 height: 44,
                 width: 44,
-                alignItems: "center",
-                justifyContent: "center"
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
               <Icon color={theme.color.gray40} name="md-close" size={24} />
@@ -87,9 +87,9 @@ export default class Speaker extends Component {
                 <Button
                   icon="logo-twitter"
                   onPress={() =>
-                    attemptToOpenUrl("https://twitter.com/" + twitter)
+                    attemptToOpenUrl('https://twitter.com/' + twitter)
                   }
-                  text={"@" + twitter}
+                  text={'@' + twitter}
                 />
               )}
               {!!github && (
@@ -97,7 +97,7 @@ export default class Speaker extends Component {
                   bordered
                   icon="logo-github"
                   onPress={() =>
-                    attemptToOpenUrl("https://github.com/" + github)
+                    attemptToOpenUrl('https://github.com/' + github)
                   }
                   text={github}
                 />
@@ -112,8 +112,8 @@ export default class Speaker extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "white",
-    shadowColor: "black",
+    backgroundColor: 'white',
+    shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.25,
     shadowRadius: 5
@@ -121,34 +121,34 @@ const styles = StyleSheet.create({
 
   // main
   main: {
-    alignItems: "center",
+    alignItems: 'center',
     padding: theme.fontSize.large
   },
   mainTitle: {
     color: theme.color.text,
     fontSize: theme.fontSize.large,
-    fontWeight: "300",
+    fontWeight: '300',
     marginVertical: theme.fontSize.default
   },
   mainText: {
     color: theme.color.text,
     fontSize: 15,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: 21,
-    textAlign: "center"
+    textAlign: 'center'
   },
 
   // buttons
   buttons: {
-    overflow: "hidden",
-    flexDirection: "row"
+    overflow: 'hidden',
+    flexDirection: 'row'
   },
   buttonTouchable: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     flex: 1
   },
   button: {
-    alignItems: "center",
+    alignItems: 'center',
     borderTopColor: theme.color.gray20,
     borderTopWidth: 1 / PixelRatio.get(),
     paddingVertical: theme.fontSize.large

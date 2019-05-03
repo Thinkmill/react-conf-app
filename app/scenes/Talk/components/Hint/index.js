@@ -1,4 +1,4 @@
-// 
+//
 import React, { Component } from 'react';
 import { Animated, Dimensions, Easing } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -12,14 +12,13 @@ import { fade } from '../../../../utils/color';
 const animationDefault = val => ({
   toValue: val,
   duration: 550,
-  easing: Easing.inOut(Easing.quad),
+  easing: Easing.inOut(Easing.quad)
 });
 
 export default class Hint extends Component {
-
   state = {
     arrowVal: new Animated.Value(0),
-    containerVal: new Animated.Value(1),
+    containerVal: new Animated.Value(1)
   };
 
   _isMounted = false;
@@ -40,13 +39,15 @@ export default class Hint extends Component {
       }
     }
 
-    Animated.sequence(sequence).start(() => Animated.timing(containerVal, {
-      toValue: 0,
-      duration: 220,
-      easing: Easing.in(Easing.quad),
-    }).start(() => {
-      if (this._isMounted) this.props.onClose();
-    }));
+    Animated.sequence(sequence).start(() =>
+      Animated.timing(containerVal, {
+        toValue: 0,
+        duration: 220,
+        easing: Easing.in(Easing.quad)
+      }).start(() => {
+        if (this._isMounted) this.props.onClose();
+      })
+    );
   }
   componentWillUnmount() {
     this._isMounted = false;
@@ -56,16 +57,16 @@ export default class Hint extends Component {
     const arrowStyle = {
       opacity: arrowVal.interpolate({
         inputRange: [0, 1, 2],
-        outputRange: [0.2, 1, 0],
+        outputRange: [0.2, 1, 0]
       }),
       transform: [
         {
           translateY: arrowVal.interpolate({
             inputRange: [0, 1, 2],
-            outputRange: [0, -12, 24],
-          }),
-        },
-      ],
+            outputRange: [0, -12, 24]
+          })
+        }
+      ]
     };
     const containerStyle = {
       alignItems: 'center',
@@ -77,7 +78,7 @@ export default class Hint extends Component {
       opacity: containerVal,
       paddingBottom: 10,
       position: 'absolute',
-      width: Dimensions.get('window').width,
+      width: Dimensions.get('window').width
     };
 
     const gradientColors = [fade(theme.color.sceneBg, 10), theme.color.sceneBg];

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Notifications } from "expo";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { Notifications } from 'expo';
+import PropTypes from 'prop-types';
 import {
   Animated,
   AppState,
@@ -13,23 +13,23 @@ import {
   Text,
   TouchableOpacity,
   View
-} from "react-native";
-import moment from "moment-timezone";
-import style from "./style";
-import Break from "./components/Break";
-import Talk from "./components/Talk";
-import { TIME_FORMAT } from "../../constants";
-import { ScheduleTalk } from "../../types";
-import theme from "../../theme";
+} from 'react-native';
+import moment from 'moment-timezone';
+import style from './style';
+import Break from './components/Break';
+import Talk from './components/Talk';
+import { TIME_FORMAT } from '../../constants';
+import { ScheduleTalk } from '../../types';
+import theme from '../../theme';
 
-import talks from "../../data/talks";
-import Navbar from "../../components/Navbar";
-import ListTitle from "../../components/ListTitle";
-import Scene from "../../components/Scene";
+import talks from '../../data/talks';
+import Navbar from '../../components/Navbar';
+import ListTitle from '../../components/ListTitle';
+import Scene from '../../components/Scene';
 
-import NowButton from "./components/NowButton";
-import SplashScreen from "./components/SplashScreen";
-import checkForUpdatesRegularily from "../../checkForUpdatesRegularily";
+import NowButton from './components/NowButton';
+import SplashScreen from './components/SplashScreen';
+import checkForUpdatesRegularily from '../../checkForUpdatesRegularily';
 
 export default class Schedule extends Component {
   static propTypes = {
@@ -47,13 +47,13 @@ export default class Schedule extends Component {
     let sectionIndex = 0;
 
     Notifications.addListener(notification => {
-      props.navigation.navigate("Talk", {
+      props.navigation.navigate('Talk', {
         talkIndex: notification.data.talkIndex
       });
     });
 
     props.talks.forEach(talk => {
-      const sID = moment.tz(talk.time.start, "Europe/Berlin").format("dddd");
+      const sID = moment.tz(talk.time.start, 'Europe/Berlin').format('dddd');
 
       // create new section and initialize empty array for section index
       if (!dataBlob[sID]) {
@@ -64,7 +64,7 @@ export default class Schedule extends Component {
       }
 
       rowIDs[rowIDs.length - 1].push(talk.id);
-      dataBlob[sID + ":" + talk.id] = talk;
+      dataBlob[sID + ':' + talk.id] = talk;
     });
 
     this.state = {
@@ -72,7 +72,7 @@ export default class Schedule extends Component {
       now: new Date()
     };
 
-    if (Platform.OS === "ios") {
+    if (Platform.OS === 'ios') {
       // This isn't relevant on Android.
       this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
         if (value > 120) {
@@ -86,7 +86,7 @@ export default class Schedule extends Component {
     }
   }
   componentDidMount() {
-    AppState.addEventListener("change", this.handleAppStateChange);
+    AppState.addEventListener('change', this.handleAppStateChange);
 
     // Update the schedule once a minute.
     this.interval = setInterval(
@@ -97,7 +97,7 @@ export default class Schedule extends Component {
     );
   }
   componentWillUnmount() {
-    AppState.removeEventListener("change", this.handleAppStateChange);
+    AppState.removeEventListener('change', this.handleAppStateChange);
     if (this.scrollYListener)
       this.state.scrollY.removeListener(this.scrollYListener);
 
@@ -109,7 +109,7 @@ export default class Schedule extends Component {
 
   handleAppStateChange = nextAppState => {
     // update the current time when the app comes into the foreground
-    if (nextAppState === "active") {
+    if (nextAppState === 'active') {
       this.setState({ now: new Date() });
     }
   };
@@ -118,13 +118,13 @@ export default class Schedule extends Component {
     this.setState({ now: new Date() });
   };
   gotoEventInfo = () => {
-    this.props.navigation.navigate("Info");
+    this.props.navigation.navigate('Info');
   };
 
   scrolltoActiveTalk = () => {
     const { activeTalkLayout } = this.state;
     if (!activeTalkLayout) return;
-    const sceneHeight = Dimensions.get("window").height;
+    const sceneHeight = Dimensions.get('window').height;
     const maxScroll = contentLength - (sceneHeight + theme.navbar.height);
     const scrollToY =
       maxScroll < activeTalkLayout.position
@@ -141,12 +141,12 @@ export default class Schedule extends Component {
     this.setState({ showNowButton });
   }
 
-  _keyExtractor = (talk, index) => index + "";
+  _keyExtractor = (talk, index) => index + '';
   _renderItem = ({ item, index, now }) => {
     if (item.isBreak) {
       return (
         <Break
-          startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
+          startTime={moment.tz(item.time, 'Europe/Berlin').format(TIME_FORMAT)}
           status={getTalkStatus(item.time, item.endTime)}
           title={item.title}
         />
@@ -157,7 +157,7 @@ export default class Schedule extends Component {
       if (!item.shouldShowDetails) {
         return;
       }
-      this.props.navigation.navigate("Talk", {
+      this.props.navigation.navigate('Talk', {
         talkIndex: index
       });
     };
@@ -168,7 +168,7 @@ export default class Schedule extends Component {
         lightning={item.lightning}
         speakers={item.speakers}
         room={item.room}
-        startTime={moment.tz(item.time, "Europe/Berlin").format(TIME_FORMAT)}
+        startTime={moment.tz(item.time, 'Europe/Berlin').format(TIME_FORMAT)}
         status={getTalkStatus(item.time, item.endTime)}
         title={item.title}
         shouldShowDetails={item.shouldShowDetails}
@@ -181,17 +181,17 @@ export default class Schedule extends Component {
     const { navigation, talks } = this.props;
     const { dataSource, scrollY, showNowButton } = this.state;
 
-    const isAndroid = Platform.OS === "android";
+    const isAndroid = Platform.OS === 'android';
     const navbarTop = scrollY.interpolate({
       inputRange: [80, 120],
       outputRange: [-theme.navbar.height, 0],
-      extrapolate: "clamp"
+      extrapolate: 'clamp'
     });
 
     const splashTop = scrollY.interpolate({
       inputRange: [-200, 400],
       outputRange: [200, -400],
-      extrapolate: "clamp"
+      extrapolate: 'clamp'
     });
 
     const renderFooter = () => (
@@ -214,8 +214,8 @@ export default class Schedule extends Component {
         <Animated.View style={[style.navbar, { top: navbarTop }]}>
           <Navbar
             title="Schedule"
-            rightButtonIconName={isAndroid ? "md-information-circle" : null}
-            rightButtonText={!isAndroid ? "About" : null}
+            rightButtonIconName={isAndroid ? 'md-information-circle' : null}
+            rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -255,13 +255,13 @@ export default class Schedule extends Component {
 }
 
 function getTalkStatus(startTime, endTime) {
-  const now = moment.tz("Europe/Berlin");
+  const now = moment.tz('Europe/Berlin');
 
   if (now.isBetween(startTime, endTime)) {
-    return "present";
+    return 'present';
   } else if (now.isBefore(startTime)) {
-    return "future";
+    return 'future';
   }
 
-  return "past";
+  return 'past';
 }

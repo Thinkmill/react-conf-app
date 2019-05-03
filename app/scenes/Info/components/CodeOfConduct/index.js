@@ -1,6 +1,6 @@
 //
-import React, { Component } from "react";
-import Icon from "react-native-vector-icons/Ionicons";
+import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   ScrollView,
   StyleSheet,
@@ -8,16 +8,16 @@ import {
   TouchableOpacity,
   View,
   Linking
-} from "react-native";
+} from 'react-native';
 
-import theme from "../../../../theme";
-import Modal from "../../../../components/Modal";
+import theme from '../../../../theme';
+import Modal from '../../../../components/Modal';
 
 class BulletPoint extends Component {
   render() {
     return (
-      <View style={{ flexDirection: "row" }}>
-        <Text style={this.props.style}>{"\u2022"}</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={this.props.style}>{'\u2022'}</Text>
         <Text style={[this.props.style, { flex: 1, paddingLeft: 5 }]}>
           {this.props.children}
         </Text>
@@ -106,12 +106,12 @@ export default class CodeOfConduct extends Component {
               </Text>
               <Text style={styles.text}>
                 This Code of Conduct is adapted from the Contributor Covenant,
-                version 1.2.0, available from{" "}
+                version 1.2.0, available from{' '}
                 <Text
                   style={styles.link}
                   onPress={() => {
                     Linking.openURL(
-                      "http://contributor-covenant.org/version/1/2/0/"
+                      'http://contributor-covenant.org/version/1/2/0/'
                     );
                   }}
                 >
@@ -142,10 +142,10 @@ const BORDER_RADIUS = 6;
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: BORDER_RADIUS,
     maxHeight: 400,
-    shadowColor: "black",
+    shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.25,
     shadowRadius: 5
@@ -168,12 +168,12 @@ const styles = StyleSheet.create({
   },
   link: {
     color: theme.color.blue,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline'
   },
   heading: {
     color: theme.color.gray70,
     fontSize: theme.fontSize.small,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   heading1: {
     fontSize: theme.fontSize.default
@@ -185,19 +185,19 @@ const styles = StyleSheet.create({
 
   // close
   close: {
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: theme.color.gray05,
     borderBottomLeftRadius: BORDER_RADIUS,
     borderBottomRightRadius: BORDER_RADIUS,
     height: 40,
-    justifyContent: "center",
-    shadowColor: "black",
+    justifyContent: 'center',
+    shadowColor: 'black',
     shadowOffset: { height: -1, width: 0 },
     shadowOpacity: 0.1,
     shadowRadius: 0
   },
   closeText: {
     color: theme.color.gray40,
-    fontWeight: "500"
+    fontWeight: '500'
   }
 });

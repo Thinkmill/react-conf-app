@@ -1,18 +1,18 @@
 //
-import moment from "moment-timezone";
+import moment from 'moment-timezone';
 
-import { ScheduleTalk } from "../types";
-import talksJsonPerDay from "./talks.json";
+import { ScheduleTalk } from '../types';
+import talksJsonPerDay from './talks.json';
 
 const BEGIN_DAY_OF_CONFERENCE = moment.tz(
-  "2018-04-13 09:00:00",
-  "Europe/Berlin"
+  '2018-04-13 09:00:00',
+  'Europe/Berlin'
 );
 
 function getTime(day, duration) {
   return {
     start: day.toDate(),
-    end: day.add(duration, "minutes").toDate()
+    end: day.add(duration, 'minutes').toDate()
   };
 }
 
@@ -25,7 +25,7 @@ const splitTimeString = timeString => {
   if (!timeString) {
     return { hour: 0, minute: 0 };
   }
-  const t = timeString.split(":");
+  const t = timeString.split(':');
   return {
     hour: t[0],
     minute: t[1]
@@ -53,7 +53,7 @@ talksJsonPerDay.forEach(talksForSingleDay => {
       shouldShowDetails:
         talkJson.speakers && talkJson.speakers.length && !talkJson.isBreak,
       time: beginTime,
-      endTime: beginTime.clone().add(talkJson.durationInMinutes, "minutes"),
+      endTime: beginTime.clone().add(talkJson.durationInMinutes, 'minutes'),
       ratingEnabled:
         talkJson.speakers &&
         talkJson.speakers.length &&
@@ -62,7 +62,7 @@ talksJsonPerDay.forEach(talksForSingleDay => {
     });
   });
 
-  currentDay = currentDay.clone().add(1, "day");
+  currentDay = currentDay.clone().add(1, 'day');
 });
 
 export function getNextTalkFromIndex(idx) {
@@ -74,7 +74,7 @@ export function getNextTalkFromIndex(idx) {
   while (talk && !talk.shouldShowDetails) talk = talks[++search];
 
   if (!talk) {
-    console.info("This is the last talk.");
+    console.info('This is the last talk.');
     return null;
   }
 
@@ -90,7 +90,7 @@ export function getPreviousTalkFromIndex(idx) {
   while (talk && !talk.shouldShowDetails) talk = talks[--search];
 
   if (!talk) {
-    console.info("This is the first talk.");
+    console.info('This is the first talk.');
     return null;
   }
 

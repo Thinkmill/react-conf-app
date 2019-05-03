@@ -1,8 +1,8 @@
-import { Notifications, Permissions } from "expo";
-import { Alert } from "react-native";
-import moment from "moment-timezone";
+import { Notifications, Permissions } from 'expo';
+import { Alert } from 'react-native';
+import moment from 'moment-timezone';
 
-import talks from "./data/talks";
+import talks from './data/talks';
 
 const setUpNotifications = () => {
   // TODO: Two notifications at the same time!!
@@ -15,7 +15,7 @@ const setUpNotifications = () => {
         Notifications.scheduleLocalNotificationAsync(
           {
             title: talk.title,
-            body: "It is time to rate this talk!",
+            body: 'It is time to rate this talk!',
             data: {
               talkIndex: index
             }
@@ -34,7 +34,7 @@ async function registerForPushNotificationsAsync() {
     Permissions.NOTIFICATIONS
   );
 
-  if (existingStatus === "granted") {
+  if (existingStatus === 'granted') {
     setUpNotifications();
   } else {
     // only ask if permissions have not already been determined, because

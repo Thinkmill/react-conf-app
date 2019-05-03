@@ -1,30 +1,30 @@
 //
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   Animated,
   Dimensions,
   Platform,
   Share,
   BackAndroid
-} from "react-native";
-import PropTypes from "prop-types";
-import moment from "moment-timezone";
+} from 'react-native';
+import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
 
-import BackButtonAndroid from "../../components/BackButtonAndroid";
-import { TIME_FORMAT } from "../../constants";
-import Navbar from "../../components/Navbar";
-import Scene from "../../components/Scene";
+import BackButtonAndroid from '../../components/BackButtonAndroid';
+import { TIME_FORMAT } from '../../constants';
+import Navbar from '../../components/Navbar';
+import Scene from '../../components/Scene';
 
-import theme from "../../theme";
+import theme from '../../theme';
 import talks, {
   getNextTalkFromIndex,
   getPreviousTalkFromIndex
-} from "../../data/talks";
+} from '../../data/talks';
 
-import Hint from "./components/Hint";
-import Speaker from "./components/Speaker";
-import TalkPane from "./components/Pane";
-import Rating from "./components/Rating";
+import Hint from './components/Hint';
+import Speaker from './components/Speaker';
+import TalkPane from './components/Pane';
+import Rating from './components/Rating';
 
 class Talk extends PureComponent {
   state = {
@@ -35,8 +35,8 @@ class Talk extends PureComponent {
     talkIndex: this.props.navigation.state.params.talkIndex
   };
 
-  sceneHeight = Dimensions.get("window").height;
-  sceneWidth = Dimensions.get("window").width;
+  sceneHeight = Dimensions.get('window').height;
+  sceneWidth = Dimensions.get('window').width;
 
   handleLayout({ height }) {
     const availableHeight = this.sceneHeight - height;
@@ -92,14 +92,14 @@ class Talk extends PureComponent {
     const { talkIndex } = this.state;
     const nextTalk = getNextTalkFromIndex(talkIndex);
 
-    this.setTalks({ talk: nextTalk, talkIndex: nextTalk.index }, "next");
+    this.setTalks({ talk: nextTalk, talkIndex: nextTalk.index }, 'next');
   };
 
   renderPrevTalk = () => {
     const { talkIndex } = this.state;
     const prevTalk = getPreviousTalkFromIndex(talkIndex);
 
-    this.setTalks({ talk: prevTalk, talkIndex: prevTalk.index }, "prev");
+    this.setTalks({ talk: prevTalk, talkIndex: prevTalk.index }, 'prev');
   };
 
   setTalks = (newState, transitionDirection) => {
@@ -129,20 +129,20 @@ class Talk extends PureComponent {
 
   share = () => {
     const talk = this.getTalk();
-    let speakerHandles = "";
+    let speakerHandles = '';
 
     if (talk && talk.speakers) {
       const speakers = talk.speakers;
 
       let speakerHandles = speakers
         .map(speaker => speaker.twitter || speaker.name)
-        .join(", ");
-      speakerHandles += " - ";
+        .join(', ');
+      speakerHandles += ' - ';
     }
 
     Share.share({
-      title: "NeosCon 2017",
-      message: `${speakerHandles || ""}"${talk.title}" #neoscon`
+      title: 'NeosCon 2017',
+      message: `${speakerHandles || ''}"${talk.title}" #neoscon`
     });
   };
 
@@ -154,7 +154,7 @@ class Talk extends PureComponent {
   };
 
   toggleTalkRatingModal = data => {
-    console.log("TOGGLE");
+    console.log('TOGGLE');
     this.setState({
       talkRatingModalIsOpen: !this.state.talkRatingModalIsOpen
     });
@@ -179,25 +179,25 @@ class Talk extends PureComponent {
     const prevTalk = getPreviousTalkFromIndex(talkIndex);
     const nextTalk = getNextTalkFromIndex(talkIndex);
 
-    const isAndroid = Platform.OS === "android";
+    const isAndroid = Platform.OS === 'android';
     const headerTitle =
-      moment.tz(talk.time, "Europe/Berlin").format(TIME_FORMAT) +
-      " - " +
-      moment.tz(talk.endTime, "Europe/Berlin").format(TIME_FORMAT);
+      moment.tz(talk.time, 'Europe/Berlin').format(TIME_FORMAT) +
+      ' - ' +
+      moment.tz(talk.endTime, 'Europe/Berlin').format(TIME_FORMAT);
     const availableHeight = this.sceneHeight - theme.navbar.height;
 
     const incomingFrom =
-      this.state.transitionDirection === "next"
+      this.state.transitionDirection === 'next'
         ? this.sceneHeight
         : -this.sceneHeight;
     const outgoingTo =
-      this.state.transitionDirection === "next"
+      this.state.transitionDirection === 'next'
         ? -this.sceneHeight
         : this.sceneHeight;
 
     const transitionStyles = {
       height: availableHeight,
-      position: "absolute",
+      position: 'absolute',
       top: theme.navbar.height,
       width: this.sceneWidth
     };
@@ -279,10 +279,10 @@ class Talk extends PureComponent {
         {/* navbar must be rendered after the talk panes for visibility */}
         <Navbar
           title={headerTitle}
-          leftButtonIconName={isAndroid ? "md-arrow-back" : "ios-arrow-back"}
+          leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
           leftButtonOnPress={() => this.props.navigation.goBack()}
-          rightButtonIconName={isAndroid ? "md-share-alt" : null}
-          rightButtonText={!isAndroid ? "Share" : null}
+          rightButtonIconName={isAndroid ? 'md-share-alt' : null}
+          rightButtonText={!isAndroid ? 'Share' : null}
           rightButtonOnPress={this.share}
         />
       </Scene>

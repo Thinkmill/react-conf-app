@@ -1,5 +1,5 @@
 //
-import React, { Component, PureComponent } from "react";
+import React, { Component, PureComponent } from 'react';
 import {
   Animated,
   PixelRatio,
@@ -11,24 +11,24 @@ import {
   TouchableHighlight,
   Dimensions,
   View
-} from "react-native";
-import StarRating from "react-native-star-rating";
+} from 'react-native';
+import StarRating from 'react-native-star-rating';
 
-import Button from "react-native-button";
-import moment from "moment-timezone";
-import { connect } from "react-redux";
+import Button from 'react-native-button';
+import moment from 'moment-timezone';
+import { connect } from 'react-redux';
 
-import { TIME_FORMAT } from "../../../../constants";
-import { darken } from "../../../../utils/color";
-import { attemptToOpenUrl } from "../../../../utils";
-import { selectors, actions } from "../../../../redux/index";
+import { TIME_FORMAT } from '../../../../constants';
+import { darken } from '../../../../utils/color';
+import { attemptToOpenUrl } from '../../../../utils';
+import { selectors, actions } from '../../../../redux/index';
 
-import theme from "../../../../theme";
-import Avatar from "../../../../components/Avatar";
+import theme from '../../../../theme';
+import Avatar from '../../../../components/Avatar';
 
-import Preview from "../Preview";
+import Preview from '../Preview';
 
-const isAndroid = Platform.OS === "android";
+const isAndroid = Platform.OS === 'android';
 
 const Speaker = ({ speaker, onPress }) => {
   const touchableProps = {
@@ -48,10 +48,10 @@ const Speaker = ({ speaker, onPress }) => {
 };
 
 const TalkPreview = ({ talk, isEngaged }) => {
-  const speakers = talk.speakers.map(speaker => speaker.name).join(", ");
+  const speakers = talk.speakers.map(speaker => speaker.name).join(', ');
 
   const subtitle = `${moment
-    .tz(talk.time.start, "Europe/Berlin")
+    .tz(talk.time.start, 'Europe/Berlin')
     .format(TIME_FORMAT)} - ${speakers}`;
 
   return (
@@ -75,9 +75,9 @@ class RateTalkButtonUnconnected extends PureComponent {
     return (
       <View
         style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
           marginTop: 20
         }}
       >
@@ -101,14 +101,14 @@ class RateTalkButtonUnconnected extends PureComponent {
             flexGrow: 1,
             padding: 10,
             height: 45,
-            overflow: "hidden",
+            overflow: 'hidden',
             borderRadius: 4,
             backgroundColor: theme.color.blue
           }}
-          style={{ fontSize: 20, color: "white" }}
+          style={{ fontSize: 20, color: 'white' }}
           onPress={this.props.onPress}
         >
-          {rating ? "Change your rating!" : "Rate this talk!"}
+          {rating ? 'Change your rating!' : 'Rate this talk!'}
         </Button>
       </View>
     );
@@ -170,9 +170,9 @@ export default class TalkPane extends Component {
       : styles.scrollAreaIos;
 
     const videoUrl =
-      "https://youtu.be/" +
+      'https://youtu.be/' +
       visibleTalk.videoId +
-      "?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0";
+      '?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0';
 
     return (
       <ScrollView
@@ -226,8 +226,8 @@ export default class TalkPane extends Component {
 
 const styles = StyleSheet.create({
   hero: {
-    alignItems: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    backgroundColor: 'white',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray20,
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.fontSize.xlarge
   },
   heroSpeaker: {
-    alignItems: "center",
+    alignItems: 'center',
     paddingHorizontal: theme.fontSize.xlarge
   },
   heroSpeakerHint: {
@@ -249,19 +249,19 @@ const styles = StyleSheet.create({
   heroSpeakerName: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: "500",
+    fontWeight: '500',
     marginTop: theme.fontSize.small
   },
   heroTitle: {
     fontSize: theme.fontSize.large,
-    fontWeight: "300",
-    textAlign: "center"
+    fontWeight: '300',
+    textAlign: 'center'
   },
   heroRoom: {
     marginTop: 10,
     //fontSize: theme.fontSize.large,
     //fontWeight: "300",
-    textAlign: "center"
+    textAlign: 'center'
   },
   heroLink: {
     marginTop: 10,
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: theme.fontSize.default,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: theme.fontSize.large,
     padding: theme.fontSize.large
   },

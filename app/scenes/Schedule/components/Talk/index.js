@@ -1,5 +1,5 @@
 //
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   Easing,
@@ -8,12 +8,12 @@ import {
   Text,
   TouchableHighlight,
   View
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import Avatar from "../../../../components/Avatar";
-import theme from "../../../../theme";
-import { lighten } from "../../../../utils/color";
+import Avatar from '../../../../components/Avatar';
+import theme from '../../../../theme';
+import { lighten } from '../../../../utils/color';
 
 // ==============================
 // TALK STATUSBAR
@@ -21,8 +21,8 @@ import { lighten } from "../../../../utils/color";
 
 export function TalkStatusBar({ status, ...props }) {
   let barColor = theme.color.gray20;
-  if (status === "past") barColor = lighten(theme.color.blue, 60);
-  if (status === "present") barColor = theme.color.blue;
+  if (status === 'past') barColor = lighten(theme.color.blue, 60);
+  if (status === 'present') barColor = theme.color.blue;
 
   return (
     <View
@@ -43,12 +43,12 @@ function Indicator({ color, icon }) {
   return (
     <View
       style={{
-        alignItems: "center",
+        alignItems: 'center',
         backgroundColor: color,
         borderRadius: 14,
         marginRight: 7,
         height: 14,
-        justifyContent: "center",
+        justifyContent: 'center',
         width: 14
       }}
     >
@@ -56,7 +56,7 @@ function Indicator({ color, icon }) {
         color="white"
         name={icon}
         size={14}
-        style={{ backgroundColor: "transparent", marginBottom: -1 }}
+        style={{ backgroundColor: 'transparent', marginBottom: -1 }}
       />
     </View>
   );
@@ -90,7 +90,7 @@ const animationDefault = val => ({
 
 export default class Talk extends Component {
   static defaultProps = {
-    status: "future"
+    status: 'future'
   };
 
   constructor(props) {
@@ -121,7 +121,7 @@ export default class Talk extends Component {
       ...props
     } = this.props;
 
-    const isPresent = status === "present";
+    const isPresent = status === 'present';
 
     const touchableProps = {
       activeOpacity: 1,
@@ -145,8 +145,8 @@ export default class Talk extends Component {
     let speakersText;
 
     if (speakers && speakers.length) {
-      speakersText = speakers.map(speaker => speaker.name).join(", ");
-      subtitleText += " - " + speakersText;
+      speakersText = speakers.map(speaker => speaker.name).join(', ');
+      subtitleText += ' - ' + speakersText;
     }
 
     let subtitle;
@@ -174,7 +174,7 @@ export default class Talk extends Component {
 
     return (
       <TouchableHighlight {...touchableProps} {...props}>
-        <View style={[styles.base, styles["base__" + status]]}>
+        <View style={[styles.base, styles['base__' + status]]}>
           <TalkStatusBar status={status}>
             {isPresent && (
               <Animated.View style={animatedStyle}>
@@ -188,11 +188,11 @@ export default class Talk extends Component {
             )}
           </TalkStatusBar>
 
-          <View style={[styles.content, styles["content__" + status]]}>
-            <View style={[styles.text, styles["text__" + status]]}>
+          <View style={[styles.content, styles['content__' + status]]}>
+            <View style={[styles.text, styles['text__' + status]]}>
               {subtitle}
               <Text style={[styles.subtitle, styles.subtitleText]}>{room}</Text>
-              <Text style={[styles.title, styles["title__" + status]]}>
+              <Text style={[styles.title, styles['title__' + status]]}>
                 {title}
               </Text>
             </View>
@@ -218,33 +218,33 @@ export default class Talk extends Component {
 
 const styles = StyleSheet.create({
   touchable: {
-    backgroundColor: "white"
+    backgroundColor: 'white'
   },
   base: {
-    alignItems: "stretch",
-    backgroundColor: "transparent",
+    alignItems: 'stretch',
+    backgroundColor: 'transparent',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   // base__present: {
   // 	backgroundColor: fade(theme.color.blue, 3),
   // },
 
   statusbarIcon: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     height: 34,
     left: 0,
-    position: "absolute",
+    position: 'absolute',
     top: 10,
     width: 34
   },
 
   // content
   content: {
-    alignItems: "center",
-    backgroundColor: "transparent",
-    flexDirection: "row",
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
     flexGrow: 1,
     flexShrink: 1,
     padding: theme.fontSize.default
@@ -258,15 +258,15 @@ const styles = StyleSheet.create({
     paddingRight: theme.fontSize.xsmall
   },
   subtitle: {
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: theme.fontSize.small
   },
   subtitleText: {
     color: theme.color.gray60,
     flexShrink: 1,
     fontSize: theme.fontSize.small,
-    fontWeight: "300"
+    fontWeight: '300'
   },
   title: {
     color: theme.color.text,
@@ -275,8 +275,8 @@ const styles = StyleSheet.create({
 
   // right (avatar and chevron)
   right: {
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
     flexShrink: 0
   },
 

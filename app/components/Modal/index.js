@@ -1,4 +1,4 @@
-// 
+//
 import React, { cloneElement, Component } from 'react';
 import {
   Animated,
@@ -7,7 +7,7 @@ import {
   Platform,
   StyleSheet,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import { BlurView } from 'expo';
 
@@ -15,28 +15,26 @@ function animateToValueWithOptions(val) {
   return {
     toValue: val,
     friction: 10,
-    tension: 100,
+    tension: 100
   };
 }
 
 const MODAL_ALIGNMENT = {
   bottom: 'flex-end',
   top: 'flex-start',
-  center: 'center',
+  center: 'center'
 };
 
 export default class Modal extends Component {
-
   state = {
-    animValue: new Animated.Value(0),
+    animValue: new Animated.Value(0)
   };
 
   static defaultProps = {
     align: 'center',
     blurAmount: 12,
-    blurType: 'dark',
+    blurType: 'dark'
   };
-
 
   componentDidMount() {
     Animated.spring(this.state.animValue, animateToValueWithOptions(1)).start();
@@ -55,36 +53,31 @@ export default class Modal extends Component {
   renderChildren() {
     // $FlowFixMe: https://github.com/facebook/flow/issues/1964
     return cloneElement(this.props.children, {
-      onClose: this.onClose,
+      onClose: this.onClose
     });
   }
   render() {
-    const {
-      align,
-      blurAmount,
-      blurType,
-      style,
-    } = this.props;
+    const { align, blurAmount, blurType, style } = this.props;
 
     const blockoutDynamicStyles = {
       justifyContent: MODAL_ALIGNMENT[align],
-      opacity: this.state.animValue,
+      opacity: this.state.animValue
     };
 
     const getDialogDynamicStyles = () => {
       const scaleTransform = {
         scale: this.state.animValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [0.93, 1],
-        }),
+          outputRange: [0.93, 1]
+        })
       };
       var transformAnimations = [scaleTransform];
       if (this.props.forceDownwardAnimation) {
         const translateTransform = {
           translateY: this.state.animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [100, 1],
-          }),
+            outputRange: [100, 1]
+          })
         };
         transformAnimations.push(translateTransform);
       }
@@ -94,17 +87,20 @@ export default class Modal extends Component {
     // react-native-blur crashes the app on android. Not sure why.
     // To replicate just swap the comments on these lines.
     // const blurView = false
-    const blurView = Platform.OS === 'android'
-      ? <View style={[styles.blur, { backgroundColor: 'rgba(0, 0, 0, 0.8)' }]}>
+    const blurView =
+      Platform.OS === 'android' ? (
+        <View style={[styles.blur, { backgroundColor: 'rgba(0, 0, 0, 0.8)' }]}>
           <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
         </View>
-      : <BlurView
+      ) : (
+        <BlurView
           blurAmount={blurAmount}
           blurType={blurType}
           style={styles.blur}
         >
           <TouchableOpacity onPress={this.onClose} style={styles.touchable} />
-        </BlurView>;
+        </BlurView>
+      );
 
     return (
       <RNModal
@@ -129,15 +125,15 @@ const fillSpace = {
   left: 0,
   position: 'absolute',
   top: 0,
-  width: Dimensions.get('window').width,
+  width: Dimensions.get('window').width
 };
 const styles = StyleSheet.create({
   blockout: {
     alignItems: 'center',
-    ...fillSpace,
+    ...fillSpace
   },
   blur: fillSpace,
   touchable: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });

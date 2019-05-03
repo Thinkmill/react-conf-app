@@ -1,6 +1,6 @@
-import { AppState, Alert } from "react-native";
-import { Updates } from "expo";
-import Raven from "raven-js";
+import { AppState, Alert } from 'react-native';
+import { Updates } from 'expo';
+import Raven from 'raven-js';
 
 export default function checkForUpdatesRegularily() {
   return Updates.checkForUpdateAsync().then(update => {
@@ -9,12 +9,12 @@ export default function checkForUpdatesRegularily() {
         // we have an update and it was fetched
         // Works on both iOS and Android
         Alert.alert(
-          "Update available",
-          "An update to the NeosCon app is available",
+          'Update available',
+          'An update to the NeosCon app is available',
           [
-            { text: "Ask me later", onPress: () => {} },
+            { text: 'Ask me later', onPress: () => {} },
             {
-              text: "Update & Relaunch",
+              text: 'Update & Relaunch',
               onPress: () => {
                 Updates.reload();
               }

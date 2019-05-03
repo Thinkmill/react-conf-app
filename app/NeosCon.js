@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Platform, StatusBar, AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -30,7 +30,7 @@ AsyncStorage.getItem('@NeosCon.state').then(
 // define light status bar for whole app
 StatusBar.setBarStyle('light-content', true);
 
-const App = StackNavigator(
+const MainNavigator = createStackNavigator(
   {
     Home: {
       screen: Schedule
@@ -49,6 +49,8 @@ const App = StackNavigator(
     }
   }
 );
+
+const App = createAppContainer(MainNavigator);
 
 export default () => (
   <Provider store={store}>

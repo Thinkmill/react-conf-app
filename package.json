@@ -2,24 +2,30 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "dependencies": {
-    "expo": "^26.0.0",
+    "expo": "^32.0.0",
     "immutability-helper": "^2.6.6",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "prop-types": "^15.6.0",
-    "react": "16.3.0-alpha.1",
+    "react": "16.5.0",
     "react-native":
-      "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+      "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-htmlview": "^0.12.1",
     "react-native-star-rating": "^1.0.9",
     "react-native-svg-uri": "^1.2.3",
-    "react-navigation": "1.5.8",
+    "react-navigation": "^3.0.9",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-actions": "^2.3.0",
     "sentry-expo": "^1.7.0"
   },
   "devDependencies": {
-    "prettier": "1.10.2"
-  }
+    "prettier": "^1.17.0"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+    }
 }

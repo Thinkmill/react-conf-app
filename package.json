@@ -4,8 +4,8 @@
   "dependencies": {
     "expo": "^32.0.0",
     "immutability-helper": "^2.6.6",
-    "moment": "^2.20.1",
-    "moment-timezone": "^0.5.14",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.25",
     "prop-types": "^15.6.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",

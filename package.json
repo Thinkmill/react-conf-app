@@ -13,9 +13,9 @@
     "react-native-star-rating": "^1.1.0",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^3.0.9",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.3.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
     "sentry-expo": "^1.12.0"
   },
   "devDependencies": {

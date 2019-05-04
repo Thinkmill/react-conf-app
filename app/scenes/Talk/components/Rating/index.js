@@ -11,6 +11,7 @@ import Modal from '../../../../components/Modal';
 import theme from '../../../../theme';
 import { attemptToOpenUrl } from '../../../../utils';
 import Raven from 'raven-js';
+import isset from '../../../../utils/isset';
 
 import {
   PixelRatio,
@@ -36,9 +37,10 @@ class Rating extends PureComponent {
 
   constructor(props) {
     super(props);
+    const { rating } = props;
     this.state = {
-      starCount: props.rating.starCount,
-      comment: props.rating.comment,
+      starCount: isset(() => rating.starCount) ? rating.starCount : 0,
+      comment: isset(() => rating.comment) ? rating.comment : '',
       isSaving: false,
       isError: false
     };
@@ -58,7 +60,7 @@ class Rating extends PureComponent {
     const { onClose } = this.props;
 
     return (
-      <Modal onClose={onClose} ref="modal" forceDownwardAnimation={false}>
+      <Modal onClose={onClose} ref='modal' forceDownwardAnimation={false}>
         <DraggableView
           style={styles.wrapper}
           allowX={false}
@@ -93,7 +95,7 @@ class Rating extends PureComponent {
             borderColor: 'gray',
             borderWidth: 1
           }}
-          placeholder="Comment"
+          placeholder='Comment'
           onChangeText={comment => this.setState({ comment })}
           value={this.state.comment}
         />
@@ -137,7 +139,7 @@ class Rating extends PureComponent {
             justifyContent: 'center'
           }}
         >
-          <Icon color={theme.color.gray40} name="md-close" size={24} />
+          <Icon color={theme.color.gray40} name='md-close' size={24} />
         </TouchableOpacity>
       </View>
     );
@@ -187,7 +189,10 @@ class Rating extends PureComponent {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rating);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Rating);
 
 const styles = StyleSheet.create({
   wrapper: {

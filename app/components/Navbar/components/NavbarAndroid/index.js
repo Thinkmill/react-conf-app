@@ -1,5 +1,5 @@
 //
-import React from "react";
+import React from 'react';
 import {
   Dimensions,
   PixelRatio,
@@ -8,14 +8,14 @@ import {
   View,
   Text,
   TouchableOpacity
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import theme from "../../../../theme";
+import theme from '../../../../theme';
 
 export default function NavbarAndroid({
-  backgroundColor = "#1C90D4",
-  buttonColor = "rgba(0, 0, 0, 0.5)",
+  backgroundColor = '#1C90D4',
+  buttonColor = 'rgba(0, 0, 0, 0.5)',
   leftButtonDisabled,
   leftButtonIconName,
   leftButtonOnPress,
@@ -24,7 +24,7 @@ export default function NavbarAndroid({
   rightButtonIconName,
   rightButtonOnPress,
   rightButtonText,
-  textColor = "white",
+  textColor = 'white',
   title,
   titleRenderer,
   ...props
@@ -92,26 +92,26 @@ export default function NavbarAndroid({
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "stretch",
+    alignItems: 'stretch',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
-    flexDirection: "row",
+    flexDirection: 'row',
     height: theme.navbar.height,
-    overflow: "hidden",
-    justifyContent: "flex-start",
-    paddingTop: Platform.OS === "ios" ? 20 : 0, // account for the statusbar
-    position: "absolute",
-    width: Dimensions.get("window").width
+    overflow: 'hidden',
+    justifyContent: 'flex-start',
+    paddingTop: Platform.OS === 'ios' ? 20 : 0, // account for the statusbar
+    position: 'absolute',
+    width: Dimensions.get('window').width
   },
 
   // buttons
   button: {
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
     paddingHorizontal: theme.fontSize.default
   },
   button__right: {
-    justifyContent: "flex-end"
+    justifyContent: 'flex-end'
   },
   buttonText: {
     color: theme.color.blue,
@@ -120,13 +120,13 @@ const styles = StyleSheet.create({
 
   // title
   title: {
-    alignItems: "center",
+    alignItems: 'center',
     flex: 4,
-    justifyContent: "center"
+    justifyContent: 'center'
   },
   titleText: {
     color: theme.color.lightText,
     fontSize: theme.fontSize.default,
-    fontWeight: "500"
+    fontWeight: '500'
   }
 });

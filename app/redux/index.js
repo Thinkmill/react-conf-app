@@ -1,8 +1,8 @@
-import { createAction } from "redux-actions";
-import { AsyncStorage } from "react-native";
-import update from "immutability-helper";
-const STORE_RATING = "STORE_RATING";
-const RESTORE_STATE_FROM_STORAGE = "RESTORE_STATE_FROM_STORAGE";
+import { createAction } from 'redux-actions';
+import { AsyncStorage } from 'react-native';
+import update from 'immutability-helper';
+const STORE_RATING = 'STORE_RATING';
+const RESTORE_STATE_FROM_STORAGE = 'RESTORE_STATE_FROM_STORAGE';
 
 const storeRating = createAction(
   STORE_RATING,
@@ -49,5 +49,5 @@ export const selectors = {
 
 export const storageMiddleware = store => next => action => {
   next(action);
-  AsyncStorage.setItem("@NeosCon.state", JSON.stringify(store.getState()));
+  AsyncStorage.setItem('@NeosCon.state', JSON.stringify(store.getState()));
 };

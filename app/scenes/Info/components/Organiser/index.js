@@ -1,30 +1,22 @@
-// 
+//
 import React from 'react';
 import {
   PixelRatio,
   StyleSheet,
   Text,
   TouchableHighlight,
-  View,
+  View
 } from 'react-native';
 
 import Avatar from '../../../../components/Avatar';
 import theme from '../../../../theme';
 
-
-export default function Organiser(
-  {
-    avatar,
-    name,
-    onPress,
-    summary,
-  }
-) {
+export default function Organiser({ avatar, name, onPress, summary }) {
   const touchableProps = {
     activeOpacity: 1,
     onPress: onPress,
     style: styles.touchable,
-    underlayColor: theme.color.gray05,
+    underlayColor: theme.color.gray05
   };
 
   return (
@@ -42,7 +34,7 @@ export default function Organiser(
 
 const styles = StyleSheet.create({
   touchable: {
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   base: {
     alignItems: 'center',
@@ -51,23 +43,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexGrow: 1,
     flexShrink: 1,
-    padding: theme.fontSize.default,
+    padding: theme.fontSize.default
   },
 
   // content
   text: {
     flexGrow: 1,
     flexShrink: 1,
-    paddingLeft: theme.fontSize.default,
+    paddingLeft: theme.fontSize.default
   },
   subtitle: {
     color: theme.color.gray60,
     fontSize: theme.fontSize.small,
     fontWeight: '300',
-    marginBottom: theme.fontSize.small,
+    marginBottom: theme.fontSize.small
   },
   title: {
     color: theme.color.text,
-    fontSize: theme.fontSize.default,
-  },
+    fontSize: theme.fontSize.default
+  }
 });

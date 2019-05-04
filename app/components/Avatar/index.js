@@ -1,20 +1,20 @@
 //
-import React from "react";
-import { Image, Platform, View } from "react-native";
+import React from 'react';
+import { Image, Platform, View } from 'react-native';
 
-import theme from "../../theme";
+import theme from '../../theme';
 
 export default function Avatar({ size = 44, source, style, ...props }) {
   const styles = {
     wrapper: {
       backgroundColor: theme.color.sceneBg,
       borderRadius: size,
-      overflow: "hidden",
+      overflow: 'hidden',
       height: size,
       width: size
     },
     image: {
-      borderRadius: Platform.OS === "android" ? size : 0,
+      borderRadius: Platform.OS === 'android' ? size : 0,
       height: size,
       width: size
     }

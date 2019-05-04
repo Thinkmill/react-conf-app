@@ -1,4 +1,4 @@
-// 
+//
 import React, { Component } from 'react';
 import {
   Animated,
@@ -6,27 +6,25 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import theme from '../../../../theme';
 
-
 const ICON_VARIANT = {
   bottom: 'ios-arrow-up',
-  top: 'ios-arrow-down',
+  top: 'ios-arrow-down'
 };
 
 const animateToValue = val => ({
   toValue: val,
-  duration: 150,
+  duration: 150
 });
 
 export default class Preview extends Component {
-
   state = {
-    animValue: new Animated.Value(0),
+    animValue: new Animated.Value(0)
   };
 
   componentWillReceiveProps(nextProps) {
@@ -43,18 +41,15 @@ export default class Preview extends Component {
     });
   }
   render() {
-    const {
-      position,
-      subtitle,
-      title,
-    } = this.props;
+    const { position, subtitle, title } = this.props;
     const { animValue } = this.state;
 
     const isAndroid = Platform.OS === 'android';
 
-    const baseStyles = position === 'bottom'
-      ? isAndroid ? { bottom: 0 } : { bottom: -theme.nextup.height }
-      : { top: -theme.nextup.height };
+    const baseStyles =
+      position === 'bottom'
+        ? isAndroid ? { bottom: 0 } : { bottom: -theme.nextup.height }
+        : { top: -theme.nextup.height };
 
     const icon = (
       <Animated.View
@@ -64,10 +59,10 @@ export default class Preview extends Component {
             {
               scale: animValue.interpolate({
                 inputRange: [0, 1],
-                outputRange: [1, 1.5],
-              }),
-            },
-          ],
+                outputRange: [1, 1.5]
+              })
+            }
+          ]
         }}
       >
         <Icon
@@ -88,10 +83,7 @@ export default class Preview extends Component {
         <Text style={styles.title} numberOfLines={1}>
           {title}
         </Text>
-        {!!subtitle &&
-          <Text style={styles.subtitle}>
-            {subtitle}
-          </Text>}
+        {!!subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
         {position === 'top' && icon}
       </View>
     );
@@ -104,17 +96,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: theme.nextup.height,
     paddingHorizontal: 60,
-    width: Dimensions.get('window').width,
+    width: Dimensions.get('window').width
   },
   baseIos: {
     position: 'absolute',
-    left: 0,
+    left: 0
   },
   title: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   subtitle: {
     color: theme.color.gray60,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });

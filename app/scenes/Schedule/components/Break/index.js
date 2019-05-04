@@ -1,33 +1,33 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { PixelRatio, Platform, StyleSheet, Text, View } from "react-native";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { PixelRatio, Platform, StyleSheet, Text, View } from 'react-native';
 
-import theme from "../../../../theme";
-import { TalkStatusBar } from "../Talk";
+import theme from '../../../../theme';
+import { TalkStatusBar } from '../Talk';
 
 export default class Break extends PureComponent {
   static propTypes = {
     startTime: PropTypes.string.isRequired,
-    status: PropTypes.oneOf(["future", "past", "present"]),
+    status: PropTypes.oneOf(['future', 'past', 'present']),
     title: PropTypes.string.isRequired
   };
 
   static defaultProps = {
-    title: "Break"
+    title: 'Break'
   };
 
   render() {
     const { startTime, status, title } = this.props;
 
     return (
-      <View style={styles["break"]}>
+      <View style={styles['break']}>
         <TalkStatusBar status={status} />
-        <View style={styles["break__content"]}>
+        <View style={styles['break__content']}>
           <Text
-            style={[styles["break__text"], styles["break__text--" + status]]}
+            style={[styles['break__text'], styles['break__text--' + status]]}
           >
             {startTime} -
-            <Text style={styles["break__title"]}> {title}</Text>
+            <Text style={styles['break__title']}> {title}</Text>
           </Text>
         </View>
       </View>
@@ -37,29 +37,29 @@ export default class Break extends PureComponent {
 
 const styles = StyleSheet.create({
   break: {
-    alignItems: "stretch",
-    backgroundColor: "#fbfbfb",
+    alignItems: 'stretch',
+    backgroundColor: '#fbfbfb',
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   break__content: {
-    alignItems: "center",
-    backgroundColor: "#fbfbfb",
+    alignItems: 'center',
+    backgroundColor: '#fbfbfb',
     flexGrow: 1,
     height: 44,
-    justifyContent: "center"
+    justifyContent: 'center'
   },
   break__text: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     color: theme.color.text,
     fontSize: theme.fontSize.small,
-    fontWeight: "300"
+    fontWeight: '300'
   },
-  "break__text--past": {
+  'break__text--past': {
     color: theme.color.gray40
   },
   break__title: {
-    fontWeight: "600"
+    fontWeight: '600'
   }
 });

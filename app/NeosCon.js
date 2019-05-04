@@ -1,12 +1,12 @@
-import React from "react";
-import { StackNavigator } from "react-navigation";
-import { Platform, StatusBar, AsyncStorage } from "react-native";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import { Info, Schedule, Talk } from "./scenes";
-import { actions, reducer, storageMiddleware } from "./redux/index";
-import registerRatingNotifications from "./ratingNotifications";
-import checkForUpdatesRegularily from "./checkForUpdatesRegularily";
+import React from 'react';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Platform, StatusBar, AsyncStorage } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Info, Schedule, Talk } from './scenes';
+import { actions, reducer, storageMiddleware } from './redux/index';
+import registerRatingNotifications from './ratingNotifications';
+import checkForUpdatesRegularily from './checkForUpdatesRegularily';
 
 registerRatingNotifications();
 checkForUpdatesRegularily();
@@ -16,7 +16,7 @@ const store = createStore(
   applyMiddleware(storageMiddleware)
 );
 
-AsyncStorage.getItem("@NeosCon.state").then(
+AsyncStorage.getItem('@NeosCon.state').then(
   state => {
     if (state) {
       store.dispatch(actions.restoreStateFromStorage(JSON.parse(state)));
@@ -28,9 +28,9 @@ AsyncStorage.getItem("@NeosCon.state").then(
 );
 
 // define light status bar for whole app
-StatusBar.setBarStyle("light-content", true);
+StatusBar.setBarStyle('light-content', true);
 
-const App = StackNavigator(
+const MainNavigator = createStackNavigator(
   {
     Home: {
       screen: Schedule
@@ -43,12 +43,14 @@ const App = StackNavigator(
     }
   },
   {
-    headerMode: "none",
+    headerMode: 'none',
     cardStyle: {
-      paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight
+      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
     }
   }
 );
+
+const App = createAppContainer(MainNavigator);
 
 export default () => (
   <Provider store={store}>

@@ -1,28 +1,26 @@
-// 
+//
 import React, { Component } from 'react';
 import {
   Animated,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { LinearGradient } from 'expo';
-
 
 import theme from '../../../../theme';
 import { lighten, darken } from '../../../../utils/color';
 
 export default class NowButton extends Component {
-
   state = {
-    animValue: new Animated.Value(0),
+    animValue: new Animated.Value(0)
   };
 
   springToValue(val) {
     Animated.spring(this.state.animValue, {
       toValue: val,
       friction: 3,
-      tension: 50,
+      tension: 50
     }).start();
   }
   render() {
@@ -36,21 +34,21 @@ export default class NowButton extends Component {
         bottom: 20,
         left: 10,
         right: 10,
-        top: 10,
+        top: 10
       },
       onPress,
       onPressIn: () => this.springToValue(1),
-      onPressOut: () => this.springToValue(0),
+      onPressOut: () => this.springToValue(0)
     };
     const dynamicStyles = {
       transform: [
         {
           scale: animValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [1, 0.9],
-          }),
-        },
-      ],
+            outputRange: [1, 0.9]
+          })
+        }
+      ]
     };
 
     return (
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
     left: 0,
     paddingBottom: 20,
     position: 'absolute',
-    right: 0,
+    right: 0
   },
   button: {
     backgroundColor: theme.color.blue,
@@ -86,11 +84,11 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.24,
-    shadowRadius: 2,
+    shadowRadius: 2
   },
   text: {
     backgroundColor: 'transparent',
     color: 'white',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });

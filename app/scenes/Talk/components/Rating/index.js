@@ -1,16 +1,17 @@
-import React, { PureComponent } from "react";
-import { connect } from "react-redux";
-import { Constants } from "expo";
-import { TextInput, AsyncStorage, ActivityIndicator } from "react-native";
-import StarRating from "react-native-star-rating";
-import Button from "react-native-button";
-import { selectors, actions } from "../../../../redux/index";
-import Avatar from "../../../../components/Avatar";
-import DraggableView from "../../../../components/DraggableView";
-import Modal from "../../../../components/Modal";
-import theme from "../../../../theme";
-import { attemptToOpenUrl } from "../../../../utils";
-import Raven from "raven-js";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { Constants } from 'expo';
+import { TextInput, AsyncStorage, ActivityIndicator } from 'react-native';
+import StarRating from 'react-native-star-rating';
+import Button from 'react-native-button';
+import { selectors, actions } from '../../../../redux/index';
+import Avatar from '../../../../components/Avatar';
+import DraggableView from '../../../../components/DraggableView';
+import Modal from '../../../../components/Modal';
+import theme from '../../../../theme';
+import { attemptToOpenUrl } from '../../../../utils';
+import Raven from 'raven-js';
+import isset from '../../../../utils/isset';
 
 import {
   PixelRatio,
@@ -19,8 +20,8 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const mapStateToProps = (state, props) => ({
   rating: selectors.ratingForTalk(props.talk.title)(state)
@@ -36,9 +37,10 @@ class Rating extends PureComponent {
 
   constructor(props) {
     super(props);
+    const { rating } = props;
     this.state = {
-      starCount: props.rating.starCount,
-      comment: props.rating.comment,
+      starCount: isset(() => rating.starCount) ? rating.starCount : 0,
+      comment: isset(() => rating.comment) ? rating.comment : '',
       isSaving: false,
       isError: false
     };
@@ -58,7 +60,7 @@ class Rating extends PureComponent {
     const { onClose } = this.props;
 
     return (
-      <Modal onClose={onClose} ref="modal" forceDownwardAnimation={false}>
+      <Modal onClose={onClose} ref='modal' forceDownwardAnimation={false}>
         <DraggableView
           style={styles.wrapper}
           allowX={false}
@@ -89,11 +91,11 @@ class Rating extends PureComponent {
             height: 40,
             marginTop: 20,
             padding: 5,
-            width: "100%",
-            borderColor: "gray",
+            width: '100%',
+            borderColor: 'gray',
             borderWidth: 1
           }}
-          placeholder="Comment"
+          placeholder='Comment'
           onChangeText={comment => this.setState({ comment })}
           value={this.state.comment}
         />
@@ -102,9 +104,9 @@ class Rating extends PureComponent {
           containerStyle={{
             marginTop: 20,
             padding: 10,
-            width: "100%",
+            width: '100%',
             height: 45,
-            overflow: "hidden",
+            overflow: 'hidden',
             borderRadius: 4,
             backgroundColor: isError ? theme.color.yellow : theme.color.blue
           }}
@@ -112,15 +114,15 @@ class Rating extends PureComponent {
             backgroundColor: theme.color.gray20
           }}
           disabled={!this.state.starCount || isSaving}
-          style={{ fontSize: 20, color: "white" }}
+          style={{ fontSize: 20, color: 'white' }}
           onPress={this.handleSubmitRating}
         >
           {isSaving ? (
             <ActivityIndicator />
           ) : isError ? (
-            "Transmission error. Retry!"
+            'Transmission error. Retry!'
           ) : (
-            "Submit rating!"
+            'Submit rating!'
           )}
         </Button>
 
@@ -128,16 +130,16 @@ class Rating extends PureComponent {
           onPress={this.handleClose}
           activeOpacity={0.5}
           style={{
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             right: 0,
             height: 44,
             width: 44,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
-          <Icon color={theme.color.gray40} name="md-close" size={24} />
+          <Icon color={theme.color.gray40} name='md-close' size={24} />
         </TouchableOpacity>
       </View>
     );
@@ -145,11 +147,11 @@ class Rating extends PureComponent {
 
   handleSubmitRating = () => {
     this.setState({ isSaving: true });
-    fetch("https://neoscon-app.cloud.sandstorm.de/submit-rating", {
-      method: "POST",
+    fetch('https://neoscon-app.cloud.sandstorm.de/submit-rating', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         rating: {
@@ -170,7 +172,7 @@ class Rating extends PureComponent {
           this.handleClose();
         } else {
           Raven.captureMessage(
-            "Rating submission failed with HTTP status " + result.status
+            'Rating submission failed with HTTP status ' + result.status
           );
           setTimeout(() => {
             this.setState({ isSaving: false, isError: true });
@@ -178,7 +180,7 @@ class Rating extends PureComponent {
         }
       },
       () => {
-        Raven.captureMessage("Rating submission failed completely");
+        Raven.captureMessage('Rating submission failed completely');
         setTimeout(() => {
           this.setState({ isSaving: false, isError: true });
         }, 500);
@@ -187,12 +189,15 @@ class Rating extends PureComponent {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rating);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Rating);
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "white",
-    shadowColor: "black",
+    backgroundColor: 'white',
+    shadowColor: 'black',
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.25,
     shadowRadius: 5
@@ -200,34 +205,34 @@ const styles = StyleSheet.create({
 
   // main
   main: {
-    alignItems: "center",
+    alignItems: 'center',
     padding: theme.fontSize.large
   },
   mainTitle: {
     color: theme.color.text,
     fontSize: theme.fontSize.large,
-    fontWeight: "300",
+    fontWeight: '300',
     marginVertical: theme.fontSize.default
   },
   mainText: {
     color: theme.color.text,
     fontSize: 15,
-    fontWeight: "300",
+    fontWeight: '300',
     lineHeight: 21,
-    textAlign: "center"
+    textAlign: 'center'
   },
 
   // buttons
   buttons: {
-    overflow: "hidden",
-    flexDirection: "row"
+    overflow: 'hidden',
+    flexDirection: 'row'
   },
   buttonTouchable: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     flex: 1
   },
   button: {
-    alignItems: "center",
+    alignItems: 'center',
     borderTopColor: theme.color.gray20,
     borderTopWidth: 1 / PixelRatio.get(),
     paddingVertical: theme.fontSize.large

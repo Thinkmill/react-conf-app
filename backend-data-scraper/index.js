@@ -177,7 +177,7 @@ const transformTopic = (
       speaker => {
         return {
           name: speaker.name,
-          avatar: speaker.avatar,
+          avatar: 'https://www.neoscon.io' + speaker.avatar,
           twitter: speaker.facts[0].twitter,
           company: speaker.facts[0].company,
           summary: speaker.summary

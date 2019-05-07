@@ -123,6 +123,13 @@ const transformTalkDetails = (title, description) => {
   return '';
 };
 
+const transformCaseStudyDetails = description => {
+  // need to add some line breaks for the case study description
+  return description
+    .replace(/(presented by)/g, '\npresented by')
+    .replace(/\)/g, ')\n\n');
+};
+
 const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
   isCaseStudySession = isCaseStudy(title);
   const speakers = [];
@@ -159,7 +166,7 @@ const transformTopic = (
   const isCaseStudySession = isCaseStudy(topicTitle);
   let summary = transformTalkDetails(topicTitle, topicDescription);
   if (isCaseStudySession) {
-    summary = topicDescription;
+    summary = transformCaseStudyDetails(topicDescription);
   }
 
   const transformedSession = {
@@ -178,7 +185,7 @@ const transformTopic = (
       }
     ),
     time: topicFromCrawler.time,
-    durationInMinutes: 45,
+    durationInMinutes: 30,
     room: roomName,
     isBreak: isBreakOrLunch(topicTitle),
     isCaseStudy: isCaseStudySession

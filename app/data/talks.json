@@ -2,134 +2,154 @@
   [
     {
       "summary": "",
-      "title": "Registration + breakfast snacks",
+      "title": "Registration & Breakfast Snacks",
       "speakers": [],
-      "time": "09:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
-      "isBreak": false,
-      "isCaseStudy": false
-    },
-    {
-      "summary": "",
-      "title": "Conference Opening",
-      "speakers": [],
-      "time": "10:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
-      "isBreak": false,
-      "isCaseStudy": false
-    },
-    {
-      "summary": "",
-      "title": "Welcome Keynote",
-      "speakers": [],
-      "time": "10:30",
-      "durationInMinutes": 45,
-      "room": "Room 1",
-      "isBreak": false,
-      "isCaseStudy": false
-    },
-    {
-      "summary": "",
-      "title": "Break",
-      "speakers": [],
-      "time": "11:15",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "9:00",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "In our daily work we get to see a lot of projects and answer many typical questions about Flow and Neos. The most prevalent of those problems will be discussed in this talk. THis will be rather technical and go into some detail while explaining concepts and challenges many people encounter working with Flow and Neos.\n\nIf your code is versioned, you know all the different meanings of \"Context\", work with composer on a daily basis and eat FlowQuery for breakfast you might already know everything, but if not, then listen in.",
-      "title": "The F-Files - Insights from 3 years of Neos Support",
-      "speakers": [
-        {
-          "name": "Christian Müller",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/0045304204160e3f3b75dcb1336ce7ee5655a24c/christian-mueller_300px.jpg",
-          "twitter": "daskitsunet",
-          "company": "Flownative GmbH",
-          "summary":
-            "Christian Müller is co-founder of Flownative, which provides development support, quality assurance, consulting and coaching to Neos and Flow agencies and users. In his free time he picks up the Cello or switches the computer keyboard for a piano keyboard."
-        }
-      ],
-      "time": "11:45",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "summary": "Let's get Neos Conference 2019 started!",
+      "title": "Conference Opening",
+      "speakers": [],
+      "time": "10:00",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "No more waste: no offers, no specs, no contracts and your projects will be better, faster, cheaper. Forget old school and waterfall: Do projects the most efficient way you can imagine. During the agile transition of its company, sitegeist combined L.ean and A.gile components with R.aw E.stimates. Without knowing, they created a disruptive new agency concept. Get the main idea of „#RawEstimates“ and „The RE.A.L.-Concept“ with practical examples, take a look on how to establish and control it. At first sitegeist was asked proactively to coach and consult a radical “agilisation” by various internet- and marketing agencies. Meanwhile sitegeist advises other international consultants and production-businesses on becoming agile. It can be a real game-changer for your agency.\n\nMore Information: real.sitegeist.rocks",
-      "title": "Do the RE.A.L Thing: No-Waste-Projects",
+      "summary": "A lot has happened since the last Neos Conference! You'll get an overview about the recent developments and current plans, as well as ideas we are currently pondering with.",
+      "title": "Neos Conference 2019 Welcome Keynote",
       "speakers": [
         {
-          "name": "Sven Ditz",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/67f2dc4f8b03d68117eafb8fdea53fddc9611081/SDI_Speaker_sw_TIC-318x397.jpg",
-          "twitter": "gehtdoch",
-          "company": "sitegeist",
-          "summary":
-            "Sven is an internet professional since 1996. He is founder and CEO of the agency sitegeist in Hamburg. He has been speaker and keynote-speaker for countless national and international events like the worlds biggest tourism fair „ITB“, the Travel Industry Club, BITKOM, TYPO3 Conference or AgenturCamp."
+          "name": "Robert Lemke",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/ff96bb3e156773097fcda588c5c759b2c52a99f6/RobertLemke-07-2013-square-1865x1865.jpg",
+          "twitter": "robertlemke",
+          "company": " Flownative/Neos Core Team",
+          "summary": "Robert Lemke is founder of the Neos Open Source Project and initial creator of the Flow Framework. He's also co-founder and CEO of Flownative, a venture supporting web agencies and organizations to realize successful projects with Neos and Flow. Robert lives in Lübeck, Germany, together with his wife, two daughters, and Rocket, their espresso machine."
         }
       ],
-      "time": "11:45",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "10:15",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "The new user interface of the Neos CMS is not merely a rewrite of the old functionality, but being based on ReactJS it unveils an exciting topic of extensibility which goes way beyond what has been possible with the old UI. In this talk we will demonstrate all of the basic points of planned extensibility, but won't stop there and show  how it is possible to build completely custom-tailored interfaces for your projects without spending NASA-like budgets.",
-      "title": "Neos UI Extensibility and Beyond",
+      "summary": "Often the hardest part of any problem is simply how to get started. On the ever-evolving web accessibility is a matter of ongoing importance: the brilliance of your code or sleekness of your UI is inconsequential if your app or website is unusable to some of your users. With a million other issues already on your plate how do you find a way to get started on accessibility testing? Pa11y to the rescue! Pa11y is a lightweight command-line accessibility testing tool with enough flexibility to integrate results into your current testing process. This talk will explain what pa11y does and does not cover, review examples of both command line and scripted usage, dive into the pa11y web service and show how to modify output to work in your current testing setup. Bonus content: how to convince the rest of your team and business why accessibility is worth prioritizing and how getting started with low-hanging fruit can vastly improve your product.",
+      "title": "Making Accessibility Testing Suck Less: An Intro to Pa11y",
       "speakers": [
         {
-          "name": "Dmitri Pisarev",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/85e55f9b560b7d1ae949e24876a797f675990d22/Dimitri-Pisarev_300px.jpg",
-          "twitter": "dimaip",
-          "company": "Saint Philaret’s Christian Orthodox Institute (SFI)",
-          "summary":
-            "Dmitri is a Christian believer. Also he is a lead web developer working in St Philaret Christian University located in Moscow. He fell in love with the Neos project at first sight and has joined the development team shortly after."
-        },
-        {
-          "name": "Max Strübing",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/44302524d28b29f507cfacec622103d1e6bf9571/MaxStruebing-663x828-545x681.jpg",
-          "twitter": "mxstrbng",
-          "company": "sitegeist",
-          "summary":
-            "Max is a full-stack-developer at sitegeist media solutions GmbH in Hamburg. He fell in love with Neos since his first touching points two years ago. Since 2016 he is contributing to the new React UI actively and joined the core team in July 2017. When he is not coding he likes to read and play guitar."
+          "name": "Jennifer Wadella",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/aae7f0581ca80fccefc32ef5aa3094abf10ad3db/Jennifer%20Wadella-1020x1020.jpg",
+          "twitter": "likeOMGitsFEDAY",
+          "company": " Kansas City Women in Technology",
+          "summary": "Jennifer Wadella has been writing code since before she realized it was a credible career path. She currently works as a lead front-end developer at legal tech startup and loves building javascript applications and speaking at technical conferences. Jennifer is an active member of the KC tech community and the founder of Kansas City Women in Technology(KCWiT), an organization aimed at growing the number of women in technology careers in Kansas City. She's created a number of programs for KCWiT to help women and girls learn to code including CoderDojoKC, Coding & Cupcakes and Coding & Cocktails. She is a Silicon Prairie Champion Award Nominee, Rising Trendsetter STEMMy award-winner, and is apparently Missouri's Coolest Woman according to Pure Wow. She doesn't blog much, but can handle 140 characters - @likeOMGitsFEDAY"
         }
       ],
-      "time": "12:35",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "11:05",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "In this talk, you will see why it is fantastic to publish packages. We'll explain, which are the challenges, and why it is important to publish your code for Neos. Also, some tips and tricks will be delivered: How it create an easy-to-install but yet powerful to customize and expandable package. In the end, you will be encouraged to create and maintain your own packages.",
-      "title": "Why creating Open Source help you to become a better developer",
+      "summary": "A comparison between different CMS Systems like WordPress, Neos, TYPO3, Drupal, and Pimcore, in terms of design, technique, and community. What are the strengths and weaknesses of them according to their own communities?",
+      "title": "All others are B***S***",
       "speakers": [
         {
           "name": "Jon Uhlmann",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/2f464002ea405ebeeba6642ccb9cda9babd181f3/Jon%20Uhlmann-875x1094-545x681.jpg",
-          "twitter": "Jonnitto",
-          "company": "gesagt. getan.",
-          "summary":
-            "Jon Uhlmann is one of the web workers at gesagt.getan. based in Salzburg, Austria. He not only loves it to write clean code, but he is also very enthusiastic about trying the newest technologies and improving the workflow."
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/f3686136d4595d5afced007d4792edac9f86fc44/Foto%20Ganz-1781x1781.jpg",
+          "twitter": "jonnitto",
+          "company": " gesagt.getan./Neos Core Team",
+          "summary": "Jon Uhlmann is one of the web workers at gesagt.getan. based in Salzburg, Austria. He not only loves it to write clean code, but he is also very enthusiastic about trying the newest technologies and improving the workflow."
         }
       ],
-      "time": "12:35",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "11:05",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "Now that CKEditor 5 is the default editor in Neos, we'd like to showcase how you can use its customizability and flexibility inside the Neos UI.Based on a practical example, we'll walk you through the core CKEditor 5 concepts you need to know. We demonstrate how you can reach these APIs from within the Neos customization layer, and control that functionality with custom UI elements in Neos.After that, we’ll try to push the boundaries of editing - creating a seamless experience between CKEditor and Neos.",
+      "title": "Neos + CKEditor 5 = a love story",
+      "speakers": [
+        {
+          "name": "Piotrek Koszulinski",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/fbce3720337117801f6ecde538292d312769107f/Piotrek-Koszulin%CC%81ski-404x404.jpeg",
+          "twitter": "reinmarpl",
+          "company": " CKEditor",
+          "summary": "Piotrek is a CKEditor 5 project leader and architect. He joined CKSource (the company behind CKEditor) back in 2012 as a CKEditor 4 developer and contributed many of its most innovative features. Since 2015 he is leading the complete rewrite of the project, creating the most powerful rich-text editing framework in the world and making sure it doesn't repeat the Netscape's story. Additionally, he is an invited expert to W3C, sharing his knowledge and experience on text editing in the Web.Piotrek lives in Warsaw, Poland with his wife, son and dog. He enjoys karting and hopes to get back to endurance running and alpinism once his kid... well, one day."
+        },
+        {
+          "name": "Sebastian Kurfürst",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/c9082cc50469e4491cc91f3092c3150f3e8cb2ac/Sebastian-Kurfuerst_300px-250x250.jpg",
+          "twitter": "skurfuerst",
+          "company": " Sandstorm/Neos Core Team",
+          "summary": "Sebastian is a member of the Flow and Neos team almost since its inception. He is most known for his work on Fluid, Extbase and Fusion, but has worked on other parts of the source code as well. As co-founder and CTO at Sandstorm he helps to build relevant solutions for clients, helping them to choose the right frontend and backend technologies. In his free time, you'll most likely find spend time with his wife and son, or you'll see him climbing in the Saxon Switzerland."
+        }
+      ],
+      "time": "11:40",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "During the agile transition of sitegeist, they invented their own Project Method RE.A.L. (R.aw E.stimates, A.gile and L.ean). For the last 5 years RE.A.L. was continuously developing and produced the most efficient projects of the agency history. Back then RE.A.L. was sitegeists starting shot to become a successful, self-confident and self-determined agency. An agency that advises their customers and leads them through the projects. The one who has the knowledge, determines.Meanwhile RE.A.L. is one of the main reasons why potential custumers and also potential employees choose the agency.RE.A.L. is not only used in-house though, it was also successfully implemented in various agencies.With the sitegeist agile transformation GmbH, which is 4-person strong by now, sitegeist also coaches external companies like e.g. OTTO Group or XING.Believe it or not, but it‘s true: RE.A.L. also works in your agency. And yes, also with your customers. This RE.A.L-Talk is focussing on the most important first steps and the most helpful learnings from the implementations of RE.A.L. in agencies.For those who know last year‘s RE.A.L. basic-talk („No more waste!“), they get a hands-on continuation. But the basic-talk is not at all a requirement to get valuable ideas or suggestions and a complete mindshift in the way how to work.It will be a real game-changer for your agency.",
+      "title": "RE.A.L.ity Check – successful agile projects without quotation and contracts – 6 top-tips how it actually works in practice even in your agency",
+      "speakers": [
+        {
+          "name": "Sven Ditz",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/ba36680624bbbebdd01121457deea3a4e04fe6da/SDI_Speaker_sw_TIC.jpg",
+          "twitter": "gehtdoch",
+          "company": " sitegeist",
+          "summary": "Sven is an internet professional since 1996. He is founder and CEO of the agency sitegeist in Hamburg. He has been speaker and keynote-speaker for countless national and international events like the worlds biggest tourism fair „ITB“, the Travel Industry Club, BITKOM, TYPO3 Conference or AgenturCamp."
+        }
+      ],
+      "time": "11:40",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "As Neos and its community grows, we encounter more and more approaches to common problems. The team agreed on a set of rules and patterns that will help creating state-of-the-art Neos projects.I will present and illustrate these findings, hoping to lower the hurdles for newcomers and perhaps showing experienced Neos developers improved ways to tackle their next project.",
+      "title": "How to build a state-of-the-art Neos project in 2019",
+      "speakers": [
+        {
+          "name": "Maya Bornschein",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/56679b9b84b66b661fc646f42b9d79647089da38/Bornschein-Maya-2-552x552.jpg",
+          "twitter": "maya_shines",
+          "company": " punkt.de/Neos Core Team",
+          "summary": "Maya, the unofficial Neos UI Bug Hunt Queen is one of the newest Neos Core Team members, full-time frontend developer at punkt.de with focus on Neos integration and first-time conference speaker. Maya loves the topics usability & performance and is currently contributing a lot to the team's effort to renewing the Neos documentation.It is told that she drinks too much coffee and can only be found on her computer being accompanied by music."
+        }
+      ],
+      "time": "12:15",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "Developing and maintaining large web applications, without breaking them, is quite time consuming. For this reason we created end-to-end tests, but they still can be frustrating, especially when you need to support multiple browsers.With TestCafe you get a powerful tool to automate your end-to-end tests, which is super easy to use and ultra lightweight compared to Selenium.In combination with BrowserStack you are able to run all TestCafe tests in a bunch of different browsers, versions and environments.Together we'll set up a small project, have a live view on how to write your tests and watch TestCafe doing its work.",
+      "title": "TestCafe and BrowserStack: Test your WebApp everywhere",
+      "speakers": [
+        {
+          "name": "Alexander Hesse",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/81f28088c81636d4d42ecd87ce39c8986dba1e97/Alex-Sandstorm-998x998.jpg",
+          "twitter": "Pingu501",
+          "company": " Sandstorm",
+          "summary": ""
+        }
+      ],
+      "time": "12:15",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
@@ -137,170 +157,207 @@
       "summary": "",
       "title": "Lunch",
       "speakers": [],
-      "time": "13:20",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "12:45",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "There are many ways to start a new Neos-based project and there is a multitude of tools involved. This session will introduce a \"perfect\" way to set up a Neos project. It covers the versioning in Git, offering a setup that allows to manage multiple packages in one repository without affecting how dependencies are managed with composer. A way to and maintain a consistent local development environment to minimize ramp-up time and allow developers to quickly get started with a project will be shown.  Deployment and hosting strategies along with suggestions to use configuration contexts to keep settings organized and conflict-free will  close the session.",
-      "title": "The perfect Neos project setup",
+      "summary": "When using Clean Code, what are the first steps to increase software quality in an existing project? The main themes are \"Code Standard\", \"Code Conventions\", \"Code Refactoring\" and of course \"Clean Code\". The focus is on the “big win” for companies that have a regular weekly code refactoring. The target audience is web developers and decision makers.",
+      "title": "Clean Code - Benefits of Refactoring",
       "speakers": [
         {
-          "name": "Karsten Dambekalns",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/ff4bb6daa3786ee7733006bbdf1078594984b420/KarstenD-800x960-545x654.jpg",
-          "twitter": "kdambekalns",
-          "company": "Flownative",
-          "summary":
-            "Karsten is part of the development of Flow and Neos since 2007. He considers himself a Creative Code Engineer: Developing software is–if done right–engineering, but as with most things in live, creativity gets you a long way. He is co-founder of Flownative, which provides development support, quality assurance, consulting and coaching to Neos and Flow agencies and users."
+          "name": "Roland Golla",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/3aacae458b244ba6c7303b1e67b39cd3221ee3da/roland-golla-web-533x533.jpg",
+          "twitter": "cleancode_devel",
+          "company": " Never Code Alone",
+          "summary": "The 2003 graduated IT specialist for application development with a focus on PHP backend development worked for many years as a senior web developer and lead developer for large CMS portals and high-turnover eCommerce solutions. Since 2013, his work has focused on Clean Code and software quality.Used technologies include backend PHP fullstack frameworks Symfony and Zend. In addition, very good skills in AngularJS, NodeJS and Responsive Design. Used test frameworks are PHPUnit for PHP code and DalekJS for automated frontend testing.Quote: \"With the PHP training courses of the \"Entwicklungshilfe\" we give web developers the opportunity to implement the learning contents immediately on their own computers. So hands-on is our top priority here.\""
         }
       ],
-      "time": "14:30",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "14:15",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "This talk explains the principles of every system that is exposed to variability and unpredictability. Such as software development. Learn why it is not capacity planning that will save your day, what traffic and stock markets can tell you about your organization, what is the key benefit of agile practices and how you might be wasting your company’s potential. Find out the correct economics to base your decisions on. Change your system - not your people.",
-      "title": "Buried in queues",
+      "summary": "Do you love frontend, too? How do you feel about responsive newsletters? And what about the perfect typographic scale? How can we break out of the content-box? And where can Neos bring his power into all this with Fusion? In this talk, Jon will present practical techniques and bright ideas developed in real-life projects and show how to solve your challenges faster and smarter.Warning: You will not be able to unlearn what you’ll learn in this session.",
+      "title": "Little dirty tricks from the dark corners of Fusion and Frontend",
       "speakers": [
         {
-          "name": "Stefan Regniet",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/6eca3e42dd47c3459b7b8606abb2d3f82e71f4c3/stefanregniet-400x500.jpg",
-          "company": "TechDivision GmbH",
-          "summary":
-            "Stefan is Head of CMS Development @TechDivision. He has been working with Flow and Neos from the very beginning but besides from technology he also works as an agile coach. As Certified Scrum Professional he fosters teams to grow beyond technical quality. \nStefan lives in Bad Aibling, Germany together with his wife, daughter and two dogs."
+          "name": "Jon Uhlmann",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/f3686136d4595d5afced007d4792edac9f86fc44/Foto%20Ganz-1781x1781.jpg",
+          "twitter": "jonnitto",
+          "company": " gesagt.getan./Neos Core Team",
+          "summary": "Jon Uhlmann is one of the web workers at gesagt.getan. based in Salzburg, Austria. He not only loves it to write clean code, but he is also very enthusiastic about trying the newest technologies and improving the workflow."
         }
       ],
-      "time": "14:30",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "14:15",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Manage Neos and Flow in a Kubernetes cluster\n \nAll-in Digital Transformation of a Publishing House with Neos\n \nMulti Client Solutions in Neos",
-      "title": "Case Studies",
+      "summary": "Back in 2013, we started to play around with Neos to build our first rather small pages. Now, 6 Years later the system matured as well as the projects. Currently we are building business critical content applications with Neos that handle 1 million nodes and ten thousands of assets. In this talk I will present best practices and building blocks that we use to build Neos application that scale.",
+      "title": "Large Scale Neos",
       "speakers": [
-        {
-          "name": "Johannes Steu",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/e502bfa848900c9e208585f876551e898d083997/johannes-steu_300px.jpg",
-          "twitter": "stolle_",
-          "company": "yeebase media GmbH",
-          "summary":
-            "After a few years of working with TYPO3 Johannes joined the Neos team in April 2016. Later the year he joined yeebase media GmbH as well. He is currently working on several neos and flow based projects for t3n.de. Together with Robert Lemke he was as release manager responsible for Neos 3.0 release. In his spare time you can find him training for his next Triathlon."
-        },
         {
           "name": "Daniel Lienert",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/6e6d86f7a88e1760c9e8507636176714725c0b45/Daniel-Lienert_300px.jpg",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/16ca12d5400a7bffd5ba58cee0183fa082ca8153/Daniel-Lienert-410x410.jpeg",
           "twitter": "dlienert",
-          "company": "Punkt.de",
-          "summary":
-            "Daniel is working as Scrum Master and Software Architect at punkt.de in Karlsruhe. Aside from his passion for agile corporate culture and development principals, he enjoys performant systems and well-designed software architecture. He also appreciates these values as a long-time developer and member of the Neos CMS Core Team."
-        },
-        {
-          "name": "Bernhard Schmitt",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/9d2006b89de8028aef0884018113336050b80b2e/Bernhard-Schmitt-533x800.jpg",
-          "twitter": "nezaniel",
-          "company": "CORE4",
-          "summary":
-            "Working at CORE4, Bernhard has developed a soft spot for complex web applications. In Neos he sees both a tool for handling challenges as well as a challenge in itself. Bernhard joined the Neos team in September 2016."
+          "company": " punkt.de/Neos Core Team",
+          "summary": "Daniel is working as Scrum Master and Software Architect at punkt.de in Karlsruhe. Aside from his passion for agile corporate culture and development principals, he enjoys performant systems and well-designed software architecture. He also appreciates these values as a long-time developer and member of the Neos CMS Core Team."
         }
       ],
-      "time": "15:20",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "14:50",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "This is an open Question and Answer session with the Neos Team. We're happy to answer any kinds of questions, solve hands-on problems you might have in your daily work, or explain our thinking about future directions.Please bring your questions and issues :-)",
+      "title": "Discuss with the Core Team",
+      "speakers": [
+        {
+          "name": "Neos Core Team",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/4d122f22687d78838edb5c36ca3e5faf47284869/Neos-Sprint-Vienna-865x864.jpg",
+          "twitter": "neoscms",
+          "company": " The Neos Project",
+          "summary": "The Neos Team is the team behind the Neos CMS and Flow Framework. We're around to help with questions and support :-)"
+        }
+      ],
+      "time": "14:50",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "juzo.com\npresented by Matthias Witte (TechDivision)\n\nvedes.com\npresented by Niclas Helgers and Ferdinand Kuhl (in.webs)\n\n",
+      "title": "Case Studies I (juzo.com, vedes.com)",
+      "speakers": [
+        {
+          "name": "Niclas Helgers",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/2c3f968036a36b4772527dbc1e11232349c43753/bild_niclas-555x555.jpg",
+          "twitter": "",
+          "company": " in.webs",
+          "summary": "in.webs, which Niclas founded in 2007 at the age of 22, realizes and implements, among others, NEOS Flow-based individual customer solutions and works for well-known customers such as IKEA, MediaMarktSaturn, VEDES and MotelOne.in.webs head office is located in Nettetal near Düsseldorf, next to the Dutch border."
+        },
+        {
+          "name": "Ferdinand Kuhl",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/f3d34f18f596d164301f2d9ba681da6da019fb15/bild_ferdi-390x390.jpg",
+          "twitter": "",
+          "company": " in.webs",
+          "summary": "Ferdinand, who completed his degree in cognitive science in 2008, is a FullStack PHP developer and partner at in.webs. He has been a NEOS Flow expert for many years, has been a member of the Flow Contributors list since 2011 and plays a leading role in the planning and implementation of software solutions for international customers, such as an eCommerce platform rolled out for IKEA in >23 countries."
+        },
+        {
+          "name": "Matthias Witte",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/89c1fa28394304166ee98ea4b4f8f1a075045947/IMG_5269-1086x1087.jpg",
+          "twitter": "",
+          "company": " TechDivision",
+          "summary": "Matthias Witte is a Senior Developer at techdivision.com. He came in contact with Neos in the early days when it was called Phoenix. After he invested time in other technologies, he got the opportunity to develop several Neos customer projects and different Neos modules since Version 2.0."
+        }
+      ],
+      "time": "15:25",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": true
+    },
+    {
+      "summary": "Are you using Docker for development, because … it’s the future? And sometimes wish you had your boring, but nicely working development environment back? Containers certainly are the future, now let’s identify and sort out all those little problems which keep you from using it today effectively.When Docker hit the scene, many developers (including me) started using containers as a lightweight alternative to virtual machines. It was promising to use Docker as a local environment for development which would closely match the software running on the production servers. But the cake was a lie, all sorts of practical issues spoiled the fun.​In this session I’ll share what I learned throughout the last four years of using Docker as a development (and production) environment and how you can create your own set-up taking full advantage of the benefits containers provide. See an example for a fully working solution tailored to Neos and Flow and learn how it works internally.",
+      "title": "Getting it right: Docker for Development",
+      "speakers": [
+        {
+          "name": "Robert Lemke",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/ff96bb3e156773097fcda588c5c759b2c52a99f6/RobertLemke-07-2013-square-1865x1865.jpg",
+          "twitter": "robertlemke",
+          "company": " Flownative/Neos Core Team",
+          "summary": "Robert Lemke is founder of the Neos Open Source Project and initial creator of the Flow Framework. He's also co-founder and CEO of Flownative, a venture supporting web agencies and organizations to realize successful projects with Neos and Flow. Robert lives in Lübeck, Germany, together with his wife, two daughters, and Rocket, their espresso machine."
+        }
+      ],
+      "time": "15:25",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
     },
     {
       "summary": "",
       "title": "Coffee Break",
       "speakers": [],
-      "time": "16:05",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "16:00",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Sometimes, you open up a website and before anything else these buttons appear: “To the website” or “To the shop”. Why is this necessary? Most likely, because shopping solutions usually lack CMS-like editing powers and CMSes usually lack features like checkout, stock, orders and customer data. An integrated experience requires you to choose one system and add the missing features. Or is it possible to marry the best of both worlds? We will show the example of an integration between Shopware and Neos and our approach to problems like:\n\n\n\tHandling article data without redundancy\n\tSynchronizing the content cache with Shopware\n\tBridging the gap between the two rendering layers\n\tManaging routes between both systems\n\tAugmenting article data with custom content",
-      "title":
-        "Building Content-driven Shopping Experiences with Neos & Shopware",
+      "summary": "Who hasn't encountered error messages while developing with Neos? It's a complex system after all and making mistakes is normal. But how to get the system working again and what actually happened? We will have a look at strategies for answering these questions and getting more confident in dealing with errors while working with Neos.Due to the many layers in Neos it's not always easy to place an error correctly and therefore grasp the message fully, but this understanding is the foundation for fixing problems, so this will be a major topic. Additionally we will talk about strategies to gain more insights into various areas of Neos to help you fix problems, specifically in the way Fusion works.Obviously we will talk about step debuggers and the pros and cons in their use for certain tasks and finally about the \"debugging mindset\".",
+      "title": "Debugging Neos",
       "speakers": [
         {
-          "name": "Miriam Müller",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/da554d490f9e2137d163817833fef8ca5009a446/IMG_0182-400x500.jpg",
-          "company": "sitegeist",
-          "summary":
-            "Miriam works as a Senior PHP-developer at sitegeist. After her academic studies she started working with Java and the CMS OpenCMS before she specialized on PHP and eCommerce. For six years she focused on Magento and now for four years she is dedicated to the shopsystem Shopware. Miriam has a significant role in the development of a bridge between Shopware and Neos.\n\nIn her free time she is engaged in game development for smartphones and tablets and plays in a badminton team. Also she passionately follows the german soccer Bundesliga and likes to go to concerts and music festivals."
-        },
-        {
-          "name": "Martin Ficzel",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/8ff227766631242daddfd5d96c84db4b55b3fc24/Martin-Ficzel_300px.jpg",
-          "twitter": "kopfaufholz",
-          "company": "sitegeist",
-          "summary":
-            "Martin is a backend developer at sitegeist neos solutions GmbH in Hamburg. \nSince three years he focused his work almost exclusively on Neos and Flow and is still happy with this decision. In 2016 he joined the Neos CMS Core Team where he is working to extend the possibilities of the Neos-Fusion rendering layer. Martin lives in Hamburg with two kids and his girlfriend. Besides work he likes nature and climbing."
+          "name": "Christian Müller",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/762e19a25ee73ab353d894c485ef5e90bf7f2f26/Christian-Mueller-416x416.jpeg",
+          "twitter": "daskitsunet",
+          "company": " Flownative/Neos Core Team",
+          "summary": "Christian Müller is co-founder of Flownative, which provides development support, quality assurance, consulting and coaching to Neos and Flow agencies and users. In his free time he picks up the Cello or switches the computer keyboard for a piano keyboard."
         }
       ],
-      "time": "16:30",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "16:35",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Open Source Software is ubiquitous in web agencies today. Yet agencies miss out on vital opportunities when they merely use Open Source Software instead of tapping into the potential of its community.\n\nBut apart from the not existing license costs, agencies can gain much greater benefits by being active members of Open Source communities: for example increased employee motivation, brand awareness and of course economic benefits. In this talk I explore these benefits in detail and also examine some common reservations against Open Source like bad support, unclear liability or continuity of development.",
-      "title": "How agencies profit from Open Source",
+      "summary": "The SEO topic is old, but there are continously new requirements and better ways to communicate to search engines what your content is about. I’ll show what mechanisms in Neos and which community packages help you to achieve great results like the YoastSEO for Neos integration.\n\nOf course good content is one of the most important things and should be the focus when trying to get great search engine visibility. But there are also many technical things that need to be done right:\n\n\n\tMicrodata for semantical content\n\tMetadata for the site, authors, images and other rich content\n\tKeywords on what your content is about\n\tCanonical urls, pagination information, etc…\n\n\nNeos and the SEO package allow you to add the basic metadata easily and you can use Fusion to quickly extend other information. But there are community packages which will let you easily configure micro data for all content types. Or even give your editors an easy way to enter and check their SEO on individual pages via the YoastSEO integration.\n\nAnd why not also think about the next level and how to integrate information from other sources in a way that helps editors to decide what to edit, what to keep and where to achieve biggest impact with their limited time.",
+      "title": "Neos & SEO - the next level",
       "speakers": [
         {
-          "name": "Tobias Gruber",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/3ab4ab6a4e6583cc7182cb751ece2af737639e68/Tobias_Gruber_300px.jpg",
-          "twitter": "sandstorm_tobi",
-          "company": "Sandstorm",
-          "summary":
-            "Tobias is a non-coder feeling at home with digital innovation and business strategy. He joined the Neos team in 2015 focussing on communication and internal organisation. Tobias is one of the co-founders of Sandstorm, which is specialised in the development of demanding web applications. After a couple of years as an enterprise IT consultant for transformation and outsourcing he is now doing business development for Sandstorm. He lives in the beautiful city Dresden with his wife and two daughters."
+          "name": "Sebastian Helzle",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/ba24af40cfd5b0037b2e12604a8c206fe9dcdd90/Sebastian-Helzle-419x419.jpeg",
+          "twitter": "sebobo",
+          "company": " Freelancer/Neos Core Team",
+          "summary": "Sebastian fell in love with web development when he was 12 and the road led him to TYPO3 and other great technologies. Now he is focused on Neos CMS as core team member and helping his customers as freelance consultant to achieve success in their agile web projects."
         }
       ],
-      "time": "16:30",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "16:45",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
       "summary": "",
-      "title": "Neos Award + Closing Day 1",
+      "title": "Neos Award 2019 & Closing Day 1",
       "speakers": [],
-      "time": "17:20",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "17:10",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary": "",
-      "title": "Social Event - Drinks & Dancing",
+      "summary": "At the end of the day, we'd like to do a group Drone photo outside the location with all participants!",
+      "title": "Group Drone Photo",
+      "speakers": [],
+      "time": "18:00",
+      "durationInMinutes": 30,
+      "room": "",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "We'll have a great party in a beach club nearby the conference location - there's plenty of time to party, dance, relax, discuss, and talk :)",
+      "title": "Social Event",
       "speakers": [],
       "time": "20:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": false,
       "isCaseStudy": false
     }
@@ -308,154 +365,183 @@
   [
     {
       "summary": "",
-      "title": "Arrival & Breakfast",
+      "title": "Arrival & Breakfast Snacks",
       "speakers": [],
-      "time": "09:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "9:00",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "We are currently busy reworking the central data store of Neos: The content repository (CR), is currently getting a from-scratch rewrite. We'll quickly showcase the evolution of the current-generation CR, and explain which of our design decisions worked out and where we currently see the biggest problems.\n\nAfter that, we'll explain why we're settling on an event-sourced architecture, then showing the current status of the rewrite. We'll be demonstrating how integrators will work with the new CR and how you can program with its APIs. Finally, we'll give an outlook on how we'll make upgrades to the new CR possible.",
-      "title": "The Event-Sourced Content Repository for Neos",
+      "summary": "JavaScript is without a doubt one of the most successful programming languages in the universe but it's also one of the most quirky. Apart from the several bugs that were introduced during JavaScript's initial conception it became clear that programming languages on the web exist under constraints that shape their development in peculiar ways — and nowhere are the ways more peculiar than in JavaScript. This interactive talk explores the absurd aspects of JavaScript that the language accumulated (and never got rid of) in its lifetime. Some absurd features are quite old, some are rather new and some so freaky that you've probably never even heard of them, so buckle up!",
+      "title": "JavaScript: The Absurd Parts",
       "speakers": [
         {
-          "name": "Robert Lemke",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/4db8c5a6f9b160ca41875b11c7189e57c70b50ac/RobertLemke-07-2013-square-545x545.jpg",
-          "twitter": "robertlemke",
-          "company": "Flownative",
-          "summary":
-            "Robert Lemke is founder of the Neos Open Source Project and initial creator of the Flow Framework. He's also co-founder and CEO of Flownative, a venture supporting web agencies and organizations to realize successful projects with Neos and Flow. Robert lives in Lübeck, Germany, together with his wife, two daughters, and Rocket, their espresso machine."
-        },
-        {
-          "name": "Sebastian Kurfürst",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/d4b825a8559c795f86085bfe780f48cc1e2791c9/Sebastian-Kurfuerst_300px.jpg",
-          "twitter": "skurfuerst",
-          "company": "Sandstorm",
-          "summary":
-            "Sebastian is a member of the Flow and Neos team almost since its inception. He is most known for his work on Fluid, Extbase and Fusion, but has worked on other parts of the source code as well. As co-founder and CTO at Sandstorm he helps to build relevant solutions for clients, helping them to choose the right frontend and backend technologies. In his free time, you'll most likely find spend time with his wife and son, or you'll see him climbing in the Saxon Switzerland."
+          "name": "Peter Kröner",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/622ef520fd74c2f8072add7aadb4b984e58646ba/peter-kroener2-2x-526x526.jpg",
+          "twitter": "sir_pepe",
+          "company": " peterkroener.de",
+          "summary": "As a front-end technology specialist, Peter struggles through technical specifications, bugged browsers, and technical debt mountains. What he finds out he passes on in training courses, workshops and lectures."
         }
       ],
       "time": "10:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Congratulations! You finally managed to convince the business that there really is no way to add this important new feature to the old legacy code base without causing major disruptions. But where to go from here? Completely rewriting the old monolithic application that does a gazillion things from scratch may seem tempting but is a gigantic effort with an unforeseeable outcome.\n\nDiscover a way out of legacy hell by learning about architectural patterns as well as concrete technical solutions that enable you to gradually move functionality into new software components without the impediments of a full rewrite.",
-      "title": "How to escape Legacy Hell",
+      "summary": "Collaborative practices are adopted naturally by participants in today’s open source projects. Many people in IT culture have been ‘raised’ with teamwork and open communication as an integral part of open source culture.It is not uncommon during an open source implementation to see the companies habituated patterns rear their ugly head. Humans can be exceptionally creative in both positive and negative ways. Just as different motivations propel human ingenuity forward, equally they can hold us back. What are the possible reasons behind your open source losing traction and what we can do the get things back on track?",
+      "title": "Detox Your Open Source",
       "speakers": [
         {
-          "name": "Sebastian Heuer",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/7edece30219d974a9f91a78eb251cd150bc36973/sebastian-heuer-foto.1024x1024-545x545.jpg",
-          "twitter": "belanur",
-          "company": "die kartenmacherei",
-          "summary":
-            "Sebastian Heuer plans and writes software for the web since the early 2000s. He focusses on clean software architectures and high-quality, easy to understand code. Apart from his position as Developer Advocate at kartenmacherei.de, he engages in several open-source projects (like https://phar.io) and helps teams to write solid and maintainable software."
-        },
-        {
-          "name": "Arne Blankerts",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/9c16a7ba649da9fa682358e9b1ae84d31848e6a5/berater-arne.jpg",
-          "twitter": "arneblankerts",
-          "company": "The PHP Consulting Company",
-          "summary":
-            "Arne Blankerts has already dealt with computers when networking was still an adventure. As long-standing head of development of an internet agency, he has created solutions far ahead of the times already years ago. As Co-Founder and Principal Consultant of The PHP Consulting Company (thePHP.cc), Arne helps his clients to develop software successfully. He is author and maintainer of various Open Source development tools, and is a regular presenter at conferences. In his free time he reads fantasy novels and likes to cook."
+          "name": "Ben van't Ende",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/61c66f02016764ee2ad62c3cf63004e9e3cc5240/oscon2013-juliancash-ben-square2-1681x1682.jpg",
+          "twitter": "benvantende",
+          "company": " Age of Peers",
+          "summary": "With Age of Peers I engage with a large variety of existing projects and start-ups that already are open source or want to go open source for some or all of their products, advising on ways to collaborate internally and externally. I am specifically interested in the human side of tech and on occasion speak about leadership and burnout."
         }
       ],
-      "time": "10:50",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "10:00",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "I will show what you can achieve with the multi site feature of Neos based on an actual project with 8+ sites in one Neos instance.\n\nThe more sites you use and the more advanced it gets, the editors might need some advanced features to manage the increasing complexity. The benefit is also there, only one login to manage many sites, only one codebase and one deployment.\n\nNot only will I show what features were added and how the project benefitted from Neos in this case but I will also cover topics like performance, configuration, theming and security aspects which arise in this kind of scenario.",
-      "title": "One Neos - Many Websites",
+      "summary": "If you have trouble deciding what language you should add to your skill set, join us and discover how Lua fits in backend development.\n\nBeing fast, lightweight and embeddable, Lua got its reputation through game engines and desktop applications. With rise of microservice architecture popularity in building web applications, Lua is also becoming an important player in web development. We'll show how Lua fits in backend development, how it can be used in Redis and Nginx and how to use that combination to build fast and powerful web applications.",
+      "title": "Lua as a second language",
       "speakers": [
         {
-          "name": "Sebastian Helzle",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/492a0fb671866f55598fd2bc1f5ca6ee2807a1cd/Sebastian-Helzle_300px.jpg",
-          "twitter": "sebobo",
-          "company": "Punkt.de",
-          "summary":
-            "Sebastian fell in love with web development when he was 12 and the road led him to TYPO3 and other great technologies. Now he is focused on Neos CMS as core team member, living Scrum, pushing forward Continuous Integration and leading his team at punkt.de as Product Owner."
+          "name": "Luka Mužinić",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/ae177c0a13c31a9ca9ddeb7f3f7ee3052140fa0c/luka-muzinic.jpeg",
+          "twitter": "lmuzinic",
+          "company": " Freshleaves",
+          "summary": "Passion driven developer, focused on backend development in modern PHP and related stack. Shares knowledge by teaching, mentoring and speaking. Involved in @webcampzagreb conference and local user groups. Enjoys playing and watching sports that Croatians find odd and unpopular."
         }
       ],
-      "time": "10:50",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "10:35",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary": "",
-      "title": "Break (15 min)",
-      "speakers": [],
-      "time": "11:35",
-      "durationInMinutes": 45,
-      "room": "Room 1",
-      "isBreak": true,
-      "isCaseStudy": false
-    },
-    {
-      "summary": "",
-      "title": "Lightning Talks",
-      "speakers": [],
-      "time": "12:00",
-      "durationInMinutes": 45,
-      "room": "Room 1",
-      "isBreak": false,
-      "isCaseStudy": false
-    },
-    {
-      "summary":
-        "Neos and Flow have been built with distributed storage for assets from the start. Even though most people use a local file storage for their uploaded pictures and documents, there is a lot more to discover which can make your sites more flexible, scalable and powerful.\n\nIn this talk we'll re-visit the resource and asset management in Flow and Neos, see how you can store and publish assets to cloud storages and content delivery networks and finally, how you can seamlessly integrate with external digital asset management tools, using the upcoming Neos 4.0.",
-      "title": "Everything about assets",
+      "summary": "New frontend technologies and innovative apis, frameworks and toolkits are coming out all the time and they are usually very good. However the mainstream LMS did not evolve at a matching pace and there are many reasons behind this. Obviously none of the editors or the communities wanted to unsettle their regular customers with too much new features. At the same time, neither were they ready to invest gradually into completely renewing their plaforms as that would really take a rethinking of core design and UIx choices.\n\nIn this talk the audience will journey into understanding and experimenting what it takes to build an LMS platform that fits into its time: the 21st century, with all its technological revolutions including reactivity, containerization and event driven applications, components based approach to building UIs, using awesome frontend frameworks and more…\n\nNeos and Flow provide the perfect technical framework for our talk as we will use these tools to demonstrate and illustrate the main points of our presentation.",
+      "title": "Designing a 21st century Learning Management System with Neos and Flow",
       "speakers": [
         {
-          "name": "Robert Lemke",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/4db8c5a6f9b160ca41875b11c7189e57c70b50ac/RobertLemke-07-2013-square-545x545.jpg",
-          "twitter": "robertlemke",
-          "company": "Flownative",
-          "summary":
-            "Robert Lemke is founder of the Neos Open Source Project and initial creator of the Flow Framework. He's also co-founder and CEO of Flownative, a venture supporting web agencies and organizations to realize successful projects with Neos and Flow. Robert lives in Lübeck, Germany, together with his wife, two daughters, and Rocket, their espresso machine."
+          "name": "Alain Lompo",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/2818d3c3936d6335d54ae1815f205ed91c478a99/alain-lompo-3-1390x1389.jpeg",
+          "twitter": "alainlompo",
+          "company": " Senacor",
+          "summary": "Alain is a passion driven software developer with more than fifteen years of professional experience. He also worked previously as a technical trainer for Java/JEE and .Net technologies. He loves sharing amazing technologies in seminars, conferences and evangelism events. Alain regularly contributes to awesome open source projects on github and helps developers everywhere to solve their problems via stackoverflow."
         }
       ],
-      "time": "12:50",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "10:35",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "What does leadership in our open source community mean? Do we need role models? What drives us? Who is \"us\"? Why are values so important and why should we validate and communicate them regularly? How can we do this? What is important to keep a decentralized and growing community capable of acting? And how for heaven’s sake do we keep this lean and agile?",
-      "title": "Leadersheep",
+      "summary": "The Atomic Fusion design pattern gained a lot of popularity in the Neos community. This talk shares best practices derived from our experience with large Neos projects, explains how to easily adapt this pattern and shows how to keep an eye on regressions without making an effort.\n\nStarting with the fundamentals of creating reusable Fusion Components by using Neos core functionality, the first part of the talk concentrates on practical examples of the Atomic Fusion design pattern as a basis. The second part centers around the usage of this pattern in large projects, advantages for the development workflow and how it may affect the work of your integrators. The last part focusses on the review process and how to detect regressions and unintended side effects when changing low level components without knowing every last bit of the project.",
+      "title": "Atomic Fusion for Large Projects",
+      "speakers": [
+        {
+          "name": "Sebastian Flor",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/228192fb128a419a8ae2837501ecd06554d88a31/Sebastian-Flor-358x358.png",
+          "twitter": "",
+          "company": " networkteam",
+          "summary": ""
+        }
+      ],
+      "time": "11:10",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "Accelerated Mobile Pages (AMP) is gaining traction when building websites, especially for sites with lot of content. Benni Mack, TYPO3 Project Lead, dives behind the scenes of AMP and the performance gains, and demonstrates the benefits of building websites with AMP.",
+      "title": "Performance-driven websites with AMP",
+      "speakers": [
+        {
+          "name": "Benni Mack",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/8842c746a5c8af7abc2eb052681ff0dc6d611ec5/Benni-mack-pressefoto-klassisch-1635x1635.jpg",
+          "twitter": "bennimack",
+          "company": " TYPO3 Core Team, b13",
+          "summary": "Benni is the Technical Lead of TYPO3 Core development and one of the driving forces behind the TYPO3 renaissance in the last years.With his immense technical expertise in APIs and product integrations, he takes the role as CTO of b13 GmbH, a TYPO3-focused digital agency based in Stuttgart, Germany. b13 is the place, where he brings innovation to international brands to build sustainable digital experiences with high automation, and state-of-the-art technology.Benni is also contributing to various other open source projects, and active in the PHP-FIG, a standardization group for PHP. In his spare time, he's enjoying time off the digital world with his wife and two children."
+        }
+      ],
+      "time": "11:10",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "For 160 million years, dinosaurs ruled the world. Then, pretty quickly,\nand with very few exceptions, they became extinct. Surely, there is\nsomething to learn here that will help us to improve the architecture of\nour software systems.We will approximate the topic by trying to answer\ntwo pivotal questions: what would Charles Darwin say about\nmicroservices? And: is COBOL still relevant?",
+      "title": "Dinosaurs and Microservices: Why Architecture Matters",
+      "speakers": [
+        {
+          "name": "Stefan Priebsch",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/6510ca1ce8f3c8ed7ed9f7995959f73cdf8c3c14/Stefan_Priebsch-2700x2701.jpg",
+          "twitter": "spriebsch",
+          "company": " thePHP.cc",
+          "summary": "Even older digital watches would outperform Stefan Priebsch's first\ncomputer. He has been an IT consultant for over 25 years, holds an\nacademic degree in computer science, is the author of several textbooks,\nand a university lecturer on professional web development. He presents\nand keynotes at technology conferences around the world. As Co-Founder\nand Principal Consultant of The PHP Consulting Company,\nStefan helps his clients to develop software successfully. He spends his\nfree time playing electric guitar and researching agile home improvement."
+        }
+      ],
+      "time": "11:45",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "Shape your future as a visualizer! Find some easy steps to work on figures, graphic elements, fonts and hand lettering techniques. Learn how to gradually develop the basics of a visual language. Skip the projector, long live the flipchart.",
+      "title": "7 Easy Steps To Improve Your Flipcharts",
       "speakers": [
         {
           "name": "Gina Steiner",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/1a7f52e7cf8adf9e90077112cfd8c46f560190bb/gina-leak-quadratisch_thumb-756x945-545x681.jpg",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/3cdf5f39a864eae33165e7832b1be4764cc69388/gina-leak-quadratisch_thumb.jpg",
           "twitter": "gina_steiner",
-          "company": "sitegeist",
-          "summary":
-            "My name is Gina; I was born in 1969 in Black Forest. I’m a Neos team member of the Minions team, the Neos Project is my open source family and I take care of the agile structures, the organizational development and as one of the three directors of the Neos Foundation for the CIC. I work and live in Hamburg, Germany as a Change Manager at sitegeist.\nMy son is 28 years old and I studied Meteorology as a single mom. Already during and after my studies I worked at Max Planck Institute for Meteorology where I got in contact with the open source world. From 2003 on I was highly involved in open source and used to be Vice President of the TYPO3 Association.\nIn private life I’m a GUE cave diver and survey a mine called Nuttlar in Germany. I love travelling the world back and forth since I was 16 and like water sports, swimming and kayaking. I’m a diving instructor, instruct divers free of charge and sail & work on a traditional ship called Windsbraut every year."
+          "company": " sitegeist/Neos Core Team",
+          "summary": "My name is Gina; I was born in 1969 in Black Forest. I’m a Neos team member of the Minions team, the Neos Project is my open source family and I take care of the agile structures, the organizational development and as one of the three directors of the Neos Foundation for the CIC. I work and live in Hamburg, Germany as a Change Manager at sitegeist. My son is 28 years old and I studied Meteorology as a single mom. Already during and after my studies I worked at Max Planck Institute for Meteorology where I got in contact with the open source world. From 2003 on I was highly involved in open source and used to be Vice President of the TYPO3 Association. In private life I’m a GUE cave diver and survey a mine called Nuttlar in Germany. I love travelling the world back and forth since I was 16 and like water sports, swimming and kayaking. I’m a diving instructor, instruct divers free of charge and sail & work on a traditional ship called Windsbraut every year."
         }
       ],
-      "time": "12:50",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "11:45",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "",
+      "title": "Lightning Talks Neos Con 2019",
+      "speakers": [],
+      "time": "12:20",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "This session gives an overview of the Neo4j graph database. It will show how data is represented in a graph structure, how the Cypher graph query language can be used to store and query data and what use cases are best for using graph instead of relational databases.",
+      "title": "An Introduction to Neo4j",
+      "speakers": [
+        {
+          "name": "Stephan Pirnbaum",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/409516cc2a0875b4bf2c852815ca87e0bc12bb38/stephan_pirnbaum-1-750x750.jpg",
+          "twitter": "spirnbaum",
+          "company": " buschmais GbR",
+          "summary": "Stephan Pirnbaum is working as a Consultant at buschmais GbR. He is passionate about the analysis and structural improvement of Java software systems. He shares his experiences and knowledge at conferences and in workshops."
+        }
+      ],
+      "time": "12:20",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
@@ -463,135 +549,219 @@
       "summary": "",
       "title": "Lunch",
       "speakers": [],
-      "time": "13:35",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "12:50",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "A system designed for content creation might not be suited best for publishing and delivering content to the end user.\n\nThe Two-Stack CMS architecture pattern has the idea of using two separate software stacks for editing/creation and publishing/delivery of content. This separation has the great advantage of matching different scalability and security requirements for each stack.\n\nCan Neos be used as a Two-Stack CMS? And what are the implications for the editor and developer? In this talk I will present a production-ready solution using a Redis based content store with different frontend implementations and an outlook for an even more decoupled publishing architecture.",
-      "title": "Two-Stack CMS",
+      "summary": "Have you ever tried to build your own CMS (or enter any other complex system here) because well, how hard can it be?You've seen it done many times. You just need to glue a couple of APIs and architectural concepts and voilà!Except not.In this talk, we'll take a rollercoaster through the ups and downs of building your own WYSIWYG editor in JavaScript and HTML5. You'll see how first WYSIWYG editors were born, the architecture of modern solutions and what the future may bring us.",
+      "title": "Let's create a WYSIWYG editor (maybe)!",
       "speakers": [
         {
-          "name": "Christopher Hlubek",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/a69c8f007bbd5e167d34928512aec35f1a472068/christopher-hlubek_300px.jpg",
-          "twitter": "hlubek",
-          "company": "networkteam",
-          "summary":
-            "Christopher is a Neos team member since 2008. As a CEO / founder of networkteam GmbH (Kiel & Hamburg) he is applying open source approaches into software development for web and mobile applications with various technologies."
+          "name": "Piotrek Koszulinski",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/fbce3720337117801f6ecde538292d312769107f/Piotrek-Koszulin%CC%81ski-404x404.jpeg",
+          "twitter": "reinmarpl",
+          "company": " CKEditor",
+          "summary": "Piotrek is a CKEditor 5 project leader and architect. He joined CKSource (the company behind CKEditor) back in 2012 as a CKEditor 4 developer and contributed many of its most innovative features. Since 2015 he is leading the complete rewrite of the project, creating the most powerful rich-text editing framework in the world and making sure it doesn't repeat the Netscape's story. Additionally, he is an invited expert to W3C, sharing his knowledge and experience on text editing in the Web.Piotrek lives in Warsaw, Poland with his wife, son and dog. He enjoys karting and hopes to get back to endurance running and alpinism once his kid... well, one day."
         }
       ],
-      "time": "14:45",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "14:15",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Neos is a complex product with a multitude of usage scenarios. Setting your project up for success starts at the beginning with the right team setup. I will talk a bit about experiences from teams I worked with, learnings and possible setups. Also drawing from topics gathered while creating the  \"Das Perfekte Team\" podcast.",
-      "title": "Your (perfect) Neos team for success",
+      "summary": "In the domain of fictional starship operating systems, there are a lot of messages being transmitted between subsystems - with an event store as single source of truth. We'll have a look at the responsibilities of Node and Neos in this project, which now Can Also Run Starships.",
+      "title": "The Event Sourced Starship",
       "speakers": [
         {
-          "name": "Christian Müller",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/0045304204160e3f3b75dcb1336ce7ee5655a24c/christian-mueller_300px.jpg",
-          "twitter": "daskitsunet",
-          "company": "Flownative GmbH",
-          "summary":
-            "Christian Müller is co-founder of Flownative, which provides development support, quality assurance, consulting and coaching to Neos and Flow agencies and users. In his free time he picks up the Cello or switches the computer keyboard for a piano keyboard."
+          "name": "Bernhard Schmitt",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/e9eb33659614cdf5ae3c54a22c2484bc0b3f39e7/Bernhard-Schmitt-3456x3458.jpg",
+          "twitter": "nezaniel",
+          "company": " sitegeist/Neos Core Team",
+          "summary": "Working at CORE4, Bernhard has developed a soft spot for complex web applications. In Neos he sees both a tool for handling challenges as well as a challenge in itself. Bernhard joined the Neos team in September 2016."
         }
       ],
-      "time": "14:45",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "14:15",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "We want to use practical examples to show and explain the most common Atomic.Fusion and AFX patterns we found during the last two years.\n\nThe first part of the talk will focus on patterns for the visual aspects of a website including AFX and implementing Atomic Design in Fusion. The second part will focus on the integration, showing especially patterns for NodeType definition and the mapping of nodes to presentational components.",
-      "title": "Tasty Atomic.Fusion recipes for your website",
+      "summary": "When the development of Neos began, the infamous \"Blue Book\" by Eric Evans was just released and it was clear that Domain-Driven Design would play an important role for the underlying Framework Flow.A lot has changed in the 10 years since then, but DDD still has a major influence on the architecture of Flow and Neos and the way we build software in general.In this talk I want to give you an impression on how our perception of DDD changed throughout the years and how it affects our work on Neos today. Additionally I'll provide some useful techniques that can help you to tackle complexity in your software projects.",
+      "title": "DDD in Neos yesterday and today",
       "speakers": [
         {
-          "name": "Martin Ficzel",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/8ff227766631242daddfd5d96c84db4b55b3fc24/Martin-Ficzel_300px.jpg",
-          "twitter": "kopfaufholz",
-          "company": "sitegeist",
-          "summary":
-            "Martin is a backend developer at sitegeist neos solutions GmbH in Hamburg. \nSince three years he focused his work almost exclusively on Neos and Flow and is still happy with this decision. In 2016 he joined the Neos CMS Core Team where he is working to extend the possibilities of the Neos-Fusion rendering layer. Martin lives in Hamburg with two kids and his girlfriend. Besides work he likes nature and climbing."
+          "name": "Bastian Waidelich",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/fb213d8db362cadc3c053b6d8cd21398a9e9367c/Bastian_Waidelich_300px-250x250.jpg",
+          "twitter": "bwaidelich",
+          "company": " Freelancer/Neos Core Team",
+          "summary": "Born in Stuttgart, Germany in 1980. In the \"internet business\" since 1999 as employee, CEO and finally as freelancer."
         }
       ],
-      "time": "15:35",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "14:50",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "Chatbot applications are only as good as the underlying data they are learning from. Large, complex websites with a lot of content usually rely on navigation techniques that guide users to the information they are looking for. The semantical nature of the content repository, together with a well designed content strategy and the power of artificial intelligence are an excellent foundation to deliver value adding bots that matter. Neos CMS & AI is a strong combination for better user experience.",
-      "title":
-        "Hello AI - Using Neos CMS as environment for chatbot applications",
+      "summary": "Take 80k Content Nodes in 28 dimensions, a server architecture with CDN, load-balancing over three server nodes, searching with the power of elastic as well as an Azure SSO and some ‘well defined’ external SOAP and Rest interfaces, challenge a motivated agile team with it and see what we’ve learned.\n\nMiltenyi Biotec is one of the largest German and globally important biotechnology companies. Founded in 1989, the company develops products and services in the field of cell separation and analysis. wysiwyg* realized the new corporate and e-commerce website in close cooperation with the customer and other project partners.\n\nA dynamically growing product portfolio, 18,000 articles in 28 country versions, customer-specific prices and numerous product-related documents (data sheets, manuals, certificates), complex search algorithms, special content and legal requirements in the scientific environment, various data sources, interfaces, system partners… Exceptional circumstances require extraordinary measures - a software hybrid from Neos CMS (frontend & editorial office), Intellishop API (products, prices, PIM), and Microsoft Azure Cloud (customer data).\n\nIn the interdisciplinary scrum team, the complex requirements were determined, broken down into user-centered stories and corresponding solutions iteratively implemented and optimized over more than 2 years with a up to 10+ member team.\n\nWe’re talking about: - How to handle the huge amount of data with neos and cache them with Redis - How to import them efficiently and make them searchable with elasticsearch - We’ve learned that it is important to test the different APIs by ourselves - integrate several APIs from different providers (Azure, CRM, Shop) into Neos",
+      "title": "Challenge Neos with Biotec E-Commerce",
       "speakers": [
         {
-          "name": "David Spiola",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/1526461719219c142f3c8b59cec0b00358348cb8/David-Spiola_300px.jpg",
-          "twitter": "davidspiola",
-          "company": "web&co and scrinus",
-          "summary":
-            "David Spiola is co-owner and CEO of the web agency web&co (http://webandco.com) and scrinus (http://scrinus.com), a POS SasS product - both located in Vienna Austria. He is totally convinced of Neos and happy to actively use Neos and Flow in both companies. He is the founder of the “Neos and Flow Meetup Group” Vienna and a big fan of the community and people involved. He strongly believes that AI will fundamentally change the way we consume content and that Neos CMS is an excellent choice to deliver it."
+          "name": "Alexander Schulte",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/83ec7e75524ef100f855ddeea03ffc9231626856/Alex%20Schulte.jpg",
+          "twitter": "",
+          "company": " wysiwyg*",
+          "summary": ""
+        },
+        {
+          "name": "Sven Wütherich",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/a3d1de1a5717b534666c4312081b24e545fa46c1/Sven%20W%C3%BCtherich.jpg",
+          "twitter": "",
+          "company": " wysiwyg*",
+          "summary": ""
         }
       ],
-      "time": "15:35",
-      "durationInMinutes": 45,
-      "room": "Room 2",
+      "time": "14:50",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "kuecher.com\npresented by Jon Uhlmann (gesagt.getan.)\n\ncornelsen.de\npresented by Jürgen Messner & Stefan Müller-Höhne (Cornelsen)\n\n",
+      "title": "Case Studies II (Kücher, Cornelsen)",
+      "speakers": [
+        {
+          "name": "Jon Uhlmann",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/f3686136d4595d5afced007d4792edac9f86fc44/Foto%20Ganz-1781x1781.jpg",
+          "twitter": "jonnitto",
+          "company": " gesagt.getan./Neos Core Team",
+          "summary": "Jon Uhlmann is one of the web workers at gesagt.getan. based in Salzburg, Austria. He not only loves it to write clean code, but he is also very enthusiastic about trying the newest technologies and improving the workflow."
+        },
+        {
+          "name": "Jürgen Messner",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/431ce7a62b541c2c113f0fc4401542c410c2aaf0/Neos-Con-Talk-Thumbnail-500x500.jpg",
+          "twitter": "",
+          "company": " Cornelsen",
+          "summary": "Jürgen is software engineer at Cornelsen Verlag GmbH with more than 10 years experience.\nSince the last three years he is part of a team rebuilding the cornelsen.de website based on Neos."
+        },
+        {
+          "name": "Stefan Müller-Höhne",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/793ccc00bea51c75337c551b18cc850fc21f3d0d/Headshot-418x418.jpg",
+          "twitter": "",
+          "company": " Cornelsen",
+          "summary": "Stefan is working as Solution Architect at Cornelsen Verlag GmbH. \n\nSince the last three years he is part of a team rebuilding the cornelsen.de website based on Neos."
+        }
+      ],
+      "time": "15:25",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": true
+    },
+    {
+      "summary": "The Service Worker API is mostly used in the context of Progressive Web Apps, but it can be enormously useful for all kinds of web products. Service Workers can be used to create newfangled web-based mobile applications, but can also supercharge the performance of existing CMS web sites — and you need is a tiny bit of JavaScript (and maybe even less). This talk briefly dives into the depth of Progressive Web Apps, explores the inner workings of the Service Worker API and concentrates specifically on how you can wield the power of the Service Worker to improve the performance in your projects.",
+      "title": "Service Worker for CMS Websites",
+      "speakers": [
+        {
+          "name": "Peter Kröner",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/622ef520fd74c2f8072add7aadb4b984e58646ba/peter-kroener2-2x-526x526.jpg",
+          "twitter": "sir_pepe",
+          "company": " peterkroener.de",
+          "summary": "As a front-end technology specialist, Peter struggles through technical specifications, bugged browsers, and technical debt mountains. What he finds out he passes on in training courses, workshops and lectures."
+        }
+      ],
+      "time": "15:25",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
       "summary": "",
-      "title": "Break",
+      "title": "Coffee Break",
       "speakers": [],
-      "time": "16:20",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "16:00",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": true,
       "isCaseStudy": false
     },
     {
-      "summary":
-        "(together with the Neos Team)\n\nThe Neos team discusses some of the latest trends in CMS in a panel. We will be talking about trends such as headless CMS, multichannel content distribution, AI-based services for content management, or static site generators. We'll present out opinions about these and more trends in general and on the influence they have on the future development of Neos.",
-      "title": "From the Labs: The Neos Perspective on Current CMS Trends",
+      "summary": "OAuth2 is often seen as some kind of magic and many developers are struggeling to get into the topic. But in reality OAuth2 is a straightforward way for authorizating a variety of applications. In this session we will take a look at the protocol flow and the different grant types.\n\nWorking with OAuth2 can be a real pain whether on client or on server side. The standard introduced in 2012 is still a so called proposed-standard and every implementer interprets this standard differently. For developers the OAuth2 flow is often seen as some kind of magic and many of them are struggeling to get into the topic. In this session we will take a look at the protocol flow and the different grant types. In addition to a theoretical overview we will implement an OAuth2 Flow in a futureproof and safe way.",
+      "title": "(Understanding) OAuth 2... for Real?",
       "speakers": [
         {
-          "name": "Bastian Heist",
-          "avatar":
-            "https://storage.googleapis.com/target.instance-a8473874-2f73-4e74-823f-0d235b3cfdbf.euw1.beach.flownative.cloud/6db2737f0ce5f1df4294b378cec78a4f9c2a7acb/Profil_neu_zoomed_veryLowRes-545x545.jpg",
-          "twitter": "beheist",
-          "company": "Sandstorm",
-          "summary":
-            "Bastian Heist is a software architect and project manager at Sandstorm in Darmstadt, where he creates awesome web applications - preferably with Neos. Since 2017, he is a member of the Neos core team. Apart from his work at Sandstorm, he writes about web technology and runs the Neos Meetup Rhein/Main."
+          "name": "Johannes Pichler",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/281ee6bd02b570b16fcf50c9881bc34b768b5945/Johannes-Pichler-2047x2046.jpeg",
+          "twitter": "fetzi_io",
+          "company": " Karriere.at",
+          "summary": "Hey, my name is Johannes Pichler. I’m working as a Lead Web Developer @ karriere.at in Linz, Upper Austria.At karriere.at I am building RESTful APIs and the karriere.at website powered by Laravel.In my spare time I love to contribute to open source projects like laravel.io and other PHP/Laravel related projects.Based on former experiences I force my team mates and myself to follow a test-driven development approach and to use supportive tools as efficient as possible."
         }
       ],
       "time": "16:45",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
       "isBreak": false,
       "isCaseStudy": false
     },
     {
-      "summary": "",
-      "title": "Closing of day 2",
+      "summary": "In recent years, there have been discussions and developments in the area of static sites. Today, the editor doesn't need to write the plain HTML, but he can use static site generators like Jekyll, Next, Hugo or Gatsby. The generated pages are really fast, even without caching on the server-side.This leads us to our topic of the talk: Why should I generate a static site? Which tools could I use? We would like to show you two different approaches based on Neos for content editing.With Photon, Christopher developed a package that enables Neos itself to generate static sites and you get the benefit of the great editor user experience and the fast site.In the second approach we use Neos as a content aggregator and Gatsby consumes the content via a GraphQL API to generate the static site. So here Neos is not used for rendering, but for curating and aggregating content.",
+      "title": "Neos as hybrid CMS / beyond Neos",
+      "speakers": [
+        {
+          "name": "Christopher Hlubek",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/7481d52fbac47930def90f00d10ab147c2c54432/Christopher-Hlubek.jpeg",
+          "twitter": "hlubek",
+          "company": " networkteam",
+          "summary": "Christopher is a Neos team member since 2008. As a CEO / founder of networkteam GmbH (Kiel & Hamburg) he is applying open source approaches into software development for web and mobile applications with various technologies."
+        },
+        {
+          "name": "Markus Günther",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/9f6bf62ee9835524de2cd2c28cfad7ece88bd0b8/Markus-Guenther.png",
+          "twitter": "Markus306",
+          "company": "",
+          "summary": "Markus got in touch with computers very early, as the first one was a Commodore 64. In the 10th grade he took part in the project JUNIOR company and developed websites based on HTML and CSS. The blaze for the web was kindled and in the next few years the way through the TYPO3 community led to Neos and many other open source projects.Now he works as Fullstack developer und has a strong commitment to open-source as user and contributor."
+        }
+      ],
+      "time": "16:45",
+      "durationInMinutes": 30,
+      "room": "Studio Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "In this talk, I'll demonstrate the current status of the Content Repository rewrite, which has been in the making since almost two years. Since last year's conference, where we demonstrated an early prototype, we've made good progress to implement many of the remaining core features, and to stabilize the architecture.Besides the technical aspects, I'll explain the ideas behind the new CR, especially focussing on how this enables new end-user features.As we are approaching a state where you can start playing around with it as a developer, I'll also explain in which kind of Neos instances you can start trying it out, and outline the plan on how to get to version 1.0.",
+      "title": "Announcing the Event Sourced Content Repository Alpha 1",
+      "speakers": [
+        {
+          "name": "Sebastian Kurfürst",
+          "avatar": "https://www.neoscon.io/_Resources/Persistent/c9082cc50469e4491cc91f3092c3150f3e8cb2ac/Sebastian-Kurfuerst_300px-250x250.jpg",
+          "twitter": "skurfuerst",
+          "company": " Sandstorm/Neos Core Team",
+          "summary": "Sebastian is a member of the Flow and Neos team almost since its inception. He is most known for his work on Fluid, Extbase and Fusion, but has worked on other parts of the source code as well. As co-founder and CTO at Sandstorm he helps to build relevant solutions for clients, helping them to choose the right frontend and backend technologies. In his free time, you'll most likely find spend time with his wife and son, or you'll see him climbing in the Saxon Switzerland."
+        }
+      ],
+      "time": "17:20",
+      "durationInMinutes": 30,
+      "room": "Center Stage",
+      "isBreak": false,
+      "isCaseStudy": false
+    },
+    {
+      "summary": "Thank you all for joining Neos Conference 2019; hope you had a great time :-) Have a safe trip home and see you next year!",
+      "title": "Conference Closing",
       "speakers": [],
-      "time": "17:30",
-      "durationInMinutes": 45,
-      "room": "Room 1",
+      "time": "17:50",
+      "durationInMinutes": 30,
+      "room": "",
       "isBreak": false,
       "isCaseStudy": false
     }

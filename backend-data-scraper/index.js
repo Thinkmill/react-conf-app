@@ -1,70 +1,99 @@
-const scrapeIt = require("scrape-it");
-const fs = require("fs");
-const program = scrapeIt(
-  "https://www.neos.io/events/neos-conference-hamburg-2018/program.html",
-  {
-    days: {
-      listItem: "table",
-      data: {
-        topics: {
-          listItem: "tr",
-          data: {
-            time: "th:nth-child(1)",
-            topicRoom1: "td:nth-child(2)",
-            speakerRoom1: "td:nth-child(3)",
-            topicRoom2: "td:nth-child(4)",
-            speakerRoom2: "td:nth-child(5)"
+const scrapeIt = require('scrape-it');
+const fs = require('fs');
+const program = scrapeIt('https://www.neoscon.io/schedule.html', {
+  days: {
+    listItem: 'div.talks',
+    data: {
+      topics: {
+        listItem: 'div.talk',
+        data: {
+          time: '.talk__time',
+          topic: 'h4.talk__title',
+          description: '.talk__description',
+          stage: '.talk__roomSmallDevice',
+          speakers: {
+            listItem: '.talk__speaker-images img',
+            data: {
+              avatar: {
+                attr: 'src'
+              },
+              name: {
+                attr: 'title'
+              }
+            }
           }
         }
       }
     }
   }
-).then(({ data, response }) => data);
+}).then(({ data, response }) => {
+  return data;
+});
 
 const speakersWithTalkDetails = scrapeIt(
-  "https://www.neos.io/events/neos-conference-hamburg-2018/speakers.html",
+  'https://www.neoscon.io/speakers.html',
   {
     speakers: {
-      listItem: ".team-listing__member",
+      listItem: '.speaker__speakerList__item',
       data: {
         link: {
-          selector: "",
-          closest: "a",
-          attr: "href"
+          selector: 'a',
+          attr: 'href'
         }
       }
     }
   }
 ).then(({ data, response }) => {
   const promises = data.speakers.map(speaker =>
-    scrapeIt("https://www.neos.io" + speaker.link, {
-      name: ".speaker h1",
+    scrapeIt(speaker.link, {
+      name: '.speaker h1',
       avatar: {
-        selector: ".speaker img",
-        attr: "src"
+        selector: '.speaker__imageWrapper img',
+        attr: 'src'
       },
       facts: {
-        listItem: ".speaker .facts",
+        listItem: '.speaker .speaker__infos',
         data: {
-          fact: ""
+          company: {
+            convert: input => {
+              const content = input.replace(/\t/g, '').replace(/\n/g, '');
+              const regex = /(?<=<i class="fa fa-briefcase"><\/i>)(.*?)(?=<\/li>)/gm;
+              const match = content.match(regex);
+              return Array.isArray(match) ? match.pop() : '';
+            },
+            how: 'html'
+          },
+          role: {
+            convert: input => {
+              const content = input.replace(/\t/g, '').replace(/\n/g, '');
+              const regex = /(?<=<i class="fa fa-group"><\/i>)(.*?)(?=<\/li>)/gm;
+              const match = content.match(regex);
+              return Array.isArray(match) ? match.pop() : '';
+            },
+            how: 'html'
+          },
+          twitter: {
+            selector: '.fa-twitter + a',
+            trim: true
+          },
+          github: {
+            selector: '.fa-github + a',
+            trim: true
+          }
         }
       },
       summary: {
-        selector: ".speaker > .g p:not(.facts)"
+        selector: '.speaker__description p:not(.speaker__infos)'
       },
       talks: {
-        listItem: ".speaker .neos-contentcollection h2",
+        listItem: '.speaker .imageTeaser',
         data: {
-          title: "",
-          description: {
-            closest: "",
-            how: h2Node => {
-              return h2Node
-                .closest(".neos-nodetypes-headline")
-                .next()
-                .filter(".neos-nodetypes-text")
-                .text();
-            }
+          link: {
+            attr: 'href'
+          },
+          title: {
+            selector: '.imageTeaser__contents__heading',
+            trim: true
           }
         }
       }
@@ -75,27 +104,30 @@ const speakersWithTalkDetails = scrapeIt(
 });
 
 const isBreakOrLunch = title =>
-  title.indexOf("Break") !== -1 || title === "Lunch";
+  title.indexOf('Break') !== -1 || title === 'Lunch';
 
-const isCaseStudy = title => title.includes("Case Studies");
+const isCaseStudy = title => title.includes('Case Studies');
 
-const findTalkDetailsForTitle = (title, speakersWithTalkDetails) => {
-  for (let i in speakersWithTalkDetails) {
-    for (let t in speakersWithTalkDetails[i].talks) {
-      if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
-        const description = speakersWithTalkDetails[i].talks[t].description;
-        return description
-          .replace(/\(together with (?!the Neos)[^)]+\)/, "")
-          .trim();
-      }
-    }
-  }
-
+const transformTalkDetails = (title, description) => {
   if (isBreakOrLunch(title) || isCaseStudy(title)) {
-    return "";
+    return '';
   }
-  console.warn("Did not find talk details for " + title);
-  return "";
+
+  if (description) {
+    return description
+      .replace(/\(together with (?!the Neos)[^)]+\)/, '')
+      .trim();
+  }
+
+  console.warn('Did not find talk details for ' + title);
+  return '';
+};
+
+const transformCaseStudyDetails = description => {
+  // need to add some line breaks for the case study description
+  return description
+    .replace(/(presented by)/g, '\npresented by')
+    .replace(/\)/g, ')\n\n');
 };
 
 const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
@@ -104,7 +136,6 @@ const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
   const foundSpeakerNames = [];
   for (let i in speakersWithTalkDetails) {
     for (let t in speakersWithTalkDetails[i].talks) {
-      title = isCaseStudySession ? "Case Study" : title;
       if (speakersWithTalkDetails[i].talks[t].title.indexOf(title) !== -1) {
         if (foundSpeakerNames.indexOf(speakersWithTalkDetails[i].name) === -1) {
           foundSpeakerNames.push(speakersWithTalkDetails[i].name);
@@ -121,34 +152,21 @@ const findSpeakersForTitle = (title, speakersWithTalkDetails) => {
   if (isBreakOrLunch(title)) {
     return [];
   }
-  console.warn("Did not find speakers for " + title);
+  console.warn('Did not find speakers for ' + title);
   return [];
-};
-
-const removeTabs = content => {
-  const tab = RegExp("\\t", "g");
-  content = content.replace(tab, "");
-
-  // case studies has three leading breaks
-  return content.replace("\n\n\n", "");
-};
-
-const getSummaryForCaseStudies = content => {
-  content = removeTabs(content);
-  return content.replace("Case Studies", "");
 };
 
 const transformTopic = (
   topicFromCrawler,
   topicTitle,
+  topicDescription,
   roomName,
   speakersWithTalkDetails
 ) => {
   const isCaseStudySession = isCaseStudy(topicTitle);
-  let summary = findTalkDetailsForTitle(topicTitle, speakersWithTalkDetails);
+  let summary = transformTalkDetails(topicTitle, topicDescription);
   if (isCaseStudySession) {
-    summary = getSummaryForCaseStudies(topicTitle);
-    topicTitle = "Case Studies";
+    summary = transformCaseStudyDetails(topicDescription);
   }
 
   const transformedSession = {
@@ -157,19 +175,17 @@ const transformTopic = (
     //videoId: 'tWitQoPgs8w',
     speakers: findSpeakersForTitle(topicTitle, speakersWithTalkDetails).map(
       speaker => {
-        const twitter = speaker.facts.find(it => it.fact[0] === "@");
-        const company = speaker.facts.find(it => it.fact[0] !== "@");
         return {
           name: speaker.name,
-          avatar: speaker.avatar,
-          twitter: twitter && twitter.fact && twitter.fact.substr(1),
-          company: company && company.fact,
+          avatar: 'https://www.neoscon.io' + speaker.avatar,
+          twitter: speaker.facts[0].twitter,
+          company: speaker.facts[0].company,
           summary: speaker.summary
         };
       }
     ),
     time: topicFromCrawler.time,
-    durationInMinutes: 45,
+    durationInMinutes: 30,
     room: roomName,
     isBreak: isBreakOrLunch(topicTitle),
     isCaseStudy: isCaseStudySession
@@ -186,25 +202,37 @@ Promise.all([program, speakersWithTalkDetails])
         // remove header rows
         .filter(
           topicFromCrawler =>
-            topicFromCrawler.time && topicFromCrawler.time !== "Time"
+            topicFromCrawler.time && topicFromCrawler.time !== 'Time'
         )
         .forEach(topicFromCrawler => {
-          if (topicFromCrawler.topicRoom1) {
+          if (
+            topicFromCrawler.stage === 'Center Stage' ||
+            topicFromCrawler.stage === 'Studio Stage'
+          ) {
+            // remove stage from topic caused by the markup
+            const topic = topicFromCrawler.topic.replace(
+              topicFromCrawler.stage,
+              ''
+            );
             transformedTopics.push(
               transformTopic(
                 topicFromCrawler,
-                topicFromCrawler.topicRoom1,
-                "Room 1",
+                topic,
+                topicFromCrawler.description,
+                topicFromCrawler.stage,
                 speakersWithTalkDetails
               )
             );
           }
-          if (topicFromCrawler.topicRoom2) {
+
+          // registrations and openings have no stage
+          if (topicFromCrawler.stage === '') {
             transformedTopics.push(
               transformTopic(
                 topicFromCrawler,
-                topicFromCrawler.topicRoom2,
-                "Room 2",
+                topicFromCrawler.topic,
+                topicFromCrawler.description,
+                topicFromCrawler.stage,
                 speakersWithTalkDetails
               )
             );
@@ -215,7 +243,7 @@ Promise.all([program, speakersWithTalkDetails])
   })
   .then(transformedTopics => {
     fs.writeFileSync(
-      __dirname + "/../app/data/talks.json",
+      __dirname + '/../app/data/talks.json',
       JSON.stringify(transformedTopics)
     );
   });

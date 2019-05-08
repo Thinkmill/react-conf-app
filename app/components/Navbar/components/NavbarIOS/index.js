@@ -6,6 +6,7 @@ import {
   Platform,
   StyleSheet,
   View,
+  SafeAreaView,
   Text,
   TouchableOpacity
 } from 'react-native';
@@ -31,8 +32,10 @@ export default function NavbarIOS({
 }) {
   return (
     <View {...props}>
-      <View style={{ height: theme.navbar.height }} />
-      <View style={[styles.container, { backgroundColor: backgroundColor }]}>
+      <SafeAreaView style={{ height: theme.navbar.height }} />
+      <SafeAreaView
+        style={[styles.container, { backgroundColor: backgroundColor }]}
+      >
         {/* Left Button */}
         {leftButtonOnPress ? (
           <TouchableOpacity
@@ -99,7 +102,7 @@ export default function NavbarIOS({
         ) : (
           <View style={styles.button} />
         )}
-      </View>
+      </SafeAreaView>
     </View>
   );
 }

@@ -9,6 +9,7 @@ import {
   FlatList,
   Platform,
   StatusBar,
+  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -196,7 +197,7 @@ export default class Schedule extends Component {
 
     const renderFooter = () => (
       <TouchableOpacity
-        key="footer"
+        key='footer'
         onPress={this.gotoEventInfo}
         activeOpacity={0.75}
       >
@@ -213,7 +214,7 @@ export default class Schedule extends Component {
 
         <Animated.View style={[style.navbar, { top: navbarTop }]}>
           <Navbar
-            title="Schedule"
+            title='Schedule'
             rightButtonIconName={isAndroid ? 'md-information-circle' : null}
             rightButtonText={!isAndroid ? 'About' : null}
             rightButtonOnPress={this.gotoEventInfo}
@@ -223,28 +224,30 @@ export default class Schedule extends Component {
         {/* Spacer for the headings to stick correctly */}
         <View style={style.spacer} />
 
-        <FlatList
-          data={talks}
-          keyExtractor={this._keyExtractor}
-          extraData={{ now: this.state.now }}
-          ref="listview"
-          /* we render all items at once */ initialNumToRender={100}
-          renderItem={this._renderItem}
-          ListHeaderComponent={<View key="spacer" style={{ height: 190 }} />}
-          onRefresh={this.handleRefresh}
-          refreshing={false}
-          onScroll={Animated.event([
-            {
-              nativeEvent: {
-                contentOffset: {
-                  y: scrollY
+        <SafeAreaView>
+          <FlatList
+            data={talks}
+            keyExtractor={this._keyExtractor}
+            extraData={{ now: this.state.now }}
+            ref='listview'
+            /* we render all items at once */ initialNumToRender={100}
+            renderItem={this._renderItem}
+            ListHeaderComponent={<View key='spacer' style={{ height: 190 }} />}
+            onRefresh={this.handleRefresh}
+            refreshing={false}
+            onScroll={Animated.event([
+              {
+                nativeEvent: {
+                  contentOffset: {
+                    y: scrollY
+                  }
                 }
               }
-            }
-          ])}
-        />
+            ])}
+          />
 
-        {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
+          {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
+        </SafeAreaView>
       </Scene>
     );
   }

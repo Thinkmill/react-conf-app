@@ -45,10 +45,7 @@ const MainNavigator = createStackNavigator(
     }
   },
   {
-    headerMode: 'none',
-    cardStyle: {
-      marginTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
-    }
+    headerMode: 'none'
   }
 );
 

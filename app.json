@@ -31,6 +31,9 @@
       "permissions": [],
       "versionCode": 1557315400
     },
+    "androidStatusBar": {
+      "backgroundColor": "#26224C"
+    },
     "hooks": {
       "postPublish": [
         {

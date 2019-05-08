@@ -69,6 +69,11 @@ export default class NeosCon extends React.Component {
 
   async _loadAssetsAsync() {
     const images = getImages();
+
+    // add local images
+    images.push(require('./scenes/Info/images/alter_schlachthof.png'));
+    images.push(require('./scenes/Info/images/hellmuts.png'));
+
     const imageAssets = cacheImages(images);
     await Promise.all([...imageAssets]);
   }

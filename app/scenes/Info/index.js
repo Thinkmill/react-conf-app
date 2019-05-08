@@ -14,7 +14,6 @@ import {
 import MapView from 'react-native-maps';
 import HTMLView from 'react-native-htmlview';
 import BackButtonAndroid from '../../components/BackButtonAndroid';
-import ListTitle from '../../components/ListTitle';
 import Navbar from '../../components/Navbar';
 import Scene from '../../components/Scene';
 
@@ -23,7 +22,6 @@ import theme from '../../theme';
 import { attemptToOpenUrl } from '../../utils';
 
 import CodeOfConduct from './components/CodeOfConduct';
-import Organiser from './components/Organiser';
 
 const htmlContent = `
 <h4>Thanks!</h4>
@@ -128,7 +126,7 @@ class Info extends Component {
     return (
       <Scene>
         <Navbar
-          title="About"
+          title='About'
           leftButtonIconName={isAndroid ? 'md-arrow-back' : 'ios-arrow-back'}
           leftButtonOnPress={() => {
             navigation.goBack();
@@ -141,12 +139,12 @@ class Info extends Component {
           <MapView initialRegion={mapRegion} style={styles.map}>
             <MapView.Marker
               coordinate={mapRegion}
-              description="Gothaerstr. 11, 01097 Dresden"
+              description='Gothaerstr. 11, 01097 Dresden'
               onCalloutPress={this.openMap}
               ref={r => {
                 this._marker = r;
               }}
-              title="Alter Schlachthof"
+              title='Alter Schlachthof'
             />
           </MapView>
 
@@ -157,6 +155,11 @@ class Info extends Component {
               </Text>
 
               <Text style={styles.heroHeader}>Location</Text>
+              <Image
+                source={require('./images/alter_schlachthof.png')}
+                style={styles.eventImage}
+                resizeMode='cover'
+              />
               <Text style={styles.heroText}>
                 The Old Slaughterhouse Dresden is an industrial monument on the
                 Leipziger Straße in the Dresden district of Leipzig suburb.
@@ -167,10 +170,22 @@ class Info extends Component {
               <Text style={styles.heroHeader}>
                 Get-Together Social Event - 9th May
               </Text>
+              <Image
+                source={require('./images/hellmuts.png')}
+                resizeMode='cover'
+                style={styles.eventImage}
+              />
               <Text style={styles.heroText}>
                 Join us for a few drinks at our Warm-Up Event - we organized a
                 few tables at “Hellmuts” (Eschenstraße 11, 01097 Dresden) at 7
                 p.m.
+              </Text>
+
+              <Text style={styles.heroHeader}>Social Event - 10th May</Text>
+              <Text style={styles.heroText}>
+                We'll have a great party in a beach club nearby the conference
+                location - there's plenty of time to party, dance, relax,
+                discuss, and talk.
               </Text>
 
               <TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
@@ -236,5 +251,13 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.default,
     fontWeight: '500',
     padding: theme.fontSize.large
+  },
+  eventImage: {
+    flex: 1,
+    flexDirection: 'column',
+    marginVertical: 20,
+    width: theme.fullWidth,
+    height: 200,
+    maxHeight: 200
   }
 });

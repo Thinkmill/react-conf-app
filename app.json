@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "NeosCon",
-    "description": "Neos Conference 2018 App",
+    "description": "Neos Conference 2019 App",
     "slug": "neoscon",
     "privacy": "unlisted",
     "sdkVersion": "32.0.0",
@@ -29,7 +29,7 @@
     "android": {
       "package": "de.sandstorm.neosconference",
       "permissions": [],
-      "versionCode": 1557315400
+      "versionCode": 1557343680
     },
     "androidStatusBar": {
       "backgroundColor": "#26224C"

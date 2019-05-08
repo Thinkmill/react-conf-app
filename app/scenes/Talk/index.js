@@ -154,7 +154,6 @@ class Talk extends PureComponent {
   };
 
   toggleTalkRatingModal = data => {
-    console.log('TOGGLE');
     this.setState({
       talkRatingModalIsOpen: !this.state.talkRatingModalIsOpen
     });
@@ -242,7 +241,7 @@ class Talk extends PureComponent {
         {!!incomingTalk && (
           <Animated.View
             style={[transitionStyles, incomingTransitionStyles]}
-            pointerEvents="none"
+            pointerEvents='none'
           >
             <TalkPane
               showSpeakerModal={this.toggleSpeakerModal}
@@ -252,27 +251,25 @@ class Talk extends PureComponent {
             />
           </Animated.View>
         )}
-        {!isAndroid &&
-          showIntro && (
-            <Hint
-              onClose={() =>
-                this.setState({
-                  showIntro: false
-                })
-              }
-            />
-          )}
-        {modalIsOpen &&
-          modalSpeaker && (
-            <Speaker
-              avatar={modalSpeaker.avatar}
-              github={modalSpeaker.github}
-              name={modalSpeaker.name}
-              onClose={this.toggleSpeakerModal}
-              summary={modalSpeaker.summary}
-              twitter={modalSpeaker.twitter}
-            />
-          )}
+        {!isAndroid && showIntro && (
+          <Hint
+            onClose={() =>
+              this.setState({
+                showIntro: false
+              })
+            }
+          />
+        )}
+        {modalIsOpen && modalSpeaker && (
+          <Speaker
+            avatar={modalSpeaker.avatar}
+            github={modalSpeaker.github}
+            name={modalSpeaker.name}
+            onClose={this.toggleSpeakerModal}
+            summary={modalSpeaker.summary}
+            twitter={modalSpeaker.twitter}
+          />
+        )}
         {talkRatingModalIsOpen && (
           <Rating talk={talk} onClose={this.toggleTalkRatingModal} />
         )}

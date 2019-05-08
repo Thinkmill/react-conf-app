@@ -6,7 +6,8 @@ import {
   Text,
   TouchableHighlight,
   TouchableOpacity,
-  View
+  View,
+  SafeAreaView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -55,7 +56,7 @@ export default class Speaker extends Component {
     // This is a bit janky but I like the Modal reuse, amenable to refactor
 
     return (
-      <Modal onClose={onClose} ref="modal" forceDownwardAnimation={false}>
+      <Modal onClose={onClose} ref='modal' forceDownwardAnimation={false}>
         <DraggableView
           style={styles.wrapper}
           allowX={false}
@@ -78,14 +79,14 @@ export default class Speaker extends Component {
                 justifyContent: 'center'
               }}
             >
-              <Icon color={theme.color.gray40} name="md-close" size={24} />
+              <Icon color={theme.color.gray40} name='md-close' size={24} />
             </TouchableOpacity>
           </View>
           {showButtons && (
             <View style={styles.buttons}>
               {!!twitter && (
                 <Button
-                  icon="logo-twitter"
+                  icon='logo-twitter'
                   onPress={() =>
                     attemptToOpenUrl('https://twitter.com/' + twitter)
                   }
@@ -95,7 +96,7 @@ export default class Speaker extends Component {
               {!!github && (
                 <Button
                   bordered
-                  icon="logo-github"
+                  icon='logo-github'
                   onPress={() =>
                     attemptToOpenUrl('https://github.com/' + github)
                   }

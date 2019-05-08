@@ -57,7 +57,7 @@ const TalkPreview = ({ talk, isEngaged }) => {
   return (
     <Preview
       isActive={isEngaged}
-      position="bottom"
+      position='bottom'
       subtitle={subtitle}
       title={talk.title}
     />
@@ -178,7 +178,7 @@ export default class TalkPane extends Component {
       <ScrollView
         style={{ flex: 1 }}
         scrollEventThrottle={90}
-        ref="scrollview"
+        ref='scrollview'
         {...props}
       >
         <View style={scrollAreaStyle}>
@@ -198,7 +198,7 @@ export default class TalkPane extends Component {
             )}
           </View>
 
-          <View style={summaryStyles} ref="summary">
+          <View style={summaryStyles} ref='summary'>
             <Text style={styles.summaryText}>{visibleTalk.summary}</Text>
           </View>
         </View>
@@ -272,7 +272,8 @@ const styles = StyleSheet.create({
     color: theme.color.blue
   },
   summaryAndroid: {
-    flex: 2
+    flex: 2,
+    paddingBottom: 60
   },
   summaryIos: {
     paddingBottom: 60

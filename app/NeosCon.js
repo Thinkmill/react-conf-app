@@ -8,7 +8,7 @@ import { actions, reducer, storageMiddleware } from './redux/index';
 import registerRatingNotifications from './ratingNotifications';
 import checkForUpdatesRegularily from './checkForUpdatesRegularily';
 import { getImages } from './data/talks';
-import { AppLoading, Asset } from 'expo';
+import { AppLoading, Asset, Constants } from 'expo';
 
 registerRatingNotifications();
 checkForUpdatesRegularily();
@@ -47,7 +47,7 @@ const MainNavigator = createStackNavigator(
   {
     headerMode: 'none',
     cardStyle: {
-      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+      marginTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
     }
   }
 );

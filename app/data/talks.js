@@ -97,4 +97,18 @@ export function getPreviousTalkFromIndex(idx) {
   return talk;
 }
 
+export function getImages() {
+  const images = [];
+
+  talks.forEach(function(talk) {
+    talk.speakers.forEach(function(speaker) {
+      if (speaker && speaker.avatar) {
+        images.push(speaker.avatar);
+      }
+    });
+  });
+
+  return images;
+}
+
 export default talks;

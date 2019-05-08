@@ -1,12 +1,14 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Platform, StatusBar, AsyncStorage } from 'react-native';
+import { Platform, StatusBar, AsyncStorage, Image } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Info, Schedule, Talk } from './scenes';
 import { actions, reducer, storageMiddleware } from './redux/index';
 import registerRatingNotifications from './ratingNotifications';
 import checkForUpdatesRegularily from './checkForUpdatesRegularily';
+import { getImages } from './data/talks';
+import { AppLoading, Asset } from 'expo';
 
 registerRatingNotifications();
 checkForUpdatesRegularily();
@@ -50,10 +52,43 @@ const MainNavigator = createStackNavigator(
   }
 );
 
-const App = createAppContainer(MainNavigator);
+const cacheImages = images => {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    } else {
+      return Asset.fromModule(image).downloadAsync();
+    }
+  });
+};
 
-export default () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+export default class NeosCon extends React.Component {
+  state = {
+    isReady: false
+  };
+
+  async _loadAssetsAsync() {
+    const images = getImages();
+    const imageAssets = cacheImages(images);
+    await Promise.all([...imageAssets]);
+  }
+
+  render() {
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this._loadAssetsAsync}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+
+    const App = createAppContainer(MainNavigator);
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  }
+}

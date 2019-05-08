@@ -224,30 +224,29 @@ export default class Schedule extends Component {
         {/* Spacer for the headings to stick correctly */}
         <View style={style.spacer} />
 
-        <SafeAreaView>
-          <FlatList
-            data={talks}
-            keyExtractor={this._keyExtractor}
-            extraData={{ now: this.state.now }}
-            ref='listview'
-            /* we render all items at once */ initialNumToRender={100}
-            renderItem={this._renderItem}
-            ListHeaderComponent={<View key='spacer' style={{ height: 190 }} />}
-            onRefresh={this.handleRefresh}
-            refreshing={false}
-            onScroll={Animated.event([
-              {
-                nativeEvent: {
-                  contentOffset: {
-                    y: scrollY
-                  }
+        <FlatList
+          data={talks}
+          keyExtractor={this._keyExtractor}
+          extraData={{ now: this.state.now }}
+          ref='listview'
+          initialNumToRender={20}
+          renderItem={this._renderItem}
+          ListHeaderComponent={<View key='spacer' style={{ height: 190 }} />}
+          ListFooterComponent={<SafeAreaView style={{ height: 15 }} />}
+          onRefresh={this.handleRefresh}
+          refreshing={false}
+          onScroll={Animated.event([
+            {
+              nativeEvent: {
+                contentOffset: {
+                  y: scrollY
                 }
               }
-            ])}
-          />
+            }
+          ])}
+        />
 
-          {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
-        </SafeAreaView>
+        {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
       </Scene>
     );
   }

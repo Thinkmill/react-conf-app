@@ -123,7 +123,7 @@ export default class SplashScreen extends Component {
         {/* The actual splash screen */}
         <Animated.View style={[styles.splash, { height }]}>
           <Animated.TouchableHighlight
-            underlayColor="transparent"
+            underlayColor='transparent'
             onPress={() => {
               if (this.props.onLogoPress) this.props.onLogoPress();
             }}
@@ -133,8 +133,8 @@ export default class SplashScreen extends Component {
             }}
           >
             <SvgUri
-              width="300"
-              height="180"
+              width='300'
+              height='180'
               source={require('../../images/neos-conference-2019-dark.svg')}
             />
           </Animated.TouchableHighlight>

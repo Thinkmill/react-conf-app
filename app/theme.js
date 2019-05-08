@@ -67,6 +67,8 @@ const nextup = {
   height: Platform.OS === 'ios' ? 70 : 110
 };
 
+const fullWidth = Dimensions.get('window').width;
+const fullHeight = Dimensions.get('window').height;
 const statusBarHeight = Platform.OS === 'ios' ? 20 : 24;
 const talkPaneAndroidMinScrollAreaHeight = Dimensions.get('window').height - 48;
 
@@ -78,5 +80,7 @@ export default {
   listheader,
   talkPaneAndroidMinScrollAreaHeight,
   statusBarHeight,
-  isIphoneX
+  isIphoneX,
+  fullHeight,
+  fullWidth
 };

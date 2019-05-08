@@ -46,7 +46,7 @@ const fontSize = {
 const isIphoneX = () => {
   let d = Dimensions.get('window');
   const { height, width } = d;
-  return Platform.OS === 'ios' && (height > 812 || width > 812);
+  return Platform.OS === 'ios' && (height >= 812 || width >= 812);
 };
 
 // navbar
